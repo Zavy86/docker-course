@@ -1,15 +1,13 @@
 # Background Containers
 
-```slide
-Background Containers
------------------------------------
-- run non-interactive
-- run in background
-- list running containers
-- check the logs
-- stop a container
-- list stopped containers
-```
+> __Background Containers__
+> 
+> - run non-interactive
+> - run in background
+> - list running containers
+> - check the logs
+> - stop a container
+> - list stopped containers
 
 Nel capitolo precedente, abbiamo visto come eseguire un container in modalità interattiva.
 
@@ -47,13 +45,11 @@ immagine personalizzata creata dall'utente Zavy86.
 
 ***
 
-```slide
-Background Containers
------------------------------------
-- SIGINT
-  - interactive -> foreground process
-  - default -> process PID 1
-```
+> __Background Containers__
+> 
+> - SIGINT
+>   - interactive -> foreground process
+>   - default -> process PID 1
 
 A volte capita che un `^C` non sia sufficiente per arrestare un container, cerchiamo di capirne il perché.
 
@@ -242,12 +238,10 @@ Per uscire e tornare al nostro terminare, premiamo `^C`.
 
 ***
 
-```slide
-Background Containers
------------------------------------
-- docker stop -> SIGTERM + SIGKILL @todo verificare che sia term e non stop
-- docker kill -> SIGKILL
-```
+> __Background Containers__
+>
+> - docker stop -> SIGTERM + SIGKILL @todo verificare che sia term e non stop
+> - docker kill -> SIGKILL
 
 Vediamo ora come stoppare i container.
 
