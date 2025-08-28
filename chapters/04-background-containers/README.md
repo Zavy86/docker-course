@@ -60,11 +60,11 @@ processo con `PID 1`.
 Questo processo è un po' particolare, a meno che non sia stato specificatamente programmato per gestire questo segnale,
 di default ignora il segnale `SIGINT` e considera solamente i segnali `SIGKILL` e `SIGSTOP`. @todo verificare che sia stop e non term
 
-> Il processo `PID 1` è speciale perché ha alcune responsabilità extra.
-> Direttamente o indirettamente si occupa dell'avvio di tutti gli altri processi del container.
-> Quando il processo `PID 1` termina, tutto il resto si ferma: Nelle macchine classiche stopparlo equivale a causare un 
-> kernel panic; In un container, equivale a uccidere tutti i processi in esecuzione.
-> Visto che non vogliamo che questo avvenga accidentalmente è stato aggiunto questo layer di protezione extra.
+Il processo `PID 1` è speciale perché ha alcune responsabilità extra.
+Direttamente o indirettamente si occupa dell'avvio di tutti gli altri processi del container.
+Quando il processo `PID 1` termina, tutto il resto si ferma: Nelle macchine classiche stopparlo equivale a causare un 
+kernel panic; In un container, equivale a uccidere tutti i processi in esecuzione.
+Visto che non vogliamo che questo avvenga accidentalmente è stato aggiunto questo layer di protezione extra.
 
 Come facciamo quindi a stoppare questi container?
 Al momento, abbiamo un'unica soluzione: aprire un'altra sessione del terminale e lanciare il comando `docker kill`.
