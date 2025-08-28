@@ -13,9 +13,9 @@ Background Containers
 
 Nel capitolo precedente, abbiamo visto come eseguire un container in modalità interattiva.
 
-Mentre ora vedremo come eseguirli in modalità non interattiva e in background.  
-Vedremo poi come ottenere la lista di tutti i container in esecuzione e come leggerne i logs.  
-Scopriremo infine come stopparli e come ottenere la lista di tutti i containers arrestati.
+Mentre ora vedremo come eseguirli in modalità non interattiva e in background; Vedremo poi come ottenere la lista di 
+tutti i container in esecuzione e come leggerne i logs; E scopriremo infine come stopparli e come ottenere la lista di 
+tutti i containers arrestati.
 
 ***
 
