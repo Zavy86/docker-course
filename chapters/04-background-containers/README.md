@@ -62,7 +62,7 @@ Se abbiamo avviato il container in modalità interattiva `-it` il segnale viene 
 Mentre se abbiamo lanciato un container in modalità non interattiva, come in questo caso, il segnale viene inviato al
 processo con `PID 1`.
 Questo processo è un po' particolare, a meno che non sia stato specificatamente programmato per gestire questo segnale,
-di default ignora il segnale `SIGINT` e considera solamente i segnali `SIGKILL` e `SIGSTOP`.
+di default ignora il segnale `SIGINT` e considera solamente i segnali `SIGKILL` e `SIGSTOP`. @todo verificare che sia stop e non term
 
 > Il processo `PID 1` è speciale perché ha alcune responsabilità extra.
 > Direttamente o indirettamente si occupa dell'avvio di tutti gli altri processi del container.
@@ -140,7 +140,7 @@ e potremo vedere che sono presenti tre containers in esecuzione.
 CONTAINER ID   IMAGE          [...]   CREATED              STATUS              [...]
 58f2e75907e2   zavy86/clock   [...]   About a minute ago   Up About a minute   [...]
 a658e9ee5d97   zavy86/clock   [...]   About a minute ago   Up About a minute   [...]
-66e1d31f67d9   zavy86/clock   [...]   3 minutes ago        Up 3 minutes       [...]
+66e1d31f67d9   zavy86/clock   [...]   3 minutes ago        Up 3 minutes        [...]
 ```
 
 In un ambiente in utilizzo, è molto probabile che ci siano decine, centinaia o migliaia di container in esecuzione. E
@@ -158,7 +158,7 @@ CONTAINER ID   IMAGE          [...]   CREATED              STATUS              [
 58f2e75907e2   zavy86/clock   [...]   2 minutes ago        Up 2 minutes        [...]
 ```
 
-Un'altra opzione interessante è ´-q´ che sta per Quick:
+Un'altra opzione interessante è `-q` che sta per Quick:
 
 ```shell
 docker ps -q
@@ -190,4 +190,120 @@ se viene avviato un altro container subito dopo, potremmo ottenere un risultato 
 
 ***
 
+Tornando invece all'output dei containers, come vi dicevo Docker sta collezionando tutti i dati in background e li sta
+salvando in un log. Per visualizzarli dovremo usare il comando:
 
+```shell
+docker logs 58f
+``` 
+
+Come vi avevo già accennato, possiamo inserire anche solo una parte dell'ID del container purché sia univoca.
+E come vediamo, questo comando ci restituisce proprio l'output che ci aspettavamo, ovvero date e ora correnti.
+
+```terminaloutput
+[...]
+Thu Aug 07 18:36:09 UTC 2025
+Thu Aug 07 18:36:10 UTC 2025
+Thu Aug 07 18:36:11 UTC 2025
+```
+
+Questo comando ci mostra tutti i log catturati dal container, e spesso possono essere molto lunghi. In queste situazioni
+possiamo sfruttare il parametro `--tail` che ci permette di visualizzare solamente un numero prefissato di righe.
+
+```shell
+docker logs --tail 1 58f
+``` 
+
+In questo modo otterremo soltanto una riga del log partendo dal fondo.
+
+```terminaloutput
+[...]
+Thu Aug 07 18:36:36 UTC 2025
+```
+
+Un'altra cosa utile potrebbe essere quella di mettersi in ascolto dei log in tempo reale. Per ottenere questo risultato
+dovremo usare l'opzione `--follow`.
+
+```shell
+docker logs --tail 1 --follow 58f
+``` 
+
+Come potrete notare, questo comando non restituisce alcun output fino a quando non si verifica un cambiamento nel log
+nel caso del nostro container clock ogni secondo.
+
+```terminaloutput
+[...]
+Thu Aug 07 18:36:54 UTC 2025
+Thu Aug 07 18:36:55 UTC 2025
+Thu Aug 07 18:36:56 UTC 2025
+```
+
+Per uscire e tornare al nostro terminare, premiamo `^C`.
+
+***
+
+```slide
+Background Containers
+-----------------------------------
+- docker stop -> SIGTERM + SIGKILL @todo verificare che sia term e non stop
+- docker kill -> SIGKILL
+```
+
+Vediamo ora come stoppare i container.
+
+Per arrestare i container in esecuzione in background abbiamo a disposizione due comandi: `docker stop` e `docker kill`.
+Che rispettivamente inviano al container i segnali `SIGTERM` e `SIGKILL`.
+Il secondo è quello più aggressivo, invia immediatamente il segnale `SIGKILL` che forza l'arresto del container.
+Mentre il secondo è un po più tollerante, invia il segnale `SIGTERM` e se il processo in esecuzione è in grado di 
+gestirlo farà si che la nostra applicazione termini in maniera corretta; se entro dieci secondi il container è ancora in
+esecuzione invierà il segnale `SIGKILL` e ne forzerà l'arresto immediato.
+
+***
+
+Procediamo quindi con il comando:
+
+```shell
+docker stop 58f
+```
+
+Vedremo che non succederà nulla, in quanto il container contiene un semplice shell script che non è stato progettato 
+per gestire il segnale `SIGTERM` dovremo quindi attendere dieci secondi che il `SIGKILL` venga inviato e faccia il suo
+sporco lavoro.
+
+Per i prossimi due andiamo giù pesante direttamente con il comando:
+
+```shell
+docker kill a65 66e
+```
+
+E come possiamo notare, verranno entrambi stoppati immediatamente.
+Se lanciamo infatti nuovamente il comando:
+
+```shell
+docker ps
+```
+
+non vedremo più nulla in esecuzione.
+
+```terminaloutput
+CONTAINER ID   IMAGE     [...]   CREATED   STATUS    [...]
+```
+
+***
+
+Se volessimo infine, vedere che fine hanno fatto i container che abbiamo arrestato, usiamo il comando:
+
+```shell
+docker ps -a
+```
+
+che sta per all, e ci restituisce per l'appunto tutti i container, anche quelli arrestati.
+
+```terminaloutput
+CONTAINER ID   IMAGE          [...]   CREATED         STATUS                           [...]
+58f2e75907e2   zavy86/clock   [...]   5 minutes ago   Exited(137) About a minute ago   [...]
+a658e9ee5d97   zavy86/clock   [...]   5 minutes ago   Exited(137) About a minute ago   [...]
+66e1d31f67d9   zavy86/clock   [...]   5 minutes ago   Exited(137) About a minute ago   [...]
+```
+
+Vedremo poi nei capitoli successivi come far sparire i container da questa lista.
