@@ -286,7 +286,7 @@ docker ps
 non vedremo più nulla in esecuzione.
 
 ```terminaloutput
-CONTAINER ID   IMAGE     [...]   CREATED   STATUS    [...]
+CONTAINER ID   IMAGE   [...]   CREATED   STATUS   [...]
 ```
 
 ***
