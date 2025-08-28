@@ -22,7 +22,7 @@ tutti i containers arrestati.
 Iniziamo quindi con l'esecuzione di un piccolo [container](/sources/clock/) non interattivo. 
 
 ```shell
-$ docker run zavy86/clock
+docker run zavy86/clock
 ```
 
 Questo container stampa semplicemente la data e l'ora correnti ogni secondo.
