@@ -1,6 +1,6 @@
-# First Container
+# Run our First Container
 
-> __First Container__
+> __Run our First Container__
 > 
 > - seen Docker in action
 > - start our first container
@@ -122,7 +122,7 @@ aveste già presente sul vostro sistema).
 
 ***
 
-> __First Container__
+> __Run our First Container__
 >
 > - shared kernel
 > - indipendent packages
@@ -139,7 +139,7 @@ Questo ci permette di eseguire qualunque container su qualunque host, anche con 
 
 ***
 
-> __First Container__
+> __Run our First Container__
 >
 > - stopped state
 > - exists on disk
@@ -174,7 +174,7 @@ Come facciamo quindi a riutilizzare il container che avevamo personalizzato con 
 
 ***
 
-> __First Container__
+> __Run our First Container__
 >
 > - yes we can
 > - not a good practice
@@ -196,7 +196,7 @@ fondanti di Docker.
 
 ***
 
-> __First Container__
+> __Run our First Container__
 >
 > - pets
 >   - distinctive names
@@ -217,7 +217,7 @@ immediatamente con un suo clone.
 
 ***
 
-> __First Container__
+> __Run our First Container__
 >
 > - create virtual machine
 > - install packages
@@ -240,7 +240,7 @@ per ricreare l'ambiente da zero su una nuova macchina senza ricorrere a document
 
 ***
 
-> __First Container__
+> __Run our First Container__
 >
 > - create image
 > - run container

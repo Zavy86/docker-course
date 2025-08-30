@@ -1,6 +1,6 @@
-# Background Containers
+# Run Containers in Background
 
-> __Background Containers__
+> __Run Containers in Background__
 > 
 > - run non-interactive
 > - run in background
@@ -45,7 +45,7 @@ immagine personalizzata creata dall'utente Zavy86.
 
 ***
 
-> __Background Containers__
+> __Run Containers in Background__
 > 
 > - SIGINT
 >   - interactive -> foreground process
@@ -238,7 +238,7 @@ Per uscire e tornare al nostro terminare, premiamo `^C`.
 
 ***
 
-> __Background Containers__
+> __Run Containers in Background__
 >
 > - docker stop -> SIGTERM + SIGKILL @todo verificare che sia term e non stop
 > - docker kill -> SIGKILL
