@@ -301,3 +301,7 @@ a658e9ee5d97   zavy86/clock   [...]   5 minutes ago   Exited(137) About a minute
 ```
 
 Vedremo poi nei capitoli successivi come far sparire i container da questa lista.
+
+***
+
+[Prosegui](../05-restarting-attaching/README.md) al prossimo argomento.

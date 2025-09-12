@@ -205,3 +205,7 @@ Alcune immagini inoltre, fortunatamente sempre di più, supportano varie archite
 Quindi la stessa immagine la potremo utilizzare su un computer x86, su un computer ARM, su un Raspberry Pi, ecc...
 Altre immagini invece si differenziano tramite tag, dove ogni architettura ha un proprio tag.
 Altre ancora sono disponibili solo per alcune specifiche piattaforme.
+
+***
+
+[Prosegui](../07-interactive-images/README.md) al prossimo argomento.

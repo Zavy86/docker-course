@@ -259,3 +259,7 @@ stessa e identica nostra configurazione, documentata e completamente riproducibi
 
 Nei prossimi capitoli vedremo come creare un'immagine personalizzata di Alpine con all'interno l'utility Figlet. 
 Ma prima di addentrarci nella creazione delle immagini dobbiamo ancora vedere alcuni concetti di base.
+
+***
+
+[Prosegui](../04-background-containers/README.md) al prossimo argomento.

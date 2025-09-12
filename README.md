@@ -27,13 +27,13 @@ inside my [channel](https://www.youtube.com/@Zavy86).
 
 Below is a list of topics covered in this course:
 
-1. [History of Docker and Containers](chapters/01-docker-history/README.md)
-2. [Our Training Environment](chapters/02-training-environment/README.md)
-3. [Run our First Container](chapters/03-first-container/README.md)
-4. [Run Containers in Background](chapters/04-background-containers/README.md)
-5. [Restarting & Attaching to Containers](chapters/05-restarting-attaching/README.md)
-6. [Understanding Docker Images](chapters/06-docker-images/README.md)
-7. [Building Images Interactively](chapters/07-interactive-images/README.md)
+1. [History of Docker and Containers](topics/01-docker-history/README.md)
+2. [Our Training Environment](topics/02-training-environment/README.md)
+3. [Run our First Container](topics/03-first-container/README.md)
+4. [Run Containers in Background](topics/04-background-containers/README.md)
+5. [Restarting & Attaching to Containers](topics/05-restarting-attaching/README.md)
+6. [Understanding Docker Images](topics/06-docker-images/README.md)
+7. [Building Images Interactively](topics/07-interactive-images/README.md)
 8. Building Docker Images with a Dockerfile
 9. CMD and ENTRYPOINT ? (inglobare sopra o sotto)
 10. Copying files during the Build

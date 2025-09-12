@@ -125,3 +125,7 @@ di doverci rinviare nulla. In questi casi ci basterà inviare il comando `^L` o 
 Anche se nella maggior parte dei casi quando ci ricolleghiamo, Docker invia al container il segnale `SIGWINCH` che serve
 per l'appunto a notificare al programma che c'è stato un cambiamento nel terminale e la maggior parte dei programmi
 risponde a questo segnale, ridisegnando nuovamente lo schermo automaticamente.
+
+***
+
+[Prosegui](../06-docker-images/README.md) al prossimo argomento.

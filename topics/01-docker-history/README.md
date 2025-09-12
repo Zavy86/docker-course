@@ -197,3 +197,7 @@ alla PyCon di Santa Clara viene presentato per la prima volta al pubblico Docker
 aver raggiunto la versione 1.0 che inizierà a diventare un standard.
 
 In quegli anni nasceranno anche la OCI (Open Container Initiative) e la CNCF (Cloud Native Computing Foundation).
+
+***
+
+[Prosegui](../02-training-environment/README.md) al prossimo argomento.
