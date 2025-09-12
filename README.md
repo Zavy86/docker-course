@@ -28,7 +28,7 @@ inside my [channel](https://www.youtube.com/@Zavy86).
 
 Below is a list of topics covered in this course:
 
-1. [History of Docker and Containers](topics/01-docker-history)
+1. [History of Docker and Containers](topics/01-docker-history/README.md)
 2. [Our Training Environment](topics/02-training-environment/IT.md)
 3. [Run our First Container](topics/03-first-container/IT.md)
 4. [Run Containers in Background](topics/04-background-containers/IT.md)
