@@ -200,4 +200,4 @@ In quegli anni nasceranno anche la OCI (Open Container Initiative) e la CNCF (Cl
 
 ***
 
-[Prosegui](../02-training-environment/README.md) al prossimo argomento.
+[Prosegui](../02-training-environment/IT.md) al prossimo argomento.

@@ -128,4 +128,4 @@ risponde a questo segnale, ridisegnando nuovamente lo schermo automaticamente.
 
 ***
 
-[Prosegui](../06-docker-images/README.md) al prossimo argomento.
+[Prosegui](../06-docker-images/IT.md) al prossimo argomento.
