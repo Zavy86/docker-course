@@ -73,7 +73,7 @@ Extra:
 This course is available in multiple languages to ensure that learners from different backgrounds can benefit from the
 material. Currently, you can attend the course in the following languages:
 
-- [English](topics/EN.md)
+- [English](topics/README.md)
 - [Italian](topics/IT.md)
 
 
