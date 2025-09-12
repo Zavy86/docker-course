@@ -1,4 +1,5 @@
-# Docker
+# Docker Course
+
 > A comprehensive course designed to teach you everything you need to know about Docker.
 
 Docker is a powerful platform that enables developers to build, ship, and run applications in containers. 
@@ -71,7 +72,7 @@ Extra:
 
 Below is a list of topics covered in this Docker course:
 
-- Examples [source codes](sources/README.md)
+- Examples [source codes](sources)
 - [Slides](https://container.training/) that inspired this course
 
 
