@@ -217,9 +217,9 @@ IMAGE          CREATED         CREATED BY                                      S
 <missing>      2 months ago    ADD alpine-minirootfs-3.22.1-aarch64.tar.gz …   8.51MB    buildkit.dockerfile.v0
 ```
 
-In questo caso, partendo dal basso, possiamo notare che il primo layer è quello dell'immagine di base `alpine` che
-ha una dimensione di circa 8.51MB, dopodiché vediamo un comando che lancia la shell `/bin/sh` (questa parte la vedremo
-meglio in seguito) e poi vedremo la `RUN` associata alla nostra istruzione per l'installazione di Figlet.
+In questo caso, partendo dal basso, possiamo notare che il primo layer è quello dell'immagine di base `alpine`, seguito
+poi dal comando che lancia la shell `/bin/sh` (questa parte la vedremo meglio in seguito) e infine il comando `RUN`
+associato alla nostra istruzione per l'installazione di Figlet.
 
 Le prime due righe, a differenza dell'ultima, hanno l'ID impostato a `<missing>`, questo succede perché fanno parte
 dell'immagine di base e non sono state create dal nostro builder.
