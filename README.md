@@ -24,19 +24,19 @@ You can find all the course videos on YouTube in the following
 inside my [channel](https://www.youtube.com/@Zavy86).
 
 
-## Topics
+## Topics @todo
 
 Below is a list of topics covered in this course:
 
-1. [History of Docker and Containers](topics/01-docker-history/README.md)
-2. [Our Training Environment](topics/02-training-environment/IT.md)
-3. [Run our First Container](topics/03-first-container/IT.md)
-4. [Run Containers in Background](topics/04-background-containers/IT.md)
-5. [Restarting and Attaching to Containers](topics/05-restarting-attaching/IT.md)
-6. [Understanding Docker Images](topics/06-docker-images/IT.md)
-7. [Building Images Interactively](topics/07-interactive-images/IT.md)
-8. Building Docker Images with a Dockerfile
-9. CMD and ENTRYPOINT ? (inglobare sopra o sotto)
+ 1. [History of Docker and Containers](topics/01-docker-history/README.md)
+ 2. [Our Training Environment](topics/02-training-environment/IT.md)
+ 3. [Run our First Container](topics/03-first-container/IT.md)
+ 4. [Run Containers in Background](topics/04-background-containers/IT.md)
+ 5. [Restarting and Attaching to Containers](topics/05-restarting-attaching/IT.md)
+ 6. [Understanding Docker Images](topics/06-docker-images/IT.md)
+ 7. [Building Images Interactively](topics/07-interactive-images/IT.md)
+ 8. [Building Images with a Dockerfile](topics/08-dockerfile/IT.md)
+ 9. Entrypoint and Commands
 10. Copying files during the Build
 11. Reduce Image Size
 12. Multi-Stage Builds

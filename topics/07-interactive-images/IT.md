@@ -6,7 +6,7 @@
 > - install new package
 > - commit, tag, diff 
 
-In questo video vedremo come creare la nostra prima immagine docker in modalità interattiva.
+In questo capitolo vedremo come creare la nostra prima immagine docker in modalità interattiva.
 Partiremo da un'immagine base per eseguire il nostro container, procederemo poi con l'installazione di un pacchetto, nel
 caso specifico il solito Figlet già visto in precedenza, e infine salveremo il tutto in una nuova immagine docker.
 
@@ -51,7 +51,7 @@ tra il container appena terminato e l'immagine di partenza:
 
 ```shell
 docker ps -al
-docker diff 87b81a121aa9
+docker diff 87b
 ```
 ```terminaloutput
 C /etc
@@ -150,7 +150,7 @@ Grazie al comando `docker diff` possiamo quindi vedere quali file sono stati agg
 Ora che sappiamo quali modifiche sono state apportate, possiamo salvare il tutto in una nuova immagine con il comando:
 
 ```shell
-docker commit 87b81a121aa9
+docker commit 87b
 ```
 
 L'output di questo comando ci restituirà l'ID della nuova immagine appena creata:
@@ -162,7 +162,7 @@ sha256:d04de44212d57d10f5300cab64e1116ac4ba4a151cdb3e22e997813317906288
 Se vogliamo fare una prova possiamo infatti avviare un nuovo container basato su questa immagine:
 
 ```shell
-docker run -it d04de44212d5
+docker run -it d04
 figlet "Hello Again!"
 ```
 
@@ -184,8 +184,8 @@ Per farlo abbiamo due possibilià, direttamente in fase di commit aggiungendo al
 oppure con l'apposito comando tag avendo però l'accortezza di specificare l'ID dell'immagine e non quello del container.
 
 ```shell
-docker commit 87b81a121aa9 alpine-figlet
-docker tag d04de44212d5 alpine-figlet
+docker commit 87b alpine-figlet
+docker tag d04 alpine-figlet
 ```
 
 In questo modo per avviare la nostra speciale versione di Alpine con Figlet ci basterà digitare:

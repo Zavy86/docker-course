@@ -2,15 +2,15 @@
 
 Di seguito è riportato un elenco degli argomenti trattati in questo corso:
 
-1. Storia di Docker e dei Container
-2. Il nostro ambiente di formazione
-3. Eseguiamo il nostro primo container
-4. Esecuzione dei container in background
-5. Riavvio e collegamento ai container
-6. Comprendere le immagini Docker
-7. Creazione di immagini in modo interattivo
-8. Creazione di immagini Docker con un Dockerfile
-9. CMD ed ENTRYPOINT ? (includere sopra o sotto)
+ 1. Storia di Docker e dei Container
+ 2. Il nostro ambiente di formazione
+ 3. Eseguiamo il nostro primo container
+ 4. Esecuzione dei container in background
+ 5. Riavvio e collegamento ai container
+ 6. Comprendere le immagini Docker
+ 7. Creazione di immagini in modo interattivo
+ 8. Creazione di immagini Docker con un Dockerfile
+ 9. Avvio? e Comandi
 10. Copia dei file durante la build
 11. Ridurre la dimensione dell'immagine
 12. Build multi-stage

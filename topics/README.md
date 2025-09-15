@@ -2,15 +2,15 @@
 
 Below is a list of topics covered in this course:
 
-1. [History of Docker and Containers](01-docker-history/README.md)
-2. Our Training Environment
-3. Run our First Container
-4. Run Containers in Background
-5. Restarting and Attaching to Containers
-6. Understanding Docker Images
-7. Building Images Interactively
-8. Building Docker Images with a Dockerfile
-9. CMD and ENTRYPOINT ? (inglobare sopra o sotto)
+ 1. [History of Docker and Containers](01-docker-history/README.md)
+ 2. Our Training Environment
+ 3. Run our First Container
+ 4. Run Containers in Background
+ 5. Restarting and Attaching to Containers
+ 6. Understanding Docker Images
+ 7. Building Images Interactively
+ 8. Building Images with a Dockerfile
+ 9. Entrypoint and Commands
 10. Copying files during the Build
 11. Reduce Image Size
 12. Multi-Stage Builds
