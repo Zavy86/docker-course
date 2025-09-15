@@ -23,7 +23,8 @@ il file di testo in una vera e propria immagine Docker.
 Inoltre Docker dispone anche di un sofisticato sistema di `caching` che permette di velocizzare enormemente il processo 
 di costruzione delle immagini, evitando di dover eseguire nuovamente le istruzioni che non sono cambiate.
 
-
+Infine per aiutarci a capire come è composta un'immagine, Docker ci mette anche a disposizione il comando `history` che 
+ci permette di vedere la lista delle istruzioni che hanno contribuito alla creazione di un'immagine.
 
 ***
 
