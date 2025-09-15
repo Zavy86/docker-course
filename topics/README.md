@@ -1,8 +1,8 @@
-# Topics
+# Topics @todo
 
 Below is a list of topics covered in this course:
 
-1. History of Docker and Containers
+1. [History of Docker and Containers](01-docker-history/README.md)
 2. Our Training Environment
 3. Run our First Container
 4. Run Containers in Background

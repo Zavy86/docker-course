@@ -123,7 +123,7 @@ Ma quali sono i punti di forza di Docker dal punto di vista degli sviluppatori?
 
 Primo fra tutti l'on-boarding di nuovi collaboratori nel team.
 Preparate un file Docker utilizzando le immagini ufficiali o delle immagini personalizzate, descrivete lo stack in un
-file Docker compose e committate il tutto all'interno del repository del progetto.
+file Docker Compose e committate il tutto all'interno del repository del progetto.
 In questo modo, un nuovo collaboratore, dovrà semplicemente clonare il repository, eseguire il Docker compose e sarà
 pronto per iniziare a lavorare in pochissimi minuti.
 
