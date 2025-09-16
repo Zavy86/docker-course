@@ -33,7 +33,7 @@ Ma non perdiamoci in chiacchiere e vediamo subito come funziona il tutto.
 Partiamo con il creare una directory di lavoro e spostiamoci al suo interno:
 
 ```shell
-mkdir alpine-figlet && cd $_
+mkdir figlet && cd $_
 ```
 
 E procediamo con la creazione del nostro primo Dockerfile con il vostro editor preferito, se siete degli esperti di
@@ -137,8 +137,8 @@ Anche in questo caso abbiamo due modi per farlo, direttamente durante la fase di
 del `.` contesto, oppure nuovamente il comando `tag` seguito dall'ID dell'immagine appena creata.
 
 ```shell
-docker build -t alpine-figlet .
-docker tag d5e alpine-figlet
+docker build -t figlet .
+docker tag d5e figlet
 ```
 
 Se eseguiamo nuovamente il comando `build` noteremo che l'esecuzione sarà quasi istantanea.
@@ -155,7 +155,7 @@ Se eseguiamo nuovamente il comando `build` noteremo che l'esecuzione sarà quasi
  => exporting to image                                                                                                                                                    0.0s 
  => => exporting layers                                                                                                                                                   0.0s 
  => => writing image sha256:d5e7ae0b40c2cd1ea64a8c2b888c7652bf7a6a7ace92c2f898290c55b87b6856                                                                              0.0s 
- => => naming to docker.io/library/alpine-figlet                                                                                                                          0.0s 
+ => => naming to docker.io/library/figlet                                                                                                                          0.0s 
                                                                                                                                                                                
 View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/mgek5qujoq53k3x5geh7t68sw
 
@@ -176,7 +176,7 @@ l'istruzione venga eseguita nuovamente invalidando la cache.
 Qualora volessimo forzare il builder a non utilizzare la cache, possiamo aggiungere l'opzione `--no-cache` al comando:
 
 ```shell
-docker build -t alpine-figlet --no-cache .
+docker build -t figlet --no-cache .
 ```
 
 E vedremo che in questo caso tutte le istruzioni verranno eseguite nuovamente.
@@ -193,7 +193,7 @@ E vedremo che in questo caso tutte le istruzioni verranno eseguite nuovamente.
  => exporting to image                                                                                                                                                    0.0s 
  => => exporting layers                                                                                                                                                   0.0s 
  => => writing image sha256:d5e7ae0b40c2cd1ea64a8c2b888c7652bf7a6a7ace92c2f898290c55b87b6856                                                                              0.0s 
- => => naming to docker.io/library/alpine-figlet                                                                                                                          0.0s 
+ => => naming to docker.io/library/figlet                                                                                                                          0.0s 
                                                                                                                                                                                
 View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/mgek5qujoq53k3x5geh7t68sw
 
@@ -204,7 +204,7 @@ Se vogliamo poi vedere in maniera puntuale quasi sono i layer che compongono la 
 la storia della nostra immagine con il comando:
 
 ```shell
-docker history alpine-figlet
+docker history figlet
 ```
 
 Che ci mostrerà una lista con tutti i comandi che hanno contribuito alla creazione dell'immagine, l'ID del layer, la sua
@@ -238,14 +238,14 @@ Per eseguire un nuovo programma il sistema operativo ci mette a disposizione due
 `execve()`. Il primo si occupa di creare un nuovo processo figlio, mentre il secondo si occupa di caricare un nuovo
 programma all'interno di un processo esistente.
 
-Il comando `execve(program, [list, of, arguments])` prende come argomenti il percorso del programma da eseguire e una
+Il comando `execve(program, [ list, of, arguments ])` prende come argomenti il percorso del programma da eseguire e una
 lista di argomenti da passargli.
 
 Quando noi eseguiamo un comando da terminale, in realtà il terminale stesso crea un nuovo processo figlio con `fork`
 e poi usa `execve` per caricare il programma specificato all'interno di quel processo figlio. Se ad esempio digitiamo
 `ls -l ~`, il terminale si occuperà prima di tutto del parsing del comando (ovvero suddividerlo in comandi e argomenti)
 e se necessario si occuperà di espandere eventuali variabili o caratteri speciali come `~` per la home dell'utente.
-Successivamente creerà un nuovo processo con `fork` ed eseguirà `execve("/bin/ls", ["ls", "-l", "/home/ubuntu"])`.
+Successivamente creerà un nuovo processo con `fork` ed eseguirà `execve("/bin/ls", [ "ls" , "-l", "/home/ubuntu" ])`.
 
 Tutte queste operazioni, che vengono eseguite dalla shell, sono trasparenti per l'utente che vede solamente il comando
 che ha digitato. Docker avrebbe potuto costruirsi un poprio parser per i comandi, ma avrebbe dovuto come si suol dire
@@ -272,7 +272,7 @@ RUN [ "apk", "add", "figlet" ]
 Usciamo dall'editor salvando e procediamo nuovamente con la build:
 
 ```shell
-docker build -t alpine-figlet .
+docker build -t figlet .
 ```
 
 Come possiamo vedere, l'output è praticamente identico a prima, a eccezione del comando RUN che abbiamo modificato:
@@ -289,7 +289,7 @@ Come possiamo vedere, l'output è praticamente identico a prima, a eccezione del
  => exporting to image                                                                                                                                                    0.0s 
  => => exporting layers                                                                                                                                                   0.0s 
  => => writing image sha256:d5e7ae0b40c2cd1ea64a8c2b888c7652bf7a6a7ace92c2f898290c55b87b6856                                                                              0.0s 
- => => naming to docker.io/library/alpine-figlet                                                                                                                          0.0s 
+ => => naming to docker.io/library/figlet                                                                                                                          0.0s 
                                                                                                                                                                                
 View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/mgek5qujoq53k3x5geh7t68sw
 
@@ -299,7 +299,7 @@ What's next: View a summary of image vulnerabilities and recommendations → doc
 Se andiamo a vedere la storia della nostra immagine:
 
 ```shell
-docker history alpine-figlet
+docker history figlet
 ```
 
 Noteremo che il comando `RUN` questa volta è esattamente quello che abbiamo specificato nel Dockerfile, senza alcuna 
@@ -337,5 +337,9 @@ elemento di un array, ma non richiede un processo in più e non necessita della 
 eseguendo alcun parsing, possiamo essere certi che il comando verrà eseguito esattamente come lo abbiamo scritto.
 
 ***
+
+> Resources:
+> - [figlet](../../sources/figlet) (shell syntax version)
+> - [figlet-exec](../../sources/figlet-exec) (exec syntax version)
 
 [Prosegui](../09-entrypoint-cmd/IT.md) al prossimo argomento.
