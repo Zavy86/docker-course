@@ -1,5 +1,8 @@
 # History of Docker and Containers
 
+![cover](https://img.youtube.com/vi/xxxxxxxxxxx/mqdefault.jpg)  
+Watch on YouTube: [https://youtu.be/xxxxxxxxxxx](https://youtu.be/xxxxxxxxxxx)
+
 > __History of Docker and Containers__
 >
 > - why containers
