@@ -36,7 +36,7 @@ Below is a list of topics covered in this course:
  6. [Understanding Docker Images](topics/06-docker-images/IT.md)
  7. [Building Images Interactively](topics/07-interactive-images/IT.md)
  8. [Building Images with a Dockerfile](topics/08-dockerfile/IT.md)
- 9. Entrypoint and Commands
+ 9. [Entrypoint and Command](topics/09-entrypoint-cmd/IT.md)
 10. Copying files during the Build
 11. Reduce Image Size
 12. Multi-Stage Builds
