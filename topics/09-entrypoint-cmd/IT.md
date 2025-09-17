@@ -17,9 +17,9 @@ interno diversi programmi o applicazioni che si vuole poter fare eseguire dall'u
 Il secondo permette di predisporre un comando fisso, lasciando poi all'utente la possibilità di aggiungere parametri
 o argomenti realtivi al comando stesso, più utile in caso di immagini che contengono un singolo programma.
 
-***
-
 Ma vediamoli in azione...
+
+***
 
 Riprendiamo il Dockerfile che avevamo creato nello capitolo precedente e andiamo a modificarlo:
 
@@ -230,4 +230,4 @@ In questo modo abbiamo ottenuto la shell `sh` come previsto.
 > - [figlet-command](../../sources/figlet-command) (command version)
 > - [figlet-entrypoint](../../sources/figlet-entrypoint) (entry point version)
 
-[Prosegui](../110-copying-files/IT.md) al prossimo argomento.
+[Prosegui](../10-copying-files/IT.md) al prossimo argomento.
