@@ -262,4 +262,4 @@ Ma prima di addentrarci nella creazione delle immagini dobbiamo ancora vedere al
 
 ***
 
-[Prosegui](../04-background-containers/IT.md) al prossimo argomento.
+[Prosegui](../04-background-containers/IT.md) al prossimo capitolo.

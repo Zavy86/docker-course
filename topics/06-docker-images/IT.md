@@ -208,4 +208,4 @@ Altre ancora sono disponibili solo per alcune specifiche piattaforme.
 
 ***
 
-[Prosegui](../07-interactive-images/IT.md) al prossimo argomento.
+[Prosegui](../07-interactive-images/IT.md) al prossimo capitolo.

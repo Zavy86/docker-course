@@ -74,7 +74,8 @@ Questa tecnica è sicuramente efficace, tuttavia ci ritroveremmo con un sorgente
 
 ```dockerfile
 FROM alpine
-RUN apk add gcc libc-dev && COPY hello.c / && RUN gcc /hello.c -o /hello
+COPY hello.c /
+RUN apk add gcc libc-dev && gcc /hello.c -o /hello && apk remove gcc libc-dev && rm /hello.c
 CMD /hello
 ```
 
@@ -82,9 +83,11 @@ O magari di questo tipo:
 
 ```dockerfile
 FROM alpine
+COPY hello.c /
 RUN apk add gcc libc-dev \
-  && COPY hello.c / \
-  && RUN gcc /hello.c -o /hello
+  && gcc /hello.c -o /hello \
+  && apk remove gcc libc-dev \
+  && rm /hello.c
 CMD /hello
 ```
 
@@ -305,4 +308,4 @@ codice in più Dockerfile.
 
 ***
 
-[Prosegui](../12-images-registry/IT.md) al prossimo argomento.
+[Prosegui](../12-images-registry/IT.md) al prossimo capitolo.

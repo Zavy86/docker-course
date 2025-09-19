@@ -342,4 +342,4 @@ eseguendo alcun parsing, possiamo essere certi che il comando verrà eseguito es
 > - [figlet](../../sources/figlet) (shell syntax version)
 > - [figlet-exec](../../sources/figlet-exec) (exec syntax version)
 
-[Prosegui](../09-entrypoint-cmd/IT.md) al prossimo argomento.
+[Prosegui](../09-entrypoint-cmd/IT.md) al prossimo capitolo.

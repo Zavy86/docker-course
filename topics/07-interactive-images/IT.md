@@ -216,4 +216,4 @@ funziona Docker dietro alle quinte, ma non è certo il modo in cui andremo a cre
 
 ***
 
-[Prosegui](../08-dockerfile/IT.md) al prossimo argomento.
+[Prosegui](../08-dockerfile/IT.md) al prossimo capitolo.

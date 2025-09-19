@@ -304,4 +304,4 @@ Vedremo poi nei capitoli successivi come far sparire i container da questa lista
 
 ***
 
-[Prosegui](../05-restarting-attaching/IT.md) al prossimo argomento.
+[Prosegui](../05-restarting-attaching/IT.md) al prossimo capitolo.
