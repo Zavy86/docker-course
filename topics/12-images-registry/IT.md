@@ -92,6 +92,9 @@ latest: digest: sha256:330d5958c6ba4f8bcc3ac43257ff2e375845ed07bbf31352cbcbb8a68
 
 Fatto! Ora chiunque può eseguire il run della nostra immagine `zavy86/figlet`.
 
+Come possiamo vedere dal log, Docker ha effettuato il push solamente del layer comprendente le modifiche della nostra
+immagine, mentre per quanto riguarda l'immagine base di `apline` ha fatto il mount del layer già presente online.
+
 Se accediamo a Docker Hub, all'interno del nostro profilo potremo vedere la nostra immagine, il numero di download
 e le informazioni sulla build.
 
