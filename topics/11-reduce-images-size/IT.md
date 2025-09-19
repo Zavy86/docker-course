@@ -8,7 +8,7 @@
 > - alpine base image
 
 Nel capitolo precedente l'immagine che abbiamo creato conteneva al suo interno: il programma compilato `hello`, il suo
-codice sorgente `hello.c`, il compilatore `gcc`, la libreria di supporto `libc-dev` ed ovviamente tutto quanto già
+codice sorgente `hello.c`, il compilatore `gcc`, la libreria di supporto `libc-dev` e ovviamente tutto quanto già
 presente nell'immagine base `alpine`.
 
 Come potrete aver visto questa immagine risultava pesare **oltre XXXXXXXXXX gigabyte**.

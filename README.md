@@ -39,7 +39,7 @@ Below is a list of topics covered in this course:
  9. [Entrypoint and Command](topics/09-entrypoint-cmd/IT.md)
 10. [Copying files during the Build](topics/10-copying-files/IT.md)
 11. [Reduce Images Size](topics/11-reduce-images-size/IT.md)
-12. Images Registry
+12. [Images Registry](topics/12-images-registry/IT.md)
 13. Naming, Labeling, and Inspecting
 14. Getting inside a Container
 15. Understanding Docker Networks
