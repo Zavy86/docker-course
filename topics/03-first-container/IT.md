@@ -1,6 +1,6 @@
 # Run our First Container
 
-> __Run our First Container__
+> __run our first container__
 > 
 > - seen Docker in action
 > - start our first container
@@ -18,7 +18,7 @@ Per eseguire il nostro primo container, utilizzeremo un comando un pochino più 
 stato proposto dall'installer di Docker. 
 
 ```shell
-docker run busybox echo hello world
+$ docker run busybox echo hello world
 ```
 
 Lanciando questo comando chiederemo al motore di Docker di creare e avviare un container partendo dall'immagine chiamata
@@ -48,7 +48,7 @@ Con il comando precedente, abbiamo semplicemente avviato un container e abbiamo 
 Proviamo ora invece a eseguire sempre il comando `run` ma con altri parametri.
 
 ```shell
-docker run -it alpine
+$ docker run -it alpine
 ```
 
 Questo comando avvia un nuovo container, completamente separato rispetto a quello precedente.
@@ -68,7 +68,7 @@ interattiva; ovvero richiede a Docker di connetterci allo STDIN del container e 
 Se utilizziamo infatti il comando:
 
 ```shell
-echo $0
+$ echo $0
 ```
 
 Vedremo che il container ci risponderà con `sh` che altro non è che la shell che stiamo utilizzando.
@@ -80,7 +80,7 @@ Vedremo che il container ci risponderà con `sh` che altro non è che la shell c
 Quindi avendo a disposizione una shell, possiamo iniziare a lanciare qualche comando, proviamo ad esempio con:
 
 ```shell
-figlet "Hello World!"
+$ figlet "Hello World!"
 ```
 
 Filget è un programma che permette di disegnare i testi che prende in input in formato ASCII, tuttavia come vediamo dal 
@@ -93,7 +93,7 @@ messaggio di errore, questa utility non è presente all'interno dell'immagine Al
 Procediamo quindi con l'installazione di questo programma.
 
 ```shell
-apk add figlet
+$ apk add figlet
 ```
 ```terminaloutput
 fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/APKINDEX.tar.gz
@@ -122,7 +122,7 @@ aveste già presente sul vostro sistema).
 
 ***
 
-> __Run our First Container__
+> __run our first container__
 >
 > - shared kernel
 > - indipendent packages
@@ -139,7 +139,7 @@ Questo ci permette di eseguire qualunque container su qualunque host, anche con 
 
 ***
 
-> __Run our First Container__
+> __run our first container__
 >
 > - stopped state
 > - exists on disk
@@ -155,7 +155,7 @@ liberate. Ma resta comunque presente su disco, con tutti i suoi files, pronto pe
 Torniamo quindi nel nostro terminale e rilanciamo il comando:
 
 ```shell
-docker run -it alpine
+$ docker run -it alpine
 ```
 
 E una volta ricollegati alla shell, proviamo a lanciare nuovamente il comando `figlet`:
@@ -174,7 +174,7 @@ Come facciamo quindi a riutilizzare il container che avevamo personalizzato con 
 
 ***
 
-> __Run our First Container__
+> __run our first container__
 >
 > - yes we can
 > - not a good practice
@@ -196,7 +196,7 @@ fondanti di Docker.
 
 ***
 
-> __Run our First Container__
+> __run our first container__
 >
 > - pets
 >   - distinctive names
@@ -217,7 +217,7 @@ immediatamente con un suo clone.
 
 ***
 
-> __Run our First Container__
+> __run our first container__
 >
 > - create virtual machine
 > - install packages
@@ -240,7 +240,7 @@ per ricreare l'ambiente da zero su una nuova macchina senza ricorrere a document
 
 ***
 
-> __Run our First Container__
+> __run our first container__
 >
 > - create image
 > - run container

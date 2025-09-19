@@ -3,7 +3,7 @@
 ![cover](https://img.youtube.com/vi/xxxxxxxxxxx/mqdefault.jpg)  
 Watch on YouTube: [https://youtu.be/xxxxxxxxxxx](https://youtu.be/xxxxxxxxxxx)
 
-> __History of Docker and Containers__
+> __history of Docker and containers__
 >
 > - why containers
 > - why Docker emerges
@@ -15,7 +15,7 @@ containers, why they've become so important in recent years, and what led us to 
 
 ***
 
-> __History of Docker and Containers__
+> __history of Docker and containers__
 >
 > - monolithic applications
 > - long development cycles
@@ -31,7 +31,7 @@ We can no longer afford solutions that are hard to scale and have long developme
 
 ***
 
-> __History of Docker and Containers__
+> __history of Docker and containers__
 >
 > - decoupled services
 > - fast, iterative improvements
@@ -47,7 +47,7 @@ Release speed and the ability to scale resources easily and quickly are fundamen
 
 ***
 
-> __History of Docker and Containers__
+> __history of Docker and containers__
 >
 > - many different stacks
 > - many different targets
@@ -61,7 +61,7 @@ test environments, quality assurance, user acceptance tests, staging, and finall
 
 ***
 
-> __History of Docker and Containers__
+> __history of Docker and containers__
 >
 > - on premise
 > - in cloud
@@ -73,7 +73,7 @@ All these options create a hellish matrix that's always hard to navigate.
 
 ***
 
-> __History of Docker and Containers__
+> __history of Docker and containers__
 >
 > - reduction of costs
 > - reduction of losses
@@ -95,7 +95,7 @@ Nowadays, over 5000 ships transport over 200 million containers every year!
 
 ***
 
-> __History of Docker and Containers__
+> __history of Docker and containers__
 >
 > - instructions
 > - scripts
@@ -113,7 +113,7 @@ Finally solving the infamous "It works on my machine"!
 
 ***
 
-> __History of Docker and Containers__
+> __history of Docker and containers__
 >
 > - onboarding
 > - testing
@@ -142,7 +142,7 @@ even when updating dependencies or changing configurations.
 
 ***
 
-> __History of Docker and Containers__
+> __history of Docker and containers__
 >
 > - standardization
 > - distribution
@@ -176,7 +176,7 @@ This way, we can automate many deployment processes, reducing time and costs.
 
 ***
 
-> __History of Docker and Containers__
+> __history of Docker and containers__
 >
 > - IBM VM/370 (1972)
 > - FreeBSD jails (1999)

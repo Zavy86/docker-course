@@ -38,29 +38,28 @@ Below is a list of topics covered in this course:
  8. [Building Images with a Dockerfile](topics/08-dockerfile/IT.md)
  9. [Entrypoint and Command](topics/09-entrypoint-cmd/IT.md)
 10. [Copying files during the Build](topics/10-copying-files/IT.md)
-11. Reduce Images Size
-12. Multi-Stage Builds
-13. Publishing Images to Registry
-14. Tips for efficient Dockerfile ? (inglobare o fare video dedicato)
-15. Naming, Labeling, and Inspecting
-16. Getting inside a Container (troubleshooting)
-17. Understanding Docker Networks
-18. Container Network Drivers
-19. Container Network Model
-20. Service Discovery with Containers
-21. Ambassadors ? (fare o tenere come video extra)
-22. Local Development Workflow (capire se fare qui o se spostare nei volumes sotto)
-23. Windows Containers ? (fare o tenere come video extra)
-24. Working with Volumes
-25. Compose for Development stack (capire se espandere)
-26. Advanced Dockerfile Syntax ? (fare o tenere come video extra)
-27. Buildkit
-28. Init Systems and PID 1
-29. Application Configuration
-30. Logging
-31. Limiting Resources
-32. Container Internals (inglobare cgroups, namespaces e copy-on-write filesystem)
-33. Orchestration overview
+11. [Reduce Images Size](topics/11-reduce-images-size/IT.md)
+12. Images Registry
+13. Tips for efficient Dockerfile ? (inglobare o fare video dedicato)
+14. Naming, Labeling, and Inspecting
+15. Getting inside a Container (troubleshooting)
+16. Understanding Docker Networks
+17. Container Network Drivers
+18. Container Network Model
+19. Service Discovery with Containers
+20. Ambassadors ? (fare o tenere come video extra)
+21. Local Development Workflow (capire se fare qui o se spostare nei volumes sotto)
+22. Windows Containers ? (fare o tenere come video extra)
+23. Working with Volumes
+24. Compose for Development stack (capire se espandere)
+25. Advanced Dockerfile Syntax ? (fare o tenere come video extra)
+26. Buildkit
+27. Init Systems and PID 1
+28. Application Configuration
+29. Logging
+30. Limiting Resources
+31. Container Internals (inglobare cgroups, namespaces e copy-on-write filesystem)
+32. Orchestration overview
 
 ***
 

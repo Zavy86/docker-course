@@ -1,6 +1,6 @@
 # Understanding Docker Images
 
-> __Understanding Docker Images__
+> __understanding docker images__
 >
 > - files
 > - metadata
@@ -18,7 +18,7 @@ tempi di trasferimento tramite rete e il consumo di memoria.
 
 ***
 
-> __Understanding Docker Images__
+> __understanding docker images__
 >```
 > alpine
 > └ node.js
@@ -41,7 +41,7 @@ modifiche che verranno apportate al filesystem del container durante la sua esec
 
 ***
 
-> __Understanding Docker Images__
+> __understanding docker images__
 > 
 > - read-only shared
 > - read-write copy
@@ -59,7 +59,7 @@ Per fare un'analogia con la programmazione orientata agli oggetti, possiamo pens
 
 ***
 
-> __Understanding Docker Images__
+> __understanding docker images__
 >
 > - chicken and egg
 > - scratch image
@@ -84,7 +84,7 @@ Nei prossimi capitoli vedremo come utilizzare questi due metodi per creare le no
 
 ***
 
-> __Understanding Docker Images__
+> __understanding docker images__
 >
 > - official images
 > - community images
@@ -118,7 +118,7 @@ per cercare, scaricare o caricare le immagini che ci interessano.
 Guardiamo ora quali immagini sono presenti all'interno della nostra macchina:
 
 ```shell
-docker images ls
+$ docker images ls
 ```
 
 Riceveremo in output un elenco di tutte le immagini che possediamo.
@@ -135,7 +135,7 @@ Possiamo vedere il nome dell'immagine, il tag, l'identificativo univoco, la data
 Se vogliamo cercare una nuova immagine sul registro ufficiale di Docker, possiamo utilizzare il comando:
 
 ```shell
-docker search wordpress
+$ docker search wordpress
 ```
 
 Cercando Wordpress otterremo un sacco di immagini, la cosa più importante che dobbiamo guardare è la colonna OFFICIAL.
@@ -153,7 +153,7 @@ bitnami/wordpress   Bitnami container image for WordPress           274
 Una volta identificato il nome dell'immagine che ci interessa, possiamo scaricarla tramite il comando:
 
 ```shell
-docker pull wordpress
+$ docker pull wordpress
 ```
 
 Dopo un breve periodo di esecuzione, in base alla velocità della connessione, riceveremo un output simile a quello
@@ -180,7 +180,7 @@ utilizzerà di default la versione `latest` che dovrebbe rappresentare l'ultima 
 
 ***
 
-> __Understanding Docker Images__
+> __understanding docker images__
 >
 > - latest
 >   - testing

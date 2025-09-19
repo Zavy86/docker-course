@@ -1,6 +1,6 @@
 # Building Images Interactively
 
-> __Building Images Interactively__
+> __building images interactively__
 >
 > - our first image
 > - install new package
@@ -17,13 +17,13 @@ Per eseguire queste operazioni avremo così modo di vedere il funzionamento dei 
 Cominciamo quindi come fatto già nei video precedenti eseguendo un container in modalità interattiva:
 
 ```shell
-docker run -it alpine
+$ docker run -it alpine
 ```
 
 Una volta avviato Alpine, procediamo nuovamente con l'installazione di Figlet:
 
 ```shell
-apk add figlet
+$ apk add figlet
 ```
 ```terminaloutput
 fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/APKINDEX.tar.gz
@@ -36,7 +36,7 @@ OK: 8 MiB in 17 packages
 E accertiamoci che tutto sia andato a buon fine lanciando il comando:
 
 ```shell
-figlet "Hello"
+$ figlet "Hello"
 ```
 ```terminaloutput
  _   _      _ _       
@@ -50,8 +50,8 @@ A questo punto usciamo dal container digitando `exit` e utilizziamo il comando `
 tra il container appena terminato e l'immagine di partenza:
 
 ```shell
-docker ps -al
-docker diff 87b
+$ docker ps -al
+$ docker diff 87b
 ```
 ```terminaloutput
 C /etc
@@ -150,7 +150,7 @@ Grazie al comando `docker diff` possiamo quindi vedere quali file sono stati agg
 Ora che sappiamo quali modifiche sono state apportate, possiamo salvare il tutto in una nuova immagine con il comando:
 
 ```shell
-docker commit 87b
+$ docker commit 87b
 ```
 
 L'output di questo comando ci restituirà l'ID della nuova immagine appena creata:
@@ -162,8 +162,8 @@ sha256:d04de44212d57d10f5300cab64e1116ac4ba4a151cdb3e22e997813317906288
 Se vogliamo fare una prova possiamo infatti avviare un nuovo container basato su questa immagine:
 
 ```shell
-docker run -it d04
-figlet "Hello Again!"
+$ docker run -it d04
+$ figlet "Hello Again!"
 ```
 
 E come potremo vedere Figlet è presente e perfettamente funzionante fin dal primo avvio:
@@ -184,15 +184,15 @@ Per farlo abbiamo due possibilià, direttamente in fase di commit aggiungendo al
 oppure con l'apposito comando tag avendo però l'accortezza di specificare l'ID dell'immagine e non quello del container.
 
 ```shell
-docker commit 87b alpine-figlet
-docker tag d04 alpine-figlet
+$ docker commit 87b alpine-figlet
+$ docker tag d04 alpine-figlet
 ```
 
 In questo modo per avviare la nostra speciale versione di Alpine con Figlet ci basterà digitare:
 
 ```shell
-docker run -it alpine-figlet
-figlet Hello Tag!
+$ docker run -it alpine-figlet
+$ figlet Hello Tag!
 ```
 
 E come possiamo vedere il tutto funziona come previsto:

@@ -3,7 +3,7 @@
 ![cover](https://img.youtube.com/vi/xxxxxxxxxxx/mqdefault.jpg)  
 Watch on YouTube: [https://youtu.be/xxxxxxxxxxx](https://youtu.be/xxxxxxxxxxx)
 
-> __History of Docker and Containers__
+> __history of Docker and containers__
 >
 > - why containers
 > - why Docker emerges
@@ -15,7 +15,7 @@ containers e del motivo per il quale sono diventati così importanti negli ultim
 
 ***
 
-> __History of Docker and Containers__
+> __history of Docker and containers__
 >
 > - monolithic applications
 > - long development cycles
@@ -31,7 +31,7 @@ Non possiamo più permetterci di avere soluzioni poco scalabili e con tempi di s
 
 ***
 
-> __History of Docker and Containers__
+> __history of Docker and containers__
 >
 > - decoupled services
 > - fast, iterative improvements
@@ -47,7 +47,7 @@ La velocità dei rilasci e la possibilità di scalare le risorse in maniera faci
 
 ***
 
-> __History of Docker and Containers__
+> __history of Docker and containers__
 >
 > - many different stacks
 > - many different targets
@@ -62,7 +62,7 @@ acceptance tests, agli ambienti di staging per finire poi con quelli di produzio
 
 ***
 
-> __History of Docker and Containers__
+> __history of Docker and containers__
 >
 > - on premise
 > - in cloud
@@ -74,7 +74,7 @@ Tutte queste opzioni non fanno altro che creare una matrice infernale dalla qual
 
 ***
 
-> __History of Docker and Containers__
+> __history of Docker and containers__
 >
 > - reduction of costs
 > - reduction of losses
@@ -98,7 +98,7 @@ Al giorno d'oggi oltre 5000 navi trasportano oltre 200 millioni di containers og
 
 ***
 
-> __History of Docker and Containers__
+> __history of Docker and containers__
 >
 > - instructions
 > - scripts
@@ -116,7 +116,7 @@ Giungendo finalmente alla risoluzione del fatidico "It works on my machine"!
 
 ***
 
-> __History of Docker and Containers__
+> __history of Docker and containers__
 >
 > - onboarding
 > - testing
@@ -144,7 +144,7 @@ problemi con una nuova versione, anche nel caso di aggiornamento di dipendenze o
 
 ***
 
-> __History of Docker and Containers__
+> __history of Docker and containers__
 >
 > - standardization
 > - distribution
@@ -179,7 +179,7 @@ In questo modo, potremo permetterci di automatizzare molti processi di deploymen
 
 ***
 
-> __History of Docker and Containers__
+> __history of Docker and containers__
 >
 > - IMB VM/370 (1972)
 > - FreeBSD jails (1999)

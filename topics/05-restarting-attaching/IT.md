@@ -1,6 +1,6 @@
 # Restarting & Attaching to Containers
 
-> __Restarting & Attaching to Containers__
+> __restarting & attaching to containers__
 > 
 > - attach background containers
 > - restart stopped containers
@@ -23,7 +23,7 @@ server fisico.
 Se avviamo un container in modalità interattiva, come abbiamo fatto prima, con il comando:
 
 ```shell
-docker run -it alpine
+$ docker run -it alpine
 ```
 
 Possiamo in qualunque momento staccarci dal container con la sequenza di shortcut `^P` e `^Q`, miraccomando, non con la
@@ -38,13 +38,13 @@ Qualora volessimo modificare manualmente questa sequenza di shortcut, possiamo f
 seguita dalla stringa contenente la sequenza di tasti desiderata, ad esempio:
 
 ```shell
-docker run -it --detach-keys ctrl-x alpine
+$ docker run -it --detach-keys ctrl-x alpine
 ```
 
 Se non mi credete possiamo verificare che sia ancora in esecuzione con:
 
 ```shell
-docker ps -l
+$ docker ps -l
 ```
 ```terminaloutput
 CONTAINER ID   IMAGE     COMMAND     [...]
@@ -57,7 +57,7 @@ prossimo video dedicato al file di configurazione di Docker.
 Mentre se stiamo eseguendo un container in modalità non interattiva, ad esempio proviamo a rilanciare il container:
 
 ```shell
-docker run zavy86/clock
+$ docker run zavy86/clock
 ```
 
 E proviamo a staccarci dal container con la shortcut `^P` e `^Q`, non otterremo alcun risultato, in quanto non essendo
@@ -78,7 +78,7 @@ L'unico modo che abbiamo per scollegarci è quello di terminare il client, in qu
 Per ricollegarsi a un container in background, possiamo utilizzare il `attach` seguito dall'id del container:
 
 ```shell
-docker attach 9dd
+$ docker attach 9dd
 ```
 
 Per poter utilizzare questo comando, il container deve essere ancora in esecuzione e tenete anche a mente che più client
@@ -94,7 +94,7 @@ interattiva, in quel caso ci basta utilizzare il comando `logs` con l'opzione `-
 Se invece volessimo ricollegarci a un container che era stato arrestato, ovvero che possiamo vedere con il comando:
 
 ```shell
-docker ps -a
+$ docker ps -a
 ```
 
 in stato Exited, come ad esempio il nostro alpine di prima,
@@ -107,14 +107,14 @@ CONTAINER ID   IMAGE     COMMAND     [...]   STATUS                       [...]
 possiamo farlo con il comando `start` seguito dall'id del container:
 
 ```shell
-docker start 76b
+$ docker start 76b
 ```
 
 In questo modo il container verrà riavviato con le stesse e identiche impostazioni con le quali era stato creato
 originariamente, e potremo poi ricollegarci ad esso con il comando `attach`:
 
 ```shell
-docker attach 76b
+$ docker attach 76b
 ```
 
 E come potrete notare siamo nuovamente nella shell del container. Tuttavia a volte potrebbe capitare di non visualizzare

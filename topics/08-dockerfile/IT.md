@@ -1,6 +1,6 @@
 # Building Images with a Dockerfile
 
-> __Building Images with a Dockerfile__
+> __building images with a Dockerfile__
 >
 > - Dockerfile
 > - builder
@@ -33,14 +33,14 @@ Ma non perdiamoci in chiacchiere e vediamo subito come funziona il tutto.
 Partiamo con il creare una directory di lavoro e spostiamoci al suo interno:
 
 ```shell
-mkdir figlet && cd $_
+$ mkdir figlet && cd $_
 ```
 
 E procediamo con la creazione del nostro primo Dockerfile con il vostro editor preferito, se siete degli esperti di
 Linux sicuramente sarete dei maghi di `vim` ma se siete alle prime armi vi consiglio di usare:
 
 ```shell
-nano Dockerfile
+$ nano Dockerfile
 ```
 
 Nano è un editor permette di creare e modificare file di testo in modo semplice e intuitivo.
@@ -73,7 +73,7 @@ dalla `Y` ed `ENTER` per confermare il salvataggio e proseguiamo con la costruzi
 Per farlo utilizzeremo il builder di Docker lanciando il comando:
 
 ```shell
-docker build .
+$ docker build .
 ```
 
 Il punto `.` alla fine del comando indica a Docker il contesto di build. Avremo modo di approfondire questo argomento 
@@ -118,8 +118,8 @@ risultato finale sempre identico.
 Procediamo come sempre a testarla lanciando un container in modalità interattiva:
 
 ```shell
-docker run -it d5e
-figlet "Hello Builder!"
+$ docker run -it d5e
+$ figlet "Hello Builder!"
 ```
 
 E come ci aspettavamo, tutto funziona alla perfezione:
@@ -137,8 +137,8 @@ Anche in questo caso abbiamo due modi per farlo, direttamente durante la fase di
 del `.` contesto, oppure nuovamente il comando `tag` seguito dall'ID dell'immagine appena creata.
 
 ```shell
-docker build -t figlet .
-docker tag d5e figlet
+$ docker build -t figlet .
+$ docker tag d5e figlet
 ```
 
 Se eseguiamo nuovamente il comando `build` noteremo che l'esecuzione sarà quasi istantanea.
@@ -176,7 +176,7 @@ l'istruzione venga eseguita nuovamente invalidando la cache.
 Qualora volessimo forzare il builder a non utilizzare la cache, possiamo aggiungere l'opzione `--no-cache` al comando:
 
 ```shell
-docker build -t figlet --no-cache .
+$ docker build -t figlet --no-cache .
 ```
 
 E vedremo che in questo caso tutte le istruzioni verranno eseguite nuovamente.
@@ -204,7 +204,7 @@ Se vogliamo poi vedere in maniera puntuale quasi sono i layer che compongono la 
 la storia della nostra immagine con il comando:
 
 ```shell
-docker history figlet
+$ docker history figlet
 ```
 
 Che ci mostrerà una lista con tutti i comandi che hanno contribuito alla creazione dell'immagine, l'ID del layer, la sua
@@ -228,7 +228,7 @@ Inoltre se vedete il nostro comando è stato leggermente modificato aggiungendog
 
 ***
 
-> __Building Images with a Dockerfile__
+> __building images with a Dockerfile__
 >
 > - fork
 > - execve
@@ -259,7 +259,7 @@ Alternativamente, se volessimo evitare che il comando debba essere parsato dalla
 alternativa per specificare gli argomenti del comando `RUN` usando la sintassi JSON:
 
 ```shell
-nano Dockerfile
+$ nano Dockerfile
 ```
 
 Modifichiamo quindi il nostro Dockerfile in questo modo:
@@ -272,7 +272,7 @@ RUN [ "apk", "add", "figlet" ]
 Usciamo dall'editor salvando e procediamo nuovamente con la build:
 
 ```shell
-docker build -t figlet .
+$ docker build -t figlet .
 ```
 
 Come possiamo vedere, l'output è praticamente identico a prima, a eccezione del comando RUN che abbiamo modificato:
@@ -299,7 +299,7 @@ What's next: View a summary of image vulnerabilities and recommendations → doc
 Se andiamo a vedere la storia della nostra immagine:
 
 ```shell
-docker history figlet
+$ docker history figlet
 ```
 
 Noteremo che il comando `RUN` questa volta è esattamente quello che abbiamo specificato nel Dockerfile, senza alcuna 
@@ -314,7 +314,7 @@ IMAGE          CREATED         CREATED BY                                      S
 
 ***
 
-> __Building Images with a Dockerfile__
+> __building images with a Dockerfile__
 >
 > - shell syntax
 >   - easy to write

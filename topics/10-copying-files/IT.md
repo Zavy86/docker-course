@@ -1,6 +1,6 @@
 # Copying files during the Build
 
-> __Copying files during the Build__
+> __copying files during the build__
 >
 > - copy
 > - context
@@ -30,7 +30,7 @@ Ma vediamolo nella pratica.
 Partiamo con il creare una directory di lavoro e spostiamoci al suo interno:
 
 ```shell
-mkdir hello && cd $_
+$ mkdir hello && cd $_
 ```
 
 Immaginiamo di voler creare un'immagine che ci permetta di compilare ed eseguire un semplice programma scritto in `C`.
@@ -38,7 +38,7 @@ Immaginiamo di voler creare un'immagine che ci permetta di compilare ed eseguire
 Creiamo quindi il nostro file sorgente:
 
 ```shell
-nano hello.c
+$ nano hello.c
 ```
 ```c
 #include <stdio.h>
@@ -57,7 +57,7 @@ vostra macchina.
 Creiamo quindi il nostro Dockerfile:
 
 ```shell
-nano Dockerfile
+$ nano Dockerfile
 ```
 ```dockerfile
 FROM alpine
@@ -84,7 +84,7 @@ E infine con `CMD`, come visto precedentemente impostiamo di eseguirlo all'avvio
 Proviamo quindi a effettuare la build dell'immagine:
 
 ```shell
-docker build -t hello .
+$ docker build -t hello .
 ```
 ```terminaloutput
 [+] Building 3.3s (9/9) FINISHED                                                                                                                          docker:desktop-linux
@@ -119,7 +119,7 @@ comandi, possiamo vedere dal log che la copia del file e la compilazione del nos
 Vediamo quindi se funziona:
 
 ```shell
-docker run hello
+$ docker run hello
 ```
 ```terminaloutput
 Hello World
@@ -133,7 +133,7 @@ Se proviamo a rilanciare la stessa build senza modificare nulla:
 
 
 ```shell
-docker build -t hello .
+$ docker build -t hello .
 ```
 ```terminaloutput
 [+] Building 0.0s (9/9) FINISHED                                                                                                                          docker:desktop-linux
@@ -167,7 +167,7 @@ Vedremo che tutte le operazioni sono state eseguite sfruttando la cache.
 Se invece facciamo una piccola modifica al nostro file sorgente:
 
 ```shell
-nano hello.c
+$ nano hello.c
 ```
 ```c
 #include <stdio.h>
@@ -181,7 +181,7 @@ int main () {
 Ed effettuiamo nuovamente la build:
 
 ```shell
-docker build -t hello .
+$ docker build -t hello .
 ```
 ```terminaloutput
 [+] Building 0.2s (9/9) FINISHED                                                                                                                          docker:desktop-linux
@@ -218,7 +218,7 @@ successivo perché si è reso conto che era collegato al file modificato e ha pe
 Se eseguiamo nuovamente il container:
 
 ```shell
-docker run hello
+$ docker run hello
 ```
 ```terminaloutput
 Hello World

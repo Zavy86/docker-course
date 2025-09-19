@@ -1,6 +1,6 @@
 # Entrypoint and Command
 
-> __Entrypoint and Command__
+> __entrypoint and command__
 >
 > - cmd
 >   - multiple binaries
@@ -24,7 +24,7 @@ Ma vediamoli in azione...
 Riprendiamo il Dockerfile che avevamo creato nello capitolo precedente e andiamo a modificarlo:
 
 ```shell
-nano Dockerfile
+$ nano Dockerfile
 ```
 
 aggiungendo un comando:
@@ -45,7 +45,7 @@ Tenete però presente che se la inserirete più volte l'ultima avrà sempre la m
 Usciamo e salviamo il file e rieseguiamo la build dell'immagine:
 
 ```shell
-docker build -t figlet .
+$ docker build -t figlet .
 ```
 ```terminaloutput
 [+] Building 0.1s (6/6) FINISHED                                                                                                                          docker:desktop-linux
@@ -79,7 +79,7 @@ l'istruzione `RUN` infatti anche `CMD` accetta la sitassi JSON ma per il momento
 Eseguiamo il container:
 
 ```shell
-docker run figlet
+$ docker run figlet
 ```
 ```terminaloutput
  _              _                           
@@ -99,7 +99,7 @@ Per cui se volessimo avere nuovamente accesso alla shell, dovremmo specificare i
 sovrascrivere nuovamente quanto definito nel Dockerfile:
 
 ```shell
-docker run -it figlet sh
+$ docker run -it figlet sh
 ```
 
 O anche `/bin/sh` in ogni caso il comando va inserito dopo il nome dell'immagine.
@@ -112,7 +112,7 @@ Poniamo ora di voler dare all'utente la possibilità di personalizzare il messag
 di avvio del container, ora come ora l'utente potrebbe farlo andando a sovrascrivere il comando in questo modo:
 
 ```shell
-docker run figlet figlet Hello Zavy
+$ docker run figlet figlet Hello Zavy
 ```
 ```terminaloutput
  _   _      _ _         _____                 
@@ -132,7 +132,7 @@ solamente il messaggio che vogliamo visualizzare.
 Andiamo quindi a modificare nuovamente il Dockerfile:
 
 ```shell
-nano Dockerfile
+$ nano Dockerfile
 ```
 
 Utilizzando questo volta la sintassi JSON, in primo luogo per evitare il warning, ma non solo:
@@ -156,7 +156,7 @@ la modalità JSON, il comando viene eseguito senza interpretazione permettendoci
 Rifacciamo quindi la build dell'immagine:
 
 ```shell
-docker build -t figlet .
+$ docker build -t figlet .
 ```
 ```terminaloutput
 [+] Building 0.0s (6/6) FINISHED                                                                                                                          docker:desktop-linux
@@ -182,7 +182,7 @@ Anche in questo caso ovviamente in fase di build non compare nulla relativo all'
 Ed eseguiamo il container questa volta passando come parametro solamente il messaggio che vogliamo visualizzare:
 
 ```shell
-docker run figlet Hello Zavy
+$ docker run figlet Hello Zavy
 ```
 ```terminaloutput
  ,          _   _          __                   
@@ -200,7 +200,7 @@ Ora però se proviamo a eseguire il container con il nome della shell al fondo p
 avevamo fatto precedentemente:
 
 ```shell
-docker run -it figlet sh
+$ docker run -it figlet sh
 ```
 
 noteremo qualcosa di strano, invece di ottenere la shell `sh` abbiamo ottenuto sh scritto da Figlet:
@@ -219,7 +219,7 @@ inserito all'interno del `CMD` e gli verrà concatenato.
 Se volessimo ottenere una shell dovremo quindi andare a sovrascrivere l'istruzione `ENTRYPOINT` con la shell:
 
 ```shell
-docker run -it --entrypoint sh figlet
+$ docker run -it --entrypoint sh figlet
 ```
 
 In questo modo abbiamo ottenuto la shell `sh` come previsto.

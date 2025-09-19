@@ -1,6 +1,6 @@
 # Run Containers in Background
 
-> __Run Containers in Background__
+> __run containers in background__
 > 
 > - run non-interactive
 > - run in background
@@ -20,7 +20,7 @@ E scopriremo infine come stopparli e come ottenere la lista di tutti i container
 Iniziamo quindi con l'esecuzione di un piccolo [container](/sources/clock/) non interattivo. 
 
 ```shell
-docker run zavy86/clock
+$ docker run zavy86/clock
 ```
 
 Una volta avviato inizierà a stampare semplicemente la data e l'ora correnti ogni secondo.
@@ -45,7 +45,7 @@ immagine personalizzata creata dall'utente Zavy86.
 
 ***
 
-> __Run Containers in Background__
+> __run containers in background__
 > 
 > - SIGINT
 >   - interactive -> foreground process
@@ -75,7 +75,7 @@ Vediamo ora la modalità in background.
 Per lanciare un container in background dobbiamo aggiungere l'opzione `-d` al comando `docker run`.
 
 ```shell
-docker run -d zavy86/clock
+$ docker run -d zavy86/clock
 ```
 
 E questa volta, otterremo in output solamente l'ID del container appena avviato.
@@ -95,7 +95,7 @@ Nei sistemi unix esiste il comando `ps` che ci permette di vedere i processi in 
 a disposizione il comando:
 
 ```shell
-docker ps
+$ docker ps
 ```
 
 Tramite il quale potremo vedere alcune informazioni utili sui container in esecuzione.
@@ -113,8 +113,8 @@ nei prossimi capitoli.
 Avviamo ora altri due containers in background.
 
 ```shell
-docker run -d zavy86/clock
-docker run -d zavy86/clock
+$ docker run -d zavy86/clock
+$ docker run -d zavy86/clock
 ```
 
 Ed otterremo in output altri due diversi ID.
@@ -127,7 +127,7 @@ a658e9ee5d97afd72bdc52653f118f0881bf481f13aa4f2f35b616ff9ea20a8e
 Lanciamo nuovamente il comando:
 
 ```shell
-docker ps
+$ docker ps
 ```
 
 e potremo vedere che sono presenti tre containers in esecuzione.
@@ -144,7 +144,7 @@ in questi casi il comando `docker ps` potrebbe risultare molto lungo e difficile
 l'opzione `-l` che ci permette di visualizzare solamente l'ultimo container avviato.
 
 ```shell
-docker ps
+$ docker ps
 ```
 
 Come possiamo vedere ora il comando ne restituisce soltanto uno.
@@ -157,7 +157,7 @@ CONTAINER ID   IMAGE          [...]   CREATED              STATUS              [
 Un'altra opzione interessante è `-q` che sta per Quick:
 
 ```shell
-docker ps -q
+$ docker ps -q
 ``` 
 
 e ci permette di visualizzare solamente gli ID dei container in esecuzione.
@@ -171,7 +171,7 @@ a658e9ee5d97
 Ovviamente queste opzioni possono essere combinate. 
 
 ```shell
-docker ps -lq
+$ docker ps -lq
 ``` 
 
 Usandole infatti entrambe otterremo in risposta l'ID dello ultimo container che abbiamo avviato...
@@ -190,7 +190,7 @@ Tornando invece all'output dei containers, come vi dicevo Docker sta collezionan
 salvando in un log. Per visualizzarli dovremo usare il comando:
 
 ```shell
-docker logs 58f
+$ docker logs 58f
 ``` 
 
 Come vi avevo già accennato, possiamo inserire anche solo una parte dell'ID del container purché sia univoca.
@@ -207,7 +207,7 @@ Questo comando ci mostra tutti i log catturati dal container, e spesso possono e
 possiamo sfruttare il parametro `--tail` che ci permette di visualizzare solamente un numero prefissato di righe.
 
 ```shell
-docker logs --tail 1 58f
+$ docker logs --tail 1 58f
 ``` 
 
 In questo modo otterremo soltanto una riga del log partendo dal fondo.
@@ -221,7 +221,7 @@ Un'altra cosa utile potrebbe essere quella di mettersi in ascolto dei log in tem
 dovremo usare l'opzione `--follow`.
 
 ```shell
-docker logs --tail 1 --follow 58f
+$ docker logs --tail 1 --follow 58f
 ``` 
 
 Come potrete notare, questo comando non restituisce alcun output fino a quando non si verifica un cambiamento nel log
@@ -238,7 +238,7 @@ Per uscire e tornare al nostro terminare, premiamo `^C`.
 
 ***
 
-> __Run Containers in Background__
+> __run containers in background__
 >
 > - docker stop -> SIGTERM + SIGKILL @todo verificare che sia term e non stop
 > - docker kill -> SIGKILL
@@ -257,7 +257,7 @@ esecuzione invierà il segnale `SIGKILL` e ne forzerà l'arresto immediato.
 Procediamo quindi con il comando:
 
 ```shell
-docker stop 58f
+$ docker stop 58f
 ```
 
 Vedremo che non succederà nulla, in quanto il container contiene un semplice shell script che non è stato progettato 
@@ -267,14 +267,14 @@ sporco lavoro.
 Per i prossimi due andiamo giù pesante direttamente con il comando:
 
 ```shell
-docker kill a65 66e
+$ docker kill a65 66e
 ```
 
 E come possiamo notare, verranno entrambi stoppati immediatamente.
 Se lanciamo infatti nuovamente il comando:
 
 ```shell
-docker ps
+$ docker ps
 ```
 
 non vedremo più nulla in esecuzione.
@@ -288,7 +288,7 @@ CONTAINER ID   IMAGE   [...]   CREATED   STATUS   [...]
 Se volessimo infine, vedere che fine hanno fatto i container che abbiamo arrestato, usiamo il comando:
 
 ```shell
-docker ps -a
+$ docker ps -a
 ```
 
 che sta per all, e ci restituisce per l'appunto tutti i container, anche quelli arrestati.
