@@ -40,31 +40,30 @@ Below is a list of topics covered in this course:
 10. [Copying files during the Build](topics/10-copying-files/IT.md)
 11. [Reduce Images Size](topics/11-reduce-images-size/IT.md)
 12. Images Registry
-13. Tips for efficient Dockerfile ? (inglobare o fare video dedicato)
-14. Naming, Labeling, and Inspecting
-15. Getting inside a Container (troubleshooting)
-16. Understanding Docker Networks
-17. Container Network Drivers
-18. Container Network Model
-19. Service Discovery with Containers
-20. Ambassadors ? (fare o tenere come video extra)
-21. Local Development Workflow (capire se fare qui o se spostare nei volumes sotto)
-22. Windows Containers ? (fare o tenere come video extra)
-23. Working with Volumes
-24. Compose for Development stack (capire se espandere)
-25. Advanced Dockerfile Syntax ? (fare o tenere come video extra)
-26. Buildkit
-27. Init Systems and PID 1
-28. Application Configuration
-29. Logging
-30. Limiting Resources
-31. Container Internals (inglobare cgroups, namespaces e copy-on-write filesystem)
-32. Orchestration overview
+13. Naming, Labeling, and Inspecting
+14. Getting inside a Container
+15. Understanding Docker Networks
+16. Container Network Drivers (expose qui o fare video prima)
+17. Container Network Model
+18. Service Discovery with Containers
+19. Working with Volumes (+ path mounts)
+20. Local Development Workflow
+21. Compose for Development stack
+22. Advanced Dockerfile Syntax (workdir, env, user, onbuild, label, arg, stopsignal, healthcheck, shell)
+23. Application Configuration
+24. Limiting Resources
+25. Logging and Monitoring
+26. Multi-Arch Builds
+27. Container Internals (cgroups, namespaces e copy-on-write filesystem, init systems and PID 1)
 
 ***
 
 Extra:
 1. Introduction to YAML
+2. Tips for an efficient Dockerfile
+3. Ambassadors pattern
+4. Windows Containers
+5. Orchestration overview
 
 
 ## Translations
