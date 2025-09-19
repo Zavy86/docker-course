@@ -22,7 +22,7 @@ un'immagine così grossa con al suo interno un sacco di componenti superflue non
 ***
 
 > __reduce images size__
->
+>```
 > alpine
 > └ install gcc and libc-dev
 >   └ copying hello.c
@@ -30,6 +30,7 @@ un'immagine così grossa con al suo interno un sacco di componenti superflue non
 >       └ removing hello.c
 >         └ uninstall gcc and libc-dev
 >           └ (read-write layer)
+>```
 
 La prima cosa che ci viene in mente probabilmente sarebbe quella di aggiungere semplicemente un altro step al nostro
 Dockerfile, nel quale andremo a rimuovere il file sorgente, e un altro step per rimuovere il compilatore tramite apk.
