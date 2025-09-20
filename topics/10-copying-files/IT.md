@@ -1,4 +1,4 @@
-# Copying files during the Build
+# Copying files during the build
 
 > __copying files during the build__
 >

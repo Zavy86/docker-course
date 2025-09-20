@@ -1,4 +1,4 @@
-# Our Training Environment
+# Our training environment
 
 > __our training environment__
 >

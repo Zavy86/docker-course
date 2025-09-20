@@ -1,4 +1,4 @@
-# Entrypoint and Command
+# Entrypoint and command
 
 > __entrypoint and command__
 >

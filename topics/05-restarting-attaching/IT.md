@@ -1,6 +1,6 @@
-# Restarting & Attaching to Containers
+# Restarting and attaching to containers
 
-> __restarting & attaching to containers__
+> __restarting and attaching to containers__
 > 
 > - attach background containers
 > - restart stopped containers

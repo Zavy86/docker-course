@@ -1,4 +1,4 @@
-# Images Registry
+# Images registry
 
 > __images registry__
 >

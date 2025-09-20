@@ -1,4 +1,4 @@
-# Understanding Docker Images
+# Understanding Docker images
 
 > __understanding docker images__
 >

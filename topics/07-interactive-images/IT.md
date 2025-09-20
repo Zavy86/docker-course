@@ -1,4 +1,4 @@
-# Building Images Interactively
+# Building images interactively
 
 > __building images interactively__
 >

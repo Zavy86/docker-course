@@ -1,4 +1,4 @@
-# History of Docker and Containers
+# History of Docker and containers
 
 ![cover](https://img.youtube.com/vi/xxxxxxxxxxx/mqdefault.jpg)  
 Watch on YouTube: [https://youtu.be/xxxxxxxxxxx](https://youtu.be/xxxxxxxxxxx)

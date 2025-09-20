@@ -1,4 +1,4 @@
-# Reduce Images Size
+# Reduce images size
 
 > __reduce images size__
 >

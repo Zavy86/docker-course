@@ -1,4 +1,4 @@
-# Building Images with a Dockerfile
+# Building images with a Dockerfile
 
 > __building images with a Dockerfile__
 >

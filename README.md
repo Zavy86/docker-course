@@ -28,19 +28,19 @@ inside my [channel](https://www.youtube.com/@Zavy86).
 
 Below is a list of topics covered in this course:
 
- 1. [History of Docker and Containers](topics/01-docker-history/README.md)
- 2. [Our Training Environment](topics/02-training-environment/IT.md)
- 3. [Run our First Container](topics/03-first-container/IT.md)
- 4. [Run Containers in Background](topics/04-background-containers/IT.md)
- 5. [Restarting and Attaching to Containers](topics/05-restarting-attaching/IT.md)
- 6. [Understanding Docker Images](topics/06-docker-images/IT.md)
- 7. [Building Images Interactively](topics/07-interactive-images/IT.md)
- 8. [Building Images with a Dockerfile](topics/08-dockerfile/IT.md)
- 9. [Entrypoint and Command](topics/09-entrypoint-cmd/IT.md)
-10. [Copying files during the Build](topics/10-copying-files/IT.md)
-11. [Reduce Images Size](topics/11-reduce-images-size/IT.md)
-12. [Images Registry](topics/12-images-registry/IT.md)
-13. Naming, Labeling, and Inspecting
+ 1. [History of Docker and containers](topics/01-docker-history/README.md)
+ 2. [Our training environment](topics/02-training-environment/IT.md)
+ 3. [Run our first container](topics/03-first-container/IT.md)
+ 4. [Run containers in background](topics/04-background-containers/IT.md)
+ 5. [Restarting and attaching to containers](topics/05-restarting-attaching/IT.md)
+ 6. [Understanding Docker images](topics/06-docker-images/IT.md)
+ 7. [Building images interactively](topics/07-interactive-images/IT.md)
+ 8. [Building images with a Dockerfile](topics/08-dockerfile/IT.md)
+ 9. [Entrypoint and command](topics/09-entrypoint-cmd/IT.md)
+10. [Copying files during the build](topics/10-copying-files/IT.md)
+11. [Reduce images size](topics/11-reduce-images-size/IT.md)
+12. [Images registry](topics/12-images-registry/IT.md)
+13. [Naming, labeling, and inspecting](topics/13-naming-labeling-inspecting/IT.md)
 14. Getting inside a Container
 15. Understanding Docker Networks
 16. Container Network Drivers (expose qui o fare video prima)
