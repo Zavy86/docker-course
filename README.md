@@ -42,7 +42,7 @@ Below is a list of topics covered in this course:
 12. [Images registry](topics/12-images-registry/IT.md)
 13. [Naming, labeling, and inspecting](topics/13-naming-labeling-inspecting/IT.md)
 14. [Getting inside a Container](topics/14-troubleshooting/IT.md)
-15. Understanding Docker Networks
+15. [Understanding Docker Networks](topics/15-docker-networks/IT.md)
 16. Container Network Drivers (expose qui o fare video prima)
 17. Container Network Model
 18. Service Discovery with Containers

@@ -201,4 +201,4 @@ file è stato scaricato così da non occupare spazio su disco.
 
 ***
 
-[Prosegui](../15-xxx/IT.md) al prossimo capitolo.
+[Prosegui](../15-docker-networks/IT.md) al prossimo capitolo.
