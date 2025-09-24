@@ -34,7 +34,7 @@ $ docker run zavy86/figlet
 $ docker ps -al
 ```
 
-Vedremo un fondo un nome assegnato al container, nel mio caso `loving_visvesvaraya`:
+Vedremo in fondo un nome assegnato al container, nel mio caso `loving_visvesvaraya`:
 
 ```terminaloutput
 CONTAINER ID   IMAGE           [...]   NAMES
@@ -356,4 +356,4 @@ Il risultato è lo stesso, scegliete voi quello che più vi aggrada o col quale 
 
 ***
 
-[Prosegui](../14-xxx/IT.md) al prossimo capitolo.
+[Prosegui](../14-troubleshooting/IT.md) al prossimo capitolo.
