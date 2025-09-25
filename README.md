@@ -42,19 +42,19 @@ Below is a list of topics covered in this course:
 12. [Images registry](topics/12-images-registry/IT.md)
 13. [Naming, labeling, and inspecting](topics/13-naming-labeling-inspecting/IT.md)
 14. [Getting inside a Container](topics/14-troubleshooting/IT.md)
-15. [Understanding Docker Networks](topics/15-docker-networks/IT.md)
-16. Container Network Drivers (expose qui o fare video prima)
-17. Container Network Model
-18. Service Discovery with Containers
-19. Working with Volumes (+ path mounts)
-20. Local Development Workflow
-21. Compose for Development stack
-22. Advanced Dockerfile Syntax (workdir, env, user, onbuild, label, arg, stopsignal, healthcheck, shell)
-23. Application Configuration
-24. Limiting Resources
-25. Logging and Monitoring
-26. Multi-Arch Builds
-27. Container Internals (cgroups, namespaces e copy-on-write filesystem, init systems and PID 1)
+15. [Understanding Docker networks](topics/15-docker-networks/IT.md)   <-- expose accennato qui
+16. [Container network drivers](topics/16-network-drivers/IT.md)
+17. Service Discovery with Containers
+18. Working with Volumes (+ path mounts)
+19. Local Development Workflow
+20. Compose for Development stack
+21. Advanced Dockerfile Syntax (workdir, env, user, onbuild, label, arg, stopsignal, healthcheck, shell)
+22. Application Configuration
+23. Limiting Resources
+24. Logging and Monitoring
+25. Multi-Arch Builds
+26. Container Internals (cgroups, namespaces e copy-on-write filesystem, init systems and PID 1)
+27. ?
 
 ***
 

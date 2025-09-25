@@ -1,4 +1,4 @@
-# Understanding docker networks
+# Understanding Docker networks
 
 > __understanding docker networks__
 >
@@ -203,4 +203,4 @@ E come possiamo vedere la risposta è pressoché immediata a confermarci che tut
 
 ***
 
-[Prosegui](../16-xxx/IT.md) al prossimo capitolo.
+[Prosegui](../16-network-drivers/IT.md) al prossimo capitolo.
