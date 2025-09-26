@@ -2,22 +2,13 @@
 
 > __service discovery with containers__
 >
-> - bridge
-> - null/none
-> - host
-> - container
+> - xxx
 
-Dopo aver visto brevemente nel capitolo precedente come funzionano le reti in Docker, andiamo ora a vedere i vari
-driver di rete che Docker ci mette a disposizione.
-
-
-
-
+@todo
 
 ***
 
-Per gestire le reti in Docker, come per le immagini, possiamo utilizzare il gruppo di comandi raggruppati in `network`,
-ad esempio con il comando:
+yyy
 
 ```shell
 $ docker network ls
@@ -46,4 +37,4 @@ ed6460e832d4   host     host      local
 
 ***
 
-[Prosegui](../17-xxx/IT.md) al prossimo capitolo.
+[Prosegui](../18-xxx/IT.md) al prossimo capitolo.
