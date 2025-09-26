@@ -1,7 +1,6 @@
 const express = require('express');
 const { createClient } = require('redis');
 
-const APP_PORT = process.env.EXPRESS_PORT || 8080;
 const REDIS_HOST = process.env.REDIS_HOST || 'redis';
 const REDIS_PORT = process.env.REDIS_PORT || 6379;
 const COUNTER_KEY = 'clicks';
@@ -149,8 +148,8 @@ app.get('/', (req, res) => {
   `);
 });
 
-const server = app.listen(APP_PORT, () => {
-  console.log(`Server running on port ${APP_PORT}`);
+const server = app.listen(8080, () => {
+  console.log('Server running on port 8080');
 });
 
 process.on('SIGINT', async () => {
