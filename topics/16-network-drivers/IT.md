@@ -152,4 +152,4 @@ Non otterremo nessuna risposta.
 
 ***
 
-[Prosegui](../17-xxx/IT.md) al prossimo capitolo.
+[Prosegui](../17-service-discovery/IT.md) al prossimo capitolo.

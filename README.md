@@ -44,7 +44,7 @@ Below is a list of topics covered in this course:
 14. [Getting inside a Container](topics/14-troubleshooting/IT.md)
 15. [Understanding Docker networks](topics/15-docker-networks/IT.md)   <-- expose accennato qui
 16. [Container network drivers](topics/16-network-drivers/IT.md)
-17. Service Discovery with Containers
+17. [Service discovery with containers](topics/17-service-discovery/IT.md)
 18. Working with Volumes (+ path mounts)
 19. Local Development Workflow
 20. Compose for Development stack
