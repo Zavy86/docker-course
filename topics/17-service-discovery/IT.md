@@ -123,4 +123,4 @@ strumento che vedremo fra qualche capitolo: Docker Compose!
 
 ***
 
-[Prosegui](../18-xxx/IT.md) al prossimo capitolo.
+[Prosegui](../18-docker-volumes/IT.md) al prossimo capitolo.

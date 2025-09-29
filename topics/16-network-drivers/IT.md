@@ -95,10 +95,10 @@ container al posto del suo indirizzo ip. Il nome assegnato al container è sempr
 
 ***
 
-Creiamo ora una nuova rete personalizzata chiamata dev:
+Creiamo ora una nuova rete personalizzata chiamata `tutorial`:
 
 ```shell
-$ docker network create dev
+$ docker network create tutorial
 ```
 
 E come possiamo vedere di default verrà utilizzato il driver `bridge`.
@@ -107,23 +107,23 @@ E come possiamo vedere di default verrà utilizzato il driver `bridge`.
 $ docker network ls
 ```
 ```terminaloutput
-NETWORK ID     NAME     DRIVER    SCOPE
-c43104847bdb   bridge   bridge    local
-ed6460e832d4   host     host      local
-40ad1bedef47   none     null      local
-40ad1bedef47   dev      bridge    local
+NETWORK ID     NAME       DRIVER    SCOPE
+c43104847bdb   bridge     bridge    local
+ed6460e832d4   host       host      local
+40ad1bedef47   none       null      local
+40ad1bedef47   tutorial   bridge    local
 ```
 
 Lanciamo quindi un container e assegniamogli questa nuova rete:
 
 ```shell
-$ docker run -d --name webserver --net dev nginx
+$ docker run -d --name webserver --net tutorial nginx
 ```
 
 Ora lanciamo un nuovo container sulla medesima rete:
 
 ```shell
-$ docker run -it --net dev busybox
+$ docker run -it --net tutorial busybox
 ```
 
 E proviamo a effettuare un ping al container di Nginx:

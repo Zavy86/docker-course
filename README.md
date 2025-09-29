@@ -45,7 +45,7 @@ Below is a list of topics covered in this course:
 15. [Understanding Docker networks](topics/15-docker-networks/IT.md)   <-- expose accennato qui
 16. [Container network drivers](topics/16-network-drivers/IT.md)
 17. [Service discovery with containers](topics/17-service-discovery/IT.md)
-18. Working with Volumes (+ path mounts)
+18. [Working with volumes](topics/18-docker-volumes/IT.md)
 19. Local Development Workflow
 20. Compose for Development stack
 21. Advanced Dockerfile Syntax (workdir, env, user, onbuild, label, arg, stopsignal, healthcheck, shell)
