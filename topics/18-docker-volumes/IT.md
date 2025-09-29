@@ -253,6 +253,26 @@ $ docker stop redis8
 $ docker rm redis7 redis 8 
 ``` 
 
+Per sapere quali volumi sono associati a un container possiamo usare il comando:
+
+```shell
+$ docker inspect --format '{{ json .Mounts }}' redis8 | jq
+```
+```json
+[
+  {
+    "Type": "volume",
+    "Name": "3552875a311b31e9764e79a83c73ba87b5628de966f05a7e35a822693813b3ca",
+    "Source": "/var/lib/docker/volumes/3552875a311b31e9764e79a83c73ba87b5628de966f05a7e35a822693813b3ca/_data",
+    "Destination": "/data",
+    "Driver": "local",
+    "Mode": "",
+    "RW": true,
+    "Propagation": ""
+  }
+]
+```
+
 Infine possiamo eliminare il volume con il comando:
 
 ```shell
@@ -272,6 +292,36 @@ Che permette di eliminare tutti i volumi non utilizzati da nessun container.
 Fate ovviamente attenzione e ricordatevi sempre che gli unici responsabili dei volumi siete voi, impostate dei backup,
 monitorate l'utilizzo del disco e ogni tanto fate pulizia.
 
+Ultima nota, il comando -v può essere usato anche per montare singoli file, non solo directory.
+
+Vi capiterà spesso di vedere montare il socket di Docker in questo modo:
+
+```shell
+$ docker run -it -v /var/run/docker.sock:/var/run/docker.sock docker sh
+``` 
+
+In questo caso stiamo creando un cosiddetto "Docker in Docker" che ci permette di controllare il nostro host Docker da 
+dentro un container, se lanciamo infatti il comando:
+
+```shell
+# docker ps
+```
+
+Come potete vedere quello che vediamo è lo stesso risultato che avremmo ottenuto lanciando il comando sul nostro host.
+
+```terminaloutput
+CONTAINER ID   IMAGE    [...]
+bef846693b5e   docker   [...]
+```
+
+E potremo anche auto spegnerci:
+
+```shell
+# docker stop bef
+```
+
+;-)
+
 ***
 
-[Prosegui](../19-xxx/IT.md) al prossimo capitolo.
+[Prosegui](../19-local-development-workflow/IT.md) al prossimo capitolo.
