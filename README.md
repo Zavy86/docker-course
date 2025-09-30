@@ -49,7 +49,7 @@ Below is a list of topics covered in this course:
 19. [Local development workflow](topics/19-local-development-workflow/IT.md)
 20. Compose for Development stack
 21. Advanced Dockerfile Syntax (workdir, env, user, onbuild, label, arg, stopsignal, healthcheck, shell, volume*, expose*)
-22. Application Configuration
+22. [Application configuration](topics/22-application-configuration/IT.md)
 23. Limiting Resources
 24. Logging and Monitoring
 25. Multi-Arch Builds
