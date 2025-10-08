@@ -7,11 +7,9 @@
 > - storage
 > - network
 
-Finora abbiamo utilizzato i container come comode unità di distribuzione autonome.
-Ma cosa capita quando un container cerca di usare più risorse di quelle disponibili?
-Cosa succede se più container tentano di usare la stessa risorsa?
-Possiamo limitare le risorse disponibili per un container?
-Spoiler, si!
+Finora abbiamo utilizzato i container come comode unità di distribuzione autonome. Ma cosa capita quando un container 
+cerca di usare più risorse di quelle disponibili? Cosa succede se più container tentano di usare la stessa risorsa?
+Possiamo limitare le risorse disponibili per un container? Spoiler, si!
 
 I container, come abbiamo già visto, sono più simili a dei processi speciali piuttosto che a delle macchine virtuali.
 Un container che gira in un host, è a tutti gli effetti un processo che gira su quell'host.
@@ -127,8 +125,15 @@ $ docker ps -as
 Che ci mostrerà una ulteriore colonna con la dimensione in uso:
 
 ```terminaloutput
-XXX
+CONTAINER ID   IMAGE   [...]   SIZE
+eb7db448ce04   crash   [...]   98B (virtual 13.1MB)
+918f911fb7ea   figlet  [...]   0B (virtual 11.8MB)
+9967fb8e8425   clock   [...]   0B (virtual 4.17MB)
+27b93514ef24   hello   [...]   0B (virtual 174MB)
 ```
+
+Il valore `SIZE` indica la dimensione dello storage utilizzato dall'ultimo layer container. Nelle parentesi troviamo 
+anche il valore `virtual` che indica la dimensione totale comprensiva dell'immagine dalla quale è stato avviato.
 
 E se vogliamo poi vedere nel dettaglio un singolo container potremmo sfruttare il comando `docker diff` come già visto
 nel [capitolo 7](../07-interactive-images/IT.md).
