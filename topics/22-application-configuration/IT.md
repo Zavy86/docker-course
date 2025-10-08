@@ -132,4 +132,4 @@ Senza sistemi di orchestrazione gestire i segreti in maniera sicura può risulta
 
 ***
 
-[Prosegui](../23-xxx/IT.md) al prossimo capitolo.
+[Prosegui](../23-limiting-resources/IT.md) al prossimo capitolo.

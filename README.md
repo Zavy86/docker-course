@@ -50,7 +50,7 @@ Below is a list of topics covered in this course:
 20. Compose for Development stack
 21. Advanced Dockerfile Syntax (workdir, env, user, onbuild, label, arg, stopsignal, healthcheck, shell, volume*, expose*)
 22. [Application configuration](topics/22-application-configuration/IT.md)
-23. Limiting Resources
+23. [Limiting resources](topics/23-limiting-resources/IT.md)
 24. Logging and Monitoring
 25. Multi-Arch Builds
 26. Container Internals (cgroups, namespaces e copy-on-write filesystem, init systems and PID 1)
