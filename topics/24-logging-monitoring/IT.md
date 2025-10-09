@@ -186,4 +186,4 @@ affidabili.
 
 ***
 
-[Prosegui](../25-xxx/IT.md) al prossimo capitolo.
+[Prosegui](../25-multi-architecture-builds/IT.md) al prossimo capitolo.

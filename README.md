@@ -52,7 +52,7 @@ Below is a list of topics covered in this course:
 22. [Application configuration](topics/22-application-configuration/IT.md)
 23. [Limiting resources](topics/23-limiting-resources/IT.md)
 24. [Logging and monitoring](topics/24-logging-monitoring/IT.md)
-25. Multi-Arch Builds
+25. [Multi-architecture builds](topics/25-multi-architecture-builds/IT.md)
 26. Common Docker settings (networking, storage, security)
 27. Container Internals (cgroups, namespaces e copy-on-write filesystem, init systems and PID 1)
 
