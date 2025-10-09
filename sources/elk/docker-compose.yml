@@ -1,3 +1,5 @@
+# cloned from https://github.com/jpetazzo/container.training/blob/bc349d6c4dc5e5a53507d00acb9833d1a026dbfd/elk/docker-compose.yml
+
 services:
 
   elasticsearch:
