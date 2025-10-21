@@ -7,7 +7,7 @@
 > - entrypoint
 >   - single binary
 
-In questo capitolo vedremo come possiamo dire a Docker di eseguire un comando all'avvio del contenitore.
+In questo capitolo vedremo come possiamo dire a Docker di eseguire un comando all'avvio del container.
 
 Queste due istruzioni, seppur molto simili, hanno due casi d'uso molto diversi.
 
@@ -35,7 +35,7 @@ RUN [ "apk", "add", "figlet" ]
 CMD figlet -f script "Welcome"
 ```
 
-Tramite l'istruzione `CMD` stiamo impostando un comando di default che verrà eseguito all'avvio del contenitore qualora
+Tramite l'istruzione `CMD` stiamo impostando un comando di default che verrà eseguito all'avvio del container qualora
 non venga specificato altrimenti al momento della sua creazione.
 
 L'espressione `CMD` è un cosiddetto XXX, ovvero non è un comando che viene eseguito durante la build dell'immagine ma
