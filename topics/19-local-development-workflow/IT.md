@@ -27,4 +27,4 @@ output
 
 ***
 
-[Prosegui](../19-xxx/IT.md) al prossimo capitolo.
+[Prosegui](../20-compose-development-stack/IT.md) al prossimo capitolo.

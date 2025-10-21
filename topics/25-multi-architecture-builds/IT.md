@@ -170,4 +170,4 @@ incompatibilità o regressioni che l'emulazione con QEMU potrebbe non far emerge
 > Resources:
 > - [clock](../../sources/clock)
 
-[Prosegui](../26-xxx/IT.md) al prossimo capitolo.
+[Prosegui](../26-common-settings/IT.md) al prossimo capitolo.

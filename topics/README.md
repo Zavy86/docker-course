@@ -1,37 +1,31 @@
-# Topics @todo
+# Topics
 
 Below is a list of topics covered in this course:
 
  1. [History of Docker and Containers](01-docker-history/README.md)
- 2. Our Training Environment
- 3. Run our First Container
- 4. Run Containers in Background
- 5. Restarting and Attaching to Containers
- 6. Understanding Docker Images
- 7. Building Images Interactively
- 8. Building Images with a Dockerfile
- 9. Entrypoint and Commands
-10. Copying files during the Build
-11. Reduce Image Size
-12. Multi-Stage Builds
-13. Publishing Images to Registry
-14. Tips for efficient Dockerfile ? (inglobare o fare video dedicato)
-15. Naming, Labeling, and Inspecting
-16. Getting inside a Container (troubleshooting)
-17. Understanding Docker Networks
-18. Container Network Drivers
-19. Container Network Model
-20. Service Discovery with Containers
-21. Ambassadors ? (fare o tenere come video extra)
-22. Local Development Workflow (capire se fare qui o se spostare nei volumes sotto)
-23. Windows Containers ? (fare o tenere come video extra)
-24. Working with Volumes
-25. Compose for Development stack (capire se espandere)
-26. Advanced Dockerfile Syntax ? (fare o tenere come video extra)
-27. Buildkit
-28. Init Systems and PID 1
-29. Application Configuration
-30. Logging
-31. Limiting Resources
-32. Container Internals (inglobare cgroups, namespaces e copy-on-write filesystem)
-33. Orchestration overview
+ 2. [Our training environment](02-training-environment/README.md)
+ 3. [Run our first container](03-first-container/README.md)
+ 4. [Run containers in background](04-background-containers/README.md)
+ 5. [Restarting and attaching to containers](05-restarting-attaching/README.md)
+ 6. [Understanding Docker images](06-docker-images/README.md)
+ 7. [Building images interactively](07-interactive-images/README.md)
+ 8. [Building images wreadmeh a Dockerfile](08-dockerfile/README.md)
+ 9. [Entrypoint and command](09-entrypoint-cmd/README.md)
+10. [Copying files during the build](10-copying-files/README.md)
+11. [Reduce images size](11-reduce-images-size/README.md)
+12. [Images registry](12-images-registry/README.md)
+13. [Naming, labeling, and inspecting](13-naming-labeling-inspecting/README.md)
+14. [Getting inside a Container](14-troubleshooting/README.md)
+15. [Understanding Docker networks](15-docker-networks/README.md)
+16. [Container network drivers](16-network-drivers/README.md)
+17. [Service discovery wreadmeh containers](17-service-discovery/README.md)
+18. [Working wreadmeh volumes](18-docker-volumes/README.md)
+19. [Local development workflow](19-local-development-workflow/README.md)
+20. [Compose for development stack](20-compose-development-stack/README.md)
+21. [Advanced Dockerfile syntax](21-advanced-syntax/README.md)
+22. [Application configuration](22-application-configuration/README.md)
+23. [Limreadmeing resources](23-limreadmeing-resources/README.md)
+24. [Logging and monreadmeoring](24-logging-monreadmeoring/README.md)
+25. [Multi-archreadmeecture builds](25-multi-archreadmeecture-builds/README.md)
+26. [Common Docker settings](26-common-settings/README.md)
+27. [Container internals](27-container-internals/README.md)

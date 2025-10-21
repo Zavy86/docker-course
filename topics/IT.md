@@ -1,37 +1,31 @@
-# Argomenti @todo
+# Argomenti
 
 Di seguito è riportato un elenco degli argomenti trattati in questo corso:
 
- 1. Storia di Docker e dei Container
- 2. Il nostro ambiente di formazione
- 3. Eseguiamo il nostro primo container
- 4. Esecuzione dei container in background
- 5. Riavvio e collegamento ai container
- 6. Comprendere le immagini Docker
- 7. Creazione di immagini in modo interattivo
- 8. Creazione di immagini Docker con un Dockerfile
- 9. Avvio? e Comandi
-10. Copia dei file durante la build
-11. Ridurre la dimensione dell'immagine
-12. Build multi-stage
-13. Pubblicazione delle immagini sul registry
-14. Consigli per Dockerfile efficienti ? (includere o fare video dedicato)
-15. Denominazione, etichettatura e ispezione
-16. Accedere all'interno di un container (troubleshooting)
-17. Comprendere le reti Docker
-18. Driver di rete per container
-19. Modello di rete per container
-20. Service discovery con i container
-21. Ambassadors ? (fare o tenere come video extra)
-22. Workflow di sviluppo locale (capire se fare qui o spostare nei volumi sotto)
-23. Container Windows ? (fare o tenere come video extra)
-24. Lavorare con i volumi
-25. Compose per lo stack di sviluppo (capire se espandere)
-26. Sintassi avanzata del Dockerfile ? (fare o tenere come video extra)
-27. Buildkit
-28. Sistemi di init e PID 1
-29. Configurazione dell'applicazione
-30. Logging
-31. Limitazione delle risorse
-32. Interni dei container (includere cgroups, namespaces e filesystem copy-on-write)
-33. Panoramica sull'orchestrazione
+ 1. [Storia di Docker e dei container](01-docker-history/IT.md)
+ 2. [Il nostro ambiente di formazione](02-training-environment/IT.md)
+ 3. [Avvio del nostro primo container](03-first-container/IT.md)
+ 4. [Esecuzione di container in background](04-background-containers/IT.md)
+ 5. [Riavvio e collegamento ai container](05-restarting-attaching/IT.md)
+ 6. [Comprendere le immagini Docker](06-docker-images/IT.md)
+ 7. [Creazione di immagini in modo interattivo](07-interactive-images/IT.md)
+ 8. [Creazione di immagini con un Dockerfile](08-dockerfile/IT.md)
+ 9. [Punto di ingresso e comandi](09-entrypoint-cmd/IT.md)
+10. [Copiare file durante la build](10-copying-files/IT.md)
+11. [Ridurre la dimensione delle immagini](11-reduce-images-size/IT.md)
+12. [Registri delle immagini](12-images-registry/IT.md)
+13. [Nominare, etichettare e ispezionare](13-naming-labeling-inspecting/IT.md)
+14. [Accedere all'interno di un container](14-troubleshooting/IT.md)
+15. [Comprendere le reti Docker](15-docker-networks/IT.md)
+16. [Driver di rete per container](16-network-drivers/IT.md)
+17. [Scoperta dei servizi con i container](17-service-discovery/IT.md)
+18. [Lavorare con i volumi](18-docker-volumes/IT.md)
+19. [Flusso di sviluppo locale](19-local-development-workflow/IT.md)
+20. [Sviluppo tramite Compose](20-compose-development-stack/IT.md)
+21. [Sintassi avanzata dei Dockerfile](21-advanced-syntax/IT.md)
+22. [Configurazione delle applicazioni](22-application-configuration/IT.md)
+23. [Limitazione delle risorse](23-limiting-resources/IT.md)
+24. [Registrazione e monitoraggio](24-logging-monitoring/IT.md)
+25. [Compilazione multi architetturale](25-multi-architecture-builds/IT.md)
+26. [Impostazioni comuni di Docker](26-common-settings/IT.md)
+27. [Funzionamento interno dei container](27-container-internals/IT.md)
