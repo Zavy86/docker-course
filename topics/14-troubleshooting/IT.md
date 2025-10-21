@@ -201,4 +201,7 @@ file è stato scaricato così da non occupare spazio su disco.
 
 ***
 
+> Resources:
+> - [crash](../../sources/crash)
+
 [Prosegui](../15-docker-networks/IT.md) al prossimo capitolo.

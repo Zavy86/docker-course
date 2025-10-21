@@ -227,7 +227,7 @@ In questo modo abbiamo ottenuto la shell `sh` come previsto.
 ***
 
 > Resources:
-> - [figlet-command](../../sources/figlet-command) (command version)
-> - [figlet-entrypoint](../../sources/figlet-entrypoint) (entry point version)
+> - [figlet-command](../../sources/figlet-command)
+> - [figlet-entrypoint](../../sources/figlet-entrypoint)
 
 [Prosegui](../10-copying-files/IT.md) al prossimo capitolo.

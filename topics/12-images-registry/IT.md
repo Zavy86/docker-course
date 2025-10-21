@@ -27,13 +27,13 @@ Oltre al Docker Hub, esistono altri registry pubblici come **GitHub** Container 
 Inoltre puoi anche decidere di ospitare il tuo registry privato, in modo da poter gestire le immagini in modo privato e 
 sicuro sia in locale su un server aziendale che ovviamente su un server in cloud.
 
-La principale differenza fra il registro ufficiale di Docker e gli altri è nella nomenclatura delle immagini.
+La principale differenza fra il registry ufficiale di Docker e gli altri è nella nomenclatura delle immagini.
 
 Se ci riferiamo infatti ad esempio all'immagine `alpine`, che abbiamo visto che capitoli precedenti, in realtà il suo 
 nome completo sarebbe `docker.io/library/alpine`. In questo caso è Docker stesso a completare il nome dell'immagine, 
 aggiungendo il nome del registry ufficiale e il nome del repository.
 
-Mentre se stiamo usando un registro custom, dovremo specificare il nome completo dell'immagine, incluso l'indirizzo web
+Mentre se stiamo usando un registry custom, dovremo specificare il nome completo dell'immagine, incluso l'indirizzo web
 del registry, l'eventuale porta e il nome del repository ad esempio `registry.tld:1234/repository/image`.
 
 Ma vediamo nella pratica come pubblicare sul Docker Hub la nostra prima immagine.
@@ -60,7 +60,7 @@ Login Succeeded
 ```
 
 Dopodiché per pubblicare la nostra prima immagine non dovremo per prima cosa taggarla con un nome compatibile con
-il registro sul quale la vogliamo pubblicare.
+il registry sul quale la vogliamo pubblicare.
 
 Se vogliamo ad esempio utilizzare il Docker Hub, dovremo usare la sintassi `username/image`, quindi nel mio caso:
 
@@ -97,6 +97,56 @@ immagine, mentre per quanto riguarda l'immagine base di `apline` ha fatto il mou
 
 Se accediamo a Docker Hub, all'interno del nostro profilo potremo vedere la nostra immagine, il numero di download e le 
 informazioni sulla build.
+
+> __images registry__
+>
+> - docker
+> - podman
+> - gitlab
+> - harbor
+> - quay
+
+Se volessimo invece utilizzare un registry privato, open source e self-hosted, esistono varie soluzioni che potremo
+sfruttare, ad esempio il classico Docker Registry, il Podman Registry, il registry di GitLab, Harbor, Quay, ecc...
+
+In base alle vostre esigenze e al vostro ambiente, potrebbe essere opportuno scegliere uno di questi registry.
+
+Ma per questo tutorial vogliamo rimanere sul semplice e utilizzeremo quindi il Docker Registry classico.
+
+***
+
+Lanciamo quindi un container con l'immagine del registry:
+
+```shell
+$ docker run --name registry -d -p 5000:5000 registry:2
+```
+
+Fatto, a questo punto potremo taggare e pubblicare le immagini sul nostro registry privato.
+
+Se ad esempio volessimo distribuire la nostra immagine `figlet` sul nostro registry, non dovremo far altro che taggarla
+con l'url del nostro registry privato (avendo cura di specificare anche la porta):
+
+```shell
+$ docker tag figlet localhost:5000/figlet
+```
+
+Ed infine effettuare il push:
+
+```shell
+$ docker push localhost:5000/figlet
+```
+```terminaloutput
+Using default tag: latest
+The push refers to repository [localhost:5000/figlet]
+dfa81dc0debc: Pushed 
+0b83d017db6e: Pushed 
+latest: digest: sha256:ea4493cea59b9dd95fa888665bd89f79b784175dc9b93e84659078f1362504cb size: 738
+```
+
+Questa soluzione come anticipato non è da considerarsi definitiva o da usare in produzione, dovremmo infatti creare un
+ambiente sicuro, gestendo l'autenticazione, l'esposizione in HTTPS utilizzando la porta standard 443 (così da evitare di
+doverla specificare ogni volta) e servire anche un'interfaccia grafica così da rendere l'esperienza di utilizzo più
+gradevole.
 
 ***
 

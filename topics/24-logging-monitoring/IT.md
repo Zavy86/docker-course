@@ -186,4 +186,7 @@ affidabili.
 
 ***
 
+> Resources:
+> - [elk](../../sources/elk)
+
 [Prosegui](../25-multi-architecture-builds/IT.md) al prossimo capitolo.

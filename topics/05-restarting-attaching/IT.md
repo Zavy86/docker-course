@@ -128,4 +128,7 @@ risponde a questo segnale, ridisegnando nuovamente lo schermo automaticamente.
 
 ***
 
+> Resources:
+> - [clock](../../sources/clock)
+
 [Prosegui](../06-docker-images/IT.md) al prossimo capitolo.

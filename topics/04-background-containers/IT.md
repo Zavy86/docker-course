@@ -304,4 +304,7 @@ Vedremo poi nei capitoli successivi come far sparire i container da questa lista
 
 ***
 
+> Resources:
+> - [clock](../../sources/clock)
+
 [Prosegui](../05-restarting-attaching/IT.md) al prossimo capitolo.

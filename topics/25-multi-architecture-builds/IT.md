@@ -43,7 +43,7 @@ molto senso eseguirla su una macchina che per sua natura ha una singola architet
 Andiamo quindi a vedere come effettuare in un singolo comando una build multi piattaforma, taggandola ed effettuando il 
 push verso il registro Docker Hub.
 
-Spostiamoci ad esempio nella cartella dei sorgenti di `clock` ed eseguiamo il comando:
+Spostiamoci ad esempio nella cartella dei sorgenti di [`clock`](../../sources/clock) ed eseguiamo il comando:
 
 ```shell
 $ docker buildx build --platform linux/amd64,linux/arm64 --tag zavy86/clock --push .
@@ -166,5 +166,8 @@ magari sfruttando ambienti di test automatizzati o dispositivi reali, così da i
 incompatibilità o regressioni che l'emulazione con QEMU potrebbe non far emergere in fase di build.
 
 ***
+
+> Resources:
+> - [clock](../../sources/clock)
 
 [Prosegui](../26-xxx/IT.md) al prossimo capitolo.

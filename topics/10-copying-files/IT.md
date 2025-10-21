@@ -241,6 +241,6 @@ quanto specificato nel file `.dockerignore`.
 ***
 
 > Resources:
-> - [hello](../../sources/fhello) (hello world in c)
+> - [hello](../../sources/hello)
 
 [Prosegui](../11-reduce-images-size/IT.md) al prossimo capitolo.

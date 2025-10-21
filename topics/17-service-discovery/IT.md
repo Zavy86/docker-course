@@ -123,4 +123,7 @@ strumento che vedremo fra qualche capitolo: Docker Compose!
 
 ***
 
+> Resources:
+> - [clickster](../../sources/clickster)
+
 [Prosegui](../18-docker-volumes/IT.md) al prossimo capitolo.
