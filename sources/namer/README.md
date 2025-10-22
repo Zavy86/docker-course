@@ -2,7 +2,7 @@
 
 This repository contains a simple web application project of a name generator.
 
-## Development instructions
+## Instructions
 
 Build the image:
 
@@ -13,7 +13,7 @@ $ docker build -t namer .
 Run the development container:
 
 ```shell
-$ docker run -it -p 3000:3000 -v $(pwd):/app --name namer-dev namer
+$ docker run --rm -it -p 3000:3000 -v $(pwd):/app --name namer-dev namer
 ```
 
-
+Open your browser to [http://localhost:3000/](http://localhost:3000/) to see the application.
