@@ -68,7 +68,7 @@ material. Currently, you can attend the course in the following languages:
 
 ## Resources
 
-Below is a list of topics covered in this Docker course:
+Below is a list of resources available for this course:
 
 - Examples [source codes](sources)
 - [Slides](https://container.training/) that inspired this course
