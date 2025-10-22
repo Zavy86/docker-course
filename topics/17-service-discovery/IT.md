@@ -4,21 +4,21 @@
 >
 > - web server
 > - data store
-> - dev network
+> - tutorial network
 
 Immaginate di avere una semplice applicazione web che usa un data store per memorizzare i dati.
 
 In questo caso utilizzeremo un'applicazione Node.js che espone un contatore, premendo il pulsante il contatore verrà
 incrementato e il valore verrà memorizzato in un data store Redis.
 
-Per far si che i due container si possano parlare li metteremo entrambi nelle stessa rete `dev` creata precendetemente.
+Per far si che i due container si possano parlare li metteremo entrambi nelle rete `tutorial` creata precedentemente.
 
 ***
 
 Eseguiamo quindi l'applicazione partendo dall'immagine [clickster](../../sources/clickster):
 
 ```shell
-$ docker run --net dev -dP zavy86/clickster
+$ docker run --net tutorial -dP zavy86/clickster
 ```
 
 E vediamo su quale porta è stato esposto il servizio:
@@ -38,14 +38,14 @@ nostra applicazione tenta di risolvere il nome redis per connettersi, non trova 
 Procediamo quindi con l'esecuzione di un container Redis:
 
 ```shell
-$ docker run --net dev --net-alias redis -d redis
+$ docker run --net tutorial --net-alias redis -d redis
 ```
 
-Il container deve avere sia l'opzione `--net dev` per essere aggiunto alla rete, sia l'opzione `--net-alias redis` per 
-essere raggiungibile con il nome `redis`, in questo modo non dovremo fare riferimento all'indirizzo IP.
+Il container deve avere sia l'opzione `--net tutorial` per essere aggiunto alla rete, sia l'opzione `--net-alias redis` 
+per essere raggiungibile con il nome `redis`, in questo modo non dovremo fare riferimento all'indirizzo IP.
 
-Se ora refreshiamo nuovamente la pagina web, se tutto è andato a buon fine, vedremo comparire al posto dell'errore un
-bel pulsante con scitto `0 Clicks!`.
+Se ora aggiorniamo nuovamente la pagina web, se tutto è andato a buon fine, vedremo comparire al posto dell'errore un
+bel pulsante con scritto `0 Clicks!`.
 
 Se proviamo a cliccare il pulsante, vedremo il contatore incrementarsi!
 
@@ -69,7 +69,7 @@ $ docker rm $(docker ps -lq)
 E proviamo a lanciare una nuova istanza di Redis, ma questa volta senza l'alias di rete ma specificando un nome:
 
 ```shell
-$ docker run --net dev --name redis -d redis
+$ docker run --net tutorial --name redis -d redis
 ```
 
 Come potremo notare nel browser, anche in questo caso l'applicazione funziona correttamente, in quanto di default Docker
@@ -82,40 +82,91 @@ lo stesso alias sulla stessa rete, Docker li risolverebbe tramite un algoritmo d
 Lanciamo ad esempio altri due container con lo stesso alias:
 
 ```shell
-$ docker run --net dev --net-alias redis -d redis
-$ docker run --net dev --net-alias redis -d redis
+$ docker run --net tutorial --net-alias redis -d redis
+$ docker run --net tutorial --net-alias redis -d redis
 ```
 
 E proviamo poi ad eseguire un lookup tramite un busybox:
 
 ```shell
-$ docker run --net test --rm busybox nslookup redis
+$ docker run --net tutorial --rm busybox nslookup redis
 ```
 
 Come possiamo vedere dall'output in questo caso Docker sta risolvendo il nome `redis` tramite tutti i container con nome
-o con l'alias `redis` all'interno rete `test`.
+o con l'alias `redis` all'interno rete `tutorial`.
 
 ```terminaloutput
 Server:         127.0.0.11
 Address:        127.0.0.11:53
 Non-authoritative answer:
 Name:   redis
-Address: 10.10.8.3
+Address: 10.86.9.3
 Name:   redis
-Address: 10.10.8.4
+Address: 10.86.9.4
 Name:   redis
-Address: 10.10.8.5
+Address: 10.86.9.5
 ```
 
 Un informazione importante da tenere a mente è che Docker non crea gli alias nella rete `bridge` di default, quindi se
 vogliamo utilizzare questa funzione dobbiamo ricordarci di creare sempre una rete apposita.
 
 Inoltre per completezza vi segnalo che è anche possibile connettere e disconnettere un container da una rete "a caldo" e
-non solamente in fase di esecuzione. Per farlo possiamo sfruttare i comandi:
+non solamente in fase di esecuzione.
+
+Se ad esempio lanciamo un altro container `busybox` in modalità interattiva:
 
 ```shell
-$ docker network disconnect test 3ca
-$ docker network connect test 3ca
+$ docker run --name busybox -it busybox
+```
+
+E proviamo a effettuare nuovamente il lookup tramite questo container:
+
+```shell
+# nslookup redis
+```
+
+Vedremo che il comando non andrà a buon fine:
+
+```terminaloutput
+Server:         192.168.65.7
+Address:        192.168.65.7:53
+
+Non-authoritative answer:
+
+** server can't find redis: NXDOMAIN
+```
+
+Ma se da un'altra shell andiamo a connettere la rete `tutorial` al container `busybox`:
+
+```shell
+$ docker network connect tutorial busybox
+```
+
+E proviamo nuovamente a effettuare il lookup:
+
+```shell
+# nslookup redis
+```
+
+Vedremo che il comando questa volta andrà a buon fine:
+
+```terminaloutput
+Server:         127.0.0.11
+Address:        127.0.0.11:53
+
+Non-authoritative answer:
+Name:   redis
+Address: 10.86.9.3
+Name:   redis
+Address: 10.86.9.4
+Name:   redis
+Address: 10.86.9.5
+```
+
+Analogamente a `connect` possiamo sfruttare `disconnect` per scollegare un container da una rete:
+
+```shell
+$ docker network disconnect tutorial busybox
 ```
 
 In ogni caso tutte queste questioni vedrete che saranno gestibile in maniera molto più comoda e semplice grazie a uno
