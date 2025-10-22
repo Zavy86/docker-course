@@ -46,15 +46,15 @@ Below is a list of topics covered in this course:
 16. [Container network drivers](topics/16-network-drivers/IT.md)
 17. [Service discovery with containers](topics/17-service-discovery/IT.md)
 18. [Working with volumes](topics/18-docker-volumes/IT.md)
-19. [Local development workflow](topics/19-local-development-workflow/IT.md)      <- @todo
-20. [Compose for development stack](topics/20-compose-development-stack/IT.md)     <- @todo
+19. [Local development workflow](topics/19-local-development-workflow/IT.md)
+20. [Compose for development stack](topics/20-compose-development-stack/IT.md)     <-- @todo
 21. [Advanced Dockerfile syntax](topics/21-advanced-syntax/IT.md)
 22. [Application configuration](topics/22-application-configuration/IT.md)
 23. [Limiting resources](topics/23-limiting-resources/IT.md)
 24. [Logging and monitoring](topics/24-logging-monitoring/IT.md)
 25. [Multi-architecture builds](topics/25-multi-architecture-builds/IT.md)
 26. [Common Docker settings](topics/26-common-settings/IT.md)
-27. [Container internals](topics/27-container-internals/IT.md)      <- @todo
+27. [Container internals](topics/27-container-internals/IT.md)      <-- @todo
 
 
 ## Translations
