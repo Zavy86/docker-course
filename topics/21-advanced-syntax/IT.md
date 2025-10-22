@@ -75,7 +75,7 @@ dovessimo eseguire più comandi è buona norma concatenarli in un unica istruzio
 
 ```dockerfile
 FROM ubuntu
-RUN apt-get update  && apt-get install -y wget && apt-get clean
+RUN apt-get update  && apt-get install -y nginx && apt-get clean
 ```
 
 Oppure nella sua forma più leggibile multi riga utilizzando il backslash:
@@ -83,7 +83,7 @@ Oppure nella sua forma più leggibile multi riga utilizzando il backslash:
 ```dockerfile
 FROM ubuntu
 RUN apt-get update \
- && apt-get install -y wget \
+ && apt-get install -y nginx \
  && apt-get clean
 ```
 
@@ -111,7 +111,7 @@ aprirla manualmente tramite il comando `-p` specificandola.
 Possiamo dichiarare una porta in questo modo:
 
 ```dockerfile
-EXPOSE 8080
+EXPOSE 80
 ```
 
 Oppure anche più di una nella stessa istruzione:
@@ -123,7 +123,7 @@ EXPOSE 80 443
 E se vogliamo possiamo anche specificare un singolo protocollo:
 
 ```dockerfile
-EXPOSE 53/tcp 53/udp
+EXPOSE 80/tcp 443/tcp 53/udp
 ```
 
 ***
@@ -172,10 +172,10 @@ stesso modo su qualunque host.
 Qualora volessimo modificare il proprietario di un file o di una directory durante la copia, possiamo utilizzare:
 
 ```dockerfile
-COPY --chown=ubuntu:ubuntu . /src
+COPY --chown=nginx:nginx . /src
 ```
 
-In questo modo tutti i files e le directories verranno assegnati all'utente `ubuntu` e al gruppo `ubuntu`.
+In questo modo tutti i files e le directories verranno assegnati all'utente `nginx` e al gruppo `nginx`.
 
 ***
 
@@ -242,7 +242,7 @@ essere trattati in lettura/scrittura se necessario.
 Per specificare di trattare una directory come un volume possiamo utilizzare l'istruzione:
 
 ```dockerfile
-VOLUME /data
+VOLUME /usr/share/nginx/html
 ```
 
 In questo modo all'avvio del container Docker creerà un volume con un nome univoco e lo assocerà alla directory `/data`.
@@ -267,7 +267,7 @@ troveremmo dentro a essa.
 Per definire la working directory possiamo utilizzare l'istruzione:
 
 ```dockerfile
-WORKDIR /src
+WORKDIR /usr/share/nginx/html
 ```
 
 Ovviamente questo comando può essere specificato più volte all'interno dello stesso Dockerfile per cambiare la directory
@@ -293,15 +293,15 @@ Qualora in fase di avvio si specifichi una variabile di ambiente non definita, e
 Per definire una variabile di ambiente possiamo utilizzare l'istruzione:
 
 ```dockerfile
-ENV NODE_ENV=production
+ENV NGINX_PORT=80
 ```
 
-In questo modo abbiamo definito la variabile di ambiente `NODE_ENV` con il valore `production`, e nel caso in cui stiamo
-avviando il container in modalità di sviluppo potremo sovrascriverla con l'opzione `-e` seguita dal nome della variabile
-di ambiente e il suo nuovo valore:
+In questo modo abbiamo definito la variabile di ambiente `NGINX_PORT` assegnandole il valore `80`, e nel caso in cui 
+stessimo avviando il container in modalità di sviluppo potremo sovrascriverla con l'opzione `-e` seguita dal nome della 
+variabile di ambiente e il suo nuovo valore:
 
 ```shell
-$ docker run -e NODE_ENV=development nodejs
+$ docker run -e NGINX_PORT=8080 webserver
 ```
 
 ***
@@ -321,19 +321,95 @@ senza dover specificare nessuna password.
 Per effettuare il cambio di utente possiamo utilizzare l'istruzione:
 
 ```dockerfile
-USER ubuntu
+USER nginx
 ```
 
 In questo modo non saremo più root ma è come se avessimo eseguito il comando `su ubuntu` per interpretare quell'utente.
 
 ***
 
+> __advanced dockerfile syntax__
+>
+> cmd
+> - default command
+> - overwritable
 
+L'istruzione `CMD` è un metadata rappresentante il comando predefinito eseguito quando il container verrà avviato e 
+proprio come il comando `RUN`, anche questo è definibile in due modi: come testo o come oggetto JSON.
 
+Questo ci consente di evitare di dover specificare alcun comando dopo `docker run`, poiché il container eseguirà 
+automaticamente il comando predefinito. Qualora in fase di avvio andassimo a specificare un comando manuale, questo
+andrà a sovrascrivere il comando definito con questa istruzione.
 
+***
 
+Un esempio potrebbe essere quello di definire un comando che esegua il webserver nginx:
 
+```dockerfile
+CMD [ "nginx", "-g", "daemon off;" ]
+```
 
+In questo modo, una volta avviato, il container eseguirà automaticamente il webserver nginx con i parametri specificati.
+
+***
+
+> __advanced dockerfile syntax__
+>
+> entrypoint
+> - default entry point
+> - overwritable
+
+L'istruzione `ENTRYPOINT` è molto simile all'istruzione `CMD`, con la differenza che gli argomenti forniti sulla riga di
+comando in fase di avvio del container (o quelli specificati in `CMD`) vengono accodati all'`ENTRYPOINT`.
+
+Anch'essa è definibile nei due modi testuale e JSON ed è sovrascrivibile tramite l'opzione `--entrypoint`.
+
+***
+
+Riprendendo l'esempio precedente, potremo suddividere il comando in due parti:
+
+```dockerfile
+ENTRYPOINT [ "nginx" ]
+CMD [ "-g", "daemon off;" ]
+```
+
+In questo modo le due istruzioni lavoreranno in maniera sinergica, la prima per avviare il comando e la seconda per la
+specifica dei parametri, cosicché qualora lo ritenessimo necessario in fase di avvio potremmo specificare manualmente
+altri parametri e sovrascriverli, ad esempio potremmo passare `-t` per testare la configurazione del webserver.
+
+***
+
+> __advanced dockerfile syntax__
+>
+> - arg
+> - label
+> - shell
+> - stopsignal
+> - healthcheck
+> - onbuild
+
+Infine vi cito brevemente anche alcuni altri comandi per i quali vi rimando ovviamente alla
+[guida ufficiale](https://docs.docker.com/reference/dockerfile/)
+qualora li vogliate approfondire ulteriormente.
+
+Uno dei più utili è forse `ARG` che ci permette semplicemente di definire delle variabili a build-time (facoltative od
+obbligatorie) che potremmo riempire passandole al comando `docker build` con l'opzione `-build-arg`.
+
+Possiamo poi sfruttare l'istruzione `LABEL` per aggiunge metadati arbitrari all'immagine, come il nome del maintainer,
+l'URL del progetto, la licenza o qualsiasi altro dato che riteniamo utile.
+
+Tramite `SHELL` possiamo impostare il programma predefinito da utilizzare per l'interpretazione dei comandi testuali che
+scriviamo con `RUN`, `CMD`, ecc...
+
+Grazie a `STOPSIGNAL` potremo andare a impostare quale segnale ascoltare per arrestare il container docker, di default
+come abbiamo visto è impostato su `TERM` ma nulla ci vieta di sostituirlo.
+
+Possiamo anche definire delle modalità per valutare lo stato del container tramite `HEALTHCHECK` andando a specificare
+uno script o un comando da eseguire periodicamente.
+
+Infine vi cito anche `ONBUILD` che ci consente di memorizzare le istruzioni che verranno eseguite quando questa immagine
+verrà utilizzata come base per un'altra immagine, utile per esempio per l'installazione di librerie o la compilazione di
+sorgenti dell'applicazione prima del loro avvio.
 
 ***
 
