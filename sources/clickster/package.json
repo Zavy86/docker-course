@@ -1,6 +1,7 @@
 {
   "name": "clickster",
   "version": "1.0.0",
+  "license": "MIT",
   "main": "server.js",
   "dependencies": {
     "express": "^4.18.2",
