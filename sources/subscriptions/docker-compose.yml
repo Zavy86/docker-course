@@ -5,10 +5,6 @@ services:
       POSTGRES_DB: subscriptions
       POSTGRES_USER: dbuser
       POSTGRES_PASSWORD: dbpass
-    #volumes:
-    #  - ./postgres_data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
   app:
     build: .
     environment:

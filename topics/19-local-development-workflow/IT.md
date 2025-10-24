@@ -14,7 +14,7 @@ Vediamo quindi quale potrebbe essere un semplice workflow di sviluppo locale per
 
 ***
 
-Qualora ancora non l'avessimo fatto cloniamo questo repository:
+Qualora ancora non l'avessimo fatto cloniamo il repository di questo corso:
 
 ```shell
 $ git clone https://github.com/Zavy86/docker-course.git
@@ -39,7 +39,7 @@ Possiamo vedere all'interno della directory `public` il file `index.html` che ra
 nostra applicazione, il file `style.css` e la `favicon.ico`. Un `package.json` che contiene tutte le informazioni
 sulla nostra applicazione e un `server.js` che contiene il codice del nostro server Node.
 
-Ma soffermiamoci un attimo sul `Dockerfile`:
+Ma soffermiamoci un attimo sul [`Dockerfile`](../../sources/namer/Dockerfile):
 
 ```shell
 $ cat Dockerfile
@@ -161,8 +161,8 @@ drwxr-xr-x@  5 zavy  staff    160 Aug 07 16:40 public
 -rw-r--r--@  1 zavy  staff   1099 Aug 07 16:38 server.js
 ```
 
-Essa è stata generata al primo avvio del nostro server, il fatto che resti a disposizione sul nostro
-computer, fa sì che non sia necessario installarle ad ogni avvio del container, risparmiando tempo e risorse.
+Essa è stata generata al primo avvio del nostro server, il fatto che resti a disposizione sul nostro computer, fa sì che
+non sia necessario installarle a ogni avvio del container, risparmiando tempo e risorse.
 
 Qualora in ogni caso cancellassimo questa cartella
 

@@ -1,6 +1,6 @@
 # Namer
 
-This repository contains a simple web application project of a name generator.
+This repository contains a simple web application project of a random name generator.
 
 ## Instructions
 
