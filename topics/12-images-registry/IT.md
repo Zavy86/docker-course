@@ -17,8 +17,8 @@ Un images registry è un servizio che permette di archiviare, condividere e gest
 In pratica, è un "magazzino" online (o in locale) dove puoi salvare le immagini che hai creato, rendendole disponibili 
 per il download e l'utilizzo su altri host o da altri utenti.
 
-Il più noto e utilizzato è il [**Docker** Hub](https://hub.docker.com/), un servizio pubblico offerto da Docker in cui è
-possibile trovare tutte le immagini mantenute dal team di Docker e migliaia di immagini create dalla comunità. 
+Il più noto e utilizzato è il **Docker** Hub, un servizio pubblico offerto da Docker in cui è possibile trovare tutte le
+immagini mantenute dal team di Docker e migliaia di immagini create dalla comunità. 
 E una volta creato un account potrai anche pubblicare le tue immagini!
 
 Oltre al Docker Hub, esistono altri registry pubblici come **GitHub** Container Registry, **Google** Container Registry,
@@ -97,6 +97,8 @@ immagine, mentre per quanto riguarda l'immagine base di `apline` ha fatto il mou
 
 Se accediamo a Docker Hub, all'interno del nostro profilo potremo vedere la nostra immagine, il numero di download e le 
 informazioni sulla build.
+
+***
 
 > __images registry__
 >

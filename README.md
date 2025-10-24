@@ -21,7 +21,7 @@ experimenting with the various examples with the console in your hand.
 
 You can find all the course videos on YouTube in the following
 [playlist](https://www.youtube.com/playlist?list=XXX)
-inside my [channel](https://www.youtube.com/@Zavy86).
+inside my channel.
 
 
 ## Topics

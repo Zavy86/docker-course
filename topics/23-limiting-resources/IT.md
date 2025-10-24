@@ -140,4 +140,4 @@ nel [capitolo 7](../07-interactive-images/IT.md).
 
 ***
 
-[Prosegui](../24-xxx/IT.md) al prossimo capitolo.
+[Prosegui](../24-logging-monitoring/IT.md) al prossimo capitolo.

@@ -1,6 +1,6 @@
-# Compose for development stack
+# Common docker settings
 
-> __compose for development stack__
+> __common docker settings__
 >
 > - storage
 > - networking
@@ -57,9 +57,9 @@ moderni dovrebbe già essere impostato così di default, ma specificarlo non fa 
 
 ---
 
-Una delle cose a mio avviso più importanti sono le configurazioni relative al networking, infatti soprattutto se siamo
-in contesti aziendali con reti parecchio complesse, è facile incorrere in conflitti di indirizzi IP tra le reti Docker e
-quelle esistenti gestite dagli amministratori di rete.
+Un'altra delle cose a mio avviso più importanti sono le configurazioni relative al networking, infatti soprattutto se 
+siamo in contesti aziendali con reti parecchio complesse, è facile incorrere in conflitti di indirizzi IP tra le reti 
+Docker e quelle esistenti gestite dagli amministratori di rete.
 
 Il primo parametro da tenere in considerazione è il `bip` che permette di specificare l'indirizzo IP del bridge standard
 di Docker il cosiddetto `docker0`, ovvero la rete nella quale vengono distribuiti tutti i container se non diversamente
@@ -129,6 +129,8 @@ client dovremo andare ad abilitarli puntualmente tramite l'opzione `--insecure-r
   ]
 }
 ```
+
+---
 
 Passiamo poi alle configurazioni relative ai logs, proprio come per i volumi anche qui dobbiamo prestare la massima
 attenzione, in modo di evitare di ritrovarci con un server pieno zeppo di files di testo (spesso) inutili.
