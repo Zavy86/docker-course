@@ -74,6 +74,14 @@ Below is a list of resources available for this course:
 - [Slides](https://container.training/) that inspired this course
 
 
+## Contributing
+
+Contributions are welcome!
+
+If you want to share this course, or if you want to contribute to the contents, or if you want to support my project
+with a donation, please see [this page](contribute/README.md) for more information.
+
+
 ## Thanks
 
 A heartfelt thank you to [Alain Martini](https://github.com/inalto) for introducing me to containers, and to
