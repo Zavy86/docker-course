@@ -54,7 +54,7 @@ Below is a list of topics covered in this course:
 24. [Logging and monitoring](topics/24-logging-monitoring/IT.md)
 25. [Multi-architecture builds](topics/25-multi-architecture-builds/IT.md)
 26. [Common Docker settings](topics/26-common-settings/IT.md)
-27. [Container internals](topics/27-container-internals/IT.md)      <--- @todo
+27. [Container internals](topics/27-container-internals/IT.md)
 
 
 ## Translations
