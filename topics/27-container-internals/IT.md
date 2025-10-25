@@ -386,4 +386,4 @@ siano portabili e interoperabili tra diversi fornitori e piattaforme, standardiz
 
 ***
 
-[Prosegui](../../thanks/IT.md) al prossimo capitolo.
+[Prosegui](../../contribute/IT.md) al prossimo capitolo.

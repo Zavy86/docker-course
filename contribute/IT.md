@@ -1,6 +1,6 @@
-# Thanks
+# Contribute
 
-> __thanks__
+> __contribute__
 >
 > - share
 > - improve
