@@ -84,7 +84,7 @@ in SSH (qualora avessimo predisposto un server ssh), ma non è soluzione miglior
 Come avevamo visto precedentemente possiamo usare il comando:
 
 ```shell
-$ docker exec -it f4a sh
+$ docker exec -ti f4a sh
 ```
 
 Questo comando si occuperà di creare un nuovo processo `sh` all'interno del container e di collegarci al suo terminale.
@@ -161,7 +161,7 @@ $ docker commit ec2 debug
 E lanciare un nuovo container a partire da questa immagine, specificando un nuovo entrypoint:
 
 ```shell
-$ docker run -it --entrypoint sh debug
+$ docker run -ti --entrypoint sh debug
 ```
 
 In questo modo possiamo effettuare qualsiasi operazione all'interno del container e vedere i risultati.

@@ -23,7 +23,7 @@ server fisico.
 Se avviamo un container in modalità interattiva, come abbiamo fatto prima, con il comando:
 
 ```shell
-$ docker run -it alpine
+$ docker run -ti alpine
 ```
 
 Possiamo in qualunque momento staccarci dal container con la sequenza di shortcut `^P` e `^Q`, miraccomando, non con la
@@ -38,7 +38,7 @@ Qualora volessimo modificare manualmente questa sequenza di shortcut, possiamo f
 seguita dalla stringa contenente la sequenza di tasti desiderata, ad esempio:
 
 ```shell
-$ docker run -it --detach-keys ctrl-x alpine
+$ docker run -ti --detach-keys ctrl-x alpine
 ```
 
 Se non mi credete possiamo verificare che sia ancora in esecuzione con:

@@ -118,7 +118,7 @@ per cercare, scaricare o caricare le immagini che ci interessano.
 Guardiamo ora quali immagini sono presenti all'interno della nostra macchina:
 
 ```shell
-$ docker images ls
+$ docker image ls
 ```
 
 Riceveremo in output un elenco di tutte le immagini che possediamo.

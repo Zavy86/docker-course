@@ -17,7 +17,7 @@ Per eseguire queste operazioni avremo così modo di vedere il funzionamento dei 
 Cominciamo quindi come fatto già nei video precedenti eseguendo un container in modalità interattiva:
 
 ```shell
-$ docker run -it alpine
+$ docker run -ti alpine
 ```
 
 Una volta avviato Alpine, procediamo nuovamente con l'installazione di Figlet:
@@ -162,7 +162,7 @@ sha256:d04de44212d57d10f5300cab64e1116ac4ba4a151cdb3e22e997813317906288
 Se vogliamo fare una prova possiamo infatti avviare un nuovo container basato su questa immagine:
 
 ```shell
-$ docker run -it d04
+$ docker run -ti d04
 $ figlet "Hello Again!"
 ```
 
@@ -191,7 +191,7 @@ $ docker tag d04 alpine-figlet
 In questo modo per avviare la nostra speciale versione di Alpine con Figlet ci basterà digitare:
 
 ```shell
-$ docker run -it alpine-figlet
+$ docker run -ti alpine-figlet
 $ figlet Hello Tag!
 ```
 

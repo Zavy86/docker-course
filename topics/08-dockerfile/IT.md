@@ -118,7 +118,7 @@ risultato finale sempre identico.
 Procediamo come sempre a testarla lanciando un container in modalità interattiva:
 
 ```shell
-$ docker run -it d5e
+$ docker run -ti d5e
 $ figlet "Hello Builder!"
 ```
 

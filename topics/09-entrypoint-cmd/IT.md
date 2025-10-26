@@ -89,7 +89,7 @@ $ docker run figlet
    \_/ \_/ |__/|__/\___/\__/   |  |  |_/|__/
 ```
 
-A differenza di prima, se ora provassimo a eseguire il container in modalità interattiva, con il solito parametro `-it`,
+A differenza di prima, se ora provassimo a eseguire il container in modalità interattiva, con il solito parametro `-ti`,
 noteremo che non avremo accesso a shell come succedeva prima.
 
 Questo perche l'immagine alpine aveva come comando di default `/bin/sh`, avendo ora noi definito un `CMD` personalizzato
@@ -99,7 +99,7 @@ Per cui se volessimo avere nuovamente accesso alla shell, dovremmo specificare i
 sovrascrivere nuovamente quanto definito nel Dockerfile:
 
 ```shell
-$ docker run -it figlet sh
+$ docker run -ti figlet sh
 ```
 
 O anche `/bin/sh` in ogni caso il comando va inserito dopo il nome dell'immagine.
@@ -200,7 +200,7 @@ Ora però se proviamo a eseguire il container con il nome della shell al fondo p
 avevamo fatto precedentemente:
 
 ```shell
-$ docker run -it figlet sh
+$ docker run -ti figlet sh
 ```
 
 noteremo qualcosa di strano, invece di ottenere la shell `sh` abbiamo ottenuto sh scritto da Figlet:
@@ -219,7 +219,7 @@ inserito all'interno del `CMD` e gli verrà concatenato.
 Se volessimo ottenere una shell dovremo quindi andare a sovrascrivere l'istruzione `ENTRYPOINT` con la shell:
 
 ```shell
-$ docker run -it --entrypoint sh figlet
+$ docker run -ti --entrypoint sh figlet
 ```
 
 In questo modo abbiamo ottenuto la shell `sh` come previsto.

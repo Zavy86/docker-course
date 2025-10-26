@@ -67,7 +67,7 @@ Vediamo ora alcuni esempi di limitazione delle risorse.
 Lanciamo un container Python limitandone la memoria a 100 megabyte:
 
 ```shell
-$ docker run -it --rm --memory 100m python
+$ docker run -ti --rm --memory 100m python
 ```
 
 In questo modo non appena supereremo i 100 megabyte di memoria, il container inizierà a utilizzare la memoria `swap` e 
@@ -85,7 +85,7 @@ while True:
 Se invece lo lanciamo con entrambe le opzioni:
 
 ```shell
-$ docker run -it --rm --memory 100m --memory-swap 150m python
+$ docker run -ti --rm --memory 100m --memory-swap 150m python
 ```
 
 Come prima il nostro container una volta superati i 100 megabyte di memoria inizierà a utilizzare la memoria `swap` ma
@@ -103,13 +103,13 @@ while True:
 Se vogliamo limitarne l'utilizzo della CPU al 50%:
 
 ```shell
-$ docker run -it --rm --cpus="0.5" python
+$ docker run -ti --rm --cpus="0.5" python
 ```
 
 Se invece disponiamo di più core possiamo addirittura superare il 100%:
 
 ```shell
-$ docker run -it --rm --cpus="2" python
+$ docker run -ti --rm --cpus="2" python
 ```
 
 In questo caso stiamo utilizzando il 200% di CPU ovvero due interi core.

@@ -116,7 +116,7 @@ non solamente in fase di esecuzione.
 Se ad esempio lanciamo un altro container `busybox` in modalità interattiva:
 
 ```shell
-$ docker run --name busybox -it busybox
+$ docker run --name busybox -ti busybox
 ```
 
 E proviamo a effettuare nuovamente il lookup tramite questo container:

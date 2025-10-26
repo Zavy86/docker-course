@@ -17,7 +17,7 @@ E scopriremo infine come stopparli e come ottenere la lista di tutti i container
 
 ***
 
-Iniziamo quindi con l'esecuzione di un piccolo [container](/sources/clock/) non interattivo. 
+Iniziamo quindi con l'esecuzione di un piccolo [container](/sources/clock/) in modalità interattiva. 
 
 ```shell
 $ docker run zavy86/clock
@@ -54,7 +54,7 @@ immagine personalizzata creata dall'utente Zavy86.
 A volte capita che un `^C` non sia sufficiente per arrestare un container, cerchiamo di capirne il perché.
 
 Quando premiamo `^C` viene inviato al container un segnale di interruzione `SIGINT`.
-Se abbiamo avviato il container in modalità interattiva `-it` il segnale viene inviato al processo in foreground.
+Se abbiamo avviato il container in modalità interattiva `-ti` il segnale viene inviato al processo in foreground.
 Mentre se abbiamo lanciato un container in modalità non interattiva, come in questo caso, il segnale viene inviato al
 processo con `PID 1`.
 Questo processo è un po' particolare, a meno che non sia stato specificatamente programmato per gestire questo segnale,
@@ -72,6 +72,7 @@ Al momento, abbiamo un'unica soluzione: aprire un'altra sessione del terminale e
 ***
 
 Vediamo ora la modalità in background.
+
 Per lanciare un container in background dobbiamo aggiungere l'opzione `-d` al comando `docker run`.
 
 ```shell
@@ -144,7 +145,7 @@ in questi casi il comando `docker ps` potrebbe risultare molto lungo e difficile
 l'opzione `-l` che ci permette di visualizzare solamente l'ultimo container avviato.
 
 ```shell
-$ docker ps
+$ docker ps -l
 ```
 
 Come possiamo vedere ora il comando ne restituisce soltanto uno.
@@ -168,7 +169,7 @@ a658e9ee5d97
 66e1d31f67d9
 ```
 
-Ovviamente queste opzioni possono essere combinate. 
+Ovviamente queste opzioni possono essere combinate fra loro. 
 
 ```shell
 $ docker ps -lq

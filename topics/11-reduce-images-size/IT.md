@@ -326,7 +326,7 @@ In questo caso l'immagine generata sarà quella di compilazione del programma, a
 effettuare eventuali debug o tests:
 
 ```shell
-$ docker run -it hello-compiler sh
+$ docker run -ti hello-compiler sh
 ```
 ```shell
 # ls -l

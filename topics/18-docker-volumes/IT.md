@@ -63,7 +63,7 @@ In questo modo il web server andrà a servire le pagine presenti nel volume, com
 Lanciamo ora un secondo container puntando allo stesso volume:
 
 ```shell
-$ docker run -it -v nginx-www:/www alpine
+$ docker run -ti -v nginx-www:/www alpine
 ```
 
 In questo caso abbiamo usato un path differente nel container `alpine`, proviamo a vedere cosa contiene:
@@ -195,7 +195,7 @@ $ docker run -d --name redis7 redis:7
 Dopodiché sfruttiamo il solito `busybox` per collegarci tramite `telnet` al database:
 
 ```shell
-$ docker run -it --rm --link redis7 busybox telnet redis7 6379
+$ docker run -ti --rm --link redis7 busybox telnet redis7 6379
 ``` 
 
 Usando l'opzione `--link` è un piccolo workaround per poter collegare i due container senza dover creare una rete bridge
@@ -231,7 +231,7 @@ $ docker run -d --name redis8 --volumes-from redis7 redis:8
 Ricolleghiamoci nuovamente tramite `telnet`:
 
 ```shell
-$ docker run -it --rm --link redis8 busybox telnet redis8 6379
+$ docker run -ti --rm --link redis8 busybox telnet redis8 6379
 ``` 
 ```terminaloutput
 Connected to redis8
@@ -297,7 +297,7 @@ Ultima nota, il comando -v può essere usato anche per montare singoli file, non
 Vi capiterà spesso di vedere montare il socket di Docker in questo modo:
 
 ```shell
-$ docker run -it -v /var/run/docker.sock:/var/run/docker.sock docker sh
+$ docker run -ti -v /var/run/docker.sock:/var/run/docker.sock docker sh
 ``` 
 
 In questo caso stiamo creando un cosiddetto "Docker in Docker" che ci permette di controllare il nostro host Docker da 

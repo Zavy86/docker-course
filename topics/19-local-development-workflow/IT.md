@@ -75,10 +75,10 @@ $ docker build -t namer .
 A questo punto non ci resta che avviare il container con alcuni parametri aggiuntivi:
 
 ```shell
-$ docker run --rm -it -p 3000:3000 -v $(pwd):/app namer
+$ docker run --rm -ti -p 3000:3000 -v $(pwd):/app namer
 ```
 
-Il primo parametro `--rm` indica che il container dovrà essere rimosso al termine dell'esecuzione, il parametro `-it`
+Il primo parametro `--rm` indica che il container dovrà essere rimosso al termine dell'esecuzione, il parametro `-ti`
 come abbiamo già visto ci permette di interagire con il container in modalità terminale, il parametro `-p 3000:3000`
 espone la porta sul nostro host e il parametro `-v` monta la directory corrente `$(pwd)` all'interno della directory
 `/app` del container.

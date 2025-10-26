@@ -123,7 +123,7 @@ $ docker run -d --name webserver --net tutorial nginx
 Ora lanciamo un nuovo container sulla medesima rete:
 
 ```shell
-$ docker run -it --net tutorial busybox
+$ docker run -ti --net tutorial busybox
 ```
 
 E proviamo a effettuare un ping al container di Nginx:

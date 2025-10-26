@@ -48,7 +48,7 @@ Con il comando precedente, abbiamo semplicemente avviato un container e abbiamo 
 Proviamo ora invece a eseguire sempre il comando `run` ma con altri parametri.
 
 ```shell
-$ docker run -it alpine
+$ docker run -ti alpine
 ```
 
 Questo comando avvia un nuovo container, completamente separato rispetto a quello precedente.
@@ -62,7 +62,7 @@ Status: Downloaded newer image for alpine:latest
 / #
 ```
 
-Il parametro `-it`, versione abbreviata di `--interactive --tty`, ci permette di avviare il container in modalità
+Il parametro `-ti`, versione abbreviata di `--tty --interactive`, ci permette di avviare il container in modalità
 interattiva; ovvero richiede a Docker di connetterci allo STDIN del container e di allocarci uno pseudo terminale.
 
 Se utilizziamo infatti il comando:
@@ -155,7 +155,7 @@ liberate. Ma resta comunque presente su disco, con tutti i suoi files, pronto pe
 Torniamo quindi nel nostro terminale e rilanciamo il comando:
 
 ```shell
-$ docker run -it alpine
+$ docker run -ti alpine
 ```
 
 E una volta ricollegati alla shell, proviamo a lanciare nuovamente il comando `figlet`:
