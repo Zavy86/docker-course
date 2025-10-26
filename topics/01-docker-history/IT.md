@@ -8,9 +8,9 @@ Watch on YouTube: [https://youtu.be/xxxxxxxxxxx](https://youtu.be/xxxxxxxxxxx)
 > - why containers
 > - why Docker emerges
 
-Ciao Devs, e benvenuti in questa nuova serie di video dedicati al mondo dei containers.
+Ciao Devs, e benvenuti in questo mio nuovo video corso dedicati al mondo dei containers.
 
-In questo primo video non vedremo nella pratica come usare Docker, ma faremo una breve panoramica sulla storia dei
+In questo primo capitolo non vedremo nella pratica come usare Docker, ma faremo una breve panoramica sulla storia dei
 containers e del motivo per il quale sono diventati così importanti negli ultimi anni e cosa ci ha portato a Docker.
 
 ***

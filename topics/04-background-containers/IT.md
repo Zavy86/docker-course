@@ -58,7 +58,7 @@ Se abbiamo avviato il container in modalità interattiva `-it` il segnale viene 
 Mentre se abbiamo lanciato un container in modalità non interattiva, come in questo caso, il segnale viene inviato al
 processo con `PID 1`.
 Questo processo è un po' particolare, a meno che non sia stato specificatamente programmato per gestire questo segnale,
-di default ignora il segnale `SIGINT` e considera solamente i segnali `SIGKILL` e `SIGSTOP`. @todo verificare che sia stop e non term
+di default ignora il segnale `SIGINT` e considera solamente i segnali `SIGKILL` e `SIGTERM`.
 
 Il processo `PID 1` è speciale perché ha alcune responsabilità extra.
 Direttamente o indirettamente si occupa dell'avvio di tutti gli altri processi del container.
