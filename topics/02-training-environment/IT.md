@@ -2,8 +2,8 @@
 
 > __our training environment__
 >
-> - docker desktop
-> - docker on linux vm
+> - on desktop
+> - on linux server
 > - play with docker
 
 Per seguire questo corso non hai bisogno di nulla, puoi semplicemente guardare i video o seguire questa documentazione.
