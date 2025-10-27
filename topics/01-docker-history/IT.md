@@ -25,7 +25,7 @@ containers, del motivo per il quale sono diventati così importanti negli ultimi
 L'industria dello sviluppo software è cambiata.
 
 Inutile stare qui a raccontarcela, applicazioni monolitiche in singoli ambienti di produzione sono stati la norma per
-decenni, ma oggi le cose sono cambiate. 
+decenni, ma oggi grazie anche alla virtualizzazione sempre più spinta i sistemi si sono evolute di parecchio.
 
 Non possiamo più permetterci di avere soluzioni poco scalabili e con tempi di sviluppo lunghi.
 
@@ -41,7 +41,8 @@ Non possiamo più permetterci di avere soluzioni poco scalabili e con tempi di s
 Al giorno d'oggi le applicazioni sono composte da tanti piccoli servizi che collaborano tra loro, e che possono essere
 distribuiti in molti ambienti diversi.
 
-Le richieste del business sono sempre più veloci, e le applicazioni devono essere sviluppate in modo iterativo.
+Le richieste del business sono sempre più veloci, e le applicazioni tendono sempre pià spesso a essere sviluppate in
+modo iterativo.
 
 La velocità dei rilasci e la possibilità di scalare le risorse in maniera facile e veloce sono requisiti fondamentali.
 
@@ -68,7 +69,7 @@ acceptance tests, agli ambienti di staging per finire poi con quelli di produzio
 > - in cloud
 > - hybrid
 
-In produzione dove? In locale? In cloud? In un ambiente ibrido?
+E poi, in produzione dove? In locale? In cloud? In un ambiente ibrido?
 
 Tutte queste opzioni non fanno altro che creare una matrice infernale dalla quale è sempre difficile districarsi.
 
@@ -80,19 +81,19 @@ Tutte queste opzioni non fanno altro che creare una matrice infernale dalla qual
 > - reduction of losses
 > - maximization of production
 
-Se proviamo a fare un parallelo con l'industria dei trasporti, nel corso del tempo sono trovati a dover gestire una 
-simile complessità.
+Se proviamo a fare un parallelo con l'industria dei trasporti, nel corso del tempo si sono trovati a dover gestire una 
+complessità simile.
 
 Immaginate varie tipologie di beni da trasportare come esempio: piccoli pacchi, scatole, sacchi, barili, casse, ecc...
 Tutti questi beni hanno una loro dimensione differente e un proprio modo di essere trasportati, immaginate di dover 
-avere per ognuna di queste tipologia una mezzo di trasporto differenze, la cosa era difficilmente scalabile.
+avere per ognuna di queste tipologia una mezzo di trasporto differenze, la cosa sarebbe difficilmente scalabile.
 
 Così sono stati inventati i Containers, ovvero delle scatole di dimensioni sempre uguali, con gli stessi agganci e con
-le stesse caratteristiche. All'interno dei quali poi ognuno può metterci qualsiasi tipologia di beni. Gestendo eventuali
-imballaggi, protezioni e supporti dedicati al singolo bene internamente al container.
+le stesse caratteristiche. All'interno dei quali poi ognuno poteva metterci qualsiasi tipologia di bene. Gestendo per
+ognuno di essi eventuali imballaggi, protezioni e supporti dedicati al singolo bene internamente al container.
 
-Questo ha permesso di massimizzare la produzione i container e di standardizzare i mezzi di trasporto riducendo i costi,
-riducendo le perdite e dando vita a quella che oggi è definita la globalizzazione.
+Questo ha permesso di avviare la produzione in massa dei container e di standardizzare i mezzi di trasporto riducendo 
+i costi, riducendo le perdite e dando vita a quella che oggi è stata definita globalizzazione.
 
 Al giorno d'oggi oltre 5000 navi trasportano oltre 200 millioni di containers ogni anno!
 
@@ -126,7 +127,7 @@ Ma quali sono i punti di forza di Docker dal punto di vista degli sviluppatori?
 
 Primo fra tutti l'on-boarding di nuovi collaboratori nel team.
 Preparate un file Docker utilizzando le immagini ufficiali o delle immagini personalizzate, descrivete lo stack in un
-file Docker Compose e committate il tutto all'interno del repository del progetto.
+file Docker Compose ed effettuate il commit di tutto quanto all'interno del repository del progetto.
 In questo modo, un nuovo collaboratore, dovrà semplicemente clonare il repository, eseguire il Docker compose e sarà
 pronto per iniziare a lavorare in pochissimi minuti.
 
@@ -154,7 +155,7 @@ Ma da dove arriva Docker, e perché prima del suo avvento la containerizzazione 
 
 Prima di Docker, non esisteva praticamente nessun metodo standardizzato per la costruzione di container.
 Nonostante sui sistemi linux esistessero già tutti i componenti base per la costruzione di container, come chroot, LXC, 
-cgroups, eccetera, il tutto era molto complesso e difficile da gestire.
+cgroups, namespace, eccetera, il tutto era molto complesso e difficile da gestire.
 
 Sicuramente non paragonabile a utilizzare un semplice comando come `docker run debian`!
 
@@ -164,7 +165,7 @@ scatole di metallo standardizzate, con la stessa dimensione gli stessi buchi e g
 Prima dell'avvento di Docker, si distribuivano pacchetti, `.deb`, `.rpm`, `.jar`, `.exe`, con un incredibile numero di
 problemi dovuti alle dipendenze e alle configurazioni.
 Grazie a Docker ora distribuiamo interi sistemi preconfezionati, non solo applicazioni e servizi.
-Ovviamente questo ha un impatto sul peso del pacchetto, ma grazie alla distrubuzione a layers delle immagini, che avremo
+Ovviamente questo ha un impatto sul peso del pacchetto, ma grazie alla distribuzione a layers delle immagini, che avremo
 modo di vedere in seguito, ci troveremo a dover distribuire solamente le parti che cambiano, risparmiando un sacco di
 risorse e tempo.
 
@@ -174,7 +175,7 @@ E capitava spesso che un applicazione funzionasse perfettamente in locale, desse
 terribilmente una volta portata in produzione.
 Grazie a Docker possiamo finalmente essere certi al cento per cento che se l'applicazione funziona in locale, lo farà
 anche in test e produzione. Dovremo gestire altri problemi come i puntamenti e il networking, ma potremo essere certi
-il codice sviluppato e distribuito sia funzionante.
+il codice sviluppato e distribuito sia perfettamente funzionante.
 In questo modo, potremo permetterci di automatizzare molti processi di deployment riducendo i tempi e i costi.
 
 ***
