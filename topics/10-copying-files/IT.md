@@ -10,24 +10,24 @@ Nei capitoli precedenti abbiamo visto come creare un'immagine personalizzata ins
 manager della distribuzione.
 
 Ovviamente possiamo anche copiare dei files all'interno delle nostre immagini. Ma per poter eseguire questa operazione
-dobbiamo introdurre il contesto di costruzione.
+dobbiamo approfondire un pochino il contesto di build.
 
 Se vi ricordate avevamo creato una directory e al suo interno avevamo creato un Dockerfile. Dopodiché quando abbiamo
-eseguito il comando build abbiamo specificato il build context aggiungendo un punto `.` alla fine del comando.
+eseguito il comando build abbiamo specificato il contesto di build aggiungendo un punto `.` alla fine del comando.
 
 Quando eseguiamo questo comando tutto il contenuto all'interno della directory indicata viene passato al builder per
 la creazione dell'immagine. All'interno di questa directory deve necessariamente essere presente un Dockerfile.
 Tutti i files passati al contesto di build non vengono automaticamente copiati nell'immagine, ma saranno disponibili
-all'interno del Dockerfile per eseguire eventuali operazioni.
+al compilatore Docker per eseguire eventuali operazioni definite nel Dockerfile.
 
-Come magari avrete già visto in Git, anche in Docker è possibile specificare un file per escludere eventuali files e
-directory che non vogliamo vengano inclusi nel contesto di build.
+Come magari avrete già visto in Git, anche in Docker è possibile specificare eventuali files e directory da escludere
+che non vogliamo vengano inclusi nel contesto di build.
 
 Ma vediamolo nella pratica.
 
 ***
 
-Partiamo con il creare una directory di lavoro e spostiamoci al suo interno:
+Partiamo con il creare una nuova directory di lavoro e spostiamoci al suo interno:
 
 ```shell
 $ mkdir hello && cd $_
@@ -49,12 +49,11 @@ int main () {
 }
 ```
 
-Non è importante che conosciate il linguaggio `C`, come vedete è un semplice hello world.
-Tuttavia dovete sapere che il linguaggio `C` necessita di essere compilato per poter essere eseguito.
-E per farlo useremo il compilatore `gcc` all'interno del nostro Dockerfile, tranquilli non dovete installare nulla sulla
-vostra macchina.
+Non è importante che conosciate il linguaggio `C`, come vedete è un semplice hello world. Tuttavia dovete sapere che il 
+linguaggio `C` necessita di essere compilato per poter essere eseguito. E per farlo dovremo installare il compilatore 
+`gcc` e lo faremo all'interno del nostro Dockerfile, tranquilli non dovete installare nulla sulla vostra macchina.
 
-Creiamo quindi il nostro Dockerfile:
+Creiamo quindi anche il Dockerfile:
 
 ```shell
 $ nano Dockerfile
@@ -67,14 +66,15 @@ RUN gcc /hello.c -o /hello
 CMD /hello
 ```
 
-Come avevamo fatto precedentemente, partiamo dall'immagine base `alpine` e installiamo il compilatore `gcc` e la sua
-libreria di supporto.
+Come avevamo fatto precedentemente, partiamo dall'immagine base `alpine` e installiamo il compilatore `gcc` e le sue
+librerie di supporto.
 
 Dopodiché ecco che entra in azione il comando `COPY` che ci permette per l'appunto di copiare il nostro file sorgente
 all'interno dell'immagine. Il primo parametro sarà il nome del file da copiare e il secondo il percorso in cui copiarlo.
 Come vedete non ho specificato nessun path completo, quindi il file verrà preso dalla cartella corrente, sempre rispetto
 al contesto di build, quindi ci aspettiamo che il file `hello.c` sia nella stessa identica posizione del `Dockerfile`.
-E verrà copiato nella root directory della nostra immagine.
+E verrà copiato nella root directory della nostra immagine. Se volessimo fare i pignoli e rendere il tutto più leggibile
+potremo specificare la notazione `./hello.c` in modo da rendere il tutto più chiaro.
 
 Dopodiché tramite il comando `RUN` compiliamo il sorgente generando l'eseguibile `hello`, in unix come saprete non sono
 obbligatorie le estensioni dei files.
@@ -227,7 +227,15 @@ Hello World
 Vedremo il messaggio aggiornato!
 
 Giusto per concludere il comando `COPY` ci permette di copiare sia singoli files che intere directory. Nel qual caso la
-copia avviene in maniera ricorsiva. Se utilizziamo infatti nel nostro Dockerfile la sintassi:
+copia avviene in maniera ricorsiva. Se creiamo infatti una directory con dentro un file di prova:
+
+```shell
+$ mkdir test
+$ echo "test" > test/file.txt
+$ echo "hello" > readme.txt
+```
+
+E modifichiamo il Dockerfile in questo modo:
 
 ```dockerfile
 [...]
@@ -235,8 +243,38 @@ COPY . /
 [...]
 ```
 
+Copieremo tutti i files, le directory e le sottodirectory presenti all'interno del contesto di build.
+
+```shell
+$ docker build -t hello .
+```
+
+Come possiamo verificare all'interno del container:
+
+```shell
+$ docker run -ti hello sh
+# ls -l
+```
+
+Se aggiungiamo anche il file `.dockerignore` con il seguente contenuto:
+
+```shell
+$ echo "readme.txt" > .dockerignore
+```
+
+Ed effettuiamo nuovamente la build:
+
+```shell
+$ docker build -t hello .
+```
+
 Copieremo tutti i files, le directory e le sottodirectory presenti all'interno del contesto di build a eccezione di
-quanto specificato nel file `.dockerignore`.
+quanto specificato nel file `.dockerignore`, come possiamo facilmente verificare all'interno del container:
+
+```shell
+$ docker run -ti hello sh
+# ls -l
+```
 
 ***
 

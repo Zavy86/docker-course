@@ -1,7 +1,7 @@
 # History of Docker and containers
 
 ![cover](https://img.youtube.com/vi/xxxxxxxxxxx/mqdefault.jpg)  
-Watch on YouTube: [https://youtu.be/xxxxxxxxxxx](https://youtu.be/xxxxxxxxxxx)
+Guarda su YouTube: [https://youtu.be/xxxxxxxxxxx](https://youtu.be/xxxxxxxxxxx)
 
 > __history of Docker and containers__
 >
@@ -10,8 +10,8 @@ Watch on YouTube: [https://youtu.be/xxxxxxxxxxx](https://youtu.be/xxxxxxxxxxx)
 
 Ciao Devs, e benvenuti in questo mio nuovo video corso dedicati al mondo dei containers.
 
-In questo primo capitolo non vedremo nella pratica come usare Docker, ma faremo una breve panoramica sulla storia dei
-containers e del motivo per il quale sono diventati così importanti negli ultimi anni e cosa ci ha portato a Docker.
+In questo primo capitolo non vedremo nella pratica come usare Docker ma faremo una breve panoramica sulla storia dei
+containers, del motivo per il quale sono diventati così importanti negli ultimi anni e cosa ci ha portato a Docker.
 
 ***
 
