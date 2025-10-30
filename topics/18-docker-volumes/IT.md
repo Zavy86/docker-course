@@ -95,7 +95,7 @@ Ed modifichiamo il contenuto del file:
 [...]
 ```
 
-Usciamo salvando con `Ctrl+X` e `Y`, poi torniamo al browser e aggiorniamo la pagina: `http://localhost:8080` e vedremo
+Usciamo salvando con `^X` e `Y`, poi torniamo al browser e aggiorniamo la pagina: `http://localhost:8080` e vedremo
 che la pagina sarà servita con il contenuto aggiornato!
 
 ***

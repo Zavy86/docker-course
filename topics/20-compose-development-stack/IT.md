@@ -217,7 +217,7 @@ Come possiamo vedere è una semplicissima applicazione di gestione delle sottosc
 ---
 
 Ora se volessimo smettere di lavorare sul progetto, per fermare lo stack di sviluppo locale, ci basterebbe premere 
-`CTRL+C` nella console in cui siamo collegati, in questo modo Docker Compose invierebbe un segnale di terminazione a
+`^C` nella console in cui siamo collegati, in questo modo Docker Compose invierebbe un segnale di terminazione a
 entrambi i container e li fermerebbe in modo ordinato.
 
 In alternativa potremmo aprire una nuova console, spostarci nella directory del progetto e lanciare il comando:

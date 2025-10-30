@@ -7,8 +7,9 @@
 > - commit, tag, diff 
 
 In questo capitolo vedremo come creare la nostra prima immagine docker in modalità interattiva.
+
 Partiremo da un'immagine base per eseguire il nostro container, procederemo poi con l'installazione di un pacchetto, nel
-caso specifico il solito Figlet già visto in precedenza, e infine salveremo il tutto in una nuova immagine docker.
+caso specifico il solito Figlet già visto in precedenza, e infine salveremo il tutto in una nuova immagine Docker.
 
 Per eseguire queste operazioni avremo così modo di vedere il funzionamento dei comandi commit, tag e diff di Docker.
 

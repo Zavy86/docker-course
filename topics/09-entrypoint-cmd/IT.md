@@ -15,7 +15,7 @@ La prima permette di eseguire un comando specifico e puntuale, molto utile in ca
 interno diversi programmi o applicazioni che si vuole poter fare eseguire dall'utente.
 
 Il secondo permette di predisporre un comando fisso, lasciando poi all'utente la possibilità di aggiungere parametri
-o argomenti realtivi al comando stesso, più utile in caso di immagini che contengono un singolo programma.
+o argomenti relativi al comando stesso, più utile in caso di immagini che contengono un singolo programma.
 
 Ma vediamoli in azione...
 
@@ -27,7 +27,7 @@ Riprendiamo il Dockerfile che avevamo creato nello capitolo precedente e andiamo
 $ nano Dockerfile
 ```
 
-aggiungendo un comando:
+Aggiungiamo il comando:
 
 ```dockerfile
 FROM alpine
@@ -38,8 +38,8 @@ CMD figlet -f script "Welcome"
 Tramite l'istruzione `CMD` stiamo impostando un comando di default che verrà eseguito all'avvio del container qualora
 non venga specificato altrimenti al momento della sua creazione.
 
-L'espressione `CMD` è un cosiddetto XXX, ovvero non è un comando che viene eseguito durante la build dell'immagine ma
-solamente in fase di esecuzione, per cui non importa se la mettiamo in cima, in mezzo o in fondo al Dockerfile.
+L'espressione `CMD` è un cosiddetto metadata, ovvero non è un comando che viene eseguito durante la build dell'immagine
+ma solamente in fase di esecuzione, per cui non importa se la mettiamo in cima, in mezzo o in fondo al Dockerfile.
 Tenete però presente che se la inserirete più volte l'ultima avrà sempre la meglio sovrascrivendo le precedenti.
 
 Usciamo e salviamo il file e rieseguiamo la build dell'immagine:
@@ -74,7 +74,7 @@ Come possiamo notare non c'è traccia del comando all'interno delle operazioni e
 sarà poi valutato dal runtime e non in fase di build.
 
 Possiamo anche notare un warning che ci segnala che sarebbe meglio utilizzare la modalità JSON per il comando, come per
-l'istruzione `RUN` infatti anche `CMD` accetta la sitassi JSON ma per il momento possiamo ignorare la notifica.
+l'istruzione `RUN` infatti anche `CMD` accetta la sintassi JSON ma per il momento possiamo ignorare la notifica.
 
 Eseguiamo il container:
 
@@ -99,10 +99,10 @@ Per cui se volessimo avere nuovamente accesso alla shell, dovremmo specificare i
 sovrascrivere nuovamente quanto definito nel Dockerfile:
 
 ```shell
-$ docker run -ti figlet sh
+$ docker run -ti figlet /bin/sh
 ```
 
-O anche `/bin/sh` in ogni caso il comando va inserito dopo il nome dell'immagine.
+O anche solo `sh` in ogni caso il comando va inserito dopo il nome dell'immagine.
 
 Come potremo notare ora abbiamo a disposizione la shell `sh` e non abbiamo più ottenuto il benvenuto da Figlet.
 
@@ -203,7 +203,7 @@ avevamo fatto precedentemente:
 $ docker run -ti figlet sh
 ```
 
-noteremo qualcosa di strano, invece di ottenere la shell `sh` abbiamo ottenuto sh scritto da Figlet:
+Noteremo qualcosa di strano, invece di ottenere la shell `sh` abbiamo ottenuto sh scritto da Figlet:
 
 ```terminaloutput
      _     

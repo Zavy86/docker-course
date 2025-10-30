@@ -43,10 +43,9 @@ Linux sicuramente sarete dei maghi di `vim` ma se siete alle prime armi vi consi
 $ nano Dockerfile
 ```
 
-Nano è un editor permette di creare e modificare file di testo in modo semplice e intuitivo.
-Come potete vedere in fondo è presente una barra con i comandi più comuni che potete usare.
-Per quello che ci riguarda ci basterà sapere che per salvare il file dovremo premere `CTRL + O` e per uscire dall'editor
-dovremo premere `CTRL + X`.
+Nano è un editor permette di creare e modificare file di testo in modo semplice e intuitivo. Come potete vedere in fondo
+è presente una barra con i comandi più comuni che potete usare. Per quello che ci riguarda ci basterà sapere che per 
+salvare il file dovremo premere `^O` e per uscire dall'editor dovremo premere `^X`.
 
 Inseriamo quindi all'interno del nostro Dockerfile il seguente contenuto:
 
@@ -67,8 +66,8 @@ di pacchetti, l'importante è che il comando sia eseguito in modalità non inter
 richiedere input da parte dell'utente, quindi se necessario specifichiamo sempre i vari flag come `-y` o `-f` per far
 si che vengano accettati o forzati in caso di necessità.
 
-Ok quindi come dicevamo salviamo e usciamo dall'editor, possiamo fare entrambe le cose con il comando `CTRL + X` seguito
-dalla `Y` ed `ENTER` per confermare il salvataggio e proseguiamo con la costruzione della nostra immagine.
+Ok quindi come dicevamo salviamo e usciamo dall'editor, possiamo fare entrambe le cose con il comando `^X` seguito dalla
+`Y` ed `ENTER` per confermare il salvataggio e proseguiamo con la costruzione della nostra immagine.
 
 Per farlo utilizzeremo il builder di Docker lanciando il comando:
 
@@ -103,13 +102,13 @@ se la build viene eseguita con il `builder classico` o con il nuovo `buildkit`, 
 
 Una volta terminato il comando, possiamo notare che sono avvenute diverse cose:
 
-1. Docker ha caricato il Dockerfile e ha letto le istruzioni in esso contenute.
-2. Vengono scaricati i metadati dell'immagine di base, in questo caso `alpine`.
-3. E qualora presente viene caricato il file `.dockerignore` per escludere eventuali file dal contesto di build.
-4. Dopodiché viene copiato il contesto di build, in questo caso avevamo solamente il Dockerfile.
-5. E poi viene eseguita la prima istruzione vera e proprio ovvero viene scaricata l'immagine di base `alpine`.
-6. Subito dopo viene eseguita la seconda istruzione ovvero il comando per installare il pacchetto Figlet.
-7. Infine viene esportata l'immagine appena creata, i suoi layer aggiuntivi e gli viene assegnato un ID univoco.
+* Docker ha caricato il Dockerfile e ha letto le istruzioni in esso contenute.
+* Vengono scaricati i metadati dell'immagine di base, in questo caso `alpine`.
+* E qualora presente viene caricato il file `.dockerignore` per escludere eventuali file dal contesto di build.
+* Dopodiché viene copiato il contesto di build, in questo caso avevamo solamente il Dockerfile.
+* E poi viene eseguita la prima istruzione vera e proprio ovvero viene scaricata l'immagine di base `alpine`.
+* Subito dopo viene eseguita la seconda istruzione ovvero il comando per installare il pacchetto Figlet.
+* Infine viene esportata l'immagine appena creata, i suoi layer aggiuntivi e gli viene assegnato un ID univoco.
 
 Per come funziona intrinsecamente il nuovo builder di Docker alcune istruzioni potrebbero essere eseguite in parallelo
 per velocizzare il processo di build ma in ogni caso l'ordine delle istruzioni viene sempre rispettato per garantire un
@@ -141,7 +140,7 @@ $ docker build -t figlet .
 $ docker tag d5e figlet
 ```
 
-Se eseguiamo nuovamente il comando `build` noteremo che l'esecuzione sarà quasi istantanea.
+Se eseguiamo nuovamente il comando `build` noteremo che l'esecuzione sarà quasi istantanea:
 
 ```terminaloutput
 [+] Building 0.0s (6/6) FINISHED                                                                                                                          docker:desktop-linux
@@ -179,7 +178,7 @@ Qualora volessimo forzare il builder a non utilizzare la cache, possiamo aggiung
 $ docker build -t figlet --no-cache .
 ```
 
-E vedremo che in questo caso tutte le istruzioni verranno eseguite nuovamente.
+E vedremo che in questo caso tutte le istruzioni verranno eseguite nuovamente:
 
 ```terminaloutput
 [+] Building 0.6s (6/6) FINISHED                                                                                                                          docker:desktop-linux
@@ -208,7 +207,7 @@ $ docker history figlet
 ```
 
 Che ci mostrerà una lista con tutti i comandi che hanno contribuito alla creazione dell'immagine, l'ID del layer, la sua
-dimensione, la data di creazione e un eventuale commento.
+dimensione, la data di creazione e un eventuale commento:
 
 ```terminaloutput
 IMAGE          CREATED         CREATED BY                                      SIZE      COMMENT
@@ -234,6 +233,7 @@ Inoltre se vedete il nostro comando è stato leggermente modificato aggiungendog
 > - execve
 
 Per capirlo dobbiamo fare un piccolo deep dive su come funzionano i sistemi UNIX.
+
 Per eseguire un nuovo programma il sistema operativo ci mette a disposizione due chiamate di sistema `fork()` e
 `execve()`. Il primo si occupa di creare un nuovo processo figlio, mentre il secondo si occupa di caricare un nuovo
 programma all'interno di un processo esistente.
@@ -248,7 +248,7 @@ e se necessario si occuperà di espandere eventuali variabili o caratteri specia
 Successivamente creerà un nuovo processo con `fork` ed eseguirà `execve("/bin/ls", [ "ls" , "-l", "/home/ubuntu" ])`.
 
 Tutte queste operazioni, che vengono eseguite dalla shell, sono trasparenti per l'utente che vede solamente il comando
-che ha digitato. Docker avrebbe potuto costruirsi un poprio parser per i comandi, ma avrebbe dovuto come si suol dire
+che ha digitato. Docker avrebbe potuto costruirsi un proprio parser per i comandi, ma avrebbe dovuto come si suol dire
 reinventare la ruota, per cui ha deciso di affidarsi alla shell per eseguire il parsing delegandogli il tutto.
 
 L'opzione `-c` di `sh` indica alla shell di trattare il comando seguente come una stringa così ne effettuerà il parsing.

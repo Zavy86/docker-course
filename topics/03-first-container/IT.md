@@ -5,17 +5,54 @@
 > - seen Docker in action
 > - start our first container
 
-In questo capitolo vedremo Docker in azione avviando il nostro primo container.
+In questo capitolo finalmente vedremo Docker in azione avviando il nostro primo container.
 
-In realtà se avete seguito il video precedente e avete installato Docker sulla vostra macchina, avrete già avviato un
-container, il famoso `hello-world` con cui ci siamo accertati che l'installazione fosse avvenuta correttamente.
+Partiamo quindi con il lanciare il famoso container `hello-world`, grazie al quale potremo accertaci che l'installazione
+sia avvenuta correttamente.
 
 Ma non perdiamoci in chiacchiere e riapriamo il nostro fantastico terminale.
 
 ***
 
-Per eseguire il nostro primo container, utilizzeremo un comando un pochino più complicato rispetto a quello che ci era
-stato proposto dall'installer di Docker. 
+La documentazione ufficiale di Docker ci propone di eseguire il comando:
+
+```shell
+$ docker run hello-world
+```
+```terminaloutput
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+17eec7bbc9d7: Pull complete 
+Digest: sha256:56433a6be3fda188089fb548eae3d91df3ed0d6589f7c2656121b911198df065
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+```
+
+Se otteniamo questo output, significa che l'installazione è andata a buon fine e che siamo pronti per proseguire.
+
+***
+
+Procediamo poi con un comando un pochino più complicato rispetto a quello che ci era stato proposto dall'installer: 
 
 ```shell
 $ docker run busybox echo hello world
@@ -24,7 +61,8 @@ $ docker run busybox echo hello world
 Lanciando questo comando chiederemo al motore di Docker di creare e avviare un container partendo dall'immagine chiamata
 `busybox`, una delle più piccole e semplici immagini che ci vengono messe a disposizione dal team di Docker.
 
-Quest'immagine viene spesso usata in sistemi embedded, come smartphones o routers ed è una sorta di coltellino svizzero.
+[Busybox](https://linux.die.net/man/1/busybox) è uno strumento che viene spesso usato in sistemi embedded, smartphones o
+routers ed è una sorta di coltellino svizzero del mondo Linux.
 
 Il comando `echo hello world` che segue il nome dell'immagine fa si che venga eseguito il comando `echo` con l'argomento
 `hello world` e il risultato è proprio quello che vedete stampato sul terminale.
@@ -68,7 +106,7 @@ interattiva; ovvero richiede a Docker di connetterci allo STDIN del container e 
 Se utilizziamo infatti il comando:
 
 ```shell
-$ echo $0
+# echo $0
 ```
 
 Vedremo che il container ci risponderà con `sh` che altro non è che la shell che stiamo utilizzando.
@@ -80,11 +118,12 @@ Vedremo che il container ci risponderà con `sh` che altro non è che la shell c
 Quindi avendo a disposizione una shell, possiamo iniziare a lanciare qualche comando, proviamo ad esempio con:
 
 ```shell
-$ figlet "Hello World!"
+# figlet "Hello World!"
 ```
 
-Filget è un programma che permette di disegnare i testi che prende in input in formato ASCII, tuttavia come vediamo dal 
-messaggio di errore, questa utility non è presente all'interno dell'immagine Alpine, né tanto meno nel nostro container.
+[Figlet](https://www.figlet.org/) è un programma che permette di disegnare un testo che gli forniamo in formato ASCII, 
+tuttavia come vediamo dal messaggio di errore, questa utility non è presente all'interno dell'immagine Alpine, né tanto
+meno nel nostro container.
 
 ```terminaloutput
 /bin/sh: figlet: not found
@@ -93,7 +132,7 @@ messaggio di errore, questa utility non è presente all'interno dell'immagine Al
 Procediamo quindi con l'installazione di questo programma.
 
 ```shell
-$ apk add figlet
+# apk add figlet
 ```
 ```terminaloutput
 fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/main/aarch64/APKINDEX.tar.gz
@@ -118,7 +157,7 @@ Fantastica vero?
 
 Ora, se usciamo dal container, con il comando `exit` o con la scorciatoia `^D`, e proviamo a lanciare sul terminale il
 comando `figlet`, vedremo che il sistema ci avvertirà che non trova nessun programma con questo nome (a patto che non lo
-aveste già presente sul vostro sistema).
+aveste già precedentemente installato sul vostro sistema).
 
 ***
 
@@ -131,11 +170,11 @@ aveste già presente sul vostro sistema).
 Questo succede perché l'_host_ in cui è stato installato Docker e i _containers_ che vengono avviati e gestiti al suo
 interno, sono cose completamente separate e indipendenti fra loro.
 
-Nonostante condividanmo lo stesso kernel, ogni container è indipendente e qualunque pacchetto venga installato al suo
-interno non viene esposto all'host e vice-versa. Anche se eseguiamo la stessa distrubuzione di Linux su un host e un
+Nonostante condividano lo stesso kernel, ogni container è indipendente e qualunque pacchetto venga installato al suo
+interno non viene esposto all'host e vice-versa. Anche se eseguiamo la stessa distribuzione di Linux su un host e un
 container, non avremo alcun conflitto né interdipendenze...
 
-Questo ci permette di eseguire qualunque container su qualunque host, anche con diverse distrubuzioni di Linux.
+Questo ci permette di eseguire qualunque container su qualunque host, anche con diverse distribuzioni di Linux.
 
 ***
 
@@ -210,10 +249,10 @@ fondanti di Docker.
 Una metafora super azzeccata è quella della differenza tra animali domestici e bestiame.
 
 Immaginate due tipologie di server, il primo con un suo nome ben distintivo, una sua configurazione unica e per il quale
-saremmo disposti a fare di tutto pure di tenerlo sempre in esecuzione, in maniera affidabile e sicura; il secondo,
-con un nome generico, una configurazione generica che possiamo replicare facilmente, magari anche tramite sistemi di
-gestione centralizzati e che qualora dovesse presentare dei problemi non ci faremmmo nessuna remora nel rimpiazzarlo
-immediatamente con un suo clone.
+saremmo disposti a fare di tutto pure di tenerlo sempre in esecuzione, in maniera affidabile e sicura; il secondo con un
+nome generico, una configurazione generica che possiamo replicare facilmente, magari anche tramite sistemi di gestione 
+centralizzati e che qualora dovesse presentare dei problemi non ci faremo nessuna remora nel rimpiazzarlo immediatamente 
+con un suo nuovo clone.
 
 ***
 

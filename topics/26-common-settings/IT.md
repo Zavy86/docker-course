@@ -170,6 +170,18 @@ riavviare anche tutti i container attualmente in esecuzione.
 
 ---
 
+Un'ultimissima cosa che potremmo voler fare è quella di modificare massivamente la combinazione di tasti che ci permette
+di staccarci dai container in esecuzione in modalità interattiva, in questo caso dovremo specificare il parametro:
+
+
+```json
+{
+  "detach-keys": "ctrl-p,q"
+}
+```
+
+---
+
 Come vi dicevo queste sono le impostazioni che più spesso mi sono ritrovato a modificare nelle mie installazioni di
 Docker, ma nonostante siano molto utili, non sono tutte le impostazioni che possono essere modificate, quindi come già
 detto all'inizio fate riferimento alla documentazione ufficiale per approfondire per bene il tutto.

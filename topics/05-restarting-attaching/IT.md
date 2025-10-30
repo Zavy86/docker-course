@@ -16,7 +16,7 @@ sia o che non cia sia un client collegato in maniera interattiva.
 **È sempre possibile staccarsi da un container e riattaccarcisi in un secondo momento.**
 
 Se volete un'analogia, immaginate l'azione di attaccarsi a un container come il collegare una tastiera e un monitor a un
-server fisico.
+server fisico all'interno di un datacenter.
 
 ***
 
@@ -26,7 +26,7 @@ Se avviamo un container in modalità interattiva, come abbiamo fatto prima, con 
 $ docker run -ti alpine
 ```
 
-Possiamo in qualunque momento staccarci dal container con la sequenza di shortcut `^P` e `^Q`, miraccomando, non con la
+Possiamo in qualunque momento staccarci dal container con la sequenza di shortcut `^P` e `^Q`, mi raccomando non con la
 shortcut `^C` che a sua volta invia il segnale `SIGINT` che come abbiamo visto nella maggior parte dei casi termina
 l'esecuzione container.
 
@@ -41,7 +41,7 @@ seguita dalla stringa contenente la sequenza di tasti desiderata, ad esempio:
 $ docker run -ti --detach-keys ctrl-x alpine
 ```
 
-Se non mi credete possiamo verificare che sia ancora in esecuzione con:
+Dopodiché premiamo `^X` per staccarci dal container e verifichiamo che il container sia ancora in esecuzione con:
 
 ```shell
 $ docker ps -l
@@ -51,16 +51,16 @@ CONTAINER ID   IMAGE     COMMAND     [...]
 9dde841e8f2d   alpine    "/bin/sh"   [...]
 ```
 
-Questa opzione può anche essere configurata a livello globale all'Engine di Docker ma magari questo lo vedremo in un 
-prossimo video dedicato al file di configurazione di Docker.
+Questa opzione può anche essere configurata a livello globale, ma magari questo lo vedremo in un prossimo video dedicato
+al file di configurazione di Docker.
 
-Mentre se stiamo eseguendo un container in modalità non interattiva, ad esempio proviamo a rilanciare il container:
+Mentre se stiamo eseguendo un container in modalità non interattiva, proviamo ad esempio a rilanciare il container:
 
 ```shell
 $ docker run zavy86/clock
 ```
 
-E proviamo a staccarci dal container con la shortcut `^P` e `^Q`, non otterremo alcun risultato, in quanto non essendo
+Se proviamo a staccarci dal container con la shortcut `^P` e `^Q`, non otterremo alcun risultato, in quanto non essendo
 collegati in maniera interattiva, non possiamo staccarci dal container in questo modo.
 
 ```terminaloutput
@@ -71,11 +71,12 @@ Thu Aug 07 21:42:20 UTC 2025
 [...]
 ```
 
-L'unico modo che abbiamo per scollegarci è quello di terminare il client, in questo caso il nostro terminale.
+In quesot caso, l'unico modo che abbiamo per scollegarci, senza uccidere il container, è quello di terminare il client,
+in questo caso il nostro terminale.
 
 ***
 
-Per ricollegarsi a un container in background, possiamo utilizzare il `attach` seguito dall'id del container:
+Per ricollegarsi a un container in background, possiamo utilizzare il comando `attach` seguito dall'id del container:
 
 ```shell
 $ docker attach 9dd
@@ -91,36 +92,38 @@ interattiva, in quel caso ci basta utilizzare il comando `logs` con l'opzione `-
 
 ***
 
-Se invece volessimo ricollegarci a un container che era stato arrestato, ovvero che possiamo vedere con il comando:
+Se invece volessimo ricollegarci a un container che era stato arrestato, troviamo il suo ID con il comando:
 
 ```shell
 $ docker ps -a
 ```
 
-in stato Exited, come ad esempio il nostro alpine di prima,
+E per l'appunto se il container è in stato Exited, come ad esempio il nostro alpine di prima:
 
 ```terminaloutput
 CONTAINER ID   IMAGE     COMMAND     [...]   STATUS                       [...]
 76b621f7b82f   alpine    "/bin/sh"   [...]   Exited (130) 2 minutes ago   [...]
 ```
 
-possiamo farlo con il comando `start` seguito dall'id del container:
+Dobbiamo, prima di ricollegarci, farlo ripartire con il comando `start` seguito dall'id del container:
 
 ```shell
 $ docker start 76b
 ```
 
 In questo modo il container verrà riavviato con le stesse e identiche impostazioni con le quali era stato creato
-originariamente, e potremo poi ricollegarci ad esso con il comando `attach`:
+originariamente, e potremo poi ricollegarci a esso con il comando `attach`:
 
 ```shell
 $ docker attach 76b
 ```
 
-E come potrete notare siamo nuovamente nella shell del container. Tuttavia a volte potrebbe capitare di non visualizzare
-nulla quando ci colleghiamo a un container, questo succede se ad accoglierci c'è un programma che funziona in modalità
-REPL (Read-Eval-Print-Loop) perche essendo il collegamento un atto che non invia comandi, il sistema potrebbe non sapere
-di doverci rinviare nulla. In questi casi ci basterà inviare il comando `^L` o `Enter` per ripristinare il prompt.
+Come potrete notare siamo nuovamente nella shell del container. 
+
+Tuttavia a volte potrebbe capitare di non visualizzare nulla quando ci colleghiamo a un container, questo succede se ad
+accoglierci c'è un programma che funziona in modalità REPL (Read-Eval-Print-Loop) perche essendo il collegamento un atto 
+che non invia comandi, il sistema potrebbe non sapere di doverci rinviare nulla. In questi casi ci basterà inviare il 
+comando `^L` o `Enter` per ripristinare il prompt.
 
 Anche se nella maggior parte dei casi quando ci ricolleghiamo, Docker invia al container il segnale `SIGWINCH` che serve
 per l'appunto a notificare al programma che c'è stato un cambiamento nel terminale e la maggior parte dei programmi
