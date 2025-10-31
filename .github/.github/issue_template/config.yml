@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Landing page
+    url: https://academy.zavy.dev/docker
+    about: View the official course landing page
+  - name: Author's website
+    url: https://im.zavy.dev
+    about: View the author's official website
