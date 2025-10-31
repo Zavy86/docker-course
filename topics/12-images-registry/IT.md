@@ -14,11 +14,13 @@ specifica ID immagine. Possiamo quindi aggiungere più tag alla stessa immagine.
 se fosse il nome dell'immagine.
 
 Un images registry è un servizio che permette di archiviare, condividere e gestire le immagini Docker.
+
 In pratica, è un "magazzino" online (o in locale) dove puoi salvare le immagini che hai creato, rendendole disponibili 
 per il download e l'utilizzo su altri host o da altri utenti.
 
 Il più noto e utilizzato è il **Docker** Hub, un servizio pubblico offerto da Docker in cui è possibile trovare tutte le
 immagini mantenute dal team di Docker e migliaia di immagini create dalla comunità. 
+
 E una volta creato un account potrai anche pubblicare le tue immagini!
 
 Oltre al Docker Hub, esistono altri registry pubblici come **GitHub** Container Registry, **Google** Container Registry,
@@ -59,8 +61,8 @@ Verremo reindirizzati al sito web di Docker dove potremo inserire le credenziali
 Login Succeeded
 ```
 
-Dopodiché per pubblicare la nostra prima immagine non dovremo per prima cosa taggarla con un nome compatibile con
-il registry sul quale la vogliamo pubblicare.
+Dopodiché per pubblicare la nostra prima immagine su un registry dovremo per prima cosa taggarla con un nome compatibile
+con il registry sul quale la vogliamo pubblicare.
 
 Se vogliamo ad esempio utilizzare il Docker Hub, dovremo usare la sintassi `username/image`, quindi nel mio caso:
 

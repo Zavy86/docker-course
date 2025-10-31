@@ -8,7 +8,7 @@
 > - alpine base image
 
 Nel capitolo precedente l'immagine che abbiamo creato conteneva al suo interno: il programma compilato `hello`, il suo
-codice sorgente `hello.c`, il compilatore `gcc`, la libreria di supporto `libc-dev` e ovviamente tutto quanto già
+codice sorgente `hello.c`, il compilatore `gcc`, le librerie di supporto come `libc-dev` e ovviamente tutto quanto già
 presente nell'immagine base `alpine`.
 
 Come potrete aver visto questa immagine risultava pesare **oltre 170 megabyte**.
@@ -49,7 +49,9 @@ Questo perché non faremmo altro che aggiungere ulteriori layer e ogni layer con
 > - squashing final image
 > - multi-stage build
 
-Ci sono invece varie tecniche che ci permettono di ridurre la dimensione della nostra immagine finale, vediamole insieme.
+Ci sono invece varie tecniche che ci permettono di ridurre la dimensione della nostra immagine finale, come ad esempio
+collassare i layers, compilare gli eseguibili esternamente, compattare l'immagine finale in un unico layer, o effettuare
+una compilazione a più stadi, vediamole insieme.
 
 ***
 
@@ -127,7 +129,7 @@ Tuttavia i contro sono molteplici e difficilmente ignorabili.
 
 Ogni macchina sulla quale vorremo andare a effettuare la build dovra necessariamente disporre di un compilatore, delle
 librerie e quant'altro, rendendoci nuovamente dipendenti da un ambiente di sviluppo specifico, tornando quindi al
-possibile problema del "works on my machine".
+possibile problema del _"it works on my machine!"_.
 
 Inoltre qualora l'applicazione venga compilata su un architettura ad esempio `x86` l'immagine non sarebbe compatibile
 poi ad esempio per l'esecuzione su macchine `arm` rendendo di fatto il tutto meno portabile. 
@@ -176,7 +178,7 @@ E l'operazione di squashing, sopratutto per immagini grosse, potrebbe richiedere
 Infine, la tecnica del multi-stage build è sicuramente la più moderna ed elegante tra quelle che abbiamo visto finora.
 
 L'unico contro che mi viene in mente è che nelle vecchie versioni di Docker non è supportata, tuttavia al giorno d'oggi
-difficilmente vi troverete a lavorare con sistemi così vecchi. E se vi dovesse capitare: aggiornateli! ;)
+difficilmente vi troverete a lavorare con sistemi così vecchi. E se vi dovesse capitare: aggiornateli! ;-)
 
 Per quanto riguarda i pro, questa tecnica ci permette di ottenere un'immagine leggera, pulita e sicura in quanto, come
 vedremo a breve, limiteremo i componenti finali allo stretto necessario evitando il proliferare di files, applicativi e
@@ -261,13 +263,8 @@ $ docker build -t hello-multi-stage .
  => => exporting layers                                                                                                                                                   0.0s 
  => => writing image sha256:5311a310b00979ff846df48ce5d6b25ed4ac8483c86e610b15f6987cbac04706                                                                              0.0s 
  => => naming to docker.io/library/hello-multi-stage                                                                                                                      0.0s 
-                                                                                                                                                                               
  1 warning found (use docker --debug to expand):
- - JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 8)                                                       
-
-View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/p9ufnu6v9yuel9arwi1xu86y7
-
-What's next: View a summary of image vulnerabilities and recommendations → docker scout quickview 
+ - JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 8)
 ```
 
 Se proviamo infatti a lanciare il comando:
@@ -315,11 +312,7 @@ $ docker build --target compiler -t hello-compiler .
  => exporting to image                                                                                                                                                    0.0s 
  => => exporting layers                                                                                                                                                   0.0s 
  => => writing image sha256:a793d46ba2fbbb750cc3c3a57c5c2e5c6f35d73b532c7550394e8622f4835239                                                                              0.0s 
- => => naming to docker.io/library/hello-compiler                                                                                                                         0.0s 
-                                                                                                                                                                               
-View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/itxnm7yfbjf1zq1y7u3lr2i3i
-
-What's next: View a summary of image vulnerabilities and recommendations → docker scout quickview 
+ => => naming to docker.io/library/hello-compiler                                                                                                                         0.0s
 ```
 
 In questo caso l'immagine generata sarà quella di compilazione del programma, alla quale potremmo poi accedere per 

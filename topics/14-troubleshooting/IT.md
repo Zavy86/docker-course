@@ -11,13 +11,13 @@
 Spesso quando abbiamo a che fare con dei server, potremmo aver bisogno di accedere alla console, per modificare qualche
 configurazione, per installare o aggiornare dei pacchetti, per visualizzare gli eventi o analizzare le metriche.
 
-In un mondo ideale dei casi tutte queste operazioni possono essere svolte tramite sistemi esterni, con tool come Chef, 
-Ansible, Puppet, Salt o similari per quanto riguarda le configurazioni e con piattaforme centralizzare per la raccolta
-di eventi e metriche come Datalog, Fluent, Prometheus, ecc...
+In un mondo ideale tutte queste operazioni possono essere svolte tramite sistemi esterni, con tool come Chef, Ansible,
+Puppet, Salt o similari per quanto riguarda le configurazioni e con piattaforme centralizzare per la raccolta di eventi
+e metriche come Datalog, Fluent, Prometheus, ecc...
 
 Nel mondo reale, purtroppo, spesso e volentieri ci ritroveremo invece a collegarci tramite SSH o quando proprio le cose
 smettono di funzionare, avviamo il tutto tramite un sistema di ripristino o magari colleghiamo il disco a un'altra vm
-per riuscire a recuperarne i dati.
+per riuscire per lo meno a recuperarne i dati.
 
 ***
 
@@ -71,10 +71,10 @@ Vedremo in fondo un processo che guarda caso ha lo stesso id del nostro containe
 [...]      \_ sleep 1
 ```
 
-Il che significa che a livello di sistema, un processo conteinerizzato non è poi così diverso da un qualunque altro 
+Il che significa che a livello di sistema, un processo containerizzato non è poi così diverso da un qualunque altro 
 processo.
 
-Per cui potremo usare tutti i comandi standard come `lfos`, `strace`, `gdb`, ecc per analizzarli.
+Per cui potremo usare tutti i comandi standard come `lfos`, `strace`, `gdb`, ecc per analizzarlo.
 
 ***
 
@@ -131,7 +131,7 @@ A /var/log/nginx/error.log
 
 Come possiamo vedere ci sono alcuni files interessanti che possiamo andare a visionare.
 
-Copiamoci il file `error.log` nella directory corrente::
+Sfruttiamo quindi il comando `cp` per copiarci il file `error.log` nella directory corrente:
 
 ```shell
 $ docker cp ec2:/var/log/nginx/error.log .

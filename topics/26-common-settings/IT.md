@@ -7,12 +7,12 @@
 > - security
 > - system
 
-Questa capitolo l'ho volutamente tenuto per la fine, nonostante ritengo sia forse una delle prime cose da fare quando si
-inizia a utilizzare Docker, per non spaventare chi si approccia a questo strumento per la prima volta.
+Questa capitolo l'ho volutamente tenuto per la fine per non spaventare chi si approccia a questo strumento per la prima 
+volta, nonostante ritengo sia forse una delle prime cose da fare quando si inizia a utilizzare Docker.
 
-Tuttavia personalizzare la configurazione di Docker ci garantirà fin da subito di non incorrere in problemi difficili da
-scoprire e risolvere per chi è alle prime armi, per cui ora che avrete capito se Docker fa per voi e averete tritato per
-bene il vostro ambiente di test, proseguiamo con la configurazione del nostro ambiente di sviluppo reale.
+Personalizzare la configurazione di Docker ci garantirà fin da subito di non incorrere in problemi difficili da scoprire
+e risolvere per chi è alle prime armi, per cui ora che avrete capito se Docker fa per voi e averete tritato per bene il 
+vostro ambiente di test, proseguiamo con la configurazione del nostro ambiente di sviluppo locale reale.
 
 In questo capitolo vedremo come configurare le impostazioni di storage, networking e qualche altro parametro utile.
 
@@ -43,7 +43,7 @@ siete voi, non ci sono infatti sistemi automatici di backup o altro e se non li 
 anche a saturare la memoria della vostra macchina. 
 
 Inoltre in alcuni casi dove magari disponete di un NAS o anche solo diverse partizioni sul disco della vostra macchina, 
-potreste voler decidere dove salvare i dati dei volumi, quindi il primo passo è proprio specificare:
+potreste voler decidere in maniera puntuale dove salvare i dati di Docker, quindi il primo passo è proprio specificare:
 
 ```json
 {
@@ -84,7 +84,7 @@ che verranno assegnati alle reti bridge personalizzate che andremo a creare, man
 {
   "default-address-pools": [
     {
-      "base": "10.87.0.0/16",
+      "base": "10.91.0.0/16",
       "size": 24
     }
   ]
@@ -149,7 +149,7 @@ attenzione, in modo di evitare di ritrovarci con un server pieno zeppo di files 
 In questo caso ho lasciato dei valori piuttosto classici, ovvero il driver json-file che permette di salvare i logs in
 file di testo, con una rotazione al raggiungimento dei 9 megabyte per file e un massimo di 3 file storici per container.
 
-Da notare il parametro `data-root` che è lo stesso già configurato per i volumi, infatti Docker non permette di andare
+> Da notare il parametro `data-root` che è lo stesso già configurato per i volumi, infatti Docker non permette di andare
 a specificare directory separate per ogni suo dato, ma usa una directory unica, se volessimo andare a modificarle in 
 maniera puntuale dovremo "giocare" con i links simbolici.
 
@@ -165,8 +165,8 @@ negli ambienti di sviluppo, dove magari ci capita di voler riavviare tutto quant
 }
 ```
 
-In questo modo quando andremo a riavviare il servizio di Docker oltre che a riavviare il daemon, andremo a killare e a 
-riavviare anche tutti i container attualmente in esecuzione.
+In questo modo quando andremo a riavviare il servizio di Docker oltre che a riavviare il daemon, andremo anche a forzare
+l'arresto e a riavviare tutti i container attualmente in esecuzione.
 
 ---
 
@@ -180,10 +180,13 @@ di staccarci dai container in esecuzione in modalità interattiva, in questo cas
 }
 ```
 
+Questi che ho messo sono ovviamente quelli standard quindi questo parametro non serve a nulla, ma magari in alcuni casi
+potrebbe tornarci utile modificarli per evitare conflitti con altre combinazioni di tasti.
+
 ---
 
 Come vi dicevo queste sono le impostazioni che più spesso mi sono ritrovato a modificare nelle mie installazioni di
-Docker, ma nonostante siano molto utili, non sono tutte le impostazioni che possono essere modificate, quindi come già
+Docker, e nonostante siano molto utili, non sono tutte le impostazioni che possono essere modificate, quindi come già
 detto all'inizio fate riferimento alla documentazione ufficiale per approfondire per bene il tutto.
 
 Una volta terminato di apportare tutte le modifiche che riteniamo necessarie, dovremo ricordarci di riavviare Docker:

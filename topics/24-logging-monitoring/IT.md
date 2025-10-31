@@ -71,12 +71,12 @@ Per evitare questo problema, possiamo impostare una dimensione massima per i fil
 mantenere, superati i quali i vecchi log verranno via via eliminati.
 
 Queste impostazioni posso essere gestite tramite il file di configurazione `/etc/docker/daemon.json` come vedremo in un
-prossimo capitolo dedicato alle [impostazioni di Docker](../26-docker-settings/IT.md) o per singolo container.
+prossimo capitolo dedicato alle [impostazioni di Docker](../26-common-settings/IT.md) o per singolo container.
 
 Utilizzando l'opzione `--log-opt` possiamo impostare alcune variabili come ad esempio:
 
 ```shell
-$ docker run -d --log-opt max-size=10m --log-opt max-file=3 zavy86/clock
+$ docker run -d --log-opt max-size=9m --log-opt max-file=3 zavy86/clock
 ```
 
 E per verificare le impostazioni possiamo utilizzare il comando:
@@ -89,7 +89,7 @@ $ docker inspect --format '{{json .HostConfig.LogConfig}}' $(docker ps -lq) | jq
   "Type": "json-file",
   "Config": {
     "max-file": "3",
-    "max-size": "10m"
+    "max-size": "9m"
   }
 }
 ```
@@ -107,9 +107,9 @@ $ docker inspect --format '{{json .HostConfig.LogConfig}}' $(docker ps -lq) | jq
 Vediamo ora un esempio alternativo di gestione dei log tramite lo stack `ELK`.
 
 Lo stack ELK è una combinazione di tre progetti open source: Elasticsearch, Logstash e Kibana. Viene utilizzato per
-raccogliere, aggregare, analizzare e visualizzare i log ed è molto popolare per via della loro licenza open source.
+raccogliere, aggregare, analizzare e visualizzare i log ed è molto popolare per via della loro licenza open-source.
 
-Elasticsearch è una sorta di database in cui andremo a memorizzare i log, Logstash è un tool che si permette di ricevere
+Elasticsearch è una sorta di database in cui andremo a memorizzare i log, Logstash è un tool che ci permette di ricevere
 i log, elaborarli e inoltrarli verso varie destinazioni, e Kibana è un'interfaccia web che ci permette di visualizzare e
 ricercare i log tramite una comoda interfaccia web.
 
@@ -150,11 +150,11 @@ Lanciamo poi il nostro container `clock` per intasare un po' i nostri log:
 $ docker run -d --log-driver=gelf --log-opt=gelf-address=udp://localhost:12201 clock
 ```
 
-Apriamo quindi la pagina web di Kibana all'indirizzo `http://localhost:5601` e creiamo un nuovo index name con valore
-`logstash-*` e con Time-field `@timestamp`.
+Apriamo quindi la pagina web di Kibana alla porta `5601` dell'indirizzo IP del nostro host e creiamo un nuovo index name
+con valore `logstash-*` e con Time-field `@timestamp`.
 
 Andiamo poi nella sezione `Discover` in alto a sinistra e premiamo su `Last 15 minutes` in alto a destra e selezioniamo
-`Auto-refresh` scegliando l'opzione ogni `5 seconds`.
+`Auto-refresh` scegliendo l'opzione ogni `5 seconds`.
 
 Se tutto è andato a buon fine dovremo vedere comparire i log generati dal nostro container `clock` come ad esempio:
 

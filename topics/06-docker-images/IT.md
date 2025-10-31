@@ -104,7 +104,7 @@ mentre il secondo rappresenta il nome dell'immagine stessa.
 
 La terza possibilità invece è prevista per quelle immagini che non si trovano sul registro di Docker ma che sono invece
 ospitate su un server privato o pubblico di terze parti. In questo caso, l'immagine dovrà contenere anche l'url (oppure
-l'indirizzo ip e l'eventuale porta) del registro al quale fa riferimento. Un esempio potrebbe essere l'immagine [Actions
+l'indirizzo IP e l'eventuale porta) del registro al quale fa riferimento. Un esempio potrebbe essere l'immagine [Actions
 Runner](https://ghcr.io/actions/actions-runner) che si trova sul registro pubblico di Google.
 
 ***

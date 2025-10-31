@@ -17,11 +17,11 @@ eseguito il comando build abbiamo specificato il contesto di build aggiungendo u
 
 Quando eseguiamo questo comando tutto il contenuto all'interno della directory indicata viene passato al builder per
 la creazione dell'immagine. All'interno di questa directory deve necessariamente essere presente un Dockerfile.
-Tutti i files passati al contesto di build non vengono automaticamente copiati nell'immagine, ma saranno disponibili
-al compilatore Docker per eseguire eventuali operazioni definite nel Dockerfile.
+Tutti i files passati al contesto di build non vengono automaticamente copiati nell'immagine, ma saranno a disposizione
+del compilatore Docker per eseguire eventuali operazioni definite nel Dockerfile.
 
 Come magari avrete già visto in Git, anche in Docker è possibile specificare eventuali files e directory da escludere
-che non vogliamo vengano inclusi nel contesto di build.
+che non vogliamo vengano inclusi nel contesto di build tramite il file `.dockerignore`.
 
 Ma vediamolo nella pratica.
 
@@ -76,7 +76,7 @@ al contesto di build, quindi ci aspettiamo che il file `hello.c` sia nella stess
 E verrà copiato nella root directory della nostra immagine. Se volessimo fare i pignoli e rendere il tutto più leggibile
 potremo specificare la notazione `./hello.c` in modo da rendere il tutto più chiaro.
 
-Dopodiché tramite il comando `RUN` compiliamo il sorgente generando l'eseguibile `hello`, in unix come saprete non sono
+Dopodiché tramite il comando `RUN` compiliamo il sorgente generando l'eseguibile `hello`, in UNIX come saprete non sono
 obbligatorie le estensioni dei files.
 
 E infine con `CMD`, come visto precedentemente impostiamo di eseguirlo all'avvio del container.
@@ -97,20 +97,15 @@ $ docker build -t hello .
  => CACHED [1/4] FROM docker.io/library/alpine:latest                                                                                                                     0.0s 
  => [internal] load build context                                                                                                                                         0.0s 
  => => transferring context: 107B                                                                                                                                         0.0s 
- => [2/4] RUN apk add gcc libc-dev                                                                                                                             2.8s 
+ => [2/4] RUN apk add gcc libc-dev                                                                                                                                        2.8s 
  => [3/4] COPY hello.c /                                                                                                                                                  0.0s 
  => [4/4] RUN gcc /hello.c -o /hello                                                                                                                                      0.1s 
  => exporting to image                                                                                                                                                    0.3s 
  => => exporting layers                                                                                                                                                   0.3s
  => => writing image sha256:b491cabe6103759a93b4547183d7eba842b3e996aeb0b333f5179ce159b16fab                                                                              0.0s 
  => => naming to docker.io/library/hello                                                                                                                                  0.0s 
-                                                                                                                                                                               
  1 warning found (use docker --debug to expand):
  - JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 5)                                                       
-
-View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/edvglpcq38tc2al7k1o1poia5
-
-What's next: View a summary of image vulnerabilities and recommendations → docker scout quickview 
 ```
 
 Ok, ignorando i soliti warning che ci suggeriscono di usare il formato JSON per quanto riguarda gli argomenti dei nostri
@@ -152,14 +147,9 @@ $ docker build -t hello .
  => exporting to image                                                                                                                                                    0.0s 
  => => exporting layers                                                                                                                                                   0.0s 
  => => writing image sha256:0917280deb4532e7960fbc4e59f0f8c7eb8c2b1a6fbb5693d03ac80b2424b92b                                                                              0.0s 
- => => naming to docker.io/library/hello                                                                                                                               0.0s 
-                                                                                                                                                                               
+ => => naming to docker.io/library/hello                                                                                                                                  0.0s 
  1 warning found (use docker --debug to expand):
- - JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 5)                                                       
-
-View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/edvglpcq38tc2al7k1o1poia5
-
-What's next: View a summary of image vulnerabilities and recommendations → docker scout quickview 
+ - JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 5)
 ```
 
 Vedremo che tutte le operazioni sono state eseguite sfruttando la cache.
@@ -170,12 +160,9 @@ Se invece facciamo una piccola modifica al nostro file sorgente:
 $ nano hello.c
 ```
 ```c
-#include <stdio.h>
-
-int main () {
+[...]
   puts("Hello World!");
-  return 0;
-}
+[...]
 ```
 
 Ed effettuiamo nuovamente la build:
@@ -200,14 +187,9 @@ $ docker build -t hello .
  => exporting to image                                                                                                                                                    0.0s
  => => exporting layers                                                                                                                                                   0.0s 
  => => writing image sha256:0d0307813688cf3cd2c91522a80bb3dd109aab183833be1430646f81f9ac9c05                                                                              0.0s 
- => => naming to docker.io/library/hello                                                                                                                               0.0s 
-                                                                                                                                                                               
+ => => naming to docker.io/library/hello                                                                                                                                  0.0s 
  1 warning found (use docker --debug to expand):
  - JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 5)                                                       
-
-View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/edvglpcq38tc2al7k1o1poia5
-
-What's next: View a summary of image vulnerabilities and recommendations → docker scout quickview 
 ```
 
 Come vediamo, abbiamo sfruttato comunque la cache per tutta la parte di installazione del compilatore, che fra l'altro
@@ -221,7 +203,7 @@ Se eseguiamo nuovamente il container:
 $ docker run hello
 ```
 ```terminaloutput
-Hello World
+Hello World!
 ```
 
 Vedremo il messaggio aggiornato!
@@ -253,10 +235,10 @@ Come possiamo verificare all'interno del container:
 
 ```shell
 $ docker run -ti hello sh
-# ls -l
+# ls -lR
 ```
 
-Se aggiungiamo anche il file `.dockerignore` con il seguente contenuto:
+Se aggiungiamo anche il file `.dockerignore` con all'interno il nome del file `readme.txt`:
 
 ```shell
 $ echo "readme.txt" > .dockerignore
@@ -273,7 +255,7 @@ quanto specificato nel file `.dockerignore`, come possiamo facilmente verificare
 
 ```shell
 $ docker run -ti hello sh
-# ls -l
+# ls -lR
 ```
 
 ***

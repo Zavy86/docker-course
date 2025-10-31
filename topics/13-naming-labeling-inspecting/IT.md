@@ -15,17 +15,22 @@ Le etichette sono invece delle coppie chiavi valori che possono essere attaccate
 informazioni utili, molte etichette sono impostate in maniera predefinita da Docker, ma possiamo anche crearne di 
 personalizzate sulla base delle nostre esigenze.
 
-Tramite l'ispezione, possiamo avere accesso a tutti i dettagli di un container, come il suo id, l'immagine, lo stato, 
-e tutta un'altra serie di informazioni utili.
+Tramite l'ispezione, possiamo avere accesso a tutti i dettagli di un container, come il suo identificativo, l'immagine,
+lo stato, e tutta un'altra serie di informazioni utili.
 
 ***
 
-Fino a ora, quando abbiamo creato dei containers, non abbiamo mai specificato dei nomi e ci siamo sempre riferiti a loro
-tramite l'id univoco auto-generato da Docker.
+Fino a ora, quando abbiamo creato dei containers ma non abbiamo mai specificato dei nomi e ci siamo sempre riferiti a 
+loro tramite l'identificativo univoco auto-generato da Docker.
+
 Tuttavia, oltre all'id, Docker genera per i nostri container anche dei nomi casuali univoci.
+
 La creazione di questi nomi è molto divertente, in quanto Docker combina un aggettivo con il cognome di una celebrità
 del mondo dell'informatica.
+
 Ad esempio alcuni nomi potrebbero essere: happy_curie, clever_hopper, jovial_lovelace, ecc...
+
+> Tranne `booring_wozniak`, perché [Steve Wozniak non è affatto noioso](https://github.com/moby/moby/blob/c90254c7464cac5c56e7ab9e6b1857c119d5d263/pkg/namesgenerator/names-generator.go#L844)! ;-)
 
 Se infatti lanciamo nuovamente un container e andiamo a vedere i processi con i comandi:
 
@@ -108,7 +113,7 @@ CONTAINER ID   IMAGE           [...]
 ```
 
 Queste etichette vedrete che ci torneranno molto utili in futuro, in quanto molti strumenti di monitoraggio, proxy e
-altri servizi possono utilizzare queste etichette per filtrare i container ed effetuare operazioni distinte su di essi. 
+altri servizi possono utilizzare queste etichette per filtrare i container ed effettuare operazioni distinte su di essi. 
 
 ***
 
@@ -324,7 +329,7 @@ $ docker inspect zavy-figlet
 ]
 ```
 
-Tutte queste informazioni potrebbero addirittura spiazzarci, per rendedere il tutto più leggibile possiamo sfruttare una
+Tutte queste informazioni potrebbero addirittura spiazzarci, per rendere il tutto più leggibile possiamo sfruttare una
 comoda utility da riga di comando chiamata `jq` che ci permette di interagire con i dati in formato JSON:
 
 ```shell

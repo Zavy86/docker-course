@@ -35,6 +35,8 @@ finale rendendo le precedenti inutili.
 
 Infine, possiamo precedere qualsiasi istruzione o testo con un `#` per aggiungere dei **commenti** al nostro Dockerfile.
 
+***
+
 > __advanced dockerfile syntax__
 >
 > run
@@ -99,7 +101,7 @@ RUN apt-get update \
 L'istruzione `EXPOSE` permette a Docker di sapere quali porte debbano essere esposte una volta avviato il container.
 
 Di default tutte le porte sono comunque sempre private, dichiararle tramite questa istruzione non è sufficiente per far
-si che la porta si accessibile dall'esterno, per farlo dovremo utilizzare il parametro `-P` all'avvio del container per
+si che la porta sia accessibile dall'esterno, per farlo dovremo utilizzare il parametro `-P` all'avvio del container per
 aprire tutte le porte definite nell'immagine su porte casuali del nostro host o i parametri `-p` seguiti dal numero di
 porta di destinazione e dal numero di porta di origine qualora volessimo avere un controllo completo sui numeri.
 
@@ -166,7 +168,7 @@ COPY / /src
 Nonostante questo la prima risulta più leggibile e meno fuorviante.
 
 I tentativi di utilizzare `..` per uscire dal contesto di build verranno rilevati e bloccati da Docker e la compilazione
-fallirà, questo proprio per evitare la formula _"it works on my machine"_, un'immagine deve poter essere compilata allo
+fallirà, questo proprio per evitare la formula _"it works on my machine!"_, un'immagine deve poter essere compilata allo
 stesso modo su qualunque host.
 
 Qualora volessimo modificare il proprietario di un file o di una directory durante la copia, possiamo utilizzare:
@@ -186,7 +188,7 @@ In questo modo tutti i files e le directories verranno assegnati all'utente `ngi
 > - remote files
 
 L'istruzione `ADD` è molto simile a `COPY`, ma con alcune funzionalità aggiuntive, può essere utilizzata per copiare e
-decomprimere archivi compressi, o per aggiungere file tramite remoti scaricabili tramite protocollo `HTTP`.
+decomprimere archivi compressi, o per aggiungere file remoti scaricabili tramite protocollo `HTTP/S`.
 
 Tuttavia le due cose non sono cumulabili, ovvero se provassimo a scaricare un archivio compresso remoto esso non verrà
 automaticamente decompresso, spero vivamente che questo comportamento venga cambiato in futuro.
@@ -200,10 +202,10 @@ Se volessimo copiare e decomprimere in automatico un archivio contenente per ese
 potremmo utilizzare l'istruzione:
 
 ```dockerfile
-ADD ./release.zip /app 
+ADD ./release.tar.gz /app 
 ```
 
-In questo modo ci troveremmo all'interno della directory `/app` tutto il contenuto dell'archivio `release.zip`.
+In questo modo ci troveremmo all'interno della directory `/app` tutto il contenuto dell'archivio `release.tar.gz`.
 
 O qualora volessimo prelevare direttamente un file remoto potremmo utilizzare ad esempio:
 
@@ -235,7 +237,7 @@ volume per ogni directory indicata con un nome univoco a meno che non ne venga s
 I volumi possono anche essere associati a directory locali all'interno dell'host per potervi accedere più facilmente.
 
 Avviando un container in modalità `read-only`, il file system verrà reso di sola lettura, ma i volumi potranno comunque
-essere trattati in lettura/scrittura se necessario.
+essere trattati in lettura e scrittura se necessario.
 
 ***
 
@@ -296,9 +298,9 @@ Per definire una variabile di ambiente possiamo utilizzare l'istruzione:
 ENV NGINX_PORT=80
 ```
 
-In questo modo abbiamo definito la variabile di ambiente `NGINX_PORT` assegnandole il valore `80`, e nel caso in cui 
-stessimo avviando il container in modalità di sviluppo potremo sovrascriverla con l'opzione `-e` seguita dal nome della 
-variabile di ambiente e il suo nuovo valore:
+In questo modo abbiamo definito la variabile di ambiente `NGINX_PORT` assegnandole il valore `80`, e nel caso volessimo
+variarla in fase di avvio del container potremo sovrascriverla con l'opzione `-e` seguita dal nome della variabile di 
+ambiente e il suo nuovo valore:
 
 ```shell
 $ docker run -e NGINX_PORT=8080 webserver
@@ -324,7 +326,7 @@ Per effettuare il cambio di utente possiamo utilizzare l'istruzione:
 USER nginx
 ```
 
-In questo modo non saremo più root ma è come se avessimo eseguito il comando `su ubuntu` per interpretare quell'utente.
+In questo modo non saremo più root ma è come se avessimo eseguito il comando `su nginx` per interpretare quell'utente.
 
 ***
 
@@ -393,7 +395,7 @@ Infine vi cito brevemente anche alcuni altri comandi per i quali vi rimando ovvi
 qualora li vogliate approfondire ulteriormente.
 
 Uno dei più utili è forse `ARG` che ci permette semplicemente di definire delle variabili a build-time (facoltative od
-obbligatorie) che potremmo riempire passandole al comando `docker build` con l'opzione `-build-arg`.
+obbligatorie) che potremmo riempire passandole al comando `docker build` con l'opzione `--build-arg`.
 
 Possiamo poi sfruttare l'istruzione `LABEL` per aggiunge metadati arbitrari all'immagine, come il nome del maintainer,
 l'URL del progetto, la licenza o qualsiasi altro dato che riteniamo utile.

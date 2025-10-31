@@ -109,7 +109,7 @@ Then came automation with scripts or more structured tools like Ansible, etc...
 And finally, today, thanks to Docker, we can define a series of instructions for building a container and be sure that
 if it works locally, it will work in production.
 
-Finally solving the infamous "It works on my machine"!
+Finally solving the infamous _"It works on my machine!"_
 
 ***
 

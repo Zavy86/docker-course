@@ -55,7 +55,7 @@ o se preferisci anche tramite
 Ogni contributo, anche il più piccolo, mi motiva a continuare a creare materiale di alta qualità e accessibile a tutti.
 
 
-***
+## Grazie
 
 È stato un vero piacere condividere con te questo percorso.
 

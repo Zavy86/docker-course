@@ -28,10 +28,10 @@ app.get('/', (req, res) => {
 
 app.get('/generate', (req, res) => {
   const name = generateRandomName();
-  console.log(`Last generated name: ${name}`);
+  //console.log(`Last generated name: ${name}`);
   res.json(name);
 });
 
 app.listen(3000, '0.0.0.0', () => {
-  console.log(`Server running on http://localhost:3000`);
+  console.log(`Server running on port 3000`);
 });

@@ -36,8 +36,8 @@ $ tree
 ```
 
 Possiamo vedere all'interno della directory `public` il file `index.html` che rappresenta la pagina web principale della
-nostra applicazione, il file `style.css` e la `favicon.ico`. Un `package.json` che contiene tutte le informazioni
-sulla nostra applicazione e un `server.js` che contiene il codice del nostro server Node.
+nostra applicazione, il file `style.css` e la `favicon.ico`. Un `package.json` che contiene tutte le informazioni sulla
+nostra applicazione e un `server.js` che contiene il codice del nostro server Node.
 
 Ma soffermiamoci un attimo sul [`Dockerfile`](../../sources/namer/Dockerfile):
 
@@ -47,7 +47,7 @@ $ cat Dockerfile
 
 Come possiamo notare è piuttosto semplice, parte dall'immagine ufficiale di Node e installa a livello globale `nodemom`, 
 un pacchetto che ci permette di tracciare le modifiche apportate al codice e riavviare automaticamente il server Node ed
-esegue uno script shell che mostra alcune informazioni, installa le dipendenze e avvia il server in modalità sviluppo e
+esegue uno script shell che: mostra alcune informazioni, installa le dipendenze e avvia il server in modalità sviluppo e
 infine espone la porta 3000, quella standard di Node.js.
 
 Procediamo quindi con la compilazione dell'immagine:
@@ -103,17 +103,15 @@ Starting development server with nodemon...
 [nodemon] watching path(s): *.*
 [nodemon] watching extensions: js,mjs,cjs,json
 [nodemon] starting `node server.js`
-Server running on http://localhost:3000
+Server running on port 3000
 ```
 
-Al suo avvio il container procederà con l'installazione delle dipendenze con tramite NPM e con l'avvio del server.
-Grazie a nodemon il container sarà anche in grado di rilevare ogni modifica apportata al codice e potrà così riavviare 
-in automatico il server per rendere effettive le modifiche.
+Al suo avvio il container procederà con l'installazione delle dipendenze con tramite `NPM` (Node Package Manager) e con
+l'avvio del server. Grazie a `nodemon` il container sarà anche in grado di rilevare ogni modifica apportata al codice e
+potrà così riavviare in automatico il server per rendere effettive le modifiche.
 
-Ora se apriamo il browser all'indirizzo [http://localhost:3000/](http://localhost:3000/) potremo vedere in funzione la
-nostra applicazione.
-
-Come possiamo vedere è una semplicissima applicazione che genera dei nomi casuali.
+Ora se apriamo il browser all'indirizzo IP del nostro host specificando la porta `3000` potremo vedere in funzione la 
+nostra applicazione. Come possiamo vedere è una semplicissima applicazione che genera dei nomi casuali.
 
 ---
 
@@ -134,7 +132,7 @@ console.log(`Last generated name: ${name}`);
 Non appena salviamo il file, noteremo che nella console dove stavamo eseguendo il container, `nodemon` si accorgerà
 della modifica e riavvierà automaticamente il server. 
 
-E aggiornando la pagina vedremo che il nostro log viene visualizzato correttamente.
+E aggiornando la pagina vedremo che il nostro log viene visualizzato correttamente nella console.
 
 Ora non ci resterà che effettuare il commit della modifica e tutti gli altri membri del team potranno avviare il loro
 container e vedere le modifiche apportate.
@@ -162,7 +160,7 @@ drwxr-xr-x@  5 zavy  staff    160 Aug 07 16:40 public
 ```
 
 Essa è stata generata al primo avvio del nostro server, il fatto che resti a disposizione sul nostro computer, fa sì che
-non sia necessario installarle a ogni avvio del container, risparmiando tempo e risorse.
+non sia necessario installarle a ogni avvio del container, risparmiando tempo e rete.
 
 Qualora in ogni caso cancellassimo questa cartella
 
@@ -180,7 +178,7 @@ Al successivo avvio del container, verrebbe ricreata automaticamente.
 > - inconsistent environments
 > - it works on my machine!
 
-Come potrete quindi intuire in questo modo ci siamo completamente svincolati dalla nostra macchina. Non abbiamo nemmno
+Come potrete quindi intuire in questo modo ci siamo completamente svincolati dalla nostra macchina. Non abbiamo nemmeno
 dovuto installare Node.js ma lo abbiamo eseguito direttamente tramite un container, e grazie al `package-lock.json` ci
 ritroviamo un ambiente coerente tra tutti i membri del team, al resto ci penserà [Git](https://git-scm.com/).
 

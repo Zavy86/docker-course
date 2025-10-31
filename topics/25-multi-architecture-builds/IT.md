@@ -146,15 +146,15 @@ sul nostro host per i motivi descritti precedentemente.
 > - dependencies
 
 Un aspetto fondamentale da tenere in considerazione nelle build multi piattaforma è che quando la piattaforma di 
-destinazione non coincide con quella della macchina host, Docker utilizza `Quick Emulator` per emulare l'architettura 
+destinazione non coincide con quella della macchina host, Docker utilizzerà `Quick Emulator` per emulare l'architettura 
 target. Questo significa che, ad esempio, su un computer x86_64 è possibile costruire immagini per ARM64, tuttavia la
 compilazione e l'esecuzione dei passaggi nel Dockerfile saranno emulate tramite software.
 
 L'emulazione permette una straordinaria flessibilità ma introduce inevitabilmente un overhead in termini di performance:
-le build multi piattaforma che sfruttano QEMU risultano quindi sensibilmente più lente rispetto a quelle native.
+le build multi piattaforma che sfruttano `QEMU` risultano quindi sensibilmente più lente rispetto a quelle native.
 
-Inoltre, sebbene QEMU sia molto maturo, l'emulazione di alcune istruzioni particolarmente specifiche o avanzate potrebbe
-non essere perfetta, portando a comportamenti leggermente diversi rispetto all'hardware reale.
+Inoltre, sebbene `QEMU` sia molto maturo, l'emulazione di alcune istruzioni particolarmente specifiche o avanzate 
+potrebbe non essere perfetta, portando a comportamenti leggermente diversi rispetto all'hardware reale.
 
 Un ulteriore aspetto critico riguarda le dipendenze native, ossia tutti quei pacchetti o librerie che vengono compilati
 e installati all'interno dell'immagine. Alcune potrebbero presentare differenze di comportamento, di prestazioni, o 
@@ -163,7 +163,7 @@ o librerie che fanno uso di ottimizzazioni specifiche per una certa CPU.
 
 Per questo motivo, è buona pratica testare sempre le immagini risultanti su ogni architettura che si intende supportare,
 magari sfruttando ambienti di test automatizzati o dispositivi reali, così da individuare tempestivamente eventuali
-incompatibilità o regressioni che l'emulazione con QEMU potrebbe non far emergere in fase di build.
+incompatibilità o regressioni che l'emulazione con `QEMU` potrebbe non far emergere in fase di build.
 
 ***
 

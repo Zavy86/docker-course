@@ -8,13 +8,13 @@
 > - scope of configuration
 > - frequency of changes
 
-La configurazione di un'applicazione è uno degli step fondamentali per la distribuzione di un'applicazione.
+La gestione delle configurazioni è uno degli step fondamentali per la distribuzione di un'applicazione.
 
 Esistono diversi modi per configurare un'applicazione containerizzata e la scelta del metodo più adatto può dipendere da
 diversi fattori. Come la dimensione della configurazione, la presenza di parametri opzionali od obbligatori, l'ambito di
 rilevanza della configurazione e la frequenza con cui la configurazione debba essere aggiornata.
 
-Spesso questi fattori sono correlati tra loro e la scelta della migliore soluzione non è semplice.
+Spesso questi fattori sono correlati tra loro e la scelta della migliore soluzione non è affatto semplice.
 
 In questo capitolo vedremo alcuni fra i tipi di configurazione più comuni con i loro pro e contro.
 
@@ -44,11 +44,11 @@ Risulta molto scomodo per configurazioni che devono cambiare in maniera dinamica
 >
 > environment variables
 > - pros:
-    >   - optional parameters
+>   - optional parameters
 >   - lots of parameters
 >   - multiple services
 > - cons:
-    >   - dynamic
+>   - dynamic
 
 Un altro approccio potrebbe essere quello di usare le variabili d'ambiente, che sono un insieme di coppie chiave-valore
 che possono essere usate per passare parametri all'applicazione.
@@ -77,7 +77,7 @@ Non sono la scelta migliore per configurazioni che devono cambiare in maniera di
 >   - arbitrary customization
 >   - require rebuild on change
 
-Un altro metodo potrebbe essere quelli di scrivere la configurazione direttamente all'interno dell'immagine.
+Un altro metodo potrebbe essere quello di scrivere la configurazione direttamente all'interno dell'immagine.
 Magari copiando un file di configurazione in una directory specifica all'interno dell'immagine.
 
 Ogni immagine sarebbe così preconfigurata e pronta all'uso.
@@ -103,7 +103,7 @@ A ogni modifica della configurazione sarà necessario ricompilare l'immagine e r
 >   - arbitrary customization
 
 E l'ultima modalità potrebbe essere quella di usare un volume con all'interno i files di configurazione e poi i volumi
-possono essere montati su tutti i container che necessitano di quella specifica configurazione.
+dovranno essere montati su tutti i container che necessitano di quella specifica configurazione.
 
 La sua maggiore utilità è la possibilità di condividere la stessa configurazione tra più container.
 
@@ -128,7 +128,7 @@ mai una buona idea.
 I sistemi di orchestrazione come Docker Swarm o Kubernetes (ad esempio) offrono metodi specifici per la gestione dei 
 segreti in maniera sicura e sarebbe sempre preferibile usare questi sistemi in ambienti di produzione.
 
-Senza sistemi di orchestrazione gestire i segreti in maniera sicura può risultare parecchio complesso.
+Purtroppo, senza sistemi di orchestrazione, gestire i segreti in maniera sicura può risultare parecchio complesso.
 
 ***
 

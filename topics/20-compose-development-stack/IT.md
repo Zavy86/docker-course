@@ -22,7 +22,6 @@ Vediamolo quindi in azione su uno stack di sviluppo locale per un'applicazione *
 
 ***
 
-
 Qualora ancora non l'avessimo fatto cloniamo il repository di questo corso:
 
 ```shell
@@ -55,9 +54,9 @@ Il `Dockerfile` è molto simile a quello visto nel capitolo precedente, soffermi
 $ cat docker-compose.yml
 ```
 
-Come possiamo vedere il file è strutturato in più sezioni. La sezione `services` definisce i vari servizi che compongono
-il nostro stack, il servizio `db` che rappresenta il database Postgres e il servizio `app` che rappresenta la nostra 
-applicazione Node.
+Senza soffermarci troppo sulla sintassi YAML del Compose, come possiamo vedere il file è strutturato in più sezioni. La 
+sezione `services` definisce i vari servizi che compongono il nostro stack, il servizio `db` che rappresenta il database 
+Postgres e il servizio `app` che rappresenta la nostra applicazione Node.
 
 Come possiamo notare i due servizi sono definiti in maniera diversa, per esempio il `db` utilizza un'immagine ufficiale 
 di Postgres, mentre il servizio `app` utilizza l'istruzione `build` alla quale viene passato il contesto di build `.`, 
@@ -69,10 +68,10 @@ le configurazioni necessarie al corretto funzionamento dei servizi stessi.
 Il servizio `app` dispone inoltre di una sezione `volumes` che mappa la directory corrente `.` dentro alla directory del
 container `/app`, permettendo così di avere il codice sorgente dell'applicazione sempre aggiornato nel container in modo
 che `nodemon` possa rilevare le modifiche in temo reale e riavviare il server automaticamente, di una sezione `ports`
-che mappa la porta 3000 del container alla porta 3000 del nostro host e di una sezione `depends_on` che specifica che il
-servizio `app` dipende dal servizio `db`, in modo che Docker Compose avvii prima il database e poi l'applicazione.
+che mappa la porta `3000` del container alla porta `3000` del nostro host e una sezione `depends_on` che specifica che 
+il servizio `app` dipende dal servizio `db`, in modo che Docker Compose avvii prima il database e poi l'applicazione.
 
-Procediamo quindi con l'avvio dello stack, per farlo dovremo semplicemente lancire il comando:
+Procediamo quindi con l'avvio dello stack, per farlo dovremo semplicemente lanciare il comando:
 
 ```shell
 $ docker compose up
@@ -113,22 +112,22 @@ $ docker compose up
  ✔ Container subscriptions-db-1   Created                                                                                                                                      0.2s 
  ✔ Container subscriptions-app-1  Created                                                                                                                                      0.1s 
 Attaching to app-1, db-1
-db-1  | The files belonging to this database system will be owned by user "postgres".
-db-1  | This user must also own the server process.
-db-1  | 
-db-1  | The database cluster will be initialized with locale "en_US.utf8".
-db-1  | The default database encoding has accordingly been set to "UTF8".
-db-1  | The default text search configuration will be set to "english".
-db-1  | 
-db-1  | Data page checksums are enabled.
-db-1  | 
-db-1  | fixing permissions on existing directory /var/lib/postgresql/18/docker ... ok
-db-1  | creating subdirectories ... ok
-db-1  | selecting dynamic shared memory implementation ... posix
-db-1  | selecting default "max_connections" ... 100
-db-1  | selecting default "shared_buffers" ... 128MB
-db-1  | selecting default time zone ... UTC
-db-1  | creating configuration files ... ok
+db-1   | The files belonging to this database system will be owned by user "postgres".
+db-1   | This user must also own the server process.
+db-1   | 
+db-1   | The database cluster will be initialized with locale "en_US.utf8".
+db-1   | The default database encoding has accordingly been set to "UTF8".
+db-1   | The default text search configuration will be set to "english".
+db-1   | 
+db-1   | Data page checksums are enabled.
+db-1   | 
+db-1   | fixing permissions on existing directory /var/lib/postgresql/18/docker ... ok
+db-1   | creating subdirectories ... ok
+db-1   | selecting dynamic shared memory implementation ... posix
+db-1   | selecting default "max_connections" ... 100
+db-1   | selecting default "shared_buffers" ... 128MB
+db-1   | selecting default time zone ... UTC
+db-1   | creating configuration files ... ok
 db-1   | running bootstrap script ... ok
 db-1   | sh: locale: not found
 db-1   | 2025-10-24 15:01:59.303 UTC [38] WARNING:  no usable system locales were found
@@ -195,7 +194,7 @@ app-1  | [nodemon] to restart at any time, enter `rs`
 app-1  | [nodemon] watching path(s): *.*
 app-1  | [nodemon] watching extensions: js,mjs,cjs,json
 app-1  | [nodemon] starting `node server.js`
-app-1  | Server running on http://localhost:3000
+app-1  | Server running on port 3000
 ```
 
 Come possiamo notare dal lunghissimo log, Docker Compose si è occupato di scaricare l'immagine di Postgres dal registry, 
@@ -207,9 +206,9 @@ entrambi i container alla nostra console, permettendoci così di monitorarne l'e
 vedete qui in alto abbiamo i log dell'avvio del database e qui sotto abbiamo i log di avvio della nostra applicazione. 
 
 Come avevamo visto nel capitolo precedente infatti il container dell'applicazione ha effettuato l'installazione delle 
-dipendenze con tramite `npm` e ha avviato il server tramite `nodemon` sulla porta 3000.
+dipendenze con tramite `npm` e ha avviato il server tramite `nodemon` sulla porta `3000`.
 
-Ora se apriamo il browser all'indirizzo [http://localhost:3000/](http://localhost:3000/) potremo vedere in funzione la
+Ora se apriamo il browser all'indirizzo IP del nostro host specificando la porta `3000` potremo vedere in funzione la
 nostra applicazione.
 
 Come possiamo vedere è una semplicissima applicazione di gestione delle sottoscrizioni.
@@ -218,7 +217,7 @@ Come possiamo vedere è una semplicissima applicazione di gestione delle sottosc
 
 Ora se volessimo smettere di lavorare sul progetto, per fermare lo stack di sviluppo locale, ci basterebbe premere 
 `^C` nella console in cui siamo collegati, in questo modo Docker Compose invierebbe un segnale di terminazione a
-entrambi i container e li fermerebbe in modo ordinato.
+entrambi i container e li fermerebbe.
 
 In alternativa potremmo aprire una nuova console, spostarci nella directory del progetto e lanciare il comando:
 
@@ -245,7 +244,7 @@ container del database Postgres. Per poter riavviare lo stack in futuro, dovremm
 $ docker compose up -d
 ```
 
-Che si occuperò per l'appunto di ricreare tutto lo stack da zero ed eseguirlo in background.
+Che si occuperò per l'appunto di ricreare tutto lo stack da zero ed eseguirlo poi in background.
 
 ***
 
@@ -256,8 +255,8 @@ Che si occuperò per l'appunto di ricreare tutto lo stack da zero ed eseguirlo i
 > - networking management
 > - environment variables
 
-Anche in questo caso ovviamente potremo procedere con la modifica del codice sorgente della nostra applicazione, o la
-modifica che ne so della versione di Postgres per testare l'aggiornamento ad una nuova release o quant'altro essendo
+Anche in questo caso ovviamente potremo procedere con la modifica del codice sorgente della nostra applicazione, o ad
+esempio la modifica della versione di Postgres per testare l'aggiornamento a una nuova release o quant'altro essendo
 sicuri che una volta che avremo effettuato il commit, ogni membro del team sarà in grado di replicare lo stesso ambiente
 di sviluppo locale semplicemente lanciando un singolo comando.
 

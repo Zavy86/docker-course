@@ -9,12 +9,15 @@
 
 Finora abbiamo utilizzato i container come comode unità di distribuzione autonome. Ma cosa capita quando un container 
 cerca di usare più risorse di quelle disponibili? Cosa succede se più container tentano di usare la stessa risorsa?
-Possiamo limitare le risorse disponibili per un container? Spoiler, si!
+
+Possiamo limitare le risorse disponibili per un container? Spoiler: si!
 
 I container, come abbiamo già visto, sono più simili a dei processi speciali piuttosto che a delle macchine virtuali.
+
 Un container che gira in un host, è a tutti gli effetti un processo che gira su quell'host.
 
 Quindi quello che dovremmo chiederci è cosa succede a un processo Linux che cerca di usare troppa memoria?
+
 Nella migliore delle ipotesi, viene usata la memoria `swap` se disponibile, altrimenti il processo viene interrotto.
 
 Se un container quindi utilizza troppa memoria, allo stesso modo verrà sfruttata la memoria `swap` finche disponibile
@@ -43,10 +46,10 @@ I limiti possono essere specificati in bytes oppure in unità più leggibili com
 `kilobytes`, `megabytes` e `gigabytes` ma lo vedremo poi in dettaglio fra poco.
 
 Le opzioni per la limitazione delle risorse di calcolo più utilizzati sono `--cpus` e `--cpu-shares`, il primo imposta 
-una percentuale limite di CPU da utilizzare, mentre il secondo imposta una priorità per i processi del container.
-Anche queste opzioni possono essere utilizzate insieme o separatamente.
+una percentuale limite di CPU da utilizzare, mentre il secondo imposta una priorità per i processi del container e anche
+queste opzioni possono essere utilizzate insieme o separatamente.
 
-Di default tutti i container hanno una priorità impostata a 1024 che verrà poi usata dallo schedulatore del kernel per
+Di default tutti i container hanno una priorità impostata a `1024` che verrà poi usata dallo schedulatore del kernel per
 assegnare le risorse. Fintanto che le CPU non sono a pieno carico questo numero non ha nessun effetto. Una volta che le
 CPU sono a pieno carico, ogni container riceverà cicli di CPU solamente in proporzione alla sua priorità.
 
@@ -116,7 +119,7 @@ In questo caso stiamo utilizzando il 200% di CPU ovvero due interi core.
 
 Per quanto riguarda invece lo storage come già detto dipende dal driver di storage utilizzato e non tutti lo supportano.
 
-In ogni caso per verificare lo spazio di storaga occupato da ogni container possiamo utilizzare il comando:
+In ogni caso per verificare lo spazio di storage occupato da ogni container possiamo utilizzare il comando:
 
 ```shell
 $ docker ps -as

@@ -11,11 +11,11 @@ Immaginate di avere una semplice applicazione web che usa un data store per memo
 In questo caso utilizzeremo un'applicazione Node.js che espone un contatore, premendo il pulsante il contatore verrà
 incrementato e il valore verrà memorizzato in un data store Redis.
 
-Per far si che i due container si possano parlare li metteremo entrambi nelle rete `tutorial` creata precedentemente.
+Per far si che i due container si possano parlare li metteremo entrambi nella rete `tutorial` creata precedentemente.
 
 ***
 
-Eseguiamo quindi l'applicazione partendo dall'immagine [clickster](../../sources/clickster):
+Eseguiamo quindi l'applicazione partendo da [questa](../../sources/clickster) immagine:
 
 ```shell
 $ docker run --net tutorial -dP zavy86/clickster
@@ -28,10 +28,10 @@ $ docker ps -l
 ```
 ```terminaloutput
 CONTAINER ID   IMAGE              [...]   PORTS                     [...]
-3cae1216a1c1   zavy86/clickster   [...]   0.0.0.0:50004->8080/tcp   [...]
+3cae1216a1c1   zavy86/clickster   [...]   0.0.0.0:50003->8080/tcp   [...]
 ```
 
-Se ora puntiamo il browser su `http://localhost:50004` vedremo l'applicazione web in esecuzione, ma riceveremo subito un
+Se ora puntiamo il browser su `http://localhost:50003` vedremo l'applicazione web in esecuzione, ma riceveremo subito un
 errore `Unable to connect to Redis!`. Questo ovviamente perché non c'è nessun server Redis in esecuzione, e quando la
 nostra applicazione tenta di risolvere il nome redis per connettersi, non trova nulla.
 
@@ -107,8 +107,10 @@ Name:   redis
 Address: 10.86.9.5
 ```
 
-Un informazione importante da tenere a mente è che Docker non crea gli alias nella rete `bridge` di default, quindi se
+> Un informazione importante da tenere a mente è che Docker non crea gli alias nella rete `bridge` di default, quindi se
 vogliamo utilizzare questa funzione dobbiamo ricordarci di creare sempre una rete apposita.
+
+---
 
 Inoltre per completezza vi segnalo che è anche possibile connettere e disconnettere un container da una rete "a caldo" e
 non solamente in fase di esecuzione.

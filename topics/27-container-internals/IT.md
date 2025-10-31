@@ -50,9 +50,9 @@ messe a disposizione dalle schede video, e ogni altro dispositivo che possa esse
 Inoltre permettono anche di raggruppare i processi in gruppi facendo in modo che possano essere manipolati insieme come
 un'unica entità ad esempio nel caso volessimo congelare o terminare tutti i processi di un container.
 
-Il loro funzionamento è basato su una gerarchia ad albero dove nodo rappresenta un livello di isolamento e a ogni nodo 
-possono essere impostate delle regole di limitazione specifiche. Dopodiché è possibile spostare uno o più processi in
-uno di questi nodi e il processo (o i processi) che si trovano in quel nodo saranno costretti a rispettarne le regole.
+Il loro funzionamento è basato su una gerarchia ad albero dove ogni nodo rappresenta un livello di isolamento e a ogni 
+nodo possono essere impostate delle regole di limitazione specifiche. Dopodiché è possibile spostare uno o più processi 
+in un nodo e il processo (o i processi) che si trovano in quel nodo saranno costretti a rispettarne le regole.
 
 ***
 
@@ -162,12 +162,13 @@ E così via anche per le altre risorse.
 >
 > namespaces
 > - limit
+> - xxx
 
 I `namespaces` sono un sistema di isolamento delle risorse che permettono di limitare la visibilità all'interno di una
 sorta di recinto invalicabile. Nei kernel moderni esistono svariati spazi disponibili, come quello dei processi, quello
 delle reti, quello dei punti di montaggio, e molti altri...
 
-Una volta creato uno spazio deve essere assegnato a uno o più processi e quando l'ultimo processo termina lo spazio e
+Una volta creato uno spazio deve essere assegnato a uno o più processi e quando l'ultimo processo termina, lo spazio e
 tutte le risorse a esso associate vengono rimossi automaticamente dal sistema.
 
 ***
@@ -201,7 +202,7 @@ E già qui notiamo che ora siamo diventati `root` e non siamo più l'utente `ubu
 Ora se lanciamo il comando:
 
 ```shell
-$ sudo unshare --uts
+# hostname
 ```
 
 Vedremo il nome della nostra macchina:
@@ -213,19 +214,19 @@ docker
 Proviamo ora a modificarlo:
 
 ```shell
-$ hostname zavyns
+# hostname zavy-namespace
 ```
 
 E lanciamo nuovamente il comando:
 
 ```shell
-$ hostname
+# hostname
 ```
 
 Come possiamo vedere otterremo il nome che abbiamo appena impostato:
 
 ```terminaloutput
-zavyns
+zavy-namespace
 ```
 
 Ma se ora apriamo un nuovo terminale sempre sul nostro server e lanciamo il comando:
@@ -314,12 +315,12 @@ faa676649677   zavy86/clock   [...]   hungry_jang           0B (virtual 4.17MB)
 ```
 
 Il che significa che tutti e nove i container stanno condividendo lo stesso filesystem con l'immagine per cui i files
-presenti al loro interno non sono altro che dei link ai file presenti nell'immagine stessa.
+presenti al loro interno non sono altro che dei link ai files presenti nell'immagine stessa.
 
-Se da un altro terminale lanciamo un nuovo container:
+Se da un altro terminale lanciamo un ulteriore container in modalità interattiva:
 
 ```shell
-$ docker run -d zavy86/clock
+$ docker run -ti zavy86/clock sh
 ```
 
 E andiamo a creare un nuovo file al suo interno:
@@ -335,7 +336,7 @@ $ docker ps --size
 ```
 ```terminaloutput
 CONTAINER ID   IMAGE          [...]   NAMES                 SIZE
-ccd33ea22d5d   zavy86/clock   [...]   elated_hamilton       58B (virtual 4.17MB)
+ac3d3ea22d5d   zavy86/clock   [...]   elated_hamilton       58B (virtual 4.17MB)
 e13ecdd28d09   zavy86/clock   [...]   goofy_turing          0B (virtual 4.17MB)
 c1cc638ac9a5   zavy86/clock   [...]   practical_feynman     0B (virtual 4.17MB)
 cb201213dce7   zavy86/clock   [...]   charming_poitras      0B (virtual 4.17MB)
@@ -353,7 +354,7 @@ abbiamo appena creato e questo peso ovviamente non ha nessun impatto su tutti gl
 Se lanciamo poi il comando:
 
 ```shell
-$ docker ps --size
+$ docker diff ac3
 ```
 
 Noteremo proprio le differenze apportate rispetto all'immagine originale:

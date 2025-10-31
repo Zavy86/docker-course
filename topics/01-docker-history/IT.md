@@ -113,7 +113,7 @@ Passando poi per l'automazione tramite scripts o tool un po' più strutturati co
 Per poi arrivare a oggi dove grazie a Docker possiamo definire tutta una serie di istruzione per la costruzione di un
 container ed essere sicuri che se funziona in locale, funzionerà anche in produzione.
 
-Giungendo finalmente alla risoluzione del fatidico "It works on my machine"!
+Giungendo finalmente alla risoluzione del fatidico _"It works on my machine!"_.
 
 ***
 
