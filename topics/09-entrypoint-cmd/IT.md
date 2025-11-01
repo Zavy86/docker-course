@@ -215,10 +215,74 @@ $ docker run -ti --entrypoint sh figlet
 
 In questo modo abbiamo ottenuto la shell `sh` come previsto.
 
+Se poi volessimo combinare le due istruzioni potremo modificare nuovamente il Dockerfile:
+
+```shell
+$ nano Dockerfile
+```
+
+E inserirle entrambe:
+
+```dockerfile
+FROM alpine
+RUN [ "apk", "add", "figlet" ]
+ENTRYPOINT [ "figlet", "-f", "script" ]
+CMD [ "welcome" ]
+```
+
+Rifacciamo la build dell'immagine:
+
+```shell
+$ docker build -t figlet .
+```
+```terminaloutput
+[+] Building 0.0s (6/6) FINISHED                                                                                                                                  docker:linux
+ => [internal] load build definition from Dockerfile                                                                                                                      0.0s
+ => => transferring dockerfile: 120B                                                                                                                                      0.0s 
+ => [internal] load metadata for docker.io/library/alpine:latest                                                                                                          0.0s 
+ => [internal] load .dockerignore                                                                                                                                         0.0s 
+ => => transferring context: 2B                                                                                                                                           0.0s 
+ => [1/2] FROM docker.io/library/alpine:latest                                                                                                                            0.0s 
+ => CACHED [2/2] RUN [ "apk", "add", "figlet" ]                                                                                                                           0.0s 
+ => exporting to image                                                                                                                                                    0.0s 
+ => => exporting layers                                                                                                                                                   0.0s 
+ => => writing image sha256:1e07b8999b54f162bc5bbd2d4664793c3639c393c42d3f230677efa82aeccab2                                                                              0.0s 
+ => => naming to docker.io/library/figlet
+```
+
+In questo modo qualora non specificassimo nessun comando otterremo il benvenuto da Figlet:
+
+```shell
+$ docker run figlet
+```
+```terminaloutput
+ _              _                           
+(_|   |   |_/  | |                          
+  |   |   | _  | |  __   __   _  _  _    _  
+  |   |   ||/  |/  /    /  \_/ |/ |/ |  |/  
+   \_/ \_/ |__/|__/\___/\__/   |  |  |_/|__/
+```
+
+Mentre se specificassimo un comando, come abbiamo fatto prima, otterremo il messaggio personalizzato:
+
+```shell
+$ docker run figlet Zavy
+```
+```terminaloutput
+ __                   
+(_ \                  
+   /  __,             
+  /  /  |  |  |_|   | 
+ /__/\_/|_/ \/   \_/|/
+                   /| 
+                   \| 
+```
+
 ***
 
 > Resources:
 > - [figlet-command](../../sources/figlet-command)
 > - [figlet-entrypoint](../../sources/figlet-entrypoint)
+> - [figlet-entrypoint-command](../../sources/figlet-entrypoint-command)
 
 [Prosegui](../10-copying-files/IT.md) al prossimo capitolo.

@@ -43,7 +43,19 @@ molto senso eseguirla su una macchina che per sua natura ha una singola architet
 Andiamo quindi a vedere come effettuare in un singolo comando una build multi piattaforma, taggandola ed effettuando il 
 push verso il registro Docker Hub.
 
-Spostiamoci ad esempio nella cartella dei sorgenti di [`clock`](../../sources/clock) ed eseguiamo il comando:
+Qualora ancora non l'avessimo fatto cloniamo il repository di questo corso:
+
+```shell
+$ git clone https://github.com/Zavy86/docker-course.git
+```
+
+E spostiamoci nella directory:
+
+```shell
+$ cd docker-course/source/clock
+```
+
+Ed effettuiamo la build multi piattaforma con il comando:
 
 ```shell
 $ docker buildx build --platform linux/amd64,linux/arm64 --tag zavy86/clock --push .
@@ -127,15 +139,15 @@ registro e poi effettuare il pull della versione dell'immagine relativa alla nos
 
 Qualora si ometta l'opzione `--push` non solo l'immagine non verrà inviata al registro ma non verrà nemmeno salvata nel
 nostro computer, resterà disponibile solamente all'interno della cache. Se volessimo forzare il salvataggio in locale
-dell'immagine ai fini di puro debug dovremo sostituire l'opzione `--push` con l'opzione `--output` in questo modo:
+dell'immagine, ai fini di puro debug, dovremo sostituire l'opzione `--push` con l'opzione `--output` in questo modo:
 
 ```shell
 $ docker buildx build --platform linux/amd64,linux/arm64 --tag zavy86/clock --output type=oci,dest=clock.oci .
 ```
 
-A questo punto ci ritroveremo nella cartella corrente dove abbiamo salvato l'immagine `clock.oci` che rappresenta la
-nostra immagine multi piattaforma e potremo poi inviarlo manualmente a un registro, ma che non sarà comunque eseguibile
-sul nostro host per i motivi descritti precedentemente.
+A questo punto ci ritroveremo nella cartella corrente un nuovo file `clock.oci` che rappresenta appunto l'immagine multi 
+piattaforma che potremo poi inviare manualmente a un registro, ma che non sarà comunque eseguibile sul nostro host per i 
+motivi descritti precedentemente.
 
 ***
 

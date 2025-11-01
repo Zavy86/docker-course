@@ -57,7 +57,7 @@ questi verranno trasmessi direttamente all'interno del file di logs del containe
 utilizzato da Docker è il `json-file` come possiamo facilmente verificare tramite il comando:
 
 ```shell
-$ docker info --format '{{.LoggingDriver}}'
+$ docker info --format '{{ json .LoggingDriver}}'
 ```
 
 Ma tramite plugin potremo scegliere di utilizzare il metodo che più si adatta al nostro ambiente.
@@ -118,11 +118,23 @@ Utilizzeremo quindi il protocollo `GELF` per inviare i log verso Logstash che pr
 ***
 
 Andiamo quindi ad avviare uno questo stack ELK tramite il [Docker Compose](../../sources/elk) che trovate allegato in 
-questo repository:
+questo repository.
+
+Qualora ancora non l'avessimo fatto cloniamolo:
 
 ```shell
-$ git clone https://github.com/zavy86/docker-course.git
-$ cd docker-course/sources/elk
+$ git clone https://github.com/Zavy86/docker-course.git
+```
+
+E spostiamoci nella directory:
+
+```shell
+$ cd docker-course/source/elk
+```
+
+E lanciamo il comando:
+
+```shell
 $ docker compose up -d
 ```
 ```terminaloutput

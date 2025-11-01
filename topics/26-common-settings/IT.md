@@ -155,9 +155,9 @@ maniera puntuale dovremo "giocare" con i links simbolici.
 
 ---
 
-Infine un altro parametro importante è quello relativo al restore, che se abilitato permette di riavviare il daemon di
-Docker senza riavviare al contempo tutti i container, utilissimo in ambienti di produzione, crea spesso problemi invece
-negli ambienti di sviluppo, dove magari ci capita di voler riavviare tutto quanto.
+Un altro parametro importante è quello relativo al restore, che se abilitato permette di riavviare il daemon di Docker 
+senza riavviare al contempo tutti i container, utilissimo in ambienti di produzione, crea spesso problemi invece negli
+ambienti di sviluppo, dove magari ci capita di voler riavviare tutto quanto.
 
 ```json
 {
@@ -170,9 +170,9 @@ l'arresto e a riavviare tutti i container attualmente in esecuzione.
 
 ---
 
-Un'ultimissima cosa che potremmo voler fare è quella di modificare massivamente la combinazione di tasti che ci permette
-di staccarci dai container in esecuzione in modalità interattiva, in questo caso dovremo specificare il parametro:
-
+Infine un'ultima cosa che potremmo voler fare è quella di andare a modificare massivamente la combinazione di tasti che 
+ci permette di staccarci dai container in esecuzione in modalità interattiva, in questo caso dovremo intervenire sul
+parametro:
 
 ```json
 {

@@ -214,7 +214,7 @@ Commercial support is available at
 Per risalire invece all'indirizzo IP assegnato al container possiamo utilizzare il comando:
 
 ```shell
-$ docker inspect --format '{{ .NetworkSettings.IPAddress }}' 91a
+$ docker inspect --format '{{ json .NetworkSettings.IPAddress }}' 91a
 ```
 
 Ottenendo per l'appunto in output l'indirizzo assegnato al container:
