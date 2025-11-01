@@ -80,7 +80,7 @@ più avanti, per ora ci basta sapere che il contesto di build rappresenta la dir
 tutti i file necessari per la costruzione dell'immagine.
 
 ```terminaloutput
-[+] Building 0.6s (6/6) FINISHED                                                                                                                          docker:desktop-linux
+[+] Building 0.6s (6/6) FINISHED                                                                                                                                  docker:linux
  => [internal] load build definition from Dockerfile                                                                                                                      0.0s
  => => transferring dockerfile: 69B                                                                                                                                       0.0s 
  => [internal] load metadata for docker.io/library/alpine:latest                                                                                                          0.0s 
@@ -91,10 +91,6 @@ tutti i file necessari per la costruzione dell'immagine.
  => exporting to image                                                                                                                                                    0.0s
  => => exporting layers                                                                                                                                                   0.0s
  => => writing image sha256:d5e7ae0b40c2cd1ea64a8c2b888c7652bf7a6a7ace92c2f898290c55b87b6856                                                                              0.0s
-
-View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/mbrrdkr2eyikj07v64dh88voj
-
-What's next: View a summary of image vulnerabilities and recommendations → docker scout quickview
 ```
 
 L'output che vedete potrebbe essere leggermente diverso in base alla versione di Docker che state usando, in particolare
@@ -143,22 +139,18 @@ $ docker tag d5e figlet
 Se eseguiamo nuovamente il comando `build` noteremo che l'esecuzione sarà quasi istantanea:
 
 ```terminaloutput
-[+] Building 0.0s (6/6) FINISHED                                                                                                                          docker:desktop-linux
+[+] Building 0.0s (6/6) FINISHED                                                                                                                                  docker:linux
  => [internal] load build definition from Dockerfile                                                                                                                      0.0s
  => => transferring dockerfile: 69B                                                                                                                                       0.0s 
  => [internal] load metadata for docker.io/library/alpine:latest                                                                                                          0.0s 
  => [internal] load .dockerignore                                                                                                                                         0.0s 
  => => transferring context: 2B                                                                                                                                           0.0s 
- => CACHED [1/2] FROM docker.io/library/alpine:latest                                                                                                                            0.0s 
+ => CACHED [1/2] FROM docker.io/library/alpine:latest                                                                                                                     0.0s 
  => CACHED [2/2] RUN apk add figlet                                                                                                                                       0.0s 
  => exporting to image                                                                                                                                                    0.0s 
  => => exporting layers                                                                                                                                                   0.0s 
  => => writing image sha256:d5e7ae0b40c2cd1ea64a8c2b888c7652bf7a6a7ace92c2f898290c55b87b6856                                                                              0.0s 
- => => naming to docker.io/library/figlet                                                                                                                          0.0s 
-                                                                                                                                                                               
-View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/mgek5qujoq53k3x5geh7t68sw
-
-What's next: View a summary of image vulnerabilities and recommendations → docker scout quickview 
+ => => naming to docker.io/library/figlet                                                                                                                                 0.0s 
 ```
 
 Questo avviene perché il builder di Docker utilizza un sistema di Caching molto performante che permette di evitare di
@@ -181,22 +173,18 @@ $ docker build -t figlet --no-cache .
 E vedremo che in questo caso tutte le istruzioni verranno eseguite nuovamente:
 
 ```terminaloutput
-[+] Building 0.6s (6/6) FINISHED                                                                                                                          docker:desktop-linux
+[+] Building 0.6s (6/6) FINISHED                                                                                                                                  docker:linux
  => [internal] load build definition from Dockerfile                                                                                                                      0.0s
  => => transferring dockerfile: 69B                                                                                                                                       0.0s 
  => [internal] load metadata for docker.io/library/alpine:latest                                                                                                          0.0s 
  => [internal] load .dockerignore                                                                                                                                         0.0s 
  => => transferring context: 2B                                                                                                                                           0.0s 
  => [1/2] FROM docker.io/library/alpine:latest                                                                                                                            0.0s 
- => [2/2] RUN apk add figlet                                                                                                                                       0.0s 
+ => [2/2] RUN apk add figlet                                                                                                                                              0.0s 
  => exporting to image                                                                                                                                                    0.0s 
  => => exporting layers                                                                                                                                                   0.0s 
  => => writing image sha256:d5e7ae0b40c2cd1ea64a8c2b888c7652bf7a6a7ace92c2f898290c55b87b6856                                                                              0.0s 
- => => naming to docker.io/library/figlet                                                                                                                          0.0s 
-                                                                                                                                                                               
-View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/mgek5qujoq53k3x5geh7t68sw
-
-What's next: View a summary of image vulnerabilities and recommendations → docker scout quickview 
+ => => naming to docker.io/library/figlet                                                                                                                                 0.0s 
 ```
 
 Se vogliamo poi vedere in maniera puntuale quasi sono i layer che compongono la nostra immagine, possiamo visualizzare
@@ -278,22 +266,18 @@ $ docker build -t figlet .
 Come possiamo vedere, l'output è praticamente identico a prima, a eccezione del comando RUN che abbiamo modificato:
 
 ```terminaloutput
-[+] Building 0.5s (6/6) FINISHED                                                                                                                          docker:desktop-linux
+[+] Building 0.5s (6/6) FINISHED                                                                                                                                  docker:linux
  => [internal] load build definition from Dockerfile                                                                                                                      0.0s
  => => transferring dockerfile: 69B                                                                                                                                       0.0s 
  => [internal] load metadata for docker.io/library/alpine:latest                                                                                                          0.0s 
  => [internal] load .dockerignore                                                                                                                                         0.0s 
  => => transferring context: 2B                                                                                                                                           0.0s 
  => [1/2] FROM docker.io/library/alpine:latest                                                                                                                            0.0s 
- => [2/2] RUN [ "apk", "add", "figlet" ]                                                                                                                                     0.0s 
+ => [2/2] RUN [ "apk", "add", "figlet" ]                                                                                                                                  0.0s 
  => exporting to image                                                                                                                                                    0.0s 
  => => exporting layers                                                                                                                                                   0.0s 
  => => writing image sha256:d5e7ae0b40c2cd1ea64a8c2b888c7652bf7a6a7ace92c2f898290c55b87b6856                                                                              0.0s 
- => => naming to docker.io/library/figlet                                                                                                                          0.0s 
-                                                                                                                                                                               
-View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/mgek5qujoq53k3x5geh7t68sw
-
-What's next: View a summary of image vulnerabilities and recommendations → docker scout quickview 
+ => => naming to docker.io/library/figlet                                                                                                                                 0.0s 
 ```
 
 Se andiamo a vedere la storia della nostra immagine:

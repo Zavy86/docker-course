@@ -87,7 +87,7 @@ Proviamo quindi a effettuare la build dell'immagine:
 $ docker build -t hello .
 ```
 ```terminaloutput
-[+] Building 3.3s (9/9) FINISHED                                                                                                                          docker:desktop-linux
+[+] Building 3.3s (9/9) FINISHED                                                                                                                                  docker:linux
  => [internal] load build definition from Dockerfile                                                                                                                      0.0s
  => => transferring dockerfile: 138B                                                                                                                                      0.0s 
  => WARN: JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 5)                                           0.0s 
@@ -131,7 +131,7 @@ Se proviamo a rilanciare la stessa build senza modificare nulla:
 $ docker build -t hello .
 ```
 ```terminaloutput
-[+] Building 0.0s (9/9) FINISHED                                                                                                                          docker:desktop-linux
+[+] Building 0.0s (9/9) FINISHED                                                                                                                                  docker:linux
  => [internal] load build definition from Dockerfile                                                                                                                      0.0s
  => => transferring dockerfile: 127B                                                                                                                                      0.0s 
  => WARN: JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 5)                                           0.0s 
@@ -171,7 +171,7 @@ Ed effettuiamo nuovamente la build:
 $ docker build -t hello .
 ```
 ```terminaloutput
-[+] Building 0.2s (9/9) FINISHED                                                                                                                          docker:desktop-linux
+[+] Building 0.2s (9/9) FINISHED                                                                                                                                  docker:linux
  => [internal] load build definition from Dockerfile                                                                                                                      0.0s
  => => transferring dockerfile: 127B                                                                                                                                      0.0s 
  => WARN: JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 5)                                           0.0s 
@@ -235,7 +235,11 @@ Come possiamo verificare all'interno del container:
 
 ```shell
 $ docker run -ti hello sh
-# ls -lR
+# ls -l
+```
+```terminaloutput
+Dockerfile  dev         hello       home        media       opt         readme.txt  root         srv         test        ust         
+bin         etc         hello.c     lib         mnt         proc        run         sbin         sys         tmp         var
 ```
 
 Se aggiungiamo anche il file `.dockerignore` con all'interno il nome del file `readme.txt`:
@@ -255,7 +259,11 @@ quanto specificato nel file `.dockerignore`, come possiamo facilmente verificare
 
 ```shell
 $ docker run -ti hello sh
-# ls -lR
+# ls -l
+```
+```terminaloutput
+Dockerfile  dev         hello       home        media       opt         root        sbin        sys         tmp         var
+bin         etc         hello.c     lib         mnt         proc        run         srv         test        usr
 ```
 
 ***

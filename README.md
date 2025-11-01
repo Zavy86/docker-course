@@ -20,7 +20,7 @@ Then, if you want to dive deeper, come here and reread all the topics, or just t
 experimenting with the various examples with the console in your hand.
 
 You can find all the course videos on YouTube in the following
-[playlist](https://www.youtube.com/playlist?list=XXX)
+[playlist](https://www.youtube.com/playlist?list=PLdYHjrPuGeKEhYCXvSJsqf5zsECH-JXFp)
 inside my channel.
 
 

@@ -65,10 +65,10 @@ proprio come facevamo quando eseguivamo il comando `docker build` manualmente.
 Entrambi i servizi dispongono di una sezione dedicata alle variabili di ambiente `environment`, che permette di definire
 le configurazioni necessarie al corretto funzionamento dei servizi stessi.
 
-Il servizio `app` dispone inoltre di una sezione `volumes` che mappa la directory corrente `.` dentro alla directory del
-container `/app`, permettendo così di avere il codice sorgente dell'applicazione sempre aggiornato nel container in modo
-che `nodemon` possa rilevare le modifiche in temo reale e riavviare il server automaticamente, di una sezione `ports`
-che mappa la porta `3000` del container alla porta `3000` del nostro host e una sezione `depends_on` che specifica che 
+Il servizio `app` dispone inoltre di una sezione `volumes` che mappa la directory corrente `./` dentro alla directory
+`/app` del container, permettendo così di avere il codice sorgente dell'applicazione sempre aggiornato nel container in 
+modo che `nodemon` possa rilevare le modifiche in tempo reale e riavviare il server automaticamente, una sezione `ports`
+che mappa la porta `3000` del nostro host alla porta `3000` del container e una sezione `depends_on` che specifica che 
 il servizio `app` dipende dal servizio `db`, in modo che Docker Compose avvii prima il database e poi l'applicazione.
 
 Procediamo quindi con l'avvio dello stack, per farlo dovremo semplicemente lanciare il comando:

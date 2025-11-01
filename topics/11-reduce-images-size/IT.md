@@ -245,7 +245,7 @@ risultato sarà solamente la seconda immagine super leggera.
 $ docker build -t hello-multi-stage .
 ```
 ```terminaloutput
-[+] Building 0.2s (10/10) FINISHED                                                                                                                        docker:desktop-linux
+[+] Building 0.2s (10/10) FINISHED                                                                                                                                docker:linux
  => [internal] load build definition from Dockerfile                                                                                                                      0.0s
  => => transferring dockerfile: 184B                                                                                                                                      0.0s 
  => WARN: JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 8)                                           0.0s 
@@ -297,7 +297,7 @@ un'immagine di quel livello, per esempio potremo voler creare:
 $ docker build --target compiler -t hello-compiler .
 ```
 ```terminaloutput
-[+] Building 0.0s (9/9) FINISHED                                                                                                                          docker:desktop-linux
+[+] Building 0.0s (9/9) FINISHED                                                                                                                                  docker:linux
  => [internal] load build definition from Dockerfile                                                                                                                      0.0s
  => => transferring dockerfile: 184B                                                                                                                                      0.0s 
  => [internal] load metadata for docker.io/library/alpine:latest                                                                                                          0.0s 

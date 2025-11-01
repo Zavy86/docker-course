@@ -48,7 +48,7 @@ Usciamo e salviamo il file e rieseguiamo la build dell'immagine:
 $ docker build -t figlet .
 ```
 ```terminaloutput
-[+] Building 0.1s (6/6) FINISHED                                                                                                                          docker:desktop-linux
+[+] Building 0.1s (6/6) FINISHED                                                                                                                                  docker:linux
  => [internal] load build definition from Dockerfile                                                                                                                      0.0s
  => => transferring dockerfile: 111B                                                                                                                                      0.0s
  => WARN: JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 3)                                           0.0s
@@ -61,13 +61,8 @@ $ docker build -t figlet .
  => => exporting layers                                                                                                                                                   0.0s 
  => => writing image sha256:e35f3599a6cfadf7530756eba187d1565756412975ffc3ae2c28d913bebdf607                                                                              0.0s 
  => => naming to docker.io/library/figlet                                                                                                                                 0.0s 
-                                                                                                                                                                               
  1 warning found (use docker --debug to expand):
  - JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 3)                                                       
-
-View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/of4b8647bi56yf2ljn8cgyou9
-
-What's next: View a summary of image vulnerabilities and recommendations → docker scout quickview 
 ```
 
 Come possiamo notare non c'è traccia del comando all'interno delle operazioni eseguite dal builder, perché come dicevamo
@@ -159,7 +154,7 @@ Rifacciamo quindi la build dell'immagine:
 $ docker build -t figlet .
 ```
 ```terminaloutput
-[+] Building 0.0s (6/6) FINISHED                                                                                                                          docker:desktop-linux
+[+] Building 0.0s (6/6) FINISHED                                                                                                                                  docker:linux
  => [internal] load build definition from Dockerfile                                                                                                                      0.0s
  => => transferring dockerfile: 120B                                                                                                                                      0.0s 
  => [internal] load metadata for docker.io/library/alpine:latest                                                                                                          0.0s 
@@ -171,10 +166,6 @@ $ docker build -t figlet .
  => => exporting layers                                                                                                                                                   0.0s 
  => => writing image sha256:1e07b8999b54f162bc5bbd2d4664793c3639c393c42d3f230677efa82aeccab2                                                                              0.0s 
  => => naming to docker.io/library/figlet
-
-View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/of4b8647bi56yf2ljn8cgyou9
-
-What's next: View a summary of image vulnerabilities and recommendations → docker scout quickview 
 ```
 
 Anche in questo caso ovviamente in fase di build non compare nulla relativo all'entry point...

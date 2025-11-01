@@ -25,7 +25,7 @@ Puoi condividergli il link del repository GitHub:
 [https://github.com/zavy86/docker-course](https://github.com/zavy86/docker-course)
 
 Oppure direttamente la playlist completa su YouTube:
-[https://youtube.com/xxx](https://youtube.com/xxx)
+[https://www.youtube.com/playlist?list=PLdYHjrPuGeKEhYCXvSJsqf5zsECH-JXFp](https://www.youtube.com/playlist?list=PLdYHjrPuGeKEhYCXvSJsqf5zsECH-JXFp)
 
 
 ## Contribuisci al progetto

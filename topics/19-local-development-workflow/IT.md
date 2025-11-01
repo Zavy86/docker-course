@@ -56,7 +56,7 @@ Procediamo quindi con la compilazione dell'immagine:
 $ docker build -t namer .
 ```
 ```terminaloutput
-[+] Building 1.2s (8/8) FINISHED                                                                                                                          docker:desktop-linux
+[+] Building 1.2s (8/8) FINISHED                                                                                                                                  docker:linux
  => [internal] load build definition from Dockerfile                                                                                                                      0.0s
  => => transferring dockerfile: 334B                                                                                                                                      0.0s 
  => [internal] load metadata for docker.io/library/node:24-alpine                                                                                                         1.1s 
