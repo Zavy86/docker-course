@@ -1,3 +1,3 @@
 # Hello
 
-This repository contains a Docker image example that copy, compile and execute a `C` program.
+This repository contains an example Docker image that copy, compile and execute a `C` program.
