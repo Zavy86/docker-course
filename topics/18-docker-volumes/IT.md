@@ -174,14 +174,14 @@ $ cd docker-course
 E lanciamo nuovamente il container di nginx con il parametro `-v` per montare il volume in una directory specifica:
 
 ```shell
-$ docker run -d -p 8080:80 -v ./volumes/nginx-www:/usr/share/nginx/html nginx
+$ docker run -d -p 8080:80 -v ./sources/volumes/nginx-www:/usr/share/nginx/html nginx
 ``` 
 
 E dal nostro browser apriamo nuovamente la pagina: `http://localhost:8080` e vedremo che la pagina servita questa volta
-sarà la stessa presente all'interno della directory `volumes/nginx-www`:
+sarà la stessa presente all'interno della directory `./sources/volumes/nginx-www`:
 
 ```shell
-$ nano volumes/nginx-www/index.html
+$ nano ./sources/volumes/nginx-www/index.html
 ```
 ```html
 <!DOCTYPE html>
