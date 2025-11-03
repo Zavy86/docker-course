@@ -181,5 +181,6 @@ incompatibilità o regressioni che l'emulazione con `QEMU` potrebbe non far emer
 
 > Resources:
 > - [clock](../../sources/clock)
+> - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 
 [Prosegui](../26-common-settings/IT.md) al prossimo capitolo.

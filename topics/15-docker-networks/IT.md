@@ -245,4 +245,8 @@ E come possiamo vedere la risposta è pressoché immediata a confermarci che tut
 
 ***
 
+> Resources:
+> - [busybox](https://hub.docker.com/_/busybox)
+> - [nginx](https://hub.docker.com/_/nginx)
+
 [Prosegui](../16-network-drivers/IT.md) al prossimo capitolo.

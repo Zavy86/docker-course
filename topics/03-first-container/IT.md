@@ -301,4 +301,9 @@ Ma prima di addentrarci nella creazione delle immagini dobbiamo ancora vedere al
 
 ***
 
+> Resources:
+> - [alpine](https://hub.docker.com/_/alpine)
+> - [busybox](https://hub.docker.com/_/busybox)
+> - [hello-world](https://hub.docker.com/_/hello-world)
+
 [Prosegui](../04-background-containers/IT.md) al prossimo capitolo.

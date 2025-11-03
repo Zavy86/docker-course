@@ -354,6 +354,7 @@ target desiderato, così da sfruttare al meglio la cache ed evitare di replicare
 ***
 
 > Resources:
+> - [alpine](https://hub.docker.com/_/alpine)
 > - [hello-multi-stage](../../sources/hello-multi-stage)
 
 [Prosegui](../12-images-registry/IT.md) al prossimo capitolo.

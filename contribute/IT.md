@@ -33,11 +33,11 @@ Oppure direttamente la playlist completa su YouTube:
 Questo è un progetto open-source e vorrei che vivesse e prosperasse grazie alla community!
 
 Se hai individuato un errore nel testo, nelle slide o nel codice sorgente ti invito ad aprire una 
-[Issue](https://github.com/Zavy86/docker-course/issues).
+[issue](https://github.com/Zavy86/docker-course/issues).
 
 Mentre se sei interessato a tradurre il corso in un'altra lingua (un contributo fantastico!) o hai qualche suggerimento
 per migliorare l'organizzazione o i contenuti ti invito ad aprire una 
-[Pull Request](https://github.com/Zavy86/docker-course/pulls).
+[pull request](https://github.com/Zavy86/docker-course/pulls).
 
 Ogni contributo è super prezioso!
 

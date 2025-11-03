@@ -143,4 +143,7 @@ nel [capitolo 7](../07-interactive-images/IT.md).
 
 ***
 
+> Resources:
+> - [python](https://hub.docker.com/_/python)
+
 [Prosegui](../24-logging-monitoring/IT.md) al prossimo capitolo.

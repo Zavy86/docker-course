@@ -132,6 +132,8 @@ risponde a questo segnale, ridisegnando nuovamente lo schermo automaticamente.
 ***
 
 > Resources:
+> - [alpine](https://hub.docker.com/_/alpine)
 > - [clock](../../sources/clock)
+> - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 
 [Prosegui](../06-docker-images/IT.md) al prossimo capitolo.

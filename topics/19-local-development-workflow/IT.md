@@ -184,4 +184,8 @@ ritroviamo un ambiente coerente tra tutti i membri del team, al resto ci penserÃ
 
 ***
 
+> Resources:
+> - [namer](../../sources/namer)
+> - [node](https://hub.docker.com/_/node)
+
 [Prosegui](../20-compose-development-stack/IT.md) al prossimo capitolo.

@@ -269,4 +269,9 @@ ma per ora se volete approfondire vi rimando alla guida ufficiale di [Docker Com
 
 ***
 
+> Resources:
+> - [node](https://hub.docker.com/_/node)
+> - [postgres](https://hub.docker.com/_/postgres)
+> - [subscriptions](../../sources/subscriptions)
+
 [Prosegui](../21-advanced-syntax/IT.md) al prossimo capitolo.

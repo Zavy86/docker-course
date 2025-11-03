@@ -154,4 +154,8 @@ gradevole.
 
 ***
 
+> Resources:
+> - [registry](https://hub.docker.com/_/registry)
+> - [zavy86/figlet](https://hub.docker.com/r/zavy86/figlet)
+
 [Prosegui](../13-naming-labeling-inspecting/IT.md) al prossimo capitolo.

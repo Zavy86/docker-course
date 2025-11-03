@@ -177,6 +177,9 @@ strumento che vedremo fra qualche capitolo: Docker Compose!
 ***
 
 > Resources:
+> - [busybox](https://hub.docker.com/_/busybox)
 > - [clickster](../../sources/clickster)
+> - [redis](https://hub.docker.com/_/redis)
+> - [zavy86/clickster](https://hub.docker.com/r/zavy86/clickster)
 
 [Prosegui](../18-docker-volumes/IT.md) al prossimo capitolo.

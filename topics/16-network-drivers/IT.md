@@ -152,4 +152,8 @@ Non otterremo nessuna risposta.
 
 ***
 
+> Resources:
+> - [busybox](https://hub.docker.com/_/busybox)
+> - [nginx](https://hub.docker.com/_/nginx)
+
 [Prosegui](../17-service-discovery/IT.md) al prossimo capitolo.

@@ -361,4 +361,7 @@ Il risultato è lo stesso, scegliete voi quello che più vi aggrada o col quale 
 
 ***
 
+> Resources:
+> - [zavy86/figlet](https://hub.docker.com/r/zavy86/figlet)
+
 [Prosegui](../14-troubleshooting/IT.md) al prossimo capitolo.

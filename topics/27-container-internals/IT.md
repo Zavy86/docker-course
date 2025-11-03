@@ -387,4 +387,7 @@ siano portabili e interoperabili tra diversi fornitori e piattaforme, standardiz
 
 ***
 
+> Resources:
+> - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
+
 [Prosegui](../../contribute/IT.md) al prossimo capitolo.

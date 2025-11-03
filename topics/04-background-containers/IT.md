@@ -312,5 +312,6 @@ Vedremo poi nei capitoli successivi come far sparire i container da questa lista
 
 > Resources:
 > - [clock](../../sources/clock)
+> - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 
 [Prosegui](../05-restarting-attaching/IT.md) al prossimo capitolo.

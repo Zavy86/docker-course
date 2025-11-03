@@ -281,6 +281,7 @@ $ docker run figlet Zavy
 ***
 
 > Resources:
+> - [alpine](https://hub.docker.com/_/alpine)
 > - [figlet-command](../../sources/figlet-command)
 > - [figlet-entrypoint](../../sources/figlet-entrypoint)
 > - [figlet-entrypoint-command](../../sources/figlet-entrypoint-command)

@@ -363,4 +363,11 @@ E potremo anche auto spegnerci:
 
 ***
 
+> Resources:
+> - [alpine](https://hub.docker.com/_/alpine)
+> - [busybox](https://hub.docker.com/_/busybox)
+> - [docker](https://hub.docker.com/_/docker)
+> - [nginx](https://hub.docker.com/_/nginx)
+> - [redis](https://hub.docker.com/_/redis)
+
 [Prosegui](../19-local-development-workflow/IT.md) al prossimo capitolo.

@@ -208,4 +208,7 @@ specifiche piattaforme e quindi potremo usarle solo su macchine compatibili o ri
 
 ***
 
+Resources:
+> - [wordpress](https://hub.docker.com/_/wordpress)
+
 [Prosegui](../07-interactive-images/IT.md) al prossimo capitolo.

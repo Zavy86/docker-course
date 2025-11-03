@@ -323,6 +323,7 @@ eseguendo alcun parsing, possiamo essere certi che il comando verrà eseguito es
 ***
 
 > Resources:
+> - [alpine](https://hub.docker.com/_/alpine)
 > - [figlet](../../sources/figlet)
 > - [figlet-exec](../../sources/figlet-exec)
 

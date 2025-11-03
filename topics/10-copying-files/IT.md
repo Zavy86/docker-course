@@ -269,6 +269,7 @@ bin         etc         hello.c     lib         mnt         proc        run     
 ***
 
 > Resources:
+> - [alpine](https://hub.docker.com/_/alpine)
 > - [hello](../../sources/hello)
 
 [Prosegui](../11-reduce-images-size/IT.md) al prossimo capitolo.

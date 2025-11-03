@@ -159,7 +159,7 @@ di base per ricevere i log in formato `GELF` sulla porta `12201/udp` e inoltrarl
 Lanciamo poi il nostro container `clock` per intasare un po' i nostri log:
 
 ```shell
-$ docker run -d --log-driver=gelf --log-opt=gelf-address=udp://localhost:12201 clock
+$ docker run -d --log-driver=gelf --log-opt=gelf-address=udp://localhost:12201 zavy86/clock
 ```
 
 Apriamo quindi la pagina web di Kibana alla porta `5601` dell'indirizzo IP del nostro host e creiamo un nuovo index name
@@ -200,5 +200,9 @@ affidabili.
 
 > Resources:
 > - [elk](../../sources/elk)
+> - [elasticsearch](https://hub.docker.com/_/elasticsearch)
+> - [kibana](https://hub.docker.com/_/kibana)
+> - [logstash](https://hub.docker.com/_/logstash)
+> - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 
 [Prosegui](../25-multi-architecture-builds/IT.md) al prossimo capitolo.

@@ -37,6 +37,15 @@ Infine, possiamo precedere qualsiasi istruzione o testo con un `#` per aggiunger
 
 ***
 
+Partiamo quindi con la creazione di un nuovo Dockerfile partendo dall'immagine di Ubuntu:
+
+```dockerfile
+# Simple Dockerfile example
+FROM ubuntu
+```
+
+***
+
 > __advanced dockerfile syntax__
 >
 > run
@@ -60,7 +69,6 @@ Con la forma testuale, lo shell wrapping eseguirà il comando specificato all'in
 e propria shell.
 
 ```dockerfile
-FROM ubuntu
 RUN apt-get update
 ```
 
@@ -68,7 +76,6 @@ Tuttavia qualora volessimo deliberatamente evitare l'interpretazione del comando
 leggere dove addirittura non disponiamo di una shell, possiamo utilizzare la forma JSON.
 
 ```dockerfile
-FROM ubuntu
 RUN [ "apt-get", "update" ]
 ```
 
@@ -76,14 +83,12 @@ Come dicevamo precedentemente ogni istruzione genera un nuovo layer all'interno 
 dovessimo eseguire più comandi è buona norma concatenarli in un unica istruzione:
 
 ```dockerfile
-FROM ubuntu
 RUN apt-get update  && apt-get install -y nginx && apt-get clean
 ```
 
 Oppure nella sua forma più leggibile multi riga utilizzando il backslash:
 
 ```dockerfile
-FROM ubuntu
 RUN apt-get update \
  && apt-get install -y nginx \
  && apt-get clean
@@ -414,5 +419,8 @@ verrà utilizzata come base per un'altra immagine, utile per esempio per l'insta
 sorgenti dell'applicazione prima del loro avvio.
 
 ***
+
+> Resources:
+> - [ubuntu](https://hub.docker.com/_/ubuntu)
 
 [Prosegui](../22-application-configuration/IT.md) al prossimo capitolo.
