@@ -206,4 +206,4 @@ file è stato scaricato così da non occupare spazio su disco.
 > - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 > - [zavy86/crash](https://hub.docker.com/r/zavy86/crash)
 
-[Prosegui](../15-docker-networks/IT.md) al prossimo capitolo.
+[Prosegui](../15-understanding-networks/IT.md) al prossimo capitolo.

@@ -220,4 +220,4 @@ funziona Docker dietro alle quinte, ma non è certo il modo in cui andremo a cre
 > Resources:
 > - [alpine](https://hub.docker.com/_/alpine)
 
-[Prosegui](../08-dockerfile/IT.md) al prossimo capitolo.
+[Prosegui](../08-dockerfile-images/IT.md) al prossimo capitolo.

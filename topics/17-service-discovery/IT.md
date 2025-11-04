@@ -182,4 +182,4 @@ strumento che vedremo fra qualche capitolo: Docker Compose!
 > - [redis](https://hub.docker.com/_/redis)
 > - [zavy86/clickster](https://hub.docker.com/r/zavy86/clickster)
 
-[Prosegui](../18-docker-volumes/IT.md) al prossimo capitolo.
+[Prosegui](../18-understanding-volumes/IT.md) al prossimo capitolo.
