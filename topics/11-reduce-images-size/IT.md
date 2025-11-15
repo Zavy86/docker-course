@@ -69,8 +69,8 @@ una compilazione a più stadi, vediamole insieme.
 > - no cache
 
 La prima tecnica consiste nel fare in modo che tutti gli step vengano eseguiti all'interno di un singolo layer, ovvero
-in un unica azione `RUN`, in questo modo installeremo, compieremmo, compileremmo, rimuoveremmo e disinstalleremmo tutto
-il necessario in un unico passaggio lasciando al termine del nostro comando solamente il programma compilato.
+in un unica azione `RUN`, cosicché installeremmo, compileremmo, rimuoveremmo e disinstalleremmo tutto il necessario in 
+un unico passaggio lasciando al termine del nostro comando solamente il programma compilato.
 
 Questa tecnica è sicuramente efficace, tuttavia ci ritroveremmo con un sorgente di questo tipo: 
 
