@@ -16,7 +16,7 @@ work.
 
 ***
 
-Let's begin, as shown in previous topics, by running a container in interactive mode:
+Let's begin, as shown in previous chapters, by running a container in interactive mode:
 
 ```shell
 $ docker run -ti alpine
