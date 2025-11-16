@@ -54,7 +54,7 @@ Il Docker Engine è un _daemon_, un servizio che gira in background e si occupa 
 semplificare di molto come un _hypervisor_ gestisce le macchine virtuali.
 
 Per interagire con questo servizio si utilizza la Docker CLI, un programma a riga di comando da eseguire nel terminale e 
-che comunica con il Docker Engine tramite una serie di API (application programming interface).
+che comunica con il Docker Engine tramite una serie di API (Application Programming Interface).
 
 **Docker Desktop** è un'ulteriore astrazione, una GUI che comunica anch'essa con il Docker Engine tramite le sue API, e 
 che facilita la vita per le operazioni più comuni non dovendo digitare a mano i vari comandi e avendo a colpo d'occhio
@@ -73,6 +73,7 @@ Se siete in ambiente Windows vi consiglio di utilizzare un terminale compatibile
 a eseguire tutti i comando proprio come li vedere all'interno di questo corso, per esempio potreste optare per la
 [Git Bash](https://git-scm.com/downloads/win) che vi troverete già preinstallata qualora abbiate già installato Git sul
 vostro computer, oppure [Cygwin](https://cygwin.com/) che contiene una collezione di tool fra cui la shell Bash.
+
 Mentre se siete su MacOS il terminale nativo è completamente compatibile con tutti i comandi che verranno utilizzati.
 
 Se invece avete scelto di utilizzare il Docker Engine in ambiente Linux Server, il modo più semplice per installarlo è
