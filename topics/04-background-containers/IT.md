@@ -41,7 +41,7 @@ Non avendo mai utilizzato questa immagine prima d'ora, come già visto precedent
 l'ha scaricata in automatico dal registro Docker Hub.
 
 Torneremo più avanti sul concetto di immagini e registri per il momento limitiamoci a considerare che si tratta di un
-immagine personalizzata creata dall'utente Zavy86.
+immagine personalizzata creata dall'utente `Zavy86`.
 
 ***
 
@@ -74,7 +74,8 @@ Al momento, abbiamo un'unica soluzione: aprire un'altra sessione del terminale e
 
 Vediamo ora la modalità in background.
 
-Per lanciare un container in background dobbiamo aggiungere l'opzione `-d` al comando `docker run`:
+Per lanciare un container in background dobbiamo aggiungere l'opzione `-d`, che sta per Detached, al comando 
+`docker run`:
 
 ```shell
 $ docker run -d zavy86/clock
@@ -86,7 +87,7 @@ E questa volta, otterremo in output solamente l'ID del container appena avviato:
 66e1d31f67d9551b8efca347b7c1d6e978decb30f381a21059dc86fbb435681a
 ```
 
-Rispetto a prima non vedremo più nessun output, ma niente paura, Docker sta lavorando per noi: sta collezionando tutti 
+Rispetto a prima non vedremo più nessun output, ma niente paura! Docker sta lavorando per noi: sta collezionando tutti 
 i dati in background e li sta salvando in un log.
 
 ***
@@ -196,8 +197,8 @@ salvando in un log. Per visualizzarli potremo usare il comando:
 $ docker logs 58f
 ``` 
 
-Come vi avevo già accennato, possiamo inserire anche solo una parte dell'ID del container purché sia univoca.
-E come vediamo, questo comando ci restituisce proprio l'output che ci aspettavamo, ovvero date e ora correnti:
+Come vi avevo già accennato, possiamo inserire anche solo una parte dell'ID del container purché sia univoca. E come 
+vediamo, questo comando ci restituisce proprio l'output che ci aspettavamo, ovvero date e ora correnti:
 
 ```terminaloutput
 [...]
@@ -243,7 +244,7 @@ Per uscire e tornare al nostro terminare, premiamo `^C`.
 
 > __run containers in background__
 >
-> - docker stop -> SIGTERM + SIGKILL @todo verificare che sia term e non stop
+> - docker stop -> SIGTERM + SIGKILL
 > - docker kill -> SIGKILL
 
 Vediamo ora come stoppare i container.
