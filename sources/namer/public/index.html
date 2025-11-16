@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <title>NAMER - Random Name Generator</title>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1 class="title">NAMER</h1>
+    <h2 class="subtitle">Random Name Generator</h2>
+  </div>
+  <div class="generator">
+    <div id="result_div" class="result"></div>
+    <button id="generate_btn" class="generate" onclick="generate()">Generate</button>
+  </div>
+  <div class="footer">
+    <p>Made with ❤️ by <a href="https://github.com/Zavy86">Zavy86</a> & Powered by Docker</p>
+  </div>
+</div>
+<script>
+  window.addEventListener('load', generate);
+  async function generate() {
+    const button = document.getElementById('generate_btn');
+    const result = document.getElementById('result_div');
+    button.disabled = true;
+    try {
+      const response = await fetch('/generate');
+      result.innerHTML = await response.json();
+    } catch (error) {
+      result.innerHTML = `error generating name`;
+      console.error(error);
+    } finally {
+      button.disabled = false;
+    }
+  }
+</script>
+</body>
+</html>
