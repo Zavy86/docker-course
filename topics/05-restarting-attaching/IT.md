@@ -71,7 +71,7 @@ Thu Aug 07 21:42:20 UTC 2025
 [...]
 ```
 
-In quesot caso, l'unico modo che abbiamo per scollegarci, senza uccidere il container, è quello di terminare il client,
+In questo caso, l'unico modo che abbiamo per scollegarci, senza uccidere il container, è quello di terminare il client,
 in questo caso il nostro terminale.
 
 ***
