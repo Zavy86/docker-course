@@ -162,7 +162,7 @@ drwxr-xr-x@  5 zavy  staff    160 Aug 07 16:40 public
 Essa è stata generata al primo avvio del nostro server, il fatto che resti a disposizione sul nostro computer, fa sì che
 non sia necessario installarle a ogni avvio del container, risparmiando tempo e rete.
 
-Qualora in ogni caso cancellassimo questa cartella
+Qualora in ogni caso cancellassimo questa cartella:
 
 ```shell
 $ rm -R node_modules 
