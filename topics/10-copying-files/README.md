@@ -6,36 +6,35 @@
 > - context
 > - .dockerignore
 
-Nei capitoli precedenti abbiamo visto come creare un'immagine personalizzata installando un pacchetto tramite il package
-manager della distribuzione.
+In the previous chapters, we saw how to create a custom image by installing a package using the distribution's package
+manager.
 
-Ovviamente possiamo anche copiare dei files all'interno delle nostre immagini. Ma per poter eseguire questa operazione
-dobbiamo approfondire un pochino il contesto di build.
+Of course, we can also copy files into our images. However, to perform this operation, we need to take a closer look at
+the build context.
 
-Se vi ricordate avevamo creato una directory e al suo interno avevamo creato un Dockerfile. Dopodiché quando abbiamo
-eseguito il comando build abbiamo specificato il contesto di build aggiungendo un punto `.` alla fine del comando.
+If you recall, we created a directory and inside it, we created a Dockerfile. Then, when we ran the build command, we 
+specified the build context by adding a dot `.` at the end of the command.
 
-Quando eseguiamo questo comando tutto il contenuto all'interno della directory indicata viene passato al builder per
-la creazione dell'immagine. All'interno di questa directory deve necessariamente essere presente un Dockerfile.
-Tutti i files passati al contesto di build non vengono automaticamente copiati nell'immagine, ma saranno a disposizione
-del compilatore Docker per eseguire eventuali operazioni definite nel Dockerfile.
+When we run this command, all the contents within the specified directory are sent to the builder for image creation. 
+This directory must contain a Dockerfile. All files passed to the build context are not automatically copied into the 
+image but are made available to the Docker builder to perform any operations defined in the Dockerfile.
 
-Come magari avrete già visto in Git, anche in Docker è possibile specificare eventuali files e directory da escludere
-che non vogliamo vengano inclusi nel contesto di build tramite il file `.dockerignore`.
+As you may have already seen in Git, Docker also allows you to specify files and directories to exclude from the build
+context using the `.dockerignore` file.
 
-Ma vediamolo nella pratica.
+Let's see how this works in practice.
 
 ***
 
-Partiamo con il creare una nuova directory di lavoro e spostiamoci al suo interno:
+Let's start by creating a new working directory and moving into it:
 
 ```shell
 $ mkdir hello && cd $_
 ```
 
-Immaginiamo di voler creare un'immagine che ci permetta di compilare ed eseguire un semplice programma scritto in `C`.
+Let's imagine we want to create an image that allows us to compile and run a simple program written in `C`.
 
-Creiamo quindi il nostro file sorgente:
+So let's create our source file:
 
 ```shell
 $ nano hello.c
@@ -49,11 +48,11 @@ int main () {
 }
 ```
 
-Non è importante che conosciate il linguaggio `C`, come vedete è un semplice hello world. Tuttavia dovete sapere che il 
-linguaggio `C` necessita di essere compilato per poter essere eseguito. E per farlo dovremo installare il compilatore 
-`gcc` e lo faremo all'interno del nostro Dockerfile, tranquilli non dovete installare nulla sulla vostra macchina.
+It is not important to know the `C` language; as you can see, it is a simple hello world. However, you should know that 
+the `C` language needs to be compiled before it can be executed. To do this, we will need to install the `gcc` compiler, 
+and we will do this inside our Dockerfile, so you do not need to install anything on your machine.
 
-Creiamo quindi anche il Dockerfile:
+Let's now create the Dockerfile:
 
 ```shell
 $ nano Dockerfile
@@ -66,22 +65,21 @@ RUN gcc /hello.c -o /hello
 CMD /hello
 ```
 
-Come avevamo fatto precedentemente, partiamo dall'immagine base `alpine` e installiamo il compilatore `gcc` e le sue
-librerie di supporto.
+As we did previously, we start from the base `alpine` image and install the `gcc` compiler along with its supporting
+libraries.
 
-Dopodiché ecco che entra in azione il comando `COPY` che ci permette per l'appunto di copiare il nostro file sorgente
-all'interno dell'immagine. Il primo parametro sarà il nome del file da copiare e il secondo il percorso in cui copiarlo.
-Come vedete non ho specificato nessun path completo, quindi il file verrà preso dalla cartella corrente, sempre rispetto
-al contesto di build, quindi ci aspettiamo che il file `hello.c` sia nella stessa identica posizione del `Dockerfile`.
-E verrà copiato nella root directory della nostra immagine. Se volessimo fare i pignoli e rendere il tutto più leggibile
-potremo specificare la notazione `./hello.c` in modo da rendere il tutto più chiaro.
+Next, the `COPY` command comes into play, allowing us to copy our source file into the image. The first parameter is the 
+name of the file to copy, and the second is the destination path inside the image. As you can see, I did not specify a 
+full path, so the file will be taken from the current directory, relative to the build context. Therefore, we expect the
+`hello.c` file to be in the exact same location as the `Dockerfile`. It will be copied to the root directory of our 
+image. For clarity, you could also specify `./hello.c` to make the source path explicit.
 
-Dopodiché tramite il comando `RUN` compiliamo il sorgente generando l'eseguibile `hello`, in UNIX come saprete non sono
-obbligatorie le estensioni dei files.
+Then, using the `RUN` command, we compile the source file to generate the `hello` executable. On UNIX systems, file 
+extensions are not mandatory.
 
-E infine con `CMD`, come visto precedentemente impostiamo di eseguirlo all'avvio del container.
+Finally, with `CMD`, as seen previously, we configure the container to execute the program on startup.
 
-Proviamo quindi a effettuare la build dell'immagine:
+Let's now build the image:
 
 ```shell
 $ docker build -t hello .
@@ -108,10 +106,10 @@ $ docker build -t hello .
  - JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 5)                                                       
 ```
 
-Ok, ignorando i soliti warning che ci suggeriscono di usare il formato JSON per quanto riguarda gli argomenti dei nostri
-comandi, possiamo vedere dal log che la copia del file e la compilazione del nostro programma sono andate a buon fine.
+Ok, ignoring the usual warnings suggesting we use the JSON format for our command arguments, we can see from the log
+that the file copy and the compilation of our program were successful.
 
-Vediamo quindi se funziona:
+Let's now check if it works:
 
 ```shell
 $ docker run hello
@@ -120,11 +118,11 @@ $ docker run hello
 Hello World
 ```
 
-Direi proprio di si!
+Absolutely yes!
 
-Ora vediamo come funziona la cache del builder in caso di files esterni.
+Now, let's see how the builder cache works when dealing with external files.
 
-Se proviamo a rilanciare la stessa build senza modificare nulla:
+If we try to run the same build again without changing anything:
 
 ```shell
 $ docker build -t hello .
@@ -151,9 +149,9 @@ $ docker build -t hello .
  - JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 5)
 ```
 
-Vedremo che tutte le operazioni sono state eseguite sfruttando la cache.
+You will see that all operations have been executed using the cache.
 
-Se invece facciamo una piccola modifica al nostro file sorgente:
+If, on the other hand, we make a small change to our source file:
 
 ```shell
 $ nano hello.c
@@ -164,7 +162,7 @@ $ nano hello.c
 [...]
 ```
 
-Ed effettuiamo nuovamente la build:
+And let's build again:
 
 ```shell
 $ docker build -t hello .
@@ -191,12 +189,12 @@ $ docker build -t hello .
  - JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 5)                                                       
 ```
 
-Come vediamo, abbiamo sfruttato comunque la cache per tutta la parte di installazione del compilatore, che fra l'altro
-era quella più onerosa in termini di tempo, e successivamente la copia del file è stata fatta normalmente in quanto il
-builder si è reso conto che il file era stato modificato, e ha anche provveduto a invalidare la cache del comando
-successivo perché si è reso conto che era collegato al file modificato e ha per cui eseguito nuovamente la compilazione.
+As we can see, the cache was still used for the entire compiler installation step, which is also the most time-consuming
+part. After that, the file copy was performed normally because the builder detected that the file had changed. It also
+invalidated the cache for the subsequent command, since it was linked to the modified file, and therefore re-executed 
+the compilation step.
 
-Se eseguiamo nuovamente il container:
+If we run the container again:
 
 ```shell
 $ docker run hello
@@ -205,10 +203,10 @@ $ docker run hello
 Hello World!
 ```
 
-Vedremo il messaggio aggiornato!
+We will see the updated message!
 
-Giusto per concludere il comando `COPY` ci permette di copiare sia singoli files che intere directory. Nel qual caso la
-copia avviene in maniera ricorsiva. Se creiamo infatti una directory con dentro un file di prova:
+Just to conclude, the `COPY` command allows us to copy both individual files and entire directories. In this case, the 
+copy is performed recursively. For example, if we create a directory containing a test file:
 
 ```shell
 $ mkdir test
@@ -216,7 +214,7 @@ $ echo "test" > test/file.txt
 $ echo "hello" > readme.txt
 ```
 
-E modifichiamo il Dockerfile in questo modo:
+And let's modify the Dockerfile as follows:
 
 ```dockerfile
 [...]
@@ -224,13 +222,13 @@ COPY . /
 [...]
 ```
 
-Copieremo tutti i files, le directory e le sottodirectory presenti all'interno del contesto di build.
+We will copy all files, directories, and subdirectories present within the build context.
 
 ```shell
 $ docker build -t hello .
 ```
 
-Come possiamo verificare all'interno del container:
+As we can verify inside the container:
 
 ```shell
 $ docker run -ti hello sh
@@ -241,20 +239,20 @@ Dockerfile  dev         hello       home        media       opt         readme.t
 bin         etc         hello.c     lib         mnt         proc        run         sbin         sys         tmp         var
 ```
 
-Se aggiungiamo anche il file `.dockerignore` con all'interno il nome del file `readme.txt`:
+If we also add a `.dockerignore` file containing the name of the `readme.txt` file:
 
 ```shell
 $ echo "readme.txt" > .dockerignore
 ```
 
-Ed effettuiamo nuovamente la build:
+And let's run the build again:
 
 ```shell
 $ docker build -t hello .
 ```
 
-Copieremo tutti i files, le directory e le sottodirectory presenti all'interno del contesto di build a eccezione di
-quanto specificato nel file `.dockerignore`, come possiamo facilmente verificare all'interno del container:
+We will copy all files, directories, and subdirectories present within the build context except for those specified in 
+the `.dockerignore` file, as we can easily verify inside the container:
 
 ```shell
 $ docker run -ti hello sh
@@ -271,4 +269,4 @@ bin         etc         hello.c     lib         mnt         proc        run     
 > - [alpine](https://hub.docker.com/_/alpine)
 > - [hello](../../sources/hello)
 
-[Prosegui](../11-reduce-images-size/IT.md) al prossimo capitolo.
+[Continue](../11-reduce-images-size/IT.md) to the next topic.

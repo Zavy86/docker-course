@@ -128,7 +128,7 @@ $ docker run --name registry -d -p 5000:5000 registry:2
 Fatto, a questo punto potremo taggare e pubblicare le immagini sul nostro registry privato.
 
 Se ad esempio volessimo distribuire la nostra immagine `figlet` sul nostro registry, non dovremo far altro che taggarla
-con l'url del nostro registry privato (avendo cura di specificare anche la porta):
+con l'URL del nostro registry privato (avendo cura di specificare anche la porta):
 
 ```shell
 $ docker tag figlet localhost:5000/figlet

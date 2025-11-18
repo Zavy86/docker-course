@@ -60,7 +60,7 @@ $ docker run -d -p 8080:80 -v nginx-www:/usr/share/nginx/html nginx
 ``` 
 
 In questo modo il web server andrà a servire le pagine presenti nel volume, come possiamo vedere puntando il browser su:
-`http://localhost:8080`.
+[http://localhost:8080](http://localhost:8080).
 
 Lanciamo ora un secondo container puntando allo stesso volume:
 
@@ -97,8 +97,8 @@ Ed modifichiamo il contenuto del file:
 [...]
 ```
 
-Usciamo salvando con `^X` e `Y`, poi torniamo al browser e aggiorniamo la pagina: `http://localhost:8080` e vedremo che
-la pagina sarà servita con il contenuto aggiornato!
+Usciamo salvando con `^X` e `Y`, poi torniamo al browser e aggiorniamo la pagina:
+[http://localhost:8080](http://localhost:8080) e vedremo che la pagina sarà servita con il contenuto aggiornato!
 
 ***
 
@@ -237,9 +237,10 @@ Dopodiché sfruttiamo il solito `busybox` per collegarci tramite `telnet` al dat
 $ docker run -ti --rm --link redis7 busybox telnet redis7 6379
 ``` 
 
-> Usando l'opzione `--link` è un piccolo workaround per poter collegare i due container senza dover creare una rete 
-bridge dedicata. L'opzione è segnalata come deprecata, quindi non fatene affidamento in un sistema di produzione, ma per 
-il nostro semplice esempio va più che bene... Altrimenti potrete usare la rete `--net tutorial` creata precedentemente.
+> Usando l'opzione `--link` si può sfruttare un piccolo "workaround" per poter collegare i due container tra loro senza
+> dover creare una rete bridge dedicata. L'opzione a oggi viene segnalata come deprecata, quindi non fatene affidamento 
+> in un sistema di produzione, ma per il nostro semplice esempio va più che bene... Altrimenti potrete usare la rete 
+> `--net tutorial` creata precedentemente.
 
 ```terminaloutput
 Connected to redis7
@@ -329,7 +330,7 @@ $ docker volume prune
 Che permette di eliminare tutti i volumi non utilizzati da nessun container.
 
 > Fate ovviamente attenzione e ricordatevi sempre che gli unici responsabili dei volumi siete voi, impostate dei backup,
-monitorate l'utilizzo del disco e ogni tanto fate pulizia.
+> monitorate l'utilizzo del disco e ogni tanto fate pulizia.
 
 Ultima nota, l'opzione `-v` può essere usata anche per montare singoli file, non solo directory.
 

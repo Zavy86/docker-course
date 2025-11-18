@@ -162,7 +162,8 @@ E così via anche per le altre risorse.
 >
 > namespaces
 > - limit
-> - xxx
+> - isolation
+> - separation
 
 I `namespaces` sono un sistema di isolamento delle risorse che permettono di limitare la visibilità all'interno di una
 sorta di recinto invalicabile. Nei kernel moderni esistono svariati spazi disponibili, come quello dei processi, quello

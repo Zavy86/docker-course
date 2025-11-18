@@ -7,27 +7,27 @@
 > - entrypoint
 >   - single binary
 
-In questo capitolo vedremo come possiamo dire a Docker di eseguire un comando all'avvio del container.
+In this chapter, we will see how to instruct Docker to execute a command when the container starts.
 
-Queste due istruzioni, seppur molto simili, hanno due casi d'uso molto diversi.
+These two instructions, although very similar, have quite different use cases.
 
-La prima permette di eseguire un comando specifico e puntuale, molto utile in caso di immagini che contengono al loro
-interno diversi programmi o applicazioni che si vuole poter fare eseguire dall'utente.
+The first allows you to run a specific command, which is very useful when working with images that contain multiple
+programs or applications you want the user to be able to execute.
 
-Il secondo permette di predisporre un comando fisso, lasciando poi all'utente la possibilità di aggiungere parametri
-o argomenti relativi al comando stesso, più utile in caso di immagini che contengono un singolo programma.
+The second allows you to set a fixed command, which still lets the user add parameters or arguments related to that 
+command. This is more useful for images that contain a single program.
 
-Ma vediamoli in azione...
+Let's see them in action...
 
 ***
 
-Riprendiamo il Dockerfile che avevamo creato nello capitolo precedente e andiamo a modificarlo:
+Let's take the Dockerfile we created in the previous chapter and modify it:
 
 ```shell
 $ nano Dockerfile
 ```
 
-Aggiungiamo il comando:
+Let's add the command:
 
 ```dockerfile
 FROM alpine
@@ -35,14 +35,14 @@ RUN [ "apk", "add", "figlet" ]
 CMD figlet -f script "Welcome"
 ```
 
-Tramite l'istruzione `CMD` stiamo impostando un comando di default che verrà eseguito all'avvio del container qualora
-non venga specificato altrimenti al momento della sua creazione.
+With the `CMD` instruction, we are setting a default command that will be executed when the container starts, unless 
+another command is specified at runtime.
 
-L'espressione `CMD` è un cosiddetto metadata, ovvero non è un comando che viene eseguito durante la build dell'immagine
-ma solamente in fase di esecuzione, per cui non importa se la mettiamo in cima, in mezzo o in fondo al Dockerfile.
-Tenete però presente che se la inserirete più volte l'ultima avrà sempre la meglio sovrascrivendo le precedenti.
+The `CMD` statement is considered metadata; it is not a command executed during the image build process, but only at 
+runtime. Therefore, it does not matter if you place it at the top, middle, or bottom of the Dockerfile. However, keep in
+mind that if you define it multiple times, the last one will always take precedence, overwriting the previous ones.
 
-Usciamo e salviamo il file e rieseguiamo la build dell'immagine:
+Let's exit, save the file, and rebuild the image:
 
 ```shell
 $ docker build -t figlet .
@@ -65,13 +65,13 @@ $ docker build -t figlet .
  - JSONArgsRecommended: JSON arguments recommended for CMD to prevent unintended behavior related to OS signals (line 3)                                                       
 ```
 
-Come possiamo notare non c'è traccia del comando all'interno delle operazioni eseguite dal builder, perché come dicevamo
-sarà poi valutato dal runtime e non in fase di build.
+As we can see, there is no trace of the command among the operations performed by the builder, because, as mentioned, it 
+will be evaluated by the runtime and not during the build phase.
 
-Possiamo anche notare un warning che ci segnala che sarebbe meglio utilizzare la modalità JSON per il comando, come per
-l'istruzione `RUN` infatti anche `CMD` accetta la sintassi JSON ma per il momento possiamo ignorare la notifica.
+We can also notice a warning suggesting that it is better to use the JSON syntax for the command. Just like the `RUN` 
+instruction, `CMD` also accepts JSON syntax, but for now, we can ignore this notification.
 
-Eseguiamo il container:
+Let's run the container:
 
 ```shell
 $ docker run figlet
@@ -84,27 +84,27 @@ $ docker run figlet
    \_/ \_/ |__/|__/\___/\__/   |  |  |_/|__/
 ```
 
-A differenza di prima, se ora provassimo a eseguire il container in modalità interattiva, con il solito parametro `-ti`,
-noteremo che non avremo accesso a shell come succedeva prima.
+Unlike before, if we now try to run the container in interactive mode using the usual `-ti` parameter, we will notice 
+that we no longer have access to the shell as we did previously.
 
-Questo perche l'immagine alpine aveva come comando di default `/bin/sh`, avendo ora noi definito un `CMD` personalizzato
-abbiamo sovrascritto il comando di default, ricordate che vi avevo detto che fa sempre fede l'ultimo?
+This is because the Alpine image had `/bin/sh` as its default command, but now that we have defined a custom `CMD`, we 
+have overridden the default command. Remember, the last one always takes precedence.
 
-Per cui se volessimo avere nuovamente accesso alla shell, dovremmo specificare in fase di run un nuovo comando così da
-sovrascrivere nuovamente quanto definito nel Dockerfile:
+Therefore, if we want to regain access to the shell, we need to specify a new command at runtime to override what was 
+defined in the Dockerfile:
 
 ```shell
 $ docker run -ti figlet /bin/sh
 ```
 
-O anche solo `sh`, in ogni caso il comando va inserito dopo il nome dell'immagine.
+Or even just `sh`, in any case the command must be entered after the image name.
 
-Come potremo notare ora abbiamo a disposizione la shell `sh` e non abbiamo più ottenuto il benvenuto da Figlet.
+As you will notice, we now have access to the `sh` shell and no longer receive the welcome message from Figlet.
 
 ***
 
-Poniamo ora di voler dare all'utente la possibilità di personalizzare il messaggio da visualizzare direttamente in fase
-di avvio del container, ora come ora l'utente potrebbe farlo andando a sovrascrivere il comando in questo modo:
+Now, suppose we want to allow the user to customize the message displayed directly when starting the container. At this
+point, the user could do so by overriding the command as follows:
 
 ```shell
 $ docker run figlet figlet Hello Zavy
@@ -118,19 +118,18 @@ $ docker run figlet figlet Hello Zavy
                                         |___/ 
 ```
 
-Come vedete abbiamo dovuto rimettere dopo al nome dell'immagine sia il nome del programma che i suoi parametri.
+As you can see, we had to specify both the program name and its parameters after the image name.
 
-Se volessimo far si che il comando `figlet` sia implicito, magari anche con il parametro per personalizzare il font da
-utilizzare, possiamo utilizzare l'istruzione `ENTRYPOINT` per definire il comando di default e inserire in fase di run
-solamente il messaggio che vogliamo visualizzare.
+If we want the `figlet` command to be implicit, possibly with a parameter to customize the font to use, we can use the
+`ENTRYPOINT` instruction to define the default command and, at runtime, only provide the message we want to display.
 
-Andiamo quindi a modificare nuovamente il Dockerfile:
+Let's modify the Dockerfile again:
 
 ```shell
 $ nano Dockerfile
 ```
 
-Utilizzando questo volta la sintassi JSON, in primo luogo per evitare il warning, ma non solo:
+This time, let's use the JSON syntax, primarily to avoid the warning, but not only for that reason:
 
 ```dockerfile
 FROM alpine
@@ -138,17 +137,18 @@ RUN [ "apk", "add", "figlet" ]
 ENTRYPOINT [ "figlet", "-f", "script" ]
 ```
 
-Quando eseguiremo il container, ora verrà eseguito il comando presente nell'istruzione `ENTRYPOINT` e qualora sia
-presente anche un istruzione a seguire il nome dell'immagine, essa verrà inserita all'interno del `CMD` verrà accodata
-a quanto definito in `ENTRYPOINT`.
+When we run the container, the command specified in the `ENTRYPOINT` instruction will be executed. If an additional 
+instruction is provided after the image name, it will be appended to the `CMD` and passed as arguments to the 
+`ENTRYPOINT`.
 
-Ma perche abbiamo usato la sintassi `exec` e non la `shell` come prima?
+But why did we use the `exec` (JSON) syntax instead of the `shell` form as before?
 
-Se avessimo utilizzato la sintassi base il comando sarebbe stato interpretato dalla shell in `sh -c "figlet -f script"` 
-ed essendo racchiuso all'interno degli apici non avremmo potuto passare alcun ulteriore parametro. Utilizzando invece
-la modalità JSON, il comando viene eseguito senza interpretazione permettendoci di aggiungere qualunque altro parametro.
+If we had used the basic shell syntax, the command would have been interpreted by the shell as 
+`sh -c "figlet -f script"`, and since it is enclosed in quotes, we would not have been able to pass any additional 
+parameters. By using the JSON form, the command is executed directly without shell interpretation, allowing us to add 
+any further parameters.
 
-Rifacciamo quindi la build dell'immagine:
+Let's rebuild the image:
 
 ```shell
 $ docker build -t figlet .
@@ -168,9 +168,9 @@ $ docker build -t figlet .
  => => naming to docker.io/library/figlet
 ```
 
-Anche in questo caso ovviamente in fase di build non compare nulla relativo all'entry point...
+Also in this case, as expected, nothing related to the entry point appears during the build phase...
 
-Ed eseguiamo il container questa volta passando come parametro solamente il messaggio che vogliamo visualizzare:
+Now let's run the container, this time passing only the message we want to display as a parameter:
 
 ```shell
 $ docker run figlet Hello Zavy
@@ -185,16 +185,17 @@ $ docker run figlet Hello Zavy
                             \|               \| 
 ```
 
-E come possiamo notare dal "fantastico font" il comando inserito è stato concatenato a quanto definito nel Dockerfile.
+And as we can see from the "fantastic font", the command entered has been concatenated to what was defined in the 
+Dockerfile.
 
-Ora però se proviamo a eseguire il container con il nome della shell al fondo per entrare in modalità interattiva come
-avevamo fatto precedentemente:
+However, if we now try to run the container with the shell name at the end to enter interactive mode as we did 
+previously:
 
 ```shell
 $ docker run -ti figlet sh
 ```
 
-Noteremo qualcosa di strano, invece di ottenere la shell `sh` abbiamo ottenuto sh scritto da Figlet:
+We will notice something strange: instead of getting the `sh` shell, we received the word `sh` rendered by Figlet:
 
 ```terminaloutput
      _     
@@ -204,24 +205,24 @@ Noteremo qualcosa di strano, invece di ottenere la shell `sh` abbiamo ottenuto s
  \/ |   |_/
 ```
 
-Questo perché come dicevamo, se è presente un `ENTRYPOINT`, qualsiasi comando venga passato in fase di run verrà
-inserito all'interno del `CMD` e gli verrà concatenato.
+This is because, as mentioned, if an `ENTRYPOINT` is present, any command passed at runtime will be inserted into the 
+`CMD` and appended to it.
 
-Se volessimo ottenere una shell dovremo quindi andare a sovrascrivere l'istruzione `ENTRYPOINT` con la shell:
+If we want to obtain a shell, we need to override the `ENTRYPOINT` instruction with the shell:
 
 ```shell
 $ docker run -ti --entrypoint sh figlet
 ```
 
-In questo modo abbiamo ottenuto la shell `sh` come previsto.
+In this way, we have obtained the `sh` shell as expected.
 
-Se poi volessimo combinare le due istruzioni potremo modificare nuovamente il Dockerfile:
+If we then want to combine both instructions, we can modify the Dockerfile again:
 
 ```shell
 $ nano Dockerfile
 ```
 
-E inserirle entrambe:
+And insert both of them:
 
 ```dockerfile
 FROM alpine
@@ -230,7 +231,7 @@ ENTRYPOINT [ "figlet", "-f", "script" ]
 CMD [ "welcome" ]
 ```
 
-Rifacciamo la build dell'immagine:
+Let's rebuild the image:
 
 ```shell
 $ docker build -t figlet .
@@ -250,7 +251,7 @@ $ docker build -t figlet .
  => => naming to docker.io/library/figlet
 ```
 
-In questo modo qualora non specificassimo nessun comando otterremo il benvenuto da Figlet:
+In this way, if we do not specify any command, we will get the welcome message from Figlet:
 
 ```shell
 $ docker run figlet
@@ -263,7 +264,7 @@ $ docker run figlet
    \_/ \_/ |__/|__/\___/\__/   |  |  |_/|__/
 ```
 
-Mentre se specificassimo un comando, come abbiamo fatto prima, otterremo il messaggio personalizzato:
+Whereas if we specify a command, as we did before, we will get the customized message:
 
 ```shell
 $ docker run figlet Zavy
@@ -286,4 +287,4 @@ $ docker run figlet Zavy
 > - [figlet-entrypoint](../../sources/figlet-entrypoint)
 > - [figlet-entrypoint-command](../../sources/figlet-entrypoint-command)
 
-[Prosegui](../10-copying-files/IT.md) al prossimo capitolo.
+[Continue](../10-copying-files/IT.md) to the next topic.

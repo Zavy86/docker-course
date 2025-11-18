@@ -70,8 +70,8 @@ fino a consumare tutto lo spazio disponibile sul disco.
 Per evitare questo problema, possiamo impostare una dimensione massima per i file di log e il numero di file di log da
 mantenere, superati i quali i vecchi log verranno via via eliminati.
 
-Queste impostazioni posso essere gestite tramite il file di configurazione `/etc/docker/daemon.json` come vedremo in un
-prossimo capitolo dedicato alle [impostazioni di Docker](../26-common-settings/IT.md) o per singolo container.
+Queste impostazioni posso essere gestite tramite il file di configurazione `daemon.json` come vedremo in un prossimo
+capitolo dedicato alle [impostazioni di Docker](../26-common-settings/IT.md) o per singolo container.
 
 Utilizzando l'opzione `--log-opt` possiamo impostare alcune variabili come ad esempio:
 

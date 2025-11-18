@@ -164,7 +164,7 @@ aveste già precedentemente installato sul vostro sistema).
 > __run our first container__
 >
 > - shared kernel
-> - indipendent packages
+> - independent packages
 > - any container in any host
 
 Questo succede perché l'_host_ in cui è stato installato Docker e i _containers_ che vengono avviati e gestiti al suo
@@ -215,7 +215,7 @@ Come facciamo quindi a riutilizzare il container che avevamo personalizzato con 
 
 > __run our first container__
 >
-> - yes we can
+> - yes, we can
 > - not a good practice
 > - docker workflow
 > - custom image
@@ -238,13 +238,13 @@ fondanti di Docker.
 > __run our first container__
 >
 > - pets
->   - distinctive names
->   - unique configurations
+>   - distinctive name
+>   - unique configuration
 >   - irreplaceable
 > - cattle
->   - generic names
->   - generic configurations
->   - replaceables
+>   - generic name
+>   - generic configuration
+>   - replaceable
 
 Una metafora super azzeccata è quella della differenza tra animali domestici e bestiame.
 
@@ -258,11 +258,11 @@ con un suo nuovo clone.
 
 > __run our first container__
 >
-> - create virtual machine
+> - create a virtual machine
 > - install packages
 > - setup environment
-> - work on project
-> - tweek environment
+> - work on a project
+> - tweak environment
 > - repeat
 
 Qual è la connessione tra questa metafora e Docker?
@@ -283,7 +283,7 @@ per ricreare l'ambiente da zero su una nuova macchina senza ricorrere a document
 >
 > - create image
 > - run container
-> - work on project
+> - work on a project
 > - repeat
 
 Lo sviluppo con Docker, si trasforma in un ciclo molto più semplice: creiamo un immagine con all'interno tutte le

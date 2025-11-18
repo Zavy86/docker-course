@@ -6,22 +6,23 @@
 > - install a new package
 > - commit, tag, diff 
 
-In questo capitolo vedremo come creare la nostra prima immagine docker in modalità interattiva.
+In this chapter, we will see how to create our first Docker image interactively.
 
-Partiremo da un'immagine base per eseguire il nostro container, procederemo poi con l'installazione di un pacchetto, nel
-caso specifico il solito Figlet già visto in precedenza, e infine salveremo il tutto in una nuova immagine Docker.
+We will start from a base image to run our container, then proceed with the installation of a package—specifically, the
+usual Figlet seen previously—and finally save everything into a new Docker image.
 
-Per eseguire queste operazioni avremo così modo di vedere il funzionamento dei comandi commit, tag e diff di Docker.
+By performing these operations, we will have the opportunity to see how the Docker `commit`, `tag`, and `diff` commands
+work.
 
 ***
 
-Cominciamo quindi come fatto già nei capitoli precedenti eseguendo un container in modalità interattiva:
+Let's begin, as shown in previous chapters, by running a container in interactive mode:
 
 ```shell
 $ docker run -ti alpine
 ```
 
-Una volta avviato Alpine, procediamo nuovamente con l'installazione di Figlet:
+Once Alpine has started, proceed again with the installation of Figlet:
 
 ```shell
 $ apk add figlet
@@ -34,7 +35,7 @@ Executing busybox-1.37.0-r18.trigger
 OK: 8 MiB in 17 packages
 ```
 
-E accertiamoci che tutto sia andato a buon fine lanciando il comando:
+Let's make sure everything worked correctly by running the following command:
 
 ```shell
 $ figlet "Hello"
@@ -47,8 +48,8 @@ $ figlet "Hello"
 |_| |_|\___|_|_|\___/ 
 ```
 
-A questo punto usciamo dal container digitando `exit` e utilizziamo il comando `docker diff` per vedere le differenze
-tra il container appena terminato e l'immagine di partenza:
+At this point, exit the container by typing `exit` and use the `docker diff` command to see the differences between the
+recently stopped container and the original image:
 
 ```shell
 $ docker ps -al
@@ -139,35 +140,34 @@ A /var/cache/apk/APKINDEX.3ec923cb.tar.gz
 A /var/cache/apk/APKINDEX.96d0d294.tar.g
 ```
 
-Docker traccia le modifiche apportate al filesystem del container rispetto all'immagine di partenza un po' come fa Git.
-Essendo l'immagine di partenza read-only, tutte le modifiche vengono salvate in un layer superiore, i file che vengono
-aggiunti sono contrassegnati con la lettera `A` (Added), quelli modificati con la `C` (Changed) e quelli rimossi con la
-`D` (Deleted). Quando un file viene modificato, Docker in realtà non sovrascrive il file originale ma ne crea una copia
-nel layer superiore e apporta le modifiche a questa copia, garantendo così l'integrità dell'immagine di partenza e una
-performance di avvio notevole.
+Docker tracks the changes made to the container's filesystem compared to the original image, much like Git does. Since 
+the base image is read-only, all changes are saved in an upper layer. Files that are added are marked with the letter 
+`A` (Added), those that are modified with `C` (Changed), and those that are removed with `D` (Deleted). When a file is
+modified, Docker does not actually overwrite the original file but instead creates a copy in the upper layer and applies
+the changes to this copy. This ensures the integrity of the base image and provides excellent startup performance.
 
-Grazie al comando `docker diff` possiamo quindi vedere quali file sono stati aggiunti, modificati o rimossi.
+With the `docker diff` command, we can see which files have been added, modified, or removed.
 
-Ora che sappiamo quali modifiche sono state apportate, possiamo salvare il tutto in una nuova immagine con il comando:
+Now that we know what changes have been made, we can save everything into a new image with the following command:
 
 ```shell
 $ docker commit 87b
 ```
 
-L'output di questo comando ci restituirà l'ID della nuova immagine appena creata:
+The output of this command will return the ID of the newly created image:
 
 ```terminaloutput
 sha256:d04de44212d57d10f5300cab64e1116ac4ba4a151cdb3e22e997813317906288
 ```
 
-Se vogliamo fare una prova possiamo infatti avviare un nuovo container basato su questa immagine:
+If we want to test it, we can start a new container based on this image:
 
 ```shell
 $ docker run -ti d04
 $ figlet "Hello Again!"
 ```
 
-E come potremo vedere Figlet è presente e perfettamente funzionante fin dal primo avvio:
+And as we can see, Figlet is present and fully functional right from the first startup:
 
 ```terminaloutput
  _   _      _ _            _               _       _ 
@@ -178,25 +178,25 @@ E come potremo vedere Figlet è presente e perfettamente funzionante fin dal pri
                                |___/                 
 ```
 
-Ora converrete con me che utilizzare l'ID dell'immagine per avviare un container non sia proprio il massimo della vita.
-Per rendere le cose più semplici possiamo infatti assegnare un nome alla nostra immagine o per meglio dire un `tag`.
+You will agree that using the image ID to start a container is not exactly ideal. To make things easier, we can assign a
+name to our image, or more precisely, a `tag`.
 
-Per farlo abbiamo due possibilià, direttamente in fase di commit aggiungendo alla fine il nome che vogliamo dare al tag
-oppure con l'apposito comando tag avendo però l'accortezza di specificare l'ID dell'immagine e non quello del container.
+There are two ways to do this: either directly during the commit phase by adding the desired tag name at the end, or by
+using the dedicated tag command, making sure to specify the image ID and not the container ID.
 
 ```shell
 $ docker commit 87b alpine-figlet
 $ docker tag d04 alpine-figlet
 ```
 
-In questo modo per avviare la nostra speciale versione di Alpine con Figlet ci basterà digitare:
+In this way, to start our special version of Alpine with Figlet, we just need to type:
 
 ```shell
 $ docker run -ti alpine-figlet
 $ figlet Hello Tag!
 ```
 
-E come possiamo vedere il tutto funziona come previsto:
+And as we can see, everything works as expected:
 
 ```terminaloutput
  _   _      _ _         _____           _ 
@@ -207,17 +207,17 @@ E come possiamo vedere il tutto funziona come previsto:
                                   |___/   
 ```
 
-Ok, ma come non smetteremo mai di dire, fare le cose a mano è sempre una pessima idea.
+As we never tire of saying, doing things manually is always a bad idea.
 
-Nel nostro lavoro dobbiamo imparare ad automatizzare il più possibile, ogni processo che deve essere ripetuto più volte
-va automatizzato, e questo vale anche per la creazione delle immagini Docker.
+In our work, we must learn to automate as much as possible; any process that needs to be repeated multiple times should
+be automated, and this also applies to creating Docker images.
 
-Quindi la creazione delle immagini in modalità interattiva va bene per fare qualche prova e per capire un pochino come
-funziona Docker dietro alle quinte, ma non è certo il modo in cui andremo a creare le immagini per i nostri progetti.
+Therefore, building images interactively is fine for experimentation and for understanding how Docker works behind the 
+scenes, but it is certainly not the approach we will use to create images for our projects.
 
 ***
 
 > Resources:
 > - [alpine](https://hub.docker.com/_/alpine)
 
-[Prosegui](../08-dockerfile-images/IT.md) al prossimo capitolo.
+[Continue](../08-dockerfile-images/IT.md) to the next topic.
