@@ -6,67 +6,69 @@
 > - connect to that service
 > - container ip addresses
 
-In questo capitolo vedremo una prima breve introduzione ai servizi di rete Docker.
+In this chapter, we will provide a brief introduction to Docker network services.
 
-In particolare scopriremo come eseguire un servizio di rete all'interno di un container, come esporre il servizio su una
-porta del nostro host Docker e come connetterci a tale servizio.
+Specifically, we will learn how to run a network service inside a container, how to expose the service on a port of our 
+Docker host, and how to connect to that service.
 
-Infine vedremo alcuni modi utili per scoprire gli indirizzi IP assegnati ai containers e come comunicano fra loro.
+Finally, we will explore some useful ways to discover the IP addresses assigned to containers and how they communicate 
+with each other.
 
 ***
 
-Per scoprire le basi dei servizi di rete Docker abbiamo bisogno di un'applicazione piccola e semplice da configurare.
-O meglio ancora un'applicazione che non richieda nessun tipo di configurazione. Andiamo quindi a utilizzare l'immagine
-ufficiale di Nginx, un semplicissimo web server che resta in ascolto sulla porta 80 servendoci una semplice pagina HTML.
+To understand the basics of Docker network services, we need a small and easy-to-configure application. Or even better,
+an application that requires no configuration at all. So, we will use the official Nginx image, a simple web server that 
+listens on port 80 and serves a basic HTML page.
 
-Lanciamolo!
+Let's run it!
 
 ```shell
 $ docker run -d -P nginx
 ```
 
-Il comando è sempre lo stesso che abbiamo visto fin'ora ma questa volta abbiamo semplicemente aggiunto una nuova opzione
-`-P` (maiuscola) che sta per ports.
+The command is the same as we have seen so far, but this time we have simply added a new option: `-P` (uppercase) which
+stands for ports.
 
-Questa opzione indica a Docker di pubblicare tutte le porte che il container dichiara di voler esporre.
+This option tells Docker to publish all the ports that the container declares as exposed.
 
-Andiamo quindi a scoprire cosa sta accadendo:
+Let's find out what is happening:
 
 ```shell
 $ docker ps -l
 ```
 
-Come possiamo vedere dall'output di questo comando, nella sezione ports ora vediamo un indicazione particolare:
+As we can see from the output of this command, in the `ports` section we now observe a specific indication:
 
 ```terminaloutput
 CONTAINER ID   IMAGE     [...]   PORTS                   [...]
 91a00c1d561c   nginx     [...]   0.0.0.0:50001->80/tcp   [...]
 ```
 
-Il primo quartetto di zeri rappresenta l'indirizzo IP del host Docker (in questo caso `0.0.0.0`), è poi seguito da un
-numero causale di porta (nel mio caso `50001`), e infine una freccia che indica a quale numero di porta del container fa
-riferimento (in questo caso `80`).
+The first quartet of zeros represents the IP address of the Docker host (in this case `0.0.0.0`), followed by a randomly
+assigned port number (in my case `50001`), and finally an arrow indicating which container port it refers to (in this 
+case `80`).
 
-Un risultato analogo lo possiamo ottenere anche con il comando:
+We can obtain a similar result with the following command:
 
 ```shell
 $ docker port 91a
 ```
 
-Ma in questo caso l'output sarà invertito, a sinistra avremo la porta del container e a destra la porta del nostro host:
+But in this case, the output will be reversed: on the left, we will have the container port, and on the right, the port 
+of our host:
 
 ```terminaloutput
 80/tcp -> 0.0.0.0:50001
 ```
 
-In parole povere significa che collegandoci alla porta `50001` dell'host Docker (tramite localhost o tramite l'indirizzo
-IP privato o pubblico del server) potremo accedere al web server nginx esposto sulla porta `80` del container.
+In simple terms, this means that by connecting to port `50001` on the Docker host (using localhost or the private/public 
+IP address of the server), we can access the nginx web server exposed on port `80` of the container.
 
-La riprova la possiamo avere puntando il nostro browser all'indirizzo [http://localhost:50001](http://localhost:55001).
+You can verify this by pointing your browser to [http://localhost:50001](http://localhost:55001).
 
-Avendo ovviamente l'accortezza di sostituire `50001` con il numero casuale generato nel vostro caso.
+Just make sure to replace `50001` with the random port number generated in your case.
 
-Oppure se preferiamo rimanere nel terminale possiamo utilizzare il comando:
+Alternatively, if you prefer to stay in the terminal, you can use the following command:
 
 ```shell
 $ curl localhost:50001
@@ -95,15 +97,15 @@ Commercial support is available at
 </html>
 ```
 
-Ma come ha fatto Docker a capire che doveva esporre la porta `80` del container?
+But how did Docker know it had to expose port `80` of the container?
 
-Se andiamo a visualizzare i dettagli dell'immagine Nginx:
+Let's take a look at the details of the Nginx image:
 
 ```shell
 $ docker inspect nginx | jq
 ```
 
-Noteremo verso il fondo una sezione chiamata `ExposedPorts` all'interno della quale vedremo indicata la porta `80/tcp`:
+Towards the end, we will notice a section called `ExposedPorts` where the port `80/tcp` is listed:
 
 ```terminaloutput
 [...]
@@ -113,9 +115,9 @@ Noteremo verso il fondo una sezione chiamata `ExposedPorts` all'interno della qu
 [...]
 ```
 
-Questa porta è stata definita all'interno dell'immagine tramite l'istruzione `EXPOSE 80`.
+This port has been defined within the image using the `EXPOSE 80` instruction.
 
-Cosa che possiamo facilmente verificare andando a vedere la storia dell'immagine:
+We can easily verify this by checking the image history:
 
 ```shell
 $ docker history nginx
@@ -139,29 +141,29 @@ IMAGE          CREATED       CREATED BY                                      SIZ
 <missing>      2 years ago   /bin/sh -c #(nop)  ADD file:9dc5c6fb6431df801…  74.3MB
 ```
 
-Ma per quale motivo ci siamo quindi dovuti connettere alla porta `50001` invece che semplicemente alla porta `80`?
+But why did we have to connect to port `50001` instead of simply using port `80`?
 
-Se avete un minimo di conoscenza di rete saprete che ogni porta può essere esposta solamente una volta per ogni host.
-Essendo che sul nostro host potremmo eseguire diversi container, qualora non venga specificato diversamente Docker 
-assegna un numero di porta casuale per ogni porta esposta dal container.
+If you have some basic networking knowledge, you know that each port can only be exposed once per host. Since we might 
+run multiple containers on our host, Docker assigns a random port number for each exposed container port unless you have
+specified otherwise.
 
-Se proviamo infatti a lanciare un secondo container Nginx con la stessa opzione `-P` (maiuscola) e andiamo a vedere i 
-dettagli dell'ultimo container eseguito:
+If we try to launch a second Nginx container with the same `-P` (uppercase) option and check the details of the last
+container started:
 
 ```shell
 $ docker run -d -P nginx
 $ docker ps -l
 ```
 
-Vedremo che anche questo punta alla porta `80` del container ma questa volta associata a un'altra porta casuale:
+We will see that this one also points to port `80` of the container, but this time it is mapped to another random port:
 
 ```terminaloutput
 CONTAINER ID   IMAGE     [...]   PORTS                   [...]
 91a00c1d561c   nginx     [...]   0.0.0.0:50002->80/tcp   [...]
 ```
 
-Se volessimo invece specificare manualmente il numero di porta da utilizzare, anziche utilizzare l'opzione `-P` dovremo 
-usare l'opzione `-p` (minuscola) e specificare il numero di porta da utilizzare:
+If instead we want to manually specify the port number to use, instead of using the `-P` (uppercase) option, we must use 
+the `-p` (lowercase) option, witch stay for port, and specify the desired port number:
 
 ```shell
 $ docker run -d -p 80:80 nginx
@@ -170,7 +172,7 @@ $ docker run -d -p 8080:80 -p 8888:80 nginx
 $ docker ps
 ```
 
-Con questi tre comandi abbiamo lanciato tre container di Nginx, ognuno con la propria porta esposta:
+With these three commands, we have launched three Nginx containers, each with its own exposed port:
 
 ```terminaloutput
 CONTAINER ID   IMAGE     [...]   PORTS                                        [...]
@@ -179,8 +181,8 @@ d4078cdfe1cb   nginx     [...]   0.0.0.0:8080->80/tcp, 0.0.0.0:8888->80/tcp   [.
 7d6bea3f17b5   nginx     [...]   0.0.0.0:80->80/tcp                           [...]
 ```
 
-Ora qualunque di queste porte proveremo ad aprire nel browser o a richiamare tramite curl otterremo sempre la pagina
-di default di Nginx, servita dal relativo container:
+Now, whichever of these ports you open in your browser or access using curl, you will always get the default Nginx page
+served by the corresponding container:
 
 ```shell
 $ curl localhost:8080
@@ -211,27 +213,27 @@ Commercial support is available at
 
 ***
 
-Per risalire invece all'indirizzo IP assegnato al container possiamo utilizzare il comando:
+To retrieve the IP address assigned to the container, we can use the following command:
 
 ```shell
 $ docker inspect --format '{{ json .NetworkSettings.IPAddress }}' 91a
 ```
 
-Ottenendo per l'appunto in output l'indirizzo assegnato al container:
+Obtaining, as output, the IP address assigned to the container:
 
 ```terminaloutput
 172.17.0.2
 ```
 
-Se siamo su un sistema Linux possiamo anche pingare direttamente l'indirizzo IP del container:
+If we are on a Linux system, we can also ping the container's IP address directly:
 
 ```shell
 $ ping 172.17.0.2
 ```
 
-Mentre se siamo su MacOS o Windows con Docker Desktop non potremo accedere direttamente a questo indirizzo IP per via
-delle tecniche interne di routing di Docker, potremo però verificare che il container sia raggiungibile effettuando il 
-ping da un altro container:
+However, if we are on MacOS or Windows using Docker Desktop, you will not be able to access this IP address directly due 
+to Docker's internal routing techniques. Instead, you can verify that the container is reachable by performing a ping 
+from another container:
 
 ```shell
 $ docker run busybox ping 172.17.0.2
@@ -241,7 +243,7 @@ PING 172.17.0.2 (172.17.0.2): 56 data bytes
 64 bytes from 172.17.0.2: seq=0 ttl=64 time=0.182 ms
 ```
 
-E come possiamo vedere la risposta è pressoché immediata a confermarci che tutto sta funzionando come previsto.
+And as we can see, the response is almost immediate, confirming that everything is working as expected.
 
 ***
 
