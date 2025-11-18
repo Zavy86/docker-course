@@ -7,47 +7,46 @@
 > - key-value pairs
 > - container details
 
-In questo capitolo, affronteremo i concetti di nomenclatura, etichettatura e ispezione dei containers.
+In this chapter, we will cover the concepts of naming, labeling, and inspecting containers.
 
-La nomenclatura di un container ci permette di identificarlo in modo univoco e di riferirci a esso in modo semplice.
+Naming a container allows us to uniquely identify it and refer to it easily.
 
-Le etichette sono invece delle coppie chiavi valori che possono essere attaccate ai containers per aggiungere ulteriori
-informazioni utili, molte etichette sono impostate in maniera predefinita da Docker, ma possiamo anche crearne di 
-personalizzate sulla base delle nostre esigenze.
+Labels, on the other hand, are key-value pairs that can be attached to containers to add additional useful information. 
+Many labels are predefined by Docker, but we can also create custom ones based on our needs.
 
-Tramite l'ispezione, possiamo avere accesso a tutti i dettagli di un container, come il suo identificativo, l'immagine,
-lo stato, e tutta un'altra serie di informazioni utili.
+Through inspection, we can access all the details of a container, such as its ID, image, state, and a wide range of 
+other useful information.
 
 ***
 
-Fino a ora, quando abbiamo creato dei containers ma non abbiamo mai specificato dei nomi e ci siamo sempre riferiti a 
-loro tramite l'identificativo univoco auto-generato da Docker.
+Until now, when we created containers, we never specified names and always referred to them using the unique 
+auto-generated ID provided by Docker.
 
-Tuttavia, oltre all'id, Docker genera per i nostri container anche dei nomi casuali univoci.
+However, in addition to the ID, Docker also generates unique random names for our containers.
 
-La creazione di questi nomi è molto divertente, in quanto Docker combina un aggettivo con il cognome di una celebrità
-del mondo dell'informatica.
+The creation of these names is quite amusing, as Docker combines an adjective with the surname of a famous figure in the 
+world of computing.
 
-Ad esempio alcuni nomi potrebbero essere: happy_curie, clever_hopper, jovial_lovelace, ecc...
+For example, some names could be: happy_curie, clever_hopper, jovial_lovelace, etc.
 
-> Tranne `booring_wozniak`, perché [Steve Wozniak non è affatto noioso](https://github.com/moby/moby/blob/c90254c7464cac5c56e7ab9e6b1857c119d5d263/pkg/namesgenerator/names-generator.go#L844)! ;-)
+> Except for `booring_wozniak`, because [Steve Wozniak is not boring](https://github.com/moby/moby/blob/c90254c7464cac5c56e7ab9e6b1857c119d5d263/pkg/namesgenerator/names-generator.go#L844)! ;-)
 
-Se infatti lanciamo nuovamente un container e andiamo a vedere i processi con i comandi:
+If we launch a container again and check the processes using the commands:
 
 ```shell
 $ docker run zavy86/figlet
 $ docker ps -al
 ```
 
-Vedremo in fondo un nome assegnato al container, nel mio caso `loving_visvesvaraya`:
+At the end, we will see a name assigned to the container, in my case `loving_visvesvaraya`:
 
 ```terminaloutput
 CONTAINER ID   IMAGE           [...]   NAMES
 a79f3e40a2a4   zavy86/figlet   [...]   loving_visvesvaraya
 ```
 
-Qualora invece volessimo specificare un nome personalizzato per il container, non dovremo far altro che aggiungere
-l'opzione `--name` al comando:
+If, on the other hand, we want to specify a custom name for the container, we just need to add the `--name` option to 
+the command:
 
 ```shell
 $ docker run --name figlet zavy86/figlet
@@ -58,7 +57,7 @@ CONTAINER ID   IMAGE           [...]   NAMES
 123ff4c70862   zavy86/figlet   [...]   figlet
 ```
 
-Inoltre possiamo anche rinominare un container per assegnargli un nuovo nome, per farlo possiamo usare il comando:
+Additionally, we can rename a container to assign it a new name using the following command:
 
 ```shell
 $ docker rename figlet zavy-figlet
@@ -69,12 +68,11 @@ CONTAINER ID   IMAGE           [...]   NAMES
 123ff4c70862   zavy86/figlet   [...]   zavy-figlet
 ```
 
-E come possiamo vedere ora il container avrà il nuovo nome.
+And as we can see, the container now has a new name.
 
 ***
 
-Per quanto riguarda invece le etichette, possiamo aggiungere delle etichette ai nostri container con l'opzione `--label`
-o `-l` al momento del `run`, ad esempio:
+As for labels, we can add labels to our containers using the `--label` or `-l` option at `run` time, for example:
 
 ```shell
 $ docker run -l owner=zavy zavy86/figlet
@@ -82,16 +80,16 @@ $ docker run -l owner=alice zavy86/figlet
 $ docker run -l owner=bob zavy86/figlet
 ```
 
-Con questi tre comandi ho avviato tre container, ognuno con un'etichetta `owner` con valore `zavy`, `alice` e `bob`.
+With these three commands, I started three containers, each with an `owner` label set to `zavy`, `alice`, and `bob`.
 
-Tramite il solito `docker ps -a` non vedremo tali etichette, ma possono tornarci utili per effettuare dei filtri, ad
-esempio aggiungendo l'opzione `--filter` al comando:
+Using the usual `docker ps -a` command, we will not see these labels, but they can be useful for filtering, for example,
+by adding the `--filter` option to the command:
 
 ```shell
 $ docker ps -a --filter label=owner
 ```
 
-Ci mostrerà tutti i container che hanno un etichetta `owner` con qualsiasi valore:
+It will show us all containers that have an `owner` label with any value:
 
 ```terminaloutput
 CONTAINER ID   IMAGE           [...]
@@ -100,25 +98,25 @@ a0baf847157d   zavy86/figlet   [...]
 96c6c9a63f3e   zavy86/figlet   [...]
 ```
 
-Se invece volessimo filtrare anche il valore dell'etichetta, dovremo aggiungere un ulteriore uguale col valore:
+If, on the other hand, we want to filter by the label value as well, we need to add another equal sign with the value:
 
 ```shell
 $ docker ps -a --filter label=owner=zavy
 ```
 
-In questo modo, vedremo filtrato solamente il container la cui etichetta `owner` ha valore `zavy`:
+In this way, we will see only the container whose `owner` label has the value `zavy`:
 
 ```terminaloutput
 CONTAINER ID   IMAGE           [...]
 96c6c9a63f3e   zavy86/figlet   [...]
 ```
 
-Queste etichette vedrete che ci torneranno molto utili in futuro, in quanto molti strumenti di monitoraggio, proxy e
-altri servizi possono utilizzare queste etichette per filtrare i container ed effettuare operazioni distinte su di essi. 
+These labels will prove to be very useful in the future, as many monitoring tools, proxies, and other services can use 
+these labels to filter containers and perform distinct operations on them.
 
 ***
 
-Se volessimo infine avere accesso a tutte le informazioni relative al container, possiamo usare il comando:
+Finally, if we want to access all the information related to a container, we can use the command:
 
 ```shell
 $ docker inspect zavy-figlet
@@ -330,16 +328,15 @@ $ docker inspect zavy-figlet
 ]
 ```
 
-Tutte queste informazioni potrebbero addirittura spiazzarci, per rendere il tutto più leggibile possiamo sfruttare una
-comoda utility da riga di comando chiamata `jq` che ci permette di interagire con i dati in formato JSON:
+All this information might even be overwhelming, so to make everything more readable we can use a handy command-line 
+utility called `jq` that allows us to interact with data in JSON format:
 
 ```shell
 $ docker inspect zavy-figlet | jq
 ```
 
-Mettendo infatti in pipe l'output del comando `inspect` con `jq` otterremo un oggetto formattato e colorato, ma possiamo
-anche fare di meglio, se volessimo ad esempio ottenere solo il nome dell'immagine, potremo specificare il percorso
-dell'elemento che ci interessa visualizzare:
+By piping the output of the `inspect` command to `jq`, we get a formatted and colorized JSON object. However, we can do
+even better: if we want to extract only the image name, we can specify the path of the element we want to display:
 
 ```shell
 $ docker inspect zavy-figlet | jq '.[0].Config.Image'
@@ -348,8 +345,8 @@ $ docker inspect zavy-figlet | jq '.[0].Config.Image'
 "zavy86/figlet"
 ```
 
-Oltre a usare `jq`, possiamo anche usare l'opzione `--format` del comando `inspect` per ottenere informazioni specifiche
-sulla base del medesimo path:
+In addition to using `jq`, we can also use the `--format` option of the `inspect` command to retrieve specific 
+information based on the same path:
 
 ```shell
 $ docker inspect --format '{{ json .Config.Image }}' zavy-figlet
@@ -358,7 +355,7 @@ $ docker inspect --format '{{ json .Config.Image }}' zavy-figlet
 "zavy86/figlet"
 ```
 
-Il risultato è lo stesso, scegliete voi quello che più vi aggrada o col quale siete più soliti lavorare...
+The result is the same, choose the one you prefer or are more accustomed to working with...
 
 ***
 
