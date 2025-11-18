@@ -163,7 +163,7 @@ CONTAINER ID   IMAGE     [...]   PORTS                   [...]
 ```
 
 If instead we want to manually specify the port number to use, instead of using the `-P` (uppercase) option, we must use 
-the `-p` (lowercase) option, witch stay for port, and specify the desired port number:
+the `-p` (lowercase) option, which stay for port, and specify the desired port number:
 
 ```shell
 $ docker run -d -p 80:80 nginx

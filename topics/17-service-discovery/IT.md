@@ -31,9 +31,9 @@ CONTAINER ID   IMAGE              [...]   PORTS                     [...]
 3cae1216a1c1   zavy86/clickster   [...]   0.0.0.0:50003->8080/tcp   [...]
 ```
 
-Se ora puntiamo il browser su `http://localhost:50003` vedremo l'applicazione web in esecuzione, ma riceveremo subito un
-errore `Unable to connect to Redis!`. Questo ovviamente perché non c'è nessun server Redis in esecuzione, e quando la
-nostra applicazione tenta di risolvere il nome redis per connettersi, non trova nulla.
+Se ora puntiamo il browser su [http://localhost:50003](http://localhost:50003) vedremo l'applicazione web in esecuzione,
+ma riceveremo subito un errore `Unable to connect to Redis!`. Questo ovviamente perché non c'è nessun server Redis in 
+esecuzione, e quando la nostra applicazione tenta di risolvere il nome redis per connettersi, non trova nulla.
 
 Procediamo quindi con l'esecuzione di un container Redis:
 

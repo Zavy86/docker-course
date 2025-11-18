@@ -60,7 +60,7 @@ $ docker run -d -p 8080:80 -v nginx-www:/usr/share/nginx/html nginx
 ``` 
 
 In questo modo il web server andrà a servire le pagine presenti nel volume, come possiamo vedere puntando il browser su:
-`http://localhost:8080`.
+[http://localhost:8080](http://localhost:8080).
 
 Lanciamo ora un secondo container puntando allo stesso volume:
 
@@ -97,8 +97,8 @@ Ed modifichiamo il contenuto del file:
 [...]
 ```
 
-Usciamo salvando con `^X` e `Y`, poi torniamo al browser e aggiorniamo la pagina: `http://localhost:8080` e vedremo che
-la pagina sarà servita con il contenuto aggiornato!
+Usciamo salvando con `^X` e `Y`, poi torniamo al browser e aggiorniamo la pagina:
+[http://localhost:8080](http://localhost:8080) e vedremo che la pagina sarà servita con il contenuto aggiornato!
 
 ***
 

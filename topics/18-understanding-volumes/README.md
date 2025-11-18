@@ -135,7 +135,7 @@ And let's relaunch it with the same parameters as before:
 $ docker run -d -p 8080:80 -v nginx-www:/usr/share/nginx/html nginx
 ``` 
 
-And let's go back to the browser and refresh the page: (http://localhost:8080)[http://localhost:8080] and you will see 
+And let's go back to the browser and refresh the page: [http://localhost:8080](http://localhost:8080) and you will see 
 that the page now serves the content as we updated it in the volume!
 
 ***

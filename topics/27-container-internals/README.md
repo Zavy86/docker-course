@@ -161,7 +161,8 @@ And so on for other resources as well.
 >
 > namespaces
 > - limit
-> - xxx
+> - isolation
+> - separation
 
 `Namespaces` are a resource isolation system that limits visibility within a sort of impenetrable boundary. In modern 
 kernels, several types of namespaces are available, such as process, network, mount points, and many others.
@@ -385,4 +386,4 @@ portable and interoperable across different vendors and platforms by standardizi
 > Resources:
 > - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 
-[Continue](../../contribute/IT.md) to the next topic.
+[Continue](../../contribute/README.md) to the next topic.
