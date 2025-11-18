@@ -6,62 +6,60 @@
 > - buildkit
 > - multi-arch
 
-Nell'ormai lontano 2017 Docker ha annunciato un nuovo builder chiamato `buildkit`, reso poi disponibile a partire dalla 
-versione 18.09 e impostato come default in Docker Desktop nel 2021.
+Back in 2017, Docker announced a new builder called `buildkit`, which became available starting from version 18.09 and 
+was set as the default in Docker Desktop in 2021.
 
-Questo nuovo builder ha introdotto tutta una serie di miglioramenti, fra cui un notevole miglioramento delle performance
-e il supporto alla costruzione di immagini multi piattaforma. Garantendo al tempo stesso una compatibilità completa con 
-qualunque Dockerfile esistente.
+This new builder introduced a range of improvements, including significant performance enhancements and support for
+building multi-platform images, while maintaining full compatibility with any existing Dockerfile.
 
-Il miglioramento delle performance è stato possibile grazie all'introduzione di un nuovo meccanismo di caching, che 
-consente di evitare di ricompilare le immagini che non sono state modificate e l'esecuzione parallela.
+The performance boost was made possible by a new caching mechanism that avoids rebuilding unchanged images and enables 
+parallel execution.
 
-Il builder classico eseguiva tutte le operazioni in maniera lineare, copiava l'intero contesto di build, eseguiva i vari
-comandi `RUN` ed effettuava il commit per ogni operazione descritta all'interno del Dockerfile.
+The classic builder performed all operations sequentially, copied the entire build context, executed each `RUN` command,
+and committed after every operation described in the Dockerfile.
 
-Il nuovo builder invece, effettua la copia dei soli file modificati rispetto al precedente contesto di build, elabora un
-grafo delle dipendenze tra i vari comandi `RUN` che trova all'interno del Dockerfile, verifica se esistono già eventuali
-layer nella cache, ricompila solamente quelli che risultano invalidati e dove possibile li esegue in parallelo.
+The new builder, instead, copies only the files that have changed since the previous build context, makes a dependency
+graph of the `RUN` commands found in the Dockerfile, checks if any layers already exist in the cache, it rebuilds only
+those that are invalidated, and executes them in parallel where possible.
 
 ***
 
-Come dicevamo se stiamo usando Docker Desktop ci ritroveremo già a disposizione e abilitato il nuovo builder.
-Se invece siamo, come in questo caso, su un host Linux, dovremo prima di tutto abilitarlo con questi due comandi:
+As mentioned, if you are using Docker Desktop, the new builder is already available and enabled by default. However, if
+you are on a Linux host, as in this case, you first need to enable it with these two commands:
 
 ```shell
 $ docker buildx create --use
 $ docker buildx inspect --bootstrap
 ```
 
-Ora possiamo procedere con la costruzione delle immagini multi piattaforma.
+Now we can proceed with building multi-platform images.
 
 ---
 
-Solitamente le build multi piattaforma vengono eseguite in un contesto di deploy verso un registro, perché non avrebbe
-molto senso eseguirla su una macchina che per sua natura ha una singola architettura.
+Multi-platform builds are usually performed in a deployment context targeting a registry, as it would not make much
+sense to execute them on a machine that, by its nature, has a single architecture.
 
-Andiamo quindi a vedere come effettuare in un singolo comando una build multi piattaforma, taggandola ed effettuando il 
-push verso il registro Docker Hub.
+Let’s see how to perform a multi-platform build in a single command, tagging and pushing it to the Docker Hub registry.
 
-Qualora ancora non l'avessimo fatto cloniamo il repository di questo corso:
+If you haven’t done so already, clone the repository for this course:
 
 ```shell
 $ git clone https://github.com/Zavy86/docker-course.git
 ```
 
-E spostiamoci nella directory:
+Let’s move to the directory:
 
 ```shell
 $ cd docker-course/source/clock
 ```
 
-Ed effettuiamo la build multi piattaforma con il comando:
+And now let's perform the multi-platform build with the following command:
 
 ```shell
 $ docker buildx build --platform linux/amd64,linux/arm64 --tag zavy86/clock --push .
 ```
 
-Avendo cura di sostituire `zavy86` con il vostro username.
+Make sure to replace `zavy86` with your username.
 
 ```terminaloutput
 [+] Building 7.6s (9/9) FINISHED                                                                                                             docker-container:serene_blackburn
@@ -90,13 +88,13 @@ Avendo cura di sostituire `zavy86` con il vostro username.
  => [auth] library/busybox:pull zavy86/clock:pull,push token for registry-1.docker.io                                                                                     0.0s
 ```
 
-E andiamo poi ad accertarci che il tutto sia stato eseguito correttamente eseguendo il comando:
+Now let's verify that everything was executed correctly by running the following command:
 
 ```shell
 $ docker manifest inspect zavy86/clock
 ```
 
-Dove potremo notare nella sezione `manifests` che sono state create diverse immagini, una per ogni piattaforma:
+Where you can see in the `manifests` section that several images have been created, one for each platform:
 
 ```terminaloutput
 {
@@ -126,28 +124,27 @@ Dove potremo notare nella sezione `manifests` che sono state create diverse imma
 }
 ```
 
-La stessa cosa la possiamo vedere anche all'interno del [Docker Hub](https://hub.docker.com/r/zavy86/clock/tags) andando
-nella sezione `Tags` dell'immagine che vogliamo visualizzare.
+You can also see the same information directly on [Docker Hub](https://hub.docker.com/r/zavy86/clock/tags) by navigating 
+to the `Tags` section of the image you want to view.
 
 ---
 
-A differenza di quanto avviene quanto usiamo il comando `docker build` per costruire immagini singole, il comando 
-`docker buildx build` non ci rende immediatamente disponibile l'immagine sul nostro host. Questo perché come dicevamo
-il nostro host ha una singola architettura e per eseguire un'immagine è necessario che questa sia esattamente la stessa
-dell'architettura del nostro host. Per cui la prassi comune è effettuare il push dell'immagine multi piattaforma sul 
-registro e poi effettuare il pull della versione dell'immagine relativa alla nostra architettura.
+Unlike when using the `docker build` command to build single images, the `docker buildx build` command does not make the
+image immediately available on your host. This is because, as mentioned, your host has a single architecture, and to run
+an image, it must match the architecture of your host. Therefore, the common practice is to push the multi-platform 
+image to the registry and then pull the version of the image that matches your architecture.
 
-Qualora si ometta l'opzione `--push` non solo l'immagine non verrà inviata al registro ma non verrà nemmeno salvata nel
-nostro computer, resterà disponibile solamente all'interno della cache. Se volessimo forzare il salvataggio in locale
-dell'immagine, ai fini di puro debug, dovremo sostituire l'opzione `--push` con l'opzione `--output` in questo modo:
+If you omit the `--push` option, the image will not only not be sent to the registry, but it will also not be saved on
+your computer; it will remain available only in the cache. If you want to force saving the image locally for debugging 
+purposes, you should replace the `--push` option with the `--output` option as follows:
 
 ```shell
 $ docker buildx build --platform linux/amd64,linux/arm64 --tag zavy86/clock --output type=oci,dest=clock.oci .
 ```
 
-A questo punto ci ritroveremo nella cartella corrente un nuovo file `clock.oci` che rappresenta appunto l'immagine multi 
-piattaforma che potremo poi inviare manualmente a un registro, ma che non sarà comunque eseguibile sul nostro host per i 
-motivi descritti precedentemente.
+At this point, you will find in the current directory a new file `clock.oci`, which represents the multi-platform image. 
+You can manually push this file to a registry, but it will not be executable on your host for the reasons described 
+earlier.
 
 ***
 
@@ -157,25 +154,24 @@ motivi descritti precedentemente.
 > - native
 > - dependencies
 
-Un aspetto fondamentale da tenere in considerazione nelle build multi piattaforma è che quando la piattaforma di 
-destinazione non coincide con quella della macchina host, Docker utilizzerà `Quick Emulator` per emulare l'architettura 
-target. Questo significa che, ad esempio, su un computer x86 è possibile costruire immagini per ARM, tuttavia la 
-compilazione e l'esecuzione dei passaggi nel Dockerfile saranno emulate tramite software.
+A key aspect to consider in multi-platform builds is that when the target platform does not match the host machine, 
+Docker uses `Quick Emulator` (QEMU) to emulate the target architecture. This means, for example, that on an x86 computer
+you can build images for ARM, but the compilation and execution of the steps in the Dockerfile will be emulated in 
+software.
 
-L'emulazione permette una straordinaria flessibilità ma introduce inevitabilmente un overhead in termini di performance:
-le build multi piattaforma che sfruttano `QEMU` risultano quindi sensibilmente più lente rispetto a quelle native.
+Emulation provides great flexibility but inevitably introduces performance overhead: multi-platform builds that leverage 
+`QEMU` are therefore noticeably slower than native builds.
 
-Inoltre, sebbene `QEMU` sia molto maturo, l'emulazione di alcune istruzioni particolarmente specifiche o avanzate 
-potrebbe non essere perfetta, portando a comportamenti leggermente diversi rispetto all'hardware reale.
+Additionally, although `QEMU` is very mature, the emulation of certain particularly specific or advanced instructions 
+may not be perfect, leading to slightly different behavior compared to real hardware.
 
-Un ulteriore aspetto critico riguarda le dipendenze native, ossia tutti quei pacchetti o librerie che vengono compilati
-e installati all'interno dell'immagine. Alcune potrebbero presentare differenze di comportamento, di prestazioni, o 
-addirittura errori di compilazione tra architetture diverse, specialmente quando si usano pacchetti binari precompilati
-o librerie che fanno uso di ottimizzazioni specifiche per una certa CPU.
+Another critical aspect concerns native dependencies, that is, all packages or libraries that are compiled and installed 
+within the image. Some may exhibit differences in behavior, performance, or even compilation errors across different 
+architectures, especially when using precompiled binary packages or libraries that leverage CPU-specific optimizations.
 
-Per questo motivo, è buona pratica testare sempre le immagini risultanti su ogni architettura che si intende supportare,
-magari sfruttando ambienti di test automatizzati o dispositivi reali, così da individuare tempestivamente eventuali
-incompatibilità o regressioni che l'emulazione con `QEMU` potrebbe non far emergere in fase di build.
+For this reason, it is best practice to always test the resulting images on every architecture you intend to support, 
+possibly using automated test environments or real devices, to promptly identify any incompatibilities or regressions 
+that emulation with `QEMU` might not reveal during the build phase.
 
 ***
 

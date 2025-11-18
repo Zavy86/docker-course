@@ -150,8 +150,8 @@ In questo caso ho lasciato dei valori piuttosto classici, ovvero il driver json-
 file di testo, con una rotazione al raggiungimento dei 9 megabyte per file e un massimo di 3 file storici per container.
 
 > Da notare il parametro `data-root` che è lo stesso già configurato per i volumi, infatti Docker non permette di andare
-a specificare directory separate per ogni suo dato, ma usa una directory unica, se volessimo andare a modificarle in 
-maniera puntuale dovremo "giocare" con i links simbolici.
+> a specificare directory separate per ogni suo dato, ma usa una directory unica, se volessimo andare a modificarle in 
+> maniera puntuale dovremo "giocare" con i links simbolici.
 
 ---
 
