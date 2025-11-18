@@ -302,4 +302,4 @@ diving into image creation, we still need to cover some basic concepts.
 > - [busybox](https://hub.docker.com/_/busybox)
 > - [hello-world](https://hub.docker.com/_/hello-world)
 
-[Continue](../04-background-containers/IT.md) to the next topic.
+[Continue](../04-background-containers/README.md) to the next topic.

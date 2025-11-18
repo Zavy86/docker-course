@@ -287,4 +287,4 @@ $ docker run figlet Zavy
 > - [figlet-entrypoint](../../sources/figlet-entrypoint)
 > - [figlet-entrypoint-command](../../sources/figlet-entrypoint-command)
 
-[Continue](../10-copying-files/IT.md) to the next topic.
+[Continue](../10-copying-files/README.md) to the next topic.

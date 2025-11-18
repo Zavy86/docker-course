@@ -251,4 +251,4 @@ And as we can see, the response is almost immediate, confirming that everything 
 > - [busybox](https://hub.docker.com/_/busybox)
 > - [nginx](https://hub.docker.com/_/nginx)
 
-[Continue](../16-network-drivers/IT.md) to the next topic.
+[Continue](../16-network-drivers/README.md) to the next topic.

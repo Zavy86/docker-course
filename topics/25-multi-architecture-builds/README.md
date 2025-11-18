@@ -179,4 +179,4 @@ that emulation with `QEMU` might not reveal during the build phase.
 > - [clock](../../sources/clock)
 > - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 
-[Continue](../26-common-settings/IT.md) to the next topic.
+[Continue](../26-common-settings/README.md) to the next topic.

@@ -182,4 +182,4 @@ we will cover in one of the next chapters: Docker Compose!
 > - [redis](https://hub.docker.com/_/redis)
 > - [zavy86/clickster](https://hub.docker.com/r/zavy86/clickster)
 
-[Continue](../18-understanding-volumes/IT.md) to the next topic.
+[Continue](../18-understanding-volumes/README.md) to the next topic.

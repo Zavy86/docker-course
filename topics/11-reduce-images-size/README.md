@@ -354,4 +354,4 @@ way, we can maximize cache usage and avoid duplicating the same code across mult
 > - [alpine](https://hub.docker.com/_/alpine)
 > - [hello-multi-stage](../../sources/hello-multi-stage)
 
-[Continue](../12-images-registry/IT.md) to the next topic.
+[Continue](../12-images-registry/README.md) to the next topic.

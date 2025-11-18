@@ -203,4 +203,4 @@ no disk space was used.
 > - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 > - [zavy86/crash](https://hub.docker.com/r/zavy86/crash)
 
-[Continue](../15-understanding-networks/IT.md) to the next topic.
+[Continue](../15-understanding-networks/README.md) to the next topic.

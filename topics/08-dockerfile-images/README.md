@@ -321,4 +321,4 @@ be sure the command will be executed exactly as written.
 > - [figlet](../../sources/figlet)
 > - [figlet-exec](../../sources/figlet-exec)
 
-[Continue](../09-entrypoint-cmd/IT.md) to the next topic.
+[Continue](../09-entrypoint-cmd/README.md) to the next topic.

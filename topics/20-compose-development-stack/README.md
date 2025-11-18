@@ -272,4 +272,4 @@ learn more, I recommend the official [Docker Compose documentation](https://docs
 > - [postgres](https://hub.docker.com/_/postgres)
 > - [subscriptions](../../sources/subscriptions)
 
-[Continue](../21-advanced-syntax/IT.md) to the next topic.
+[Continue](../21-advanced-syntax/README.md) to the next topic.
