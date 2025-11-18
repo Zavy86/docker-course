@@ -28,15 +28,15 @@ see the list of instructions that contributed to the creation of an image.
 
 ***
 
-Let’s get straight to how it all works.
+Let's get straight to how it all works.
 
-Let’s start by creating a working directory and moving into it:
+Let's start by creating a working directory and moving into it:
 
 ```shell
 $ mkdir figlet && cd $_
 ```
 
-Let’s proceed with creating our first Dockerfile using your preferred editor. If you are experienced with Linux, you are
+Let's proceed with creating our first Dockerfile using your preferred editor. If you are experienced with Linux, you are
 probably a wizard with `vim`, but if you are a beginner, I recommend using:
 
 ```shell
@@ -47,7 +47,7 @@ Nano is a text editor that allows you to create and edit files in a simple and i
 a bar with the most common commands you can use. For our purposes, you just need to know that to save the file you need
 to press `^O` and to exit the editor you need to press `^X`.
 
-Now, let’s add the following content to our Dockerfile:
+Now, let's add the following content to our Dockerfile:
 
 ```dockerfile
 FROM alpine
@@ -321,4 +321,4 @@ be sure the command will be executed exactly as written.
 > - [figlet](../../sources/figlet)
 > - [figlet-exec](../../sources/figlet-exec)
 
-[Prosegui](../09-entrypoint-cmd/IT.md) al prossimo capitolo.
+[Continue](../09-entrypoint-cmd/IT.md) to the next topic.

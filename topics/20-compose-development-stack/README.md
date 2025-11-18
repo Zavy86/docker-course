@@ -18,11 +18,11 @@ parameters and environment variables.
 The solution to these "problems" is provided by **Docker Compose**, a tool that allows you to define and manage
 applications and configurations through a single configuration file for the entire stack.
 
-Let’s see it in action with a local development stack for a **Node.js** application with a **Postgres** database.
+Let's see it in action with a local development stack for a **Node.js** application with a **Postgres** database.
 
 ***
 
-If you haven’t already, clone the repository for this course:
+If you haven't already, clone the repository for this course:
 
 ```shell
 $ git clone https://github.com/Zavy86/docker-course.git
@@ -37,7 +37,7 @@ $ cd docker-course/source/subscriptions
 Here we have our Node/Postgres web application project called **subscriptions**, which includes the Docker Compose
 configuration file.
 
-Let’s take a look around:
+Let's take a look around:
 
 ```shell
 $ tree
@@ -47,7 +47,7 @@ Inside the directory, we can see the `package.json` file containing all the info
 `server.js` file with the code for our Node server, the `Dockerfile` that defines the application container image, and
 finally the `docker-compose.yml` file that defines the entire local development stack.
 
-The `Dockerfile` is very similar to the one shown in the previous chapter, so let’s focus on the
+The `Dockerfile` is very similar to the one shown in the previous chapter, so let's focus on the
 [`docker-compose.yml`](../../sources/subscriptions/docker-compose.yml) file:
 
 ```shell
@@ -71,7 +71,7 @@ detect changes in real time and automatically restart the server. Additionally, 
 port `3000` on our host to port `3000` in the container, and a `depends_on` section that specifies that the `app`
 service depends on the `db` service, ensuring that Docker Compose starts the database before the application.
 
-Let’s proceed with starting the stack. To do so, we simply need to run the command:
+Let's proceed with starting the stack. To do so, we simply need to run the command:
 
 ```shell
 $ docker compose up
@@ -272,4 +272,4 @@ learn more, I recommend the official [Docker Compose documentation](https://docs
 > - [postgres](https://hub.docker.com/_/postgres)
 > - [subscriptions](../../sources/subscriptions)
 
-[Prosegui](../21-advanced-syntax/IT.md) al prossimo capitolo.
+[Continue](../21-advanced-syntax/IT.md) to the next topic.

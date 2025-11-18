@@ -85,7 +85,7 @@ And this time, the output will only show the ID of the newly started container:
 66e1d31f67d9551b8efca347b7c1d6e978decb30f381a21059dc86fbb435681a
 ```
 
-Unlike before, we will no longer see any output, but don’t worry! Docker is working for us: it is collecting all the
+Unlike before, we will no longer see any output, but don't worry! Docker is working for us: it is collecting all the
 data in the background and saving it to a log.
 
 ***
@@ -312,4 +312,4 @@ We will see in the following chapters how to remove containers from this list.
 > - [clock](../../sources/clock)
 > - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 
-[Prosegui](../05-restarting-attaching/IT.md) al prossimo capitolo.
+[Continue](../05-restarting-attaching/IT.md) to the next topic.

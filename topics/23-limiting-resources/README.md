@@ -145,4 +145,4 @@ previously discussed in [chapter 7](../07-interactive-images/IT.md).
 > Resources:
 > - [python](https://hub.docker.com/_/python)
 
-[Prosegui](../24-logging-monitoring/IT.md) al prossimo capitolo.
+[Continue](../24-logging-monitoring/IT.md) to the next topic.

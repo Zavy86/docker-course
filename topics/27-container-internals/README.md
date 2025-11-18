@@ -8,7 +8,7 @@ This chapter is dedicated to those who love to dive deep into how things work an
 behind containers.
 
 If you have made it this far and your only goal is to use Docker, you can skip this chapter. But if you are a bit
-curious, make one last effort—you will see it’s worth it!
+curious, make one last effort—you will see it's worth it!
 
 ***
 
@@ -324,7 +324,7 @@ And let's create a new file inside it:
 $ echo "Hello World!" > test.txt
 ```
 
-And let’s run the command again:
+And let's run the command again:
 
 ```shell
 $ docker ps --size
@@ -385,4 +385,4 @@ portable and interoperable across different vendors and platforms by standardizi
 > Resources:
 > - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 
-[Prosegui](../../contribute/IT.md) al prossimo capitolo.
+[Continue](../../contribute/IT.md) to the next topic.

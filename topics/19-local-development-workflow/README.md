@@ -10,11 +10,11 @@ Using containers in your local development environment is an excellent solution 
 in traditional development workflows, such as dependency management and consistency across team members' environments.
 As previously mentioned, this approach solves the _"It works on my machine!"_ problem once and for all.
 
-Let’s see what a simple local development workflow for a **Node.js** application might look like.
+Let's see what a simple local development workflow for a **Node.js** application might look like.
 
 ***
 
-If you haven’t already, clone the repository for this course:
+If you haven't already, clone the repository for this course:
 
 ```shell
 $ git clone https://github.com/Zavy86/docker-course.git
@@ -28,7 +28,7 @@ $ cd docker-course/source/namer
 
 Here we have our Node web application project called **namer**, which includes a Dockerfile.
 
-Let’s take a look around:
+Let's take a look around:
 
 ```shell
 $ tree
@@ -38,7 +38,7 @@ Inside the `public` directory, you can find the `index.html` file, which serves 
 along with the `style.css` and `favicon.ico` files. There is also a `package.json` file containing all the information
 about our application, and a `server.js` file with the Node server code.
 
-Let’s take a closer look at the [`Dockerfile`](../../sources/namer/Dockerfile):
+Let's take a closer look at the [`Dockerfile`](../../sources/namer/Dockerfile):
 
 ```shell
 $ cat Dockerfile
@@ -49,7 +49,7 @@ that allows us to track code changes and automatically restart the Node server. 
 some information, installs the dependencies, starts the server in development mode, and finally exposes port 3000, the 
 standard port for Node.js.
 
-Let’s proceed with building the image:
+Let's proceed with building the image:
 
 ```shell
 $ docker build -t namer .
@@ -113,7 +113,7 @@ As we can observe, it is a very simple application that generates random names.
 
 ---
 
-Let’s assume we want to modify something in the code of our project.
+Let's assume we want to modify something in the code of our project.
 
 Open the `server.js` file:
 
@@ -121,7 +121,7 @@ Open the `server.js` file:
 $ nano server.js
 ```
 
-And let’s modify line `31` to add a log for each generated name.
+And let's modify line `31` to add a log for each generated name.
 
 ```js
 console.log(`Last generated name: ${name}`);
@@ -176,7 +176,7 @@ At the next container startup, it will be automatically recreated.
 > - inconsistent environments
 > - it works on my machine!
 
-As you can see, this approach completely frees us from our local machine. We didn’t even need to install Node.js, as it
+As you can see, this approach completely frees us from our local machine. We didn't even need to install Node.js, as it
 was executed directly through a container. Thanks to the `package-lock.json`, we ensure a consistent environment across 
 all team members, with Git taking care of the rest.
 
@@ -186,4 +186,4 @@ all team members, with Git taking care of the rest.
 > - [namer](../../sources/namer)
 > - [node](https://hub.docker.com/_/node)
 
-[Prosegui](../20-compose-development-stack/IT.md) al prossimo capitolo.
+[Continue](../20-compose-development-stack/IT.md) to the next topic.

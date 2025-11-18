@@ -39,15 +39,15 @@ Now we can proceed with building multi-platform images.
 Multi-platform builds are usually performed in a deployment context targeting a registry, as it would not make much
 sense to execute them on a machine that, by its nature, has a single architecture.
 
-Let’s see how to perform a multi-platform build in a single command, tagging and pushing it to the Docker Hub registry.
+Let's see how to perform a multi-platform build in a single command, tagging and pushing it to the Docker Hub registry.
 
-If you haven’t done so already, clone the repository for this course:
+If you haven't done so already, clone the repository for this course:
 
 ```shell
 $ git clone https://github.com/Zavy86/docker-course.git
 ```
 
-Let’s move to the directory:
+Let's move to the directory:
 
 ```shell
 $ cd docker-course/source/clock
@@ -179,4 +179,4 @@ that emulation with `QEMU` might not reveal during the build phase.
 > - [clock](../../sources/clock)
 > - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 
-[Prosegui](../26-common-settings/IT.md) al prossimo capitolo.
+[Continue](../26-common-settings/IT.md) to the next topic.

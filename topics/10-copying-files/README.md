@@ -79,7 +79,7 @@ extensions are not mandatory.
 
 Finally, with `CMD`, as seen previously, we configure the container to execute the program on startup.
 
-Let’s now build the image:
+Let's now build the image:
 
 ```shell
 $ docker build -t hello .
@@ -269,4 +269,4 @@ bin         etc         hello.c     lib         mnt         proc        run     
 > - [alpine](https://hub.docker.com/_/alpine)
 > - [hello](../../sources/hello)
 
-[Prosegui](../11-reduce-images-size/IT.md) al prossimo capitolo.
+[Continue](../11-reduce-images-size/IT.md) to the next topic.

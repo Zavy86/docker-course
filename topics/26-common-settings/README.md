@@ -10,15 +10,15 @@
 I intentionally kept this chapter for last, so as not to overwhelm those approaching this tool for the first time, even
 though I believe it is actually one of the first things to do when starting to use Docker.
 
-Customizing Docker’s configuration from the beginning will help you avoid issues that are challenging to detect and
+Customizing Docker's configuration from the beginning will help you avoid issues that are challenging to detect and
 resolve, especially for beginners. Now that you have understood whether Docker suits your needs and have experimented
-with your test environment, let’s proceed with configuring your actual local development environment.
+with your test environment, let's proceed with configuring your actual local development environment.
 
 In this chapter, we will see how to configure storage, networking, and some other useful parameters.
 
 ***
 
-First of all, to modify Docker’s settings, you need to edit the file:
+First of all, to modify Docker's settings, you need to edit the file:
 
 ```shell
 $ nano /etc/docker/daemon.json
@@ -129,7 +129,7 @@ enable them using the `--insecure-registry` option.
 
 ---
 
-Let’s move on to log configurations. Just like with volumes, we must pay close attention here to avoid ending up with a
+Let's move on to log configurations. Just like with volumes, we must pay close attention here to avoid ending up with a
 server filled with (often) useless text files.
 
 ```json
@@ -193,4 +193,4 @@ $ sudo systemctl restart docker
 
 ***
 
-[Prosegui](../27-container-internals/IT.md) al prossimo capitolo.
+[Continue](../27-container-internals/IT.md) to the next topic.

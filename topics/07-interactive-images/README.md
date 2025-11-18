@@ -220,4 +220,4 @@ scenes, but it is certainly not the approach we will use to create images for ou
 > Resources:
 > - [alpine](https://hub.docker.com/_/alpine)
 
-[Prosegui](../08-dockerfile-images/IT.md) al prossimo capitolo.
+[Continue](../08-dockerfile-images/IT.md) to the next topic.

@@ -197,4 +197,4 @@ of use. In a production environment, more up-to-date and reliable versions shoul
 > - [logstash](https://hub.docker.com/_/logstash)
 > - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 
-[Prosegui](../25-multi-architecture-builds/IT.md) al prossimo capitolo.
+[Continue](../25-multi-architecture-builds/IT.md) to the next topic.

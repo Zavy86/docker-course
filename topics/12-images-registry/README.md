@@ -116,7 +116,7 @@ However, for this tutorial, we will keep things simple and use the standard Dock
 
 ***
 
-Let’s start a container with the registry image:
+Let's start a container with the registry image:
 
 ```shell
 $ docker run --name registry -d -p 5000:5000 registry:2
@@ -154,4 +154,4 @@ it every time), and providing a graphical interface to enhance the user experien
 > - [registry](https://hub.docker.com/_/registry)
 > - [zavy86/figlet](https://hub.docker.com/r/zavy86/figlet)
 
-[Prosegui](../13-naming-labeling-inspecting/IT.md) al prossimo capitolo.
+[Continue](../13-naming-labeling-inspecting/IT.md) to the next topic.

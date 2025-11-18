@@ -104,7 +104,7 @@ name itself.
 The third category includes images that are not found on the Docker registry but are instead hosted on a private or
 public third-party server. In this case, the image reference must also include the URL (or IP address and optional port) 
 of the registry. An example is the [Actions Runner](https://ghcr.io/actions/actions-runner) image, which is hosted on
-Google’s public registry.
+Google's public registry.
 
 ***
 
@@ -114,7 +114,7 @@ Docker engine is installed.
 Using the Docker client, we can instruct the server to connect to a registry (official or self-hosted) to search for,
 download, or upload images as needed.
 
-Let’s now see which images are present on our machine:
+Let's now see which images are present on our machine:
 
 ```shell
 $ docker image ls
@@ -139,7 +139,7 @@ $ docker search wordpress
 
 Searching for WordPress will return a lot of images; the most important column to check is OFFICIAL. If there is an
 official image available, you should always prefer it unless you have a specific reason not to. Another indicator of an
-image’s popularity is the number of STARS it has received from the community.
+image's popularity is the number of STARS it has received from the community.
 
 In this case, for example, you can see both an official image and a community image, and the difference is clear:
 
@@ -210,4 +210,4 @@ compatible machines or by resorting to emulation.
 Resources:
 > - [wordpress](https://hub.docker.com/_/wordpress)
 
-[Prosegui](../07-interactive-images/IT.md) al prossimo capitolo.
+[Continue](../07-interactive-images/IT.md) to the next topic.

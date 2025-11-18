@@ -41,13 +41,13 @@ However, sometimes it may be necessary to go beyond the standard practices...
 
 ***
 
-Let’s set aside events and volumes for a moment and take a look at process information.
+Let's set aside events and volumes for a moment and take a look at process information.
 
 If you are running Docker on Linux (refer to the [second chapter](../02-training-environment/IT.md) for more 
 information), Docker processes are tightly integrated with the operating system and can be viewed using the standard
 Linux `ps` command.
 
-Let’s start a container in the background:
+Let's start a container in the background:
 
 ```shell
 $ docker run -d zavy86/clock
@@ -96,7 +96,7 @@ changes made during its execution. You can think of it as a USB drive.
 You certainly cannot SSH into a USB drive; instead, you would need to plug that drive into another machine to access its
 files.
 
-Let’s see how to perform this operation with a Docker container.
+Let's see how to perform this operation with a Docker container.
 
 If we try to run [this](../../sources/crash) image:
 
@@ -129,7 +129,7 @@ A /var/log/nginx/error.log
 
 As we can see, there are some interesting files that we may want to inspect.
 
-Let’s use the `cp` command to copy the `error.log` file to the current directory:
+Let's use the `cp` command to copy the `error.log` file to the current directory:
 
 ```shell
 $ docker cp ec2:/var/log/nginx/error.log .
@@ -203,4 +203,4 @@ no disk space was used.
 > - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 > - [zavy86/crash](https://hub.docker.com/r/zavy86/crash)
 
-[Prosegui](../15-understanding-networks/IT.md) al prossimo capitolo.
+[Continue](../15-understanding-networks/IT.md) to the next topic.

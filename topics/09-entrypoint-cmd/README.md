@@ -17,11 +17,11 @@ programs or applications you want the user to be able to execute.
 The second allows you to set a fixed command, which still lets the user add parameters or arguments related to that 
 command. This is more useful for images that contain a single program.
 
-Let’s see them in action...
+Let's see them in action...
 
 ***
 
-Let’s take the Dockerfile we created in the previous chapter and modify it:
+Let's take the Dockerfile we created in the previous chapter and modify it:
 
 ```shell
 $ nano Dockerfile
@@ -42,7 +42,7 @@ The `CMD` statement is considered metadata; it is not a command executed during 
 runtime. Therefore, it does not matter if you place it at the top, middle, or bottom of the Dockerfile. However, keep in
 mind that if you define it multiple times, the last one will always take precedence, overwriting the previous ones.
 
-Let’s exit, save the file, and rebuild the image:
+Let's exit, save the file, and rebuild the image:
 
 ```shell
 $ docker build -t figlet .
@@ -148,7 +148,7 @@ If we had used the basic shell syntax, the command would have been interpreted b
 parameters. By using the JSON form, the command is executed directly without shell interpretation, allowing us to add 
 any further parameters.
 
-Let’s rebuild the image:
+Let's rebuild the image:
 
 ```shell
 $ docker build -t figlet .
@@ -287,4 +287,4 @@ $ docker run figlet Zavy
 > - [figlet-entrypoint](../../sources/figlet-entrypoint)
 > - [figlet-entrypoint-command](../../sources/figlet-entrypoint-command)
 
-[Prosegui](../10-copying-files/IT.md) al prossimo capitolo.
+[Continue](../10-copying-files/IT.md) to the next topic.

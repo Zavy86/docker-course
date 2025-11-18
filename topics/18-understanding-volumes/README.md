@@ -37,7 +37,7 @@ local     6d0b2522c626ca3a4fe08a69e916541cd0da1fa775a190b26d492239535fc886
 The hexadecimal names identify the volumes automatically created by Docker, but as we will see shortly, during the
 container startup phase or when creating it manually, we can specify a more readable name for the volumes we create.
 
-Let’s try to create a volume to manage the pages of a web server:
+Let's try to create a volume to manage the pages of a web server:
 
 ```shell
 $ docker volume create nginx-www
@@ -165,7 +165,7 @@ If you haven't already, clone the repository for this course:
 $ git clone https://github.com/Zavy86/docker-course.git
 ```
 
-Let’s move into the `docker-course` directory:
+Let's move into the `docker-course` directory:
 
 ```shell
 $ cd docker-course
@@ -225,7 +225,7 @@ its name, as long as you know which container created it.
 
 ***
 
-Let’s launch a container with Redis version `7` as an example:
+Let's launch a container with Redis version `7` as an example:
 
 ```shell
 $ docker run -d --name redis7 redis:7
@@ -254,9 +254,9 @@ SAVE
 QUIT
 ```
 
-Let’s proceed with the upgrade to Redis version `8` by migrating the volume.
+Let's proceed with the upgrade to Redis version `8` by migrating the volume.
 
-Let’s stop the previous container:
+Let's stop the previous container:
 
 ```shell
 $ docker stop redis7
@@ -268,7 +268,7 @@ And let's start the new container:
 $ docker run -d --name redis8 --volumes-from redis7 redis:8
 ``` 
 
-Let’s reconnect again using `telnet`:
+Let's reconnect again using `telnet`:
 
 ```shell
 $ docker run -ti --rm --link redis8 busybox telnet redis8 6379
@@ -277,7 +277,7 @@ $ docker run -ti --rm --link redis8 busybox telnet redis8 6379
 Connected to redis8
 ```
 
-And let’s verify that the value of the `counter` key is still present:
+And let's verify that the value of the `counter` key is still present:
 
 ```redis
 GET counter
@@ -306,7 +306,7 @@ $ docker inspect --format '{{ json .Mounts }}' redis8 | jq
 ]
 ```
 
-Let’s stop and remove both Redis containers:
+Let's stop and remove both Redis containers:
 
 ```shell
 $ docker stop redis8
@@ -371,4 +371,4 @@ And we can even shut ourselves down:
 > - [nginx](https://hub.docker.com/_/nginx)
 > - [redis](https://hub.docker.com/_/redis)
 
-[Prosegui](../19-local-development-workflow/IT.md) al prossimo capitolo.
+[Continue](../19-local-development-workflow/IT.md) to the next topic.

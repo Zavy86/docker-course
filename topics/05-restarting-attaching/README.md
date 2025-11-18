@@ -133,4 +133,4 @@ there has been a terminal size change. Most programs respond to this signal by a
 > - [clock](../../sources/clock)
 > - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 
-[Prosegui](../06-understanding-images/IT.md) al prossimo capitolo.
+[Continue](../06-understanding-images/IT.md) to the next topic.

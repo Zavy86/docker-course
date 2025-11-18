@@ -35,7 +35,7 @@ If we now point the browser to `http://localhost:50003` we will see the web appl
 encounter an error: `Unable to connect to Redis!`. This is because no Redis server is currently running, and when our
 application tries to resolve the name `redis` to connect, it finds nothing.
 
-Let’s proceed with running a Redis container:
+Let's proceed with running a Redis container:
 
 ```shell
 $ docker run --net tutorial --net-alias redis -d redis
@@ -59,7 +59,7 @@ $ docker start $(docker ps -lq)
 You will see that the application will stop working and then start working again as soon as the Redis container is
 running again, with the counter value correctly preserved.
 
-Let’s now proceed to stop and completely remove the Redis container:
+Let's now proceed to stop and completely remove the Redis container:
 
 ```shell
 $ docker stop $(docker ps -lq)
@@ -79,14 +79,14 @@ However, it is important to note that container names must be unique, while netw
 containers within the same network. If there are two containers with the same alias on the same network, Docker will 
 resolve them using a round-robin algorithm.
 
-For example, let’s launch two more containers with the same alias:
+For example, let's launch two more containers with the same alias:
 
 ```shell
 $ docker run --net tutorial --net-alias redis -d redis
 $ docker run --net tutorial --net-alias redis -d redis
 ```
 
-Let’s now perform a lookup using a busybox container:
+Let's now perform a lookup using a busybox container:
 
 ```shell
 $ docker run --net tutorial --rm busybox nslookup redis
@@ -121,7 +121,7 @@ For example, if we launch another `busybox` container in interactive mode:
 $ docker run --name busybox -ti busybox
 ```
 
-And let’s try to perform the lookup again using this container:
+And let's try to perform the lookup again using this container:
 
 ```shell
 # nslookup redis
@@ -182,4 +182,4 @@ we will cover in one of the next chapters: Docker Compose!
 > - [redis](https://hub.docker.com/_/redis)
 > - [zavy86/clickster](https://hub.docker.com/r/zavy86/clickster)
 
-[Prosegui](../18-understanding-volumes/IT.md) al prossimo capitolo.
+[Continue](../18-understanding-volumes/IT.md) to the next topic.

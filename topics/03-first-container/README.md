@@ -201,7 +201,7 @@ And once reconnected to the shell, let's try running the `figlet` command again:
 /bin/sh: figlet: not found
 ```
 
-What happens? Why can’t we find the program we installed earlier?
+What happens? Why can't we find the program we installed earlier?
 
 This happens because every time you start a new container, it is created from scratch based on the specified image—in 
 this case, `alpine`. As we saw previously, the `figlet` utility was not included in that image, and we installed it
@@ -302,4 +302,4 @@ diving into image creation, we still need to cover some basic concepts.
 > - [busybox](https://hub.docker.com/_/busybox)
 > - [hello-world](https://hub.docker.com/_/hello-world)
 
-[Prosegui](../04-background-containers/IT.md) al prossimo capitolo.
+[Continue](../04-background-containers/IT.md) to the next topic.

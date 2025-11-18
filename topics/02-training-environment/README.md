@@ -10,7 +10,7 @@ To follow this course, you do not need any prerequisites; you can simply watch t
 However, the real value of this course lies in the opportunity to experiment: trying things out and getting hands-on
 with Docker is the most effective way to truly absorb each concept.
 
-That’s why you will need your own personal training environment.
+That's why you will need your own personal training environment.
 
 There are several options, but in this chapter we will cover the three most common ones.
 
@@ -23,7 +23,7 @@ With this application, you can also perform many operations through its convenie
 However, throughout this course, you will see me using only the **CLI** in the terminal, which is the most common and
 universal way to interact with Docker.
 
-If you want the full experience of what it’s like to use Docker on a production server, if you have some experience with
+If you want the full experience of what it's like to use Docker on a production server, if you have some experience with
 virtual machines, and you have access to a cloud VPS, a local VM, or any physical server (even a simple Raspberry Pi),
 you can install the **Docker Engine** directly by following the instructions available on the Docker website in the
 [Engine Install](https://docs.docker.com/engine/install/) section.
@@ -45,7 +45,7 @@ I bet you will be eager to dive into the world of containerization.
 > - desktop
 > - cli
 
-Let’s take a step back. What is Docker and how does it work?
+Let's take a step back. What is Docker and how does it work?
 
 When we talk about "installing Docker", we essentially mean installing the **Docker Engine** (the core service) and the
 **Docker CLI** (the command-line interface). These are the two minimal components that make up Docker.
@@ -57,7 +57,7 @@ To interact with this service, you use the Docker CLI, a command-line program yo
 with the Docker Engine through a set of APIs (Application Programming Interfaces).
 
 **Docker Desktop** is an additional abstraction, a GUI that also communicates with the Docker Engine via its APIs. It 
-makes common operations easier by providing a graphical interface, so you don’t have to type commands manually and can 
+makes common operations easier by providing a graphical interface, so you don't have to type commands manually and can 
 see all container status information at a glance.
 
 ***
@@ -134,4 +134,4 @@ This will allow you to verify that Docker is installed and working correctly.
 
 ***
 
-[Prosegui](../03-first-container/IT.md) al prossimo capitolo.
+[Continue](../03-first-container/IT.md) to the next topic.

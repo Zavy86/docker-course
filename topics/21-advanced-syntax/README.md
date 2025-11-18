@@ -14,7 +14,7 @@ In the previous chapters, we explored simple Dockerfiles to understand how Docke
 all the main instructions that can be used, from the simplest to the most advanced, to create more complex images 
 tailored to our needs.
 
-Let’s start with a quick recap:
+Let's start with a quick recap:
 
 All instructions are executed in the **order** in which they are written. Even though they may be cached and/or executed
 in parallel, the execution order will always be respected.
@@ -37,7 +37,7 @@ Finally, any instruction or text can be preceded by a `#` to add **comments** to
 
 ***
 
-Let’s begin by creating a new Dockerfile starting from the Ubuntu image:
+Let's begin by creating a new Dockerfile starting from the Ubuntu image:
 
 ```dockerfile
 # Simple Dockerfile example
@@ -417,4 +417,4 @@ image. This is useful, for example, for installing libraries or compiling applic
 > Resources:
 > - [ubuntu](https://hub.docker.com/_/ubuntu)
 
-[Prosegui](../22-application-configuration/IT.md) al prossimo capitolo.
+[Continue](../22-application-configuration/IT.md) to the next topic.

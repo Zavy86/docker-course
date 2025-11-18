@@ -7,7 +7,7 @@
 > - host
 > - container
 
-After briefly reviewing how networking works in Docker in the previous chapter, let’s now look at the various network 
+After briefly reviewing how networking works in Docker in the previous chapter, let's now look at the various network 
 drivers that Docker provides.
 
 ---
@@ -21,7 +21,7 @@ between the container and the Docker engine.
 The connection is made through a bridge network, which by default is named `docker0`, and the addresses for this private 
 network are allocated from an internal subnet, typically `172.17.0.0/16`.
 
-Outgoing traffic is masqueraded using a firewall rule, allowing packets to leave the container’s private network to the 
+Outgoing traffic is masqueraded using a firewall rule, allowing packets to leave the container's private network to the 
 outside, while incoming traffic passes through a routing table.
 
 Each container can, of course, have its own routing and firewall rules, etc.
@@ -94,7 +94,7 @@ its IP address. The container name is always used as the default alias.
 
 ***
 
-Let’s now create a new custom network called `tutorial`:
+Let's now create a new custom network called `tutorial`:
 
 ```shell
 $ docker network create tutorial
@@ -113,7 +113,7 @@ ed6460e832d4   host       host      local
 40ad1bedef47   tutorial   bridge    local
 ```
 
-Let’s launch a container and assign it to this new network:
+Let's launch a container and assign it to this new network:
 
 ```shell
 $ docker run -d --name webserver --net tutorial nginx
@@ -155,4 +155,4 @@ We will not receive any response.
 > - [busybox](https://hub.docker.com/_/busybox)
 > - [nginx](https://hub.docker.com/_/nginx)
 
-[Prosegui](../17-service-discovery/IT.md) al prossimo capitolo.
+[Continue](../17-service-discovery/IT.md) to the next topic.

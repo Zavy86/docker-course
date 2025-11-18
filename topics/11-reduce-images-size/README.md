@@ -50,7 +50,7 @@ This is because we would simply be adding additional layers, and each layer woul
 There are various techniques to reduce the size of our final image, such as collapsing layers, building executables 
 externally, squashing the final image into a single layer, or performing a multi-stage build.
 
-Let’s explore them together.
+Let's explore them together.
 
 ***
 
@@ -185,19 +185,19 @@ and source code. This effectively reduces the attack surface by mitigating poten
 
 ***
 
-To see how the multi-stage build works in practice, let’s create a new working directory:
+To see how the multi-stage build works in practice, let's create a new working directory:
 
 ```shell
 $ mkdir hello-multi-stage && cd $_
 ```
 
-Let’s copy the source file we created earlier:
+Let's copy the source file we created earlier:
 
 ```shell
 $ cp ../hello/hello.c ./
 ```
 
-And now let’s create our multi-stage Dockerfile:
+And now let's create our multi-stage Dockerfile:
 
 ```shell
 $ nano Dockerfile
@@ -354,4 +354,4 @@ way, we can maximize cache usage and avoid duplicating the same code across mult
 > - [alpine](https://hub.docker.com/_/alpine)
 > - [hello-multi-stage](../../sources/hello-multi-stage)
 
-[Prosegui](../12-images-registry/IT.md) al prossimo capitolo.
+[Continue](../12-images-registry/IT.md) to the next topic.
