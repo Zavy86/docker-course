@@ -108,7 +108,7 @@ Address: 10.86.9.5
 ```
 
 > Un informazione importante da tenere a mente è che Docker non crea gli alias nella rete `bridge` di default, quindi se
-vogliamo utilizzare questa funzione dobbiamo ricordarci di creare sempre una rete apposita.
+> vogliamo utilizzare questa funzione dobbiamo ricordarci di creare sempre una rete apposita.
 
 ---
 
