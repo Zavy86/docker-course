@@ -155,4 +155,4 @@ We will not receive any response.
 > - [busybox](https://hub.docker.com/_/busybox)
 > - [nginx](https://hub.docker.com/_/nginx)
 
-[Continue](../17-service-discovery/IT.md) to the next topic.
+[Continue](../17-service-discovery/README.md) to the next topic.

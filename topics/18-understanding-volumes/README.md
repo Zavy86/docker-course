@@ -371,4 +371,4 @@ And we can even shut ourselves down:
 > - [nginx](https://hub.docker.com/_/nginx)
 > - [redis](https://hub.docker.com/_/redis)
 
-[Continue](../19-local-development-workflow/IT.md) to the next topic.
+[Continue](../19-local-development-workflow/README.md) to the next topic.

@@ -41,7 +41,7 @@ improve the organization or content, please open a
 Every contribution is highly appreciated!
 
 
-## Make a Donation
+## Make a donation
 
 Creating comprehensive and free courses requires significant time and resources.
 

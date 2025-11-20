@@ -186,4 +186,4 @@ all team members, with Git taking care of the rest.
 > - [namer](../../sources/namer)
 > - [node](https://hub.docker.com/_/node)
 
-[Continue](../20-compose-development-stack/IT.md) to the next topic.
+[Continue](../20-compose-development-stack/README.md) to the next topic.

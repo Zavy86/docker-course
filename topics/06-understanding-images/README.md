@@ -210,4 +210,4 @@ compatible machines or by resorting to emulation.
 Resources:
 > - [wordpress](https://hub.docker.com/_/wordpress)
 
-[Continue](../07-interactive-images/IT.md) to the next topic.
+[Continue](../07-interactive-images/README.md) to the next topic.

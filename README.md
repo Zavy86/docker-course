@@ -63,7 +63,7 @@ This course is available in multiple languages to ensure that learners from diff
 material. Currently, you can attend the course in the following languages:
 
 - [English](topics/README.md)
-- [Italian](topics/IT.md)
+- [Italiano](topics/IT.md)
 
 
 ## Resources

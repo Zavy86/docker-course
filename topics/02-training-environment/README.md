@@ -134,4 +134,4 @@ This will allow you to verify that Docker is installed and working correctly.
 
 ***
 
-[Continue](../03-first-container/IT.md) to the next topic.
+[Continue](../03-first-container/README.md) to the next topic.

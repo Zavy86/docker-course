@@ -154,4 +154,4 @@ it every time), and providing a graphical interface to enhance the user experien
 > - [registry](https://hub.docker.com/_/registry)
 > - [zavy86/figlet](https://hub.docker.com/r/zavy86/figlet)
 
-[Continue](../13-naming-labeling-inspecting/IT.md) to the next topic.
+[Continue](../13-naming-labeling-inspecting/README.md) to the next topic.

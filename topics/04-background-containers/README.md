@@ -312,4 +312,4 @@ We will see in the following chapters how to remove containers from this list.
 > - [clock](../../sources/clock)
 > - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 
-[Continue](../05-restarting-attaching/IT.md) to the next topic.
+[Continue](../05-restarting-attaching/README.md) to the next topic.

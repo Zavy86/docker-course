@@ -131,4 +131,4 @@ Unfortunately, without orchestration systems, managing secrets securely can be q
 
 ***
 
-[Continue](../23-limiting-resources/IT.md) to the next topic.
+[Continue](../23-limiting-resources/README.md) to the next topic.

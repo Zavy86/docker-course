@@ -269,4 +269,4 @@ bin         etc         hello.c     lib         mnt         proc        run     
 > - [alpine](https://hub.docker.com/_/alpine)
 > - [hello](../../sources/hello)
 
-[Continue](../11-reduce-images-size/IT.md) to the next topic.
+[Continue](../11-reduce-images-size/README.md) to the next topic.

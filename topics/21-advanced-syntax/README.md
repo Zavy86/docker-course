@@ -417,4 +417,4 @@ image. This is useful, for example, for installing libraries or compiling applic
 > Resources:
 > - [ubuntu](https://hub.docker.com/_/ubuntu)
 
-[Continue](../22-application-configuration/IT.md) to the next topic.
+[Continue](../22-application-configuration/README.md) to the next topic.

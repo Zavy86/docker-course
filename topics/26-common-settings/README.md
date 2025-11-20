@@ -193,4 +193,4 @@ $ sudo systemctl restart docker
 
 ***
 
-[Continue](../27-container-internals/IT.md) to the next topic.
+[Continue](../27-container-internals/README.md) to the next topic.
