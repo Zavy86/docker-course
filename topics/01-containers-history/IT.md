@@ -1,8 +1,5 @@
 # Storia di Docker e dei container
 
-![cover](https://img.youtube.com/vi/xxxxxxxxxxx/mqdefault.jpg)  
-Guarda su YouTube: [https://youtu.be/xxxxxxxxxxx](https://youtu.be/xxxxxxxxxxx)
-
 > __history of Docker and containers__
 >
 > - why containers
@@ -34,7 +31,7 @@ Non possiamo più permetterci di avere soluzioni poco scalabili e con tempi di s
 > __history of Docker and containers__
 >
 > - decoupled services
-> - fast, iterative improvements
+> - iterative improvements
 > - multiple environments
 > - quickly scaling out
 
@@ -102,7 +99,7 @@ Al giorno d'oggi oltre 5 mila navi trasportano oltre 200 milioni di containers o
 > __history of Docker and containers__
 >
 > - instructions
-> - scripts
+> - automations
 > - Docker
 
 Tornando ora all'industria del software, nel corso del tempo, siamo passati da quando i developers rilasciavano le 
