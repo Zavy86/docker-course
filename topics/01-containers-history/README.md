@@ -1,8 +1,5 @@
 # History of Docker and containers
 
-![cover](https://img.youtube.com/vi/xxxxxxxxxxx/mqdefault.jpg)  
-Watch on YouTube: [https://youtu.be/xxxxxxxxxxx](https://youtu.be/xxxxxxxxxxx)
-
 > __history of Docker and containers__
 >
 > - why containers
@@ -34,7 +31,7 @@ We can no longer afford solutions that are not very scalable and have long devel
 > __history of Docker and containers__
 >
 > - decoupled services
-> - fast, iterative improvements
+> - iterative improvements
 > - multiple environments
 > - quickly scaling out
 
@@ -68,7 +65,7 @@ production.
 > - in cloud
 > - hybrid
 
-And then, where do you deploy in production? Locally? In the cloud? In a hybrid environment?
+And then, where do you deploy in production? On premise? In the cloud? In a hybrid environment?
 
 All these options only create a hellish matrix that is always difficult to navigate.
 
@@ -100,7 +97,7 @@ Nowadays, over 5 thousand ships transport more than 200 million containers every
 > __history of Docker and containers__
 >
 > - instructions
-> - scripts
+> - automations
 > - Docker
 
 Returning now to the software industry, over time, we have gone from developers releasing applications with simple text

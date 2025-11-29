@@ -45,10 +45,10 @@ by the user `Zavy86`.
 ***
 
 > __run containers in background__
-> 
-> - SIGINT
->   - interactive -> foreground process
->   - default -> process PID 1
+>
+> - SIGINT, SIGTERM, SIGKILL
+> - foreground process
+> - process PID 1
 
 Sometimes pressing `^C` is not enough to stop a container. Let's understand why.
 
