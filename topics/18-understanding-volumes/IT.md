@@ -211,9 +211,9 @@ E aggiorniamo la pagina nel browser, vedremo che la modifica sarà immediatament
 
 > __working with volumes__
 >
-> - bind
-> - storage
-> - development
+> - migration
+> - preserving data
+> - existing volumes
 
 I volumi sono anche uno strumento potente per gestire le migrazioni e gli aggiornamenti di release delle applicazioni.
 
