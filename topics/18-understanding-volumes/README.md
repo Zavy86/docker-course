@@ -211,9 +211,9 @@ And refresh the page in the browser, you will see that the change is immediately
 
 > __working with volumes__
 >
-> - bind
-> - storage
-> - development
+> - migration
+> - preserving data
+> - existing volumes
 
 Volumes are also a powerful tool for managing application migrations and release upgrades.
 

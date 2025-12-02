@@ -1,4 +1,9 @@
-# Topics
+# Docker Course
+
+![cover](https://img.youtube.com/vi/4AXSmbYQVDk/mqdefault.jpg)  
+[Watch the full playlist](https://www.youtube.com/playlist?list=PLdYHjrPuGeKEhYCXvSJsqf5zsECH-JXFp)
+
+## Topics
 
 Below is a list of topics covered in this course:
 

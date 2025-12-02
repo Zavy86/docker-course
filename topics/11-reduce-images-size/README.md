@@ -75,7 +75,7 @@ This technique is certainly effective; however, you end up with a Dockerfile lik
 
 ```dockerfile
 FROM alpine
-COPY hello.c /
+COPY hello.c
 RUN apk add gcc libc-dev && gcc /hello.c -o /hello && apk remove gcc libc-dev && rm /hello.c
 CMD /hello
 ```
@@ -84,7 +84,7 @@ Or perhaps something like this:
 
 ```dockerfile
 FROM alpine
-COPY hello.c /
+COPY hello.c
 RUN apk add gcc libc-dev \
   && gcc /hello.c -o /hello \
   && apk remove gcc libc-dev \

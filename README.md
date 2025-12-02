@@ -2,6 +2,11 @@
 
 > A comprehensive course designed to teach you everything you need to know about Docker.
 
+![cover](https://img.youtube.com/vi/4AXSmbYQVDk/mqdefault.jpg)  
+[https://youtu.be/4AXSmbYQVDk](https://youtu.be/4AXSmbYQVDk)
+
+***
+
 Docker is a powerful platform that enables developers to build, ship, and run applications in containers. 
 
 This course provides a comprehensive guide to Docker, starting from its history and core concepts, and progressing

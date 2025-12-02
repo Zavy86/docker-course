@@ -76,7 +76,7 @@ Questa tecnica è sicuramente efficace, tuttavia ci ritroveremmo con un sorgente
 
 ```dockerfile
 FROM alpine
-COPY hello.c /
+COPY hello.c
 RUN apk add gcc libc-dev && gcc /hello.c -o /hello && apk remove gcc libc-dev && rm /hello.c
 CMD /hello
 ```
@@ -85,7 +85,7 @@ O magari di questo tipo:
 
 ```dockerfile
 FROM alpine
-COPY hello.c /
+COPY hello.c
 RUN apk add gcc libc-dev \
   && gcc /hello.c -o /hello \
   && apk remove gcc libc-dev \

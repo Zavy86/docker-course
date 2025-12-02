@@ -47,9 +47,9 @@ immagine personalizzata creata dall'utente `Zavy86`.
 
 > __run containers in background__
 > 
-> - SIGINT
->   - interactive -> foreground process
->   - default -> process PID 1
+> - SIGINT, SIGTERM, SIGKILL
+> - foreground process
+> - process PID 1
 
 A volte capita che un `^C` non sia sufficiente per arrestare un container, cerchiamo di capirne il perché.
 
