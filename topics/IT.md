@@ -1,4 +1,9 @@
-# Argomenti
+# Docker Course
+
+![cover](https://img.youtube.com/vi/4AXSmbYQVDk/mqdefault.jpg)  
+[Guarda l'intera playlist](https://www.youtube.com/playlist?list=PLdYHjrPuGeKEhYCXvSJsqf5zsECH-JXFp)
+
+## Argomenti
 
 Di seguito è riportato un elenco degli argomenti trattati in questo corso:
 
