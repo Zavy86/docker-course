@@ -1,5 +1,10 @@
 # Run our first container
 
+![cover](https://img.youtube.com/vi/_Gsqf5AVpDM/mqdefault.jpg)  
+[https://youtu.be/_Gsqf5AVpDM](https://youtu.be/_Gsqf5AVpDM)
+
+***
+
 > __run our first container__
 > 
 > - seen Docker in action
