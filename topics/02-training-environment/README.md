@@ -1,5 +1,10 @@
 # Our training environment
 
+![cover](https://img.youtube.com/vi/WPAiDstbm-A/mqdefault.jpg)  
+[https://youtu.be/WPAiDstbm-A](https://youtu.be/WPAiDstbm-A)
+
+***
+
 > __our training environment__
 >
 > - on desktop
