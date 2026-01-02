@@ -2,8 +2,8 @@
 
 > A comprehensive course designed to teach you everything you need to know about Docker.
 
-![cover](https://img.youtube.com/vi/4AXSmbYQVDk/mqdefault.jpg)  
-[https://youtu.be/4AXSmbYQVDk](https://youtu.be/4AXSmbYQVDk)
+![cover](https://img.youtube.com/vi/6-NGrLjy6P8/mqdefault.jpg)  
+[https://youtu.be/6-NGrLjy6P8](https://youtu.be/6-NGrLjy6P8)
 
 ***
 

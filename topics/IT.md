@@ -1,6 +1,6 @@
 # Docker Course
 
-![cover](https://img.youtube.com/vi/4AXSmbYQVDk/mqdefault.jpg)  
+![cover](https://img.youtube.com/vi/6-NGrLjy6P8/mqdefault.jpg)  
 [Guarda l'intera playlist](https://www.youtube.com/playlist?list=PLdYHjrPuGeKEhYCXvSJsqf5zsECH-JXFp)
 
 ## Argomenti
