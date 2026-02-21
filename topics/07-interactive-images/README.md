@@ -1,5 +1,10 @@
 # Building images interactively
 
+![cover](https://img.youtube.com/vi/ZSrs70auxYU/mqdefault.jpg)  
+[https://youtu.be/ZSrs70auxYU](https://youtu.be/ZSrs70auxYU)
+
+***
+
 > __building images interactively__
 >
 > - our first image

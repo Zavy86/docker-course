@@ -1,5 +1,10 @@
 # Understanding Docker images
 
+![cover](https://img.youtube.com/vi/EeP0TSWABDE/mqdefault.jpg)  
+[https://youtu.be/EeP0TSWABDE](https://youtu.be/EeP0TSWABDE)
+
+***
+
 > __understanding docker images__
 >
 > - files

@@ -1,5 +1,10 @@
 # Restarting and attaching to containers
 
+![cover](https://img.youtube.com/vi/c9Qtc1M_zxk/mqdefault.jpg)  
+[https://youtu.be/c9Qtc1M_zxk](https://youtu.be/c9Qtc1M_zxk)
+
+***
+
 > __restarting and attaching to containers__
 > 
 > - attach background containers

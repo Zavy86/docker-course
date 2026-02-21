@@ -1,5 +1,10 @@
 # Building images with a Dockerfile
 
+![cover](https://img.youtube.com/vi/_g50G_cA6AA/mqdefault.jpg)  
+[https://youtu.be/_g50G_cA6AA](https://youtu.be/_g50G_cA6AA)
+
+***
+
 > __building images with a Dockerfile__
 >
 > - Dockerfile

@@ -1,5 +1,10 @@
 # Entrypoint and command
 
+![cover](https://img.youtube.com/vi/W18bubd0yJc/mqdefault.jpg)  
+[https://youtu.be/W18bubd0yJc](https://youtu.be/W18bubd0yJc)
+
+***
+
 > __entrypoint and command__
 >
 > - cmd
