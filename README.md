@@ -33,6 +33,8 @@ inside my channel.
 
 Below is a list of topics covered in this course:
 
+### Docker
+
  1. [History of Docker and containers](topics/01-containers-history/README.md)
  2. [Our training environment](topics/02-training-environment/README.md)
  3. [Run our first container](topics/03-first-container/README.md)
@@ -60,6 +62,36 @@ Below is a list of topics covered in this course:
 25. [Multi-architecture builds](topics/25-multi-architecture-builds/README.md)
 26. [Common Docker settings](topics/26-common-settings/README.md)
 27. [Container internals](topics/27-container-internals/README.md)
+
+### Docker Compose
+
+28. Understanding Docker Compose
+29. Compose files syntax
+30. Managing the stack lifecycle
+31. Project names and stack isolation
+32. Building, pulling, and publishing images with Compose
+33. Environment variables, interpolation, and precedence
+34. Managing application configuration with configs
+35. Managing sensitive data with secrets
+36. Multiple Compose files, overrides, and environments
+37. Reusing configuration with anchors, extensions, and includes
+38. Selecting optional services with profiles
+39. Startup dependencies, healthchecks, and readiness
+40. Running one-off tasks and database migrations
+41. Networking, service discovery, and isolation
+42. Persistent data, volumes, and filesystem permissions
+43. Local development with Compose Watch
+44. Resource limits and runtime configuration
+45. Scaling services and understanding Compose limits
+46. Hardening Compose services
+47. Reverse proxies, HTTPS, and controlled access
+48. Collecting and rotating service logs
+49. Monitoring stacks with metrics and alerts
+50. Troubleshooting Compose stacks
+51. Deploying Compose stacks to remote hosts
+52. Updating services and rolling back changes
+53. Backing up and restoring application data
+54. Validating and testing isolated Compose stacks
 
 
 ## Translations
