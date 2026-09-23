@@ -7,6 +7,8 @@
 
 Di seguito è riportato un elenco degli argomenti trattati in questo corso:
 
+### Docker
+
  1. [Storia di Docker e dei container](01-containers-history/IT.md)
  2. [L'ambiente di formazione](02-training-environment/IT.md)
  3. [Avviare il primo container](03-first-container/IT.md)
@@ -34,3 +36,7 @@ Di seguito è riportato un elenco degli argomenti trattati in questo corso:
 25. [Compilazione multi architetturale](25-multi-architecture-builds/IT.md)
 26. [Impostazioni comuni di Docker](26-common-settings/IT.md)
 27. [Funzionamento interno dei container](27-container-internals/IT.md)
+
+### Docker Compose
+
+28. [Comprendere Docker Compose](28-understanding-compose/IT.md)
