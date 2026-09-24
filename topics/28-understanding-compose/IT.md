@@ -172,7 +172,7 @@ Poi creiamo una nuova directory chiamata `compose`, spostiamoci al suo interno c
 $ mkdir compose && cd $_
 ```
 
-e creiamo con il nostro editor preferito il file `compose.yaml`:
+E creiamo con il nostro editor preferito il file `compose.yaml`:
 
 ```shell
 $ nano compose.yaml
@@ -208,7 +208,8 @@ $ docker compose up -d
 ```
 
 Compose si occuperà di scaricare l'immagine qualora mancasse, creerà la rete del progetto e avvierà il container del web
-server. Le risorse verranno poi raggruppate in un **progetto**, il cui nome normalmente deriva dalla directory che contiene il file avviato da Compose.
+server. Le risorse verranno poi raggruppate insieme in un **progetto**, il cui nome normalmente deriva dalla directory
+che contiene il file avviato da Compose.
 
 Aprendo il browser all'indirizzo [http://localhost:8080](http://localhost:8080) vedremo la pagina di benvenuto di Nginx.
 
