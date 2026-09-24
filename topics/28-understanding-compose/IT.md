@@ -191,7 +191,8 @@ Con Docker avviato, da questa directory controlliamo che la configurazione sia v
 $ docker compose config -q
 ```
 
-Se non ci sono errori il comando termina senza stampare nulla.
+Il parametro `-q` sta per _quiet_ che indica di eseguire il comando in modalità silenziosa, se non ci sono errori non
+verrà stampato nulla a video.
 
 Fate attenzione che questo comando verifica la sintassi della configurazione, ma non il funzionamento dell'applicazione.
 
@@ -199,6 +200,11 @@ Avviamo quindi il servizio in background con il comando:
 
 ```shell
 $ docker compose up -d
+```
+```terminaloutput
+[+] up 2/2
+ ✔ Network compose_default Created                                                                                  0.0s
+ ✔ Container compose-web-1 Started                                                                                  0.2s
 ```
 
 Compose si occuperà di scaricare l'immagine qualora mancasse, creerà la rete del progetto e avvierà il container del web
@@ -211,6 +217,10 @@ Per vedere lo stato del progetto e dei servizi possiamo usare il comando:
 ```shell
 $ docker compose ps
 ```
+```terminaloutput
+NAME            IMAGE   COMMAND                  SERVICE   CREATED          STATUS          PORTS
+compose-web-1   nginx   "/docker-entrypoint.…"   web       18 seconds ago   Up 18 seconds   0.0.0.0:8080->80/tcp
+```
 
 Ritroveremo il servizio `web`, l'immagine utilizzata, lo stato del container e la porta pubblicata.
 
@@ -219,11 +229,23 @@ Mentre se vogliamo vedere i singoli container gestiti direttamente dall'Engine d
 ```shell
 $ docker ps
 ```
+```terminaloutput
+CONTAINER ID   IMAGE   COMMAND                  CREATED          STATUS          PORTS                  NAMES
+16de104b1794   nginx   "/docker-entrypoint.…"   27 seconds ago   Up 27 seconds   0.0.0.0:8080->80/tcp   compose-web-1
+```
 
 Perche ovviamente Compose non fa altro che gestire i container, le reti e i volumi tramite l'Engine di Docker.
 
-Se lanciamo nuovamente `docker compose up -d` dalla stessa directory, senza modificare nulla, Compose non applicherà
-nessuna modifica, manterrà infatti il container già avviato senza aggiungere un nuovo server web a ogni esecuzione.
+Se lanciamo nuovamente `up` dalla stessa directory, senza modificare nulla, Compose non applicherà nessuna modifica,
+manterrà infatti il container già avviato senza aggiungere un nuovo server web a ogni esecuzione.
+
+```shell
+$ docker compose up -d
+```
+```terminaloutput
+[+] up 1/1
+ ✔ Container compose-web-1 Running
+```
 
 Quando abbiamo finito possiamo fermare e rimuovere l'esempio con il comando:
 
