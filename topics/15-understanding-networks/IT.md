@@ -1,5 +1,8 @@
 # Understanding Docker networks
 
+![cover](https://img.youtube.com/vi/A1u9WSdOctY/mqdefault.jpg)  
+[https://youtu.be/A1u9WSdOctY](https://youtu.be/A1u9WSdOctY)
+
 > __understanding docker networks__
 >
 > - run network services

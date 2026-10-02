@@ -1,5 +1,8 @@
 # Advanced dockerfile syntax
 
+![cover](https://img.youtube.com/vi/YNBR2B0wpyo/mqdefault.jpg)  
+[https://youtu.be/YNBR2B0wpyo](https://youtu.be/YNBR2B0wpyo)
+
 > __advanced dockerfile syntax__
 >
 > - order

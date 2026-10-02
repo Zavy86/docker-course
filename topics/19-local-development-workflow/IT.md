@@ -1,5 +1,8 @@
 # Local development workflow
 
+![cover](https://img.youtube.com/vi/rTweJwbEH-k/mqdefault.jpg)  
+[https://youtu.be/rTweJwbEH-k](https://youtu.be/rTweJwbEH-k)
+
 > __local development workflow__
 >
 > - missing dependencies

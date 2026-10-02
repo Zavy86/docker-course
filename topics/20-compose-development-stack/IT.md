@@ -1,5 +1,8 @@
 # Compose for development stack
 
+![cover](https://img.youtube.com/vi/sEiff3wgq_I/mqdefault.jpg)  
+[https://youtu.be/sEiff3wgq_I](https://youtu.be/sEiff3wgq_I)
+
 > __compose for development stack__
 >
 > - stack definition

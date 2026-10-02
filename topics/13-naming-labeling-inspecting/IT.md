@@ -1,5 +1,8 @@
 # Naming, labeling, and inspecting
 
+![cover](https://img.youtube.com/vi/uFvdvlNnb4s/mqdefault.jpg)  
+[https://youtu.be/uFvdvlNnb4s](https://youtu.be/uFvdvlNnb4s)
+
 > __naming, labeling, and inspecting__
 >
 > - easy reference

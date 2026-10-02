@@ -1,5 +1,8 @@
 # Reduce images size
 
+![cover](https://img.youtube.com/vi/BvRBooSVd-c/mqdefault.jpg)  
+[https://youtu.be/BvRBooSVd-c](https://youtu.be/BvRBooSVd-c)
+
 > __reduce images size__
 >
 > - hello executable

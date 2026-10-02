@@ -1,5 +1,8 @@
 # Application configuration
 
+![cover](https://img.youtube.com/vi/cARHEqlgTLg/mqdefault.jpg)  
+[https://youtu.be/cARHEqlgTLg](https://youtu.be/cARHEqlgTLg)
+
 > __application configuration__
 >
 > - configuration size

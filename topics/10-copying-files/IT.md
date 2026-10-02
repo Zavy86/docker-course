@@ -1,5 +1,8 @@
 # Copying files during the build
 
+![cover](https://img.youtube.com/vi/I5dh9Pv9vP0/mqdefault.jpg)  
+[https://youtu.be/I5dh9Pv9vP0](https://youtu.be/I5dh9Pv9vP0)
+
 > __copying files during the build__
 >
 > - copy

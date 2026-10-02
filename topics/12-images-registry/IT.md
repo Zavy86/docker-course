@@ -1,5 +1,8 @@
 # Images registry
 
+![cover](https://img.youtube.com/vi/kS0iEs6UMk0/mqdefault.jpg)  
+[https://youtu.be/kS0iEs6UMk0](https://youtu.be/kS0iEs6UMk0)
+
 > __images registry__
 >
 > - tags
