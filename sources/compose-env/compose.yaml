@@ -1,0 +1,9 @@
+services:
+  demo:
+    image: "alpine:${TAG:-latest}"
+    #env_file:
+    #  - ./runtime.env
+    environment:
+      MESSAGE: "${MESSAGE:-Hello by Compose}"
+      #MESSAGE: "${MESSAGE?Set a value for MESSAGE in .env or shell}"
+    command: ["printenv", "MESSAGE"]
