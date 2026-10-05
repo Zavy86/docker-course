@@ -1,0 +1,6 @@
+services:
+  web:
+    image: nginx
+    environment:
+      MESSAGE: "Common configuration"
+      COLOR: "blue"
