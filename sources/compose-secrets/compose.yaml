@@ -1,0 +1,14 @@
+secrets:
+  token:
+    file: ./token.secret
+
+services:
+  demo:
+    image: alpine
+    secrets:
+      - token
+    command: >
+      sh -c 'if test -r /run/secrets/token && test -s /run/secrets/token;
+             then echo "Secret available";
+             else echo "Secret missing or empty";
+             fi'
