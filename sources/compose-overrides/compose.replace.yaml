@@ -1,0 +1,4 @@
+services:
+  web:
+    ports: !override
+      - "8082:80"
