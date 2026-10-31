@@ -1,5 +1,8 @@
 # Logging and monitoring
 
+![cover](https://img.youtube.com/vi/sW32Peg83RA/mqdefault.jpg)  
+[https://youtu.be/sW32Peg83RA](https://youtu.be/sW32Peg83RA)
+
 > __logging and monitoring__
 >
 > - standard output

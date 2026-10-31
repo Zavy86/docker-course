@@ -1,5 +1,8 @@
 # Limiting resources
 
+![cover](https://img.youtube.com/vi/4gUm1eZL6xo/mqdefault.jpg)  
+[https://youtu.be/4gUm1eZL6xo](https://youtu.be/4gUm1eZL6xo)
+
 > __limiting resources__
 >
 > - memory

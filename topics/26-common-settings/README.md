@@ -1,5 +1,8 @@
 # Common docker settings
 
+![cover](https://img.youtube.com/vi/rHS0t3ynANY/mqdefault.jpg)  
+[https://youtu.be/rHS0t3ynANY](https://youtu.be/rHS0t3ynANY)
+
 > __common docker settings__
 >
 > - storage

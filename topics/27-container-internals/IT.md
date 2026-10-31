@@ -1,5 +1,8 @@
 # Container internals
 
+![cover](https://img.youtube.com/vi/1L4UZUPWAOM/mqdefault.jpg)  
+[https://youtu.be/1L4UZUPWAOM](https://youtu.be/1L4UZUPWAOM)
+
 > __container internals__
 >
 > - nerd alert
