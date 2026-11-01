@@ -1,0 +1,36 @@
+services:
+  server:
+    image: busybox
+    command:
+      - sh
+      - -c
+      - |
+        sleep 9
+        mkdir -p /www
+        echo ready > /www/ready
+        exec httpd -f -p 8080 -h /www
+    healthcheck:
+      test: [ "CMD", "wget", "-q", "-T", "2", "-O", "/dev/null", "http://127.0.0.1:8080/ready" ]
+      interval: 2s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+  client:
+    image: busybox
+    init: true
+    depends_on:
+      #- server
+      server:
+        condition: service_healthy
+    command:
+      - sh
+      - -c
+      - |
+        while true; do
+          if wget -q -T 2 -O /dev/null http://server:8080/ready; then
+            echo "Request succeeded"
+          else
+            echo "Service unavailable, retrying"
+          fi
+          sleep 2
+        done

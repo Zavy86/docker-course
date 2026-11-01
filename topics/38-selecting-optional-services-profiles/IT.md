@@ -34,7 +34,7 @@ Spostiamoci nella directory:
 $ cd docker-course/source/compose-profiles
 ```
 
-Ed analizziamo il file `compose.yaml`:
+E analizziamo il file `compose.yaml`:
 
 ```yaml
 services:
