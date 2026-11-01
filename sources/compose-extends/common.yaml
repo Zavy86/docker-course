@@ -1,0 +1,7 @@
+services:
+  base:
+    image: alpine
+    environment:
+      DEMO_COLOR: "blue"
+      DEMO_SIZE: "small"
+    command: [ "printenv", "DEMO_COLOR", "DEMO_SIZE" ]

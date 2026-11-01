@@ -1,0 +1,7 @@
+services:
+  demo:
+    extends:
+      file: common.yaml
+      service: base
+    environment:
+      DEMO_COLOR: "green"

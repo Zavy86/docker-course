@@ -1,0 +1,5 @@
+services:
+  inspect:
+    image: alpine
+    env_file: ./demo.env
+    command: [ "printenv", "MESSAGE" ]
