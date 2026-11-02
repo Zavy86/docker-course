@@ -1,0 +1,28 @@
+volumes:
+  demo-data:
+
+services:
+  prepare:
+    image: alpine
+    restart: "no"
+    volumes:
+      - demo-data:/data
+    command:
+      - sh
+      - -ec
+      - |
+        if [ -f /data/message.txt ]; then
+          echo "File already exists"
+          exit 1
+        else
+          echo "Data ready" > /data/message.txt
+          echo "Preparation completed"
+        fi
+  app:
+    image: alpine
+    depends_on:
+      prepare:
+        condition: service_completed_successfully
+    volumes:
+      - demo-data:/data:ro
+    command: [ "sh", "-ec", "cat /data/message.txt; exec sleep infinity" ]
