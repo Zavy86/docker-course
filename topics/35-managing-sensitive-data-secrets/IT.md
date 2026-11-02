@@ -31,7 +31,7 @@ $ git clone https://github.com/Zavy86/docker-course.git
 Spostiamoci nella directory:
 
 ```shell
-$ cd docker-course/source/compose-secrets
+$ cd docker-course/source/compose/secrets
 ```
 
 E creiamo manualmente il file:

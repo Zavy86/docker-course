@@ -26,7 +26,7 @@ $ git clone https://github.com/Zavy86/docker-course.git
 Spostiamoci nella directory:
 
 ```shell
-$ cd docker-course/source/compose-reuse
+$ cd docker-course/source/compose/reuse
 ```
 
 Ed analizziamo il file `compose.yaml`:

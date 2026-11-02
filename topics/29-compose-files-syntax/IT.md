@@ -26,7 +26,7 @@ $ git clone https://github.com/Zavy86/docker-course.git
 Spostiamoci nella directory dell'esempio precedente:
 
 ```shell
-$ cd docker-course/source/compose
+$ cd docker-course/source/compose/syntax
 ```
 
 E analizziamo il file `compose.yaml`:

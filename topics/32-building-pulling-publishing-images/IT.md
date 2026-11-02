@@ -29,7 +29,7 @@ $ git clone https://github.com/Zavy86/docker-course.git
 Spostiamoci nella directory:
 
 ```shell
-$ cd docker-course/source/compose-image
+$ cd docker-course/source/compose/image
 ```
 
 E analizziamo nuovamente il file `compose.yaml`:
