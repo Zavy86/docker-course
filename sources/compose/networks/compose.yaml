@@ -1,0 +1,26 @@
+networks:
+  proxy:
+  front:
+    internal: true
+  back:
+    internal: true
+
+services:
+  app:
+    image: busybox
+    command: [ "sleep", "infinity" ]
+    networks:
+      - proxy
+      - front
+  frontend:
+    image: busybox
+    command: [ "sleep", "infinity" ]
+    networks:
+      - front
+      - back
+  backend:
+    image: nginx
+    networks:
+      back:
+        aliases:
+          - data-service
