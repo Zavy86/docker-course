@@ -1,0 +1,17 @@
+services:
+  client:
+    image: busybox
+    command: [ "sleep", "infinity" ]
+  server:
+    image: busybox
+#    scale: 3
+#    ports:
+#      - ":8080"
+    command:
+      - sh
+      - -ec
+      - |
+        mkdir -p /www
+        hostname > /www/index.html
+        echo "Starting HTTP server on $(hostname)"
+        exec httpd -f -p 8080 -h /www
