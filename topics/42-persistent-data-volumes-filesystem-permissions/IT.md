@@ -140,7 +140,7 @@ dichiarazione del volume precedente, quindi Compose ci riassegno lo stesso ident
 Se volessimo vedere il nome del volume di storage collegato al container, potremmo usare queste istruzioni:
 
 ```shell
-$ docker inspect --format '{{json .Mounts}}' "$(docker compose ps -q app)"
+$ docker inspect --format '{{json .Mounts}}' "$(docker compose ps -q app)" | jq
 ```
 ```json
 [
@@ -348,7 +348,7 @@ Docker crea il volume e gli assegna un identificativo generato automaticamente.
 Per mostrare soltanto il mount con destinazione `/cache` possiamo filtrare l'output:
 
 ```shell
-$ docker inspect --format '{{range .Mounts}}{{if eq .Destination "/cache"}}{{json .}}{{end}}{{end}}' "$(docker compose ps -q app)"
+$ docker inspect --format '{{range .Mounts}}{{if eq .Destination "/cache"}}{{json .}}{{end}}{{end}}' "$(docker compose ps -q app)" | jq
 ```
 ```json
 {
