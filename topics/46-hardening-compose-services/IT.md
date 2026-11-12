@@ -20,7 +20,6 @@ il tutto continui a funzionare correttamente.
 
 ***
 
-
 Qualora ancora non l'avessimo fatto cloniamo il repository di questo corso:
 
 ```shell
