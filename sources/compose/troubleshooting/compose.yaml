@@ -1,0 +1,22 @@
+services:
+  web:
+    image: busybox
+    command:
+      - sh
+      - -ec
+      - |
+        mkdir -p /www
+        echo "Service available" > /www/index.html
+        exec httpd -f -p 8080 -h /www
+
+  client:
+    image: busybox
+    init: true
+    command:
+      - sh
+      - -c
+      - |
+        while true; do
+          wget -T 2 -q -O - http://web:8080 || echo "Request failed"
+          sleep 5
+        done

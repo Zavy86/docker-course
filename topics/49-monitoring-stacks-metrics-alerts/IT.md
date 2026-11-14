@@ -26,13 +26,13 @@ raccolta dei dati e arriveremo a simulare un guasto, così da seguire il percors
 
 ***
 
-Se non lo abbiamo ancora fatto, cloniamo il repository del corso per avere a disposizione i file dell'esempio.
+Qualora ancora non l'avessimo fatto cloniamo il repository di questo corso:
 
 ```shell
 $ git clone https://github.com/Zavy86/docker-course.git
 ```
 
-Spostiamoci quindi nella directory dedicata al monitoraggio.
+Spostiamoci nella directory:
 
 ```shell
 $ cd docker-course/sources/compose/monitoring
