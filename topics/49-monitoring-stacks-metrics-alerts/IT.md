@@ -38,7 +38,7 @@ Spostiamoci nella directory:
 $ cd docker-course/sources/compose/monitoring
 ```
 
-Prima di avviare i servizi, vediamo quali file contiene.
+E vediamo quali file contiene:
 
 ```shell
 $ ls

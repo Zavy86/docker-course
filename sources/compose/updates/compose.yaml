@@ -1,0 +1,11 @@
+services:
+  web:
+    image: compose-update-demo:v1
+    build: .
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://localhost:8080"]
+      interval: 2s
+      timeout: 2s
+      retries: 5
