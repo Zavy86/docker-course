@@ -23,7 +23,7 @@ $ git clone https://github.com/Zavy86/docker-course.git
 Spostiamoci nella directory:
 
 ```shell
-$ cd docker-course/source/compose/jobs
+$ cd docker-course/sources/compose/jobs
 ```
 
 E analizziamo il file `compose.yaml`:
@@ -72,8 +72,12 @@ Questa volta otterremo in output l'architettura del container, nel mio caso `aar
 
 Il comando dopo `tools` sostituisce `COMMAND` ma non sostituisce automaticamente l'eventuale `ENTRYPOINT` dell'immagine.
 
-Una cosa da tenere in considerazione, è che il comando `run` riutilizza tutta la configurazione del servizio, comprese
-reti, variabili e mount. Il container è nuovo ogni volta, ma un eventuale volume collegato può contenere dati reali.
+Una cosa da tenere in considerazione è che il comando `run` riutilizza reti, variabili e mount del servizio. Il 
+container è nuovo ogni volta, ma un eventuale volume collegato può contenere dati reali. Le porte del servizio non
+vengono invece pubblicate, salvo richiederlo con `--service-ports` oppure con un mapping esplicito tramite `-p`.
+
+Normalmente `run` avvia anche le dipendenze necessarie. Se sono già pronte oppure non servono al comando che stiamo
+eseguendo, possiamo aggiungere `--no-deps` per evitare di avviarle.
 
 ...
 

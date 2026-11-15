@@ -56,7 +56,7 @@ services:
         target: /backup
 ```
 
-Lo stack comprende due servizi basati sull'immagine `busybox`, il primo avvia il server HTTP ` sulla porta `8080` e
+Lo stack comprende due servizi basati sull'immagine `busybox`, il primo avvia il server HTTP sulla porta `8080` e
 pubblica i file presenti nella directory `/data`. La directory `/data` è collegata al volume `app-data`, dove
 conserveremo i dati dell'applicazione. Il suo contenuto rimarrà quindi disponibile anche quando rimuoveremo il container
 per ricrearlo. Per eseguire il backup dovremo copiare questi dati in una posizione separata dal volume.
@@ -66,7 +66,7 @@ Il servizio `tools` ci permetterà di svolgere le operazioni di backup e riprist
 quando ne avremo bisogno. Inoltre, un bind mount collega la directory locale `./backups` a `/backup` nel container, così
 gli archivi creati rimarranno sul computer anche dopo la rimozione del container e del volume.
 
-Per avviare gli stack useremo due nomi progetto diversi, `demo-production e `demo-restore` così da mentenerli separati:
+Per avviare gli stack useremo due progetti diversi, `demo-production` e `demo-restore`, così da mantenerli separati:
 
 Partiamo avviando il primo:
 
@@ -120,7 +120,7 @@ $ docker compose -p demo-production run --rm --no-deps -T tools sh -ec 'tar -cf 
  ✔ Container demo-production-tools-run-9da90ff1324e Created                                                         0.0s
 ```
 
-Se tutto è andato a buon fine, nella directory corrente sotto a `backup` ci troveremo un file chiamato `app-data.tar`.
+Se tutto è andato a buon fine, nella directory corrente sotto a `backups` ci troveremo un file chiamato `app-data.tar`.
 
 Verifichiamo che il file sia stato creto correttamente ispezionandone il contenuto con il comando:
 

@@ -31,7 +31,7 @@ $ git clone https://github.com/Zavy86/docker-course.git
 Spostiamoci nella directory:
 
 ```shell
-$ cd docker-course/source/compose/resources
+$ cd docker-course/sources/compose/resources
 ```
 
 E analizziamo il file `compose.yaml`:
@@ -47,8 +47,9 @@ services:
     pids_limit: 64
 ```
 
-In questo esempio, tramite la solita busybox, andreamo ad avviare un container che rimarrà in attesa infinita, ma grazie
-alle opzioni di limitazione impostate, il processo consumerà pochissime risorse.
+In questo esempio, tramite la solita BusyBox, avvieremo un container che rimarrà in attesa e consumerà poche risorse
+perché non svolge un lavoro attivo. Le opzioni impostate definiscono invece i limiti che dovrà rispettare anche quando
+eseguiremo altri processi al suo interno.
 
 Come già visto in un capitolo precedeente `init` aggiunge un piccolo processo che inoltra i segnali e raccoglie i 
 processi figli terminati.
@@ -221,8 +222,9 @@ L'opzione `shm_size` permette al container di usare fino a 16 MiB in quello spaz
 contribuisce al consumo complessivo. Se lo spazio è troppo piccolo, le operazioni che ne hanno bisogno possono fallire.
 Il valore della prova è piccolo, scegliamolo coerentemente in base alle esigenze e alle misure dell'applicazione.
 
-Mentre l'opzione `stop_grace_period` riguarda invece l'arresto dei singoli processi, lasciando a ogniuno di essi, in 
-questo caso, fino a venti secondi per terminare correttamente prima dell'interruzione forzata.
+L'opzione `stop_grace_period` riguarda invece l'arresto dell'intero container. Dopo aver inviato il segnale di arresto
+al processo principale, Docker aspetta in questo caso fino a venti secondi prima di interromperlo forzatamente se è
+ancora attivo. È un'attesa complessiva, non un tempo assegnato separatamente a ciascun processo figlio.
 
 Per abilitare i nuovi limiti riavviamo il servizio con il comando:
 

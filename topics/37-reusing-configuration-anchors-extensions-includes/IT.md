@@ -26,7 +26,7 @@ $ git clone https://github.com/Zavy86/docker-course.git
 Spostiamoci nella directory:
 
 ```shell
-$ cd docker-course/source/compose/reuse
+$ cd docker-course/sources/compose/reuse
 ```
 
 Ed analizziamo il file `compose.yaml`:
@@ -167,7 +167,11 @@ necessarie nei servizi che la usano.
 
 Per riutilizzare la definizione di un servizio da un altro file possiamo usare l'istruzione `extends`.
 
-Proviamo questa **alternativa** spostandoci nella directory `compose-extends`:
+Proviamo questa **alternativa** spostandoci dalla directory `reuse` a `extends`:
+
+```shell
+$ cd ../extends
+```
 
 E analizzando il file `common.yaml`:
 
@@ -254,6 +258,10 @@ ai files e senza dimenticare che, una volta caricati, servizi e risorse finirann
 Spostiamoci quindi nella directory `compose-include` e analizziamonela struttura:
 
 ```shell
+$ cd ../include
+```
+
+```shell
 $ tree
 ```
 ```terminaloutput
@@ -294,8 +302,8 @@ services:
 
 Nel file dentro la directory `tools` troviamo un secondo servizio, chiamato `inspect`, che usa l'immagine `alpine`.
 
-Questo servizio carica le variabili dal file `.env` nella stessa directory e poi esegue un comando che stampa il valore
-della variabile `MESSAGE`.
+Questo servizio carica le variabili dal file `demo.env` nella stessa directory e poi esegue un comando che stampa il 
+valore della variabile `MESSAGE`.
 
 ```shell
 $ cat tools/demo.env

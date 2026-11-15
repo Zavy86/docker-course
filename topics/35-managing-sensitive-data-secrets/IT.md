@@ -31,7 +31,7 @@ $ git clone https://github.com/Zavy86/docker-course.git
 Spostiamoci nella directory:
 
 ```shell
-$ cd docker-course/source/compose/secrets
+$ cd docker-course/sources/compose/secrets
 ```
 
 E creiamo manualmente il file:
@@ -76,7 +76,7 @@ services:
     command: >
       sh -c 'if test -r /run/secrets/token && test -s /run/secrets/token;
              then echo "Secret available";
-             else echo "Secret missing or empty";
+             else echo "Secret missing or empty" >&2; exit 1;
              fi'
 ```
 
@@ -87,7 +87,8 @@ Il secret di nome `token` diventa, nella forma breve, il file `/run/secrets/toke
 
 Il comando lanciato è una piccola verifica: `test -r` controlla che il file sia leggibile, `test -s` che non sia vuoto.
 
-Solo se entrambi i controlli passano viene stampato `Secret available`.
+Solo se entrambi i controlli passano viene stampato `Secret available`. In caso contrario il comando stampa un errore
+nel terminale e termina con codice `1`.
 
 Proviamo quindi a eseguire il container con il comando:
 
@@ -153,9 +154,10 @@ Dobbiamo ricordarci di proteggere sorgenti e backup, consentendo l'accesso solo 
 proprietario, gruppo e permessi; su Windows anche le ACL e la condivisione di Docker Desktop. Il processo nel container
 deve comunque riuscire a leggere il file, un permesso molto restrittivo assegnato all'utente sbagliato lo bloccherebbe.
 
-Come per le config, con secrets locali basati su `file` gli attributi Compose `uid`, `gid` e `mode` non rimappano i veri
-permessi della sorgente, ma solamente quelli del file montato nel container. Verifichiamo quindi l'accesso con l'utente
-effettivo del servizio, senza risolvere ogni problema concedendo lettura a tutti.
+Come per le config, con secrets locali basati su `file` gli attributi Compose `uid`, `gid` e `mode` non vengono
+applicati. Il file viene collegato tramite un bind mount e questi attributi non ne cambiano proprietario o permessi
+neppure nel container. Verifichiamo quindi l'accesso con l'utente effettivo del servizio, senza risolvere ogni problema
+concedendo lettura a tutti.
 
 La prova con Alpine non dimostra da sola che un'applicazione eseguita come utente non root abbia gli stessi accessi.
 

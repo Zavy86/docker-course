@@ -29,7 +29,7 @@ $ git clone https://github.com/Zavy86/docker-course.git
 Spostiamoci nella directory:
 
 ```shell
-$ cd docker-course/source/compose/readiness
+$ cd docker-course/sources/compose/readiness
 ```
 
 E analizziamo il file `compose.yaml`:
@@ -121,7 +121,7 @@ connessioni HTTP, il risultato è stato appunto quello di ricevere degli errori 
 Usiamo `Ctrl+C` per uscire e arrestiamo lo stack con il comando:
 
 ```shell
-$ docker compose up
+$ docker compose down
 ```
 ```terminaloutput
 [+] down 3/3
@@ -311,7 +311,7 @@ Facciamo ora un'ultima prova, senza fermare il server. Usciamo dai log e spostia
 dentro il container:
 
 ```shell
-$ docker compose exec web mv /www/ready /www/ready.off
+$ docker compose exec server mv /www/ready /www/ready.off
 ```
 
 Dopo alcuni controlli falliti, Docker ci mostrerà `server` ancora in esecuzione ma `unhealthy`.

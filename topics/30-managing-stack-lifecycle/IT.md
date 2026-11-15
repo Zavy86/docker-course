@@ -23,7 +23,7 @@ $ git clone https://github.com/Zavy86/docker-course.git
 Spostiamoci nella directory:
 
 ```shell
-$ cd docker-course/source/compose/syntax
+$ cd docker-course/sources/compose/syntax
 ```
 
 E analizziamo nuovamente il file `compose.yaml`:
@@ -282,7 +282,8 @@ usa `SIGQUIT`. In queste occasioni possiamo modificare lo `stop_signal` qualora 
 
 L'attesa ovviamente non è infinita, per i container Linux il tempo predefinito è di dieci secondi. Se il processo non 
 termina entro quel limite, Docker passa automaticamente il segnale `SIGKILL`, che lo interrompe forzatamente. Se invece
-volessimo concedere più tempo, possiamo personalizzare `stop_grace_perdiod`, per un massimo di trenta secondi.
+volessimo concedere più tempo, possiamo personalizzare `stop_grace_period`, per esempio impostandolo a `30s` oppure
+`1m30s`, in base al tempo necessario all'applicazione per terminare correttamente.
 
 Concedere più tempo tuttavia non risolve il problema per un'applicazione che ignora un determinato segnale. Il processo 
 principale del container deve gestirlo correttamente, e un eventuale script di avvio deve inoltrarlo ai suoi figli.

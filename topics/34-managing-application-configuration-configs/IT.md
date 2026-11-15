@@ -32,7 +32,7 @@ $ git clone https://github.com/Zavy86/docker-course.git
 Spostiamoci nella directory:
 
 ```shell
-$ cd docker-course/source/compose/configs
+$ cd docker-course/sources/compose/configs
 ```
 
 E analizziamo il file `default.conf`:

@@ -26,7 +26,7 @@ $ git clone https://github.com/Zavy86/docker-course.git
 Spostiamoci nella directory dell'esempio precedente:
 
 ```shell
-$ cd docker-course/source/compose/syntax
+$ cd docker-course/sources/compose/syntax
 ```
 
 E analizziamo il file `compose.yaml`:
@@ -197,12 +197,13 @@ ad esempio essere accettato da un'applicazione, come numeri decimali o virgola m
 environment:
   DEMO_ERROR: null
   DEMO_VALUE: "18.9"
-  DEMO_ENABLED: true
+  DEMO_ENABLED: "true"
 ...
 ```
 
 Pensiamo alle variabili d'ambiente, che abbiamo già incontrato nei capitoli precedenti. In Compose possiamo passarle al
-container con una semplice mappa chiamata `environment`.
+container con una semplice mappa chiamata `environment`. I valori booleani vanno però scritti tra virgolette, come
+`"true"`, perché le variabili d'ambiente vengono passate come stringhe e questo campo non accetta booleani YAML.
 
 ***
 
@@ -297,7 +298,8 @@ Ritorniamo ora nel nostro file di esempio e proviamo nuovamente a validarlo con 
 $ docker compose config
 ```
 
-Se il comando termina senza mostrare nulla come detto precedentemente, significa che ha superato la validazione.
+Se il comando stampa la configurazione interpretata e termina senza errori, significa che ha superato la validazione.
+Se vogliamo solamente controllarla senza stamparla, possiamo invece aggiungere l'opzione `-q`.
 
 Ora proviamo a introdurre un errore, togliendo il trattino davanti a `target`, ottenendo questa struttura **volutamente
 errata**:

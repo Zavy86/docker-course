@@ -35,11 +35,7 @@ $ git clone https://github.com/Zavy86/docker-course.git
 Spostiamoci nella directory:
 
 ```shell
-$ cd docker-course/source/compose/update
-```
-
-```shell
-$ cd docker-course/sources/compose/monitoring
+$ cd docker-course/sources/compose/updates
 ```
 
 E vediamo quali file contiene:
@@ -202,7 +198,7 @@ $ docker build -t compose-update-demo:v2 .
 Nonostante la build abbia preparato la seconda immagine, e l'aggiornamento del tag all'interno della definizione dello
 stack, il container già in esecuzione continua a usare la prima versione e quindi a mostrare la pagina precedente.
 
-Possiamo verificarlo aprendo il browser alla pagina (http://localhost:8080)[http://localhost:8080], dove continueremo 
+Possiamo verificarlo aprendo il browser alla pagina [http://localhost:8080](http://localhost:8080), dove continueremo
 a leggere ancora `version one`.
 
 Procediamo quindi cheiedendo a Compose di applicare la modifica al servizio:
@@ -251,9 +247,9 @@ un registro, dobbiamo fare molta attenzione a effettuare periodicamente anche i 
 scontato che saremo sempre in grado di ricostruirle. Ad esempio l'immagine di partenza, in futuro, potrebbe non essere 
 più disponibile se utilizziamo delle immagini particolari.
 
-Qualora il vecchio tag fosse stato assegnato a un'altra immagine, possiamo anche specificare il digest dell'immagine nel
-file compose.yaml, se proviamo infatti a inserire l'ID dell'immagine (comprensivo di `sha256:`) della prima versione,
-vedremo che tutto continua a funzionare correttamente:
+Qualora il vecchio tag fosse stato assegnato a un'altra immagine, possiamo anche specificare, sullo stesso host, il
+digest dell'immagine nel file compose.yaml, se proviamo infatti a inserire l'ID dell'immagine (comprensivo di `sha256:`)
+della prima versione, vedremo che tutto continua a funzionare correttamente:
 
 ```shell
 $ docker compose up -d

@@ -1,14 +1,15 @@
-name: compose-demo
+name: demo
+
+#networks:
+#  ingress:
+#    external: true
+#    name: ingress
+
 services:
   web:
     image: nginx
     ports:
       - target: 80
         host_ip: 127.0.0.1
-    networks:
-      - ingress
-
-networks:
-  ingress:
-    external: true
-    name: ingress
+#    networks:
+#      - ingress

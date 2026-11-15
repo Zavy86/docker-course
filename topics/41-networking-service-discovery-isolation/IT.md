@@ -29,7 +29,7 @@ $ git clone https://github.com/Zavy86/docker-course.git
 Spostiamoci nella directory:
 
 ```shell
-$ cd docker-course/source/compose/lookup
+$ cd docker-course/sources/compose/lookup
 ```
 
 E analizziamo il file `compose.yaml`:
@@ -53,9 +53,9 @@ $ docker compose up -d
 ```
 ```terminaloutput
 [+] up 3/3
- ✔ Network networking_default    Created                                                                            0.0s
- ✔ Container networking-server-1 Started                                                                            0.3s
- ✔ Container networking-client-1 Started                                                                            0.2s
+ ✔ Network lookup_default    Created                                                                                0.0s
+ ✔ Container lookup-server-1 Started                                                                                0.3s
+ ✔ Container lookup-client-1 Started                                                                                0.2s
 ```
 
 Proviamo ora a eseguire un lookup: 
@@ -119,9 +119,9 @@ $ docker compose down
 ```
 ```terminaloutput
 [+] down 3/3
- ✔ Container networking_default Removed                                                                             1.8s
- ✔ Container networks-server-1  Removed                                                                             0.3s
- ✔ Container networks-client-1  Removed                                                                             3.3s
+ ✔ Container lookup-server-1 Removed                                                                                0.3s
+ ✔ Container lookup-client-1 Removed                                                                                3.3s
+ ✔ Network lookup_default Removed                                                                                   1.8s
 ```
 
 ***
@@ -190,8 +190,9 @@ container ci permetteranno di fare richieste da reti diverse.
 Il servizio chiamato `app` appartiene alla rete `proxy` e condivide la rete `front` con il servizio `frontend` che a sua
 volta condivide la rete `back` con il `backend`, creando una sorta di catena.
 
-Quando indichiamo esplicitamente il blocco `networks`, in qualunque punto del file Compose (non deve necessariamente
-essere in cima), allo stack non viene più aggiunta automaticamente la rete predefinita.
+In questo esempio ogni servizio ha una lista esplicita di reti, quindi nessuno viene collegato alla rete predefinita
+e Compose non deve crearla. Dichiarare soltanto il blocco `networks` al primo livello non basta, un servizio senza
+una propria assegnazione di reti continuerebbe a usare la rete predefinita.
 
 Avviamo lo stack con:
 
@@ -203,17 +204,17 @@ $ docker compose up -d
  ✔ Network networks_proxy        Created                                                                            0.0s
  ✔ Network networks_front        Created                                                                            0.0s
  ✔ Network networks_back         Created                                                                            0.1s
- ✔ Container networks-proxy-1    Started                                                                            0.3s
+ ✔ Container networks-app-1      Started                                                                            0.3s
  ✔ Container networks-frontend-1 Started                                                                            0.4s
  ✔ Container networks-backend-1  Started                                                                            0.5s
 ```
 
 E come possiamo infatti vedere, a differenza di prima, ora ci troviamo solamente le tre reti che abbiamo specificato.
 
-Proviamo ora a testare un po' di connessioni partendo dal container `proxy`:
+Proviamo ora a testare un po' di connessioni partendo dal container `app`:
 
 ```shell
-$ docker compose exec proxy nslookup backend
+$ docker compose exec app nslookup backend
 ```
 ```terminaloutput
 Server:         127.0.0.11
@@ -227,7 +228,7 @@ Come possiamo vedere non siamo in grado di risolvere l'indirizzo del servizio `b
 pagina web:
 
 ```shell
-$ docker compose exec proxy wget -q -T 3 -O - http://backend
+$ docker compose exec app wget -q -T 3 -O - http://backend
 ```
 ```terminaloutput
 wget: bad address 'backend'
@@ -303,8 +304,8 @@ security features and capabilities please refer to
 Gli alias valgono solo sulle reti dove sono definiti, non sono nomi globali del computer, evitiamo in ogni caso di usare
 alias uguali per servizi diversi se vogliamo sapere con certezza quale servizio stiamo contattando.
 
-In questo caso questa struttura ci può tornare utile se volessimo esporre ad esempio le porta `80` e `443` del `proxy`
-in modo da accedere al nostro stack tramite lui e non direttamente ai due container applicativi.
+Questa struttura ci può tornare utile se sostituissimo il servizio dimostrativo con un reverse proxy, pubblicandone le 
+porte `80` e `443` per accedere allo stack senza esporre direttamente i servizi interni.
 
 Se notiamo infatti le due reti `front` e `back` sono definite con l'opzione `internal: true`, in questo modo queste reti
 vengono isolate dalla normale connettività esterna e private del consueto accesso in uscita attraverso la rete bridge.

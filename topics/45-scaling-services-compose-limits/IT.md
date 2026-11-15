@@ -26,7 +26,7 @@ $ git clone https://github.com/Zavy86/docker-course.git
 Spostiamoci nella directory:
 
 ```shell
-$ cd docker-course/source/compose/scaling
+$ cd docker-course/sources/compose/scaling
 ```
 
 E analizziamo il file `compose.yaml`:
@@ -224,8 +224,6 @@ Il DNS non decide come distribuire ogni richiesta HTTP e non fornisce da solo un
 
 Per un punto di ingresso unico serve un proxy o un bilanciatore configurato per riconoscere le istanze, aggiornarsi 
 quando cambiano e gestire quelle non disponibili.
-
-Ma questo tema lo affronteremo più avanti in un capitolo dedicato al reverse proxy.
 
 ***
 

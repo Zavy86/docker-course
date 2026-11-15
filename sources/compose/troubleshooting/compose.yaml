@@ -17,6 +17,6 @@ services:
       - -c
       - |
         while true; do
-          wget -T 2 -q -O - http://web:8080 || echo "Request failed"
+          wget -T 2 -q -O - http://web:8081 || echo "Request failed"
           sleep 5
         done

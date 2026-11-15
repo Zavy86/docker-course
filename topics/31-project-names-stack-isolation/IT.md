@@ -31,7 +31,7 @@ $ git clone https://github.com/Zavy86/docker-course.git
 Spostiamoci nella directory:
 
 ```shell
-$ cd docker-course/source/compose/projects
+$ cd docker-course/sources/compose/projects
 ```
 
 E analizziamo nuovamente il file `compose.yaml`:
@@ -53,8 +53,6 @@ Procediamo con l'avviamento dei due istanze di progetto:
 
 ```shell
 $ docker compose -p blue up -d
-$ docker compose -p blue ps
-$ docker compose -p green ps
 ```
 ```terminaloutput
 [+] up 2/2
@@ -92,7 +90,7 @@ $ docker compose -p blue ps
 ```
 ```terminaloutput
 NAME         IMAGE   COMMAND                  SERVICE   CREATED         STATUS         PORTS
-blue-web-1   nginx   "/docker-entrypoint.…"   web       9 seconds ago   Up 9 seconds
+blue-web-1   nginx   "/docker-entrypoint.…"   web       9 seconds ago   Up 9 seconds   127.0.0.1:49957->80/tcp
 ```
 
 In questo caso possiamo ance notare quale porta è stata assegnata per il progetto `blue`. 
@@ -212,8 +210,8 @@ $ docker compose ls -a
 ```
 ```terminaloutput
 NAME            STATUS       CONFIG FILES
-compose-blue    running(1)   .../compose-projects/compose.yaml
-compose-green   running(1)   .../compose-projects/compose.yaml
+blue            running(1)   .../sources/compose/projects/compose.yaml
+green           running(1)   .../sources/compose/projects/compose.yaml
 ```
 
 Vedremo che entrambi i progetti sono ancora attivi semplicemente Compose non sapeva con quale stack volevamo interagire.
@@ -326,7 +324,19 @@ collegare poi a quella rete tutti i servizi che vogliamo rendere raggiungibili d
 In questo semplice esempio non vedremo un vero reverse proxy in azione, ma vediamo intanto come fare a configurare una
 rete condivisibile dai progetti.
 
-Eseguiamo il comando:
+Prima fermiamo e rimuoviamo il progetto `demo`, così da eliminare anche la sua rete predefinita prima di cambiare la
+configurazione. 
+
+```shell
+$ docker compose -p demo down
+```
+```terminaloutput
+[+] down 2/2
+ ✔ Container demo-web-1 Removed                                                                                     0.0s
+ ✔ Network demo_default Removed                                                                                     0.1s
+```
+
+Le altre due istanze rimangono attive. Eseguiamo quindi il comando:
 
 ```shell
 $ docker network create ingress
@@ -338,7 +348,13 @@ af43623359f4a70fdf3432defa0c426338e4181cf62b56dbe30a2e6ff04273ce
 E andiamo poi a modificare il nostro progetto collegando il servizio `web` alla rete appena creata:
 
 ```yaml
-name: compose-demo
+name: demo
+
+networks:
+  ingress:
+    external: true
+    name: ingress
+
 services:
   web:
     image: nginx
@@ -347,11 +363,6 @@ services:
         host_ip: 127.0.0.1
     networks:
       - ingress
-
-networks:
-  ingress:
-    external: true
-    name: ingress
 ```
 
 Nel servizio `web` stiamo dicendo di utilizzare la rete `ingress`, mentre al livello principale, abbiamo aggiunto una
@@ -360,12 +371,11 @@ nuova sezione `networks` nella quale dichiariamo la rete `ingress` come esterna,
 Rilanciamo il progetto con:
 
 ```shell
-$ docker compose -p compose-demo up -d
+$ docker compose up -d
 ```
 ```terminaloutput
-[+] up 2/2
- ✔ Network ingress  Created                                                                                         0.0s
- ✔ Container compose-demo-web-1  Started                                                                            0.2s
+[+] up 1/1
+ ✔ Container demo-web-1 Started                                                                                     0.2s
 ```
 
 E andiamo a verificare che il container sia collegato alla rete `ingress`:
@@ -409,9 +419,19 @@ del reverse proxy avrebbe dovuto essere avviato prima di tutti gli altri, io pre
 Facciamo ora un po' di pulizia, fermando e rimuovendo i tre progetti che abbiamo creato in questo capitolo:
 
 ```shell
-$ docker compose down
+$ docker compose -p demo down
 $ docker compose -p blue down
 $ docker compose -p green down
+```
+
+La rete esterna non viene rimossa da `down`. In questa prova l'abbiamo creata noi e, dopo aver rimosso tutti i container
+che la utilizzavano, possiamo eliminarla separatamente.
+
+```shell
+$ docker network rm ingress
+```
+```terminaloutput
+ingress
 ```
 
 ***

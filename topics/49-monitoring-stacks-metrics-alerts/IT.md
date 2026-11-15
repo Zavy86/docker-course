@@ -71,7 +71,7 @@ In questa prima prova vogliamo monitorare Prometheus stesso, quindi abbiamo indi
 leggerà le proprie metriche usando il percorso `/metrics` previsto per impostazione predefinita. In questo caso la
 richiesta parte dal container di Prometheus, perciò `localhost` si riferisce al container stesso.
 
-Con `scrape_interval` impostiamo la raccolta ogni nove secondi, mentre `evaluation_interval` stabilisce ogni quanto
+Con `scrape_interval` impostiamo la raccolta ogni dieci secondi, mentre `evaluation_interval` stabilisce ogni quanto
 valutare le regole di allarme che aggiungeremo tra poco. Questa configurazione ci permette di osservare Prometheus,
 ma per monitorare anche gli altri servizi dovremo configurare i rispettivi target.
 
@@ -319,9 +319,10 @@ Stoppiamo infine lo stack con:
 $ docker compose down
 ```
 ```terminaloutput
-[+] down 2/2
- ✔ Container logs-app-1 Removed                                                                                     0.1s
- ✔ Network logs_default Removed                                                                                     0.1s
+[+] down 3/3
+ ✔ Container monitoring-alertmanager-1 Removed                                                                      0.1s
+ ✔ Container monitoring-prometheus-1 Removed                                                                        0.1s
+ ✔ Network monitoring_default Removed                                                                               0.1s
 ```
 
 ***

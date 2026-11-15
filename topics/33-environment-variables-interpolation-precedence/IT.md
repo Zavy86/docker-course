@@ -23,7 +23,7 @@ $ git clone https://github.com/Zavy86/docker-course.git
 Spostiamoci nella directory:
 
 ```shell
-$ cd docker-course/source/compose/env
+$ cd docker-course/sources/compose/env
 ```
 
 E analizziamo nuovamente il file `compose.yaml`:
@@ -186,7 +186,7 @@ indicato Compose si bloccherà con un errore e lo stack non verrà avviato.
 Possiamo anche passare più volte l'opzione `--env-file`, per esempio con:
 
 ```shell
-$ docker compose --env-file .env --env-file test.env run config
+$ docker compose --env-file .env --env-file test.env config
 ```
 ```terminaloutput
 name: compose-env
@@ -240,8 +240,8 @@ Compose ci mette a disposizione varie forme di sintassi per gestire le variabili
 - `${VAR-valore}` lo usa solo quando manca, una stringa vuota viene conservata tale.
 - `${VAR:?messaggio}` scatena un errore sia per l'assenza sia per il valore vuoto.
 - `${VAR?messaggio}` rifiuta soltanto l'assenza della variabile.
-- `${VAR:+valore}` usa il valore solo quando la variabile è impostata (anche se vuota).
-- `${VAR+valore}` lo usa solamente quando la variabile è presente e non vuota.
+- `${VAR:+valore}` usa il valore solo quando la variabile è impostata e non vuota.
+- `${VAR+valore}` lo usa quando la variabile è impostata, anche se vuota.
 
 ***
 
@@ -336,7 +336,7 @@ MESSAGE=Hello by runtime.env
 EXTRA=Another extra message
 ```
 
-E modifichiamo poi il file compose in aggiungendo l'opzione `env_file`:
+E modifichiamo poi il file compose aggiungendo l'opzione `env_file`:
 
 ```yaml
 services:
@@ -350,8 +350,8 @@ services:
 
 ```
 
-Ora se ci facciamo caso, i troviamo una variabile definita due volte, infatti `MESSAGE` l'abbiamo sia definita dentro al
-file `runtime.env`, sia dentro al `compose.yaml`, vediamo come funzionano le precedenze in questo caso:
+Ora se ci facciamo caso, ci troviamo una variabile definita due volte, infatti `MESSAGE` l'abbiamo sia definita dentro
+al file `runtime.env`, sia dentro al `compose.yaml`, vediamo come funzionano le precedenze in questo caso:
 
 ```shell
 $ docker compose config
@@ -375,9 +375,9 @@ networks:
 ```
 
 Se non stiamo passando la variabile `MESSAGE`, vi ricordo che dentro a `.env` l'avevamo commentata, viene presa quella
-predefinita dichiarata nel file `compose.yaml`, perche quanto dichiarato nella sezione `environment` prevale su quanto
+predefinita dichiarata nel file `compose.yaml`, perché quanto dichiarato nella sezione `environment` prevale su quanto
 definito nel file importato tramite `env_file`, tuttavia se andassimo a scommentare il file `.env`, vedremo come prima
-che esso prevarrebbe anche su quanto definito nel compose.
+che esso prevalerebbe anche su quanto definito nel compose.
 
 Vediamo inoltre che nell'interpretazione abbiamo ottenuto una nuova variabile di ambiente chiamata extra, che volendo
 potremmo utilizzare anche dentro al nostro container, ad esempio andando a specificare manualmente il comando:

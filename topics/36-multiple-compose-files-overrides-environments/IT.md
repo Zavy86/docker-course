@@ -32,7 +32,7 @@ $ git clone https://github.com/Zavy86/docker-course.git
 Spostiamoci nella directory:
 
 ```shell
-$ cd docker-course/source/compose/overrides
+$ cd docker-course/sources/compose/overrides
 ```
 
 Ed analizziamo il file `compose.yaml`:
@@ -130,6 +130,10 @@ networks:
 ```
 
 Compose parte nuovamente dalla configurazione dalla base e applica le modifiche presenti nel file di test.
+
+Se i file si trovassero in directory diverse, i percorsi relativi al loro interno, come quelli dei bind mount o dei
+contesti di build, verrebbero comunque risolti rispetto al primo file passato con `-f`. Non diventano relativi alla
+directory di ciascun override, controlliamo quindi sempre i percorsi nel modello restituito da `config`.
 
 Troveremo quindi la porta `8081`, non quella di sviluppo e il messaggio personalizzato per l'ambiente di test.
 

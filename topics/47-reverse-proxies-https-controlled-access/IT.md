@@ -32,7 +32,7 @@ $ git clone https://github.com/Zavy86/docker-course.git
 Spostiamoci nella directory:
 
 ```shell
-$ cd docker-course/source/compose/proxy
+$ cd docker-course/sources/compose/proxy
 ```
 
 E vediamone il contenuto:
@@ -210,16 +210,17 @@ proxy-1  | {"level":"info","ts":1794477560.1686199,"msg":"certificate installed 
 
 E come possiamo notare, a differenza di prima, Caddy ci ha generato un certificato tramite la propria autorità locale.
 
-Il browser non si fiderà automaticamente di questa autorità, perché il container non installa la propria fiducia sul
-vostro computer, quindi il browser ci segnalerà counque un errore, ma nonostante questo, staremo comunque operando
-tramite una connessione sicura.
+Il browser non si fiderà automaticamente di questa autorità, perché il container non installa il certificato della CA
+tra quelli fidati sul vostro computer. Ci segnalerà quindi un errore, la connessione è cifrata ma il browser non può
+verificare l'identità del server tramite un'autorità che riconosce.
 
-Apriamo quindi il browser all'indirizzo `https://localhost`, accettiamo l'errore SSL e otterremo la pagina di Nginx.
+Aprendo `https://localhost` potremo vedere questo avviso. Se scegliamo di proseguire per la sola prova locale, vedremo
+la pagina di Nginx aggirando la verifica del certificato.
 
 Per una prova tramite `curl` aggiungiamo le opzioni `-k` e `-v` per vedere maggiori dettagli:
 
 ```shell
-$ curl -k --fail https://localhost
+$ curl -k -v --fail https://localhost
 ```
 ```terminaloutput
 * Host localhost:443 was resolved.

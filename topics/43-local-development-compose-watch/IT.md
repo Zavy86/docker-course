@@ -40,7 +40,7 @@ $ git clone https://github.com/Zavy86/docker-course.git
 Spostiamoci nella directory:
 
 ```shell
-$ cd docker-course/source/compose/watch
+$ cd docker-course/sources/compose/watch
 ```
 
 E analizziamo la struttura di questo stack:
