@@ -1,0 +1,5 @@
+services:
+  app:
+    image: localhost:5000/compose-custom-app:1.0
+    ports:
+      - "8080:80"

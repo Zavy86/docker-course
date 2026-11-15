@@ -91,7 +91,7 @@ Below is a list of topics covered in this course:
 51. Deploying Compose stacks to remote hosts
 52. Updating services and rolling back changes
 53. Backing up and restoring application data
-54. Validating and testing isolated Compose stacks
+54. Distributing to a private registry
 
 
 ## Translations

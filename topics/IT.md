@@ -65,4 +65,4 @@ Di seguito è riportato un elenco degli argomenti trattati in questo corso:
 51. [Distribuire stack Compose su host remoti](51-deploying-compose-stacks-remote-hosts/IT.md)
 52. [Aggiornare i servizi e tornare alla versione precedente](52-updating-services-rolling-back-changes/IT.md)
 53. [Eseguire il backup e ripristinare i dati applicativi](53-backing-up-restoring-application-data/IT.md)
-54. [Validare e testare stack Compose isolati](54-validating-testing-isolated-compose-stacks/IT.md)
+54. [Distribuire su un registry privato](54-distributing-to-private-registry/IT.md)
