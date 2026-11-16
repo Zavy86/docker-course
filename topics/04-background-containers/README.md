@@ -21,7 +21,7 @@ containers, how to read their logs, how to stop them, and how to get the list of
 
 ***
 
-Let's start by running a small [container](/sources/clock/) in non-interactive mode.
+Let's start by running a small [container](../../sources/clock) in non-interactive mode.
 
 ```shell
 $ docker run zavy86/clock

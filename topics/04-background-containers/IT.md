@@ -22,7 +22,7 @@ containers arrestati.
 
 ***
 
-Iniziamo quindi con l'esecuzione di un piccolo [container](/sources/clock/) in modalità non interattiva. 
+Iniziamo quindi con l'esecuzione di un piccolo [container](../../sources/clock) in modalità non interattiva.
 
 ```shell
 $ docker run zavy86/clock
