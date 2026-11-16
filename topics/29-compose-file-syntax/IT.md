@@ -6,7 +6,7 @@
 > - indentation
 > - keys and values
 
-Nel [capitolo precedente](../28-understanding-compose/IT.md) abbiamo visto le potenzialità di Docker Compose e abbiamo
+Nel [capitolo precedente](../28-understanding-docker-compose/IT.md) abbiamo visto le potenzialità di Docker Compose e abbiamo
 avviato un piccolo web server scrivendo appena cinque righe di configurazione.
 
 Ora cerchiamo di capire come leggere quelle righe e come modificarle senza andare per tentativi alla cieca.

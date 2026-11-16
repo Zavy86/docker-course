@@ -206,4 +206,4 @@ container (ogni suo processo) è in grado di leggerli.
 > - [Compose configs](https://docs.docker.com/reference/compose-file/configs/)
 > - [nginx](https://hub.docker.com/_/nginx)
 
-[Prosegui](../35-compose-secrets/IT.md) al prossimo capitolo.
+[Prosegui](../35-managing-secrets/IT.md) al prossimo capitolo.

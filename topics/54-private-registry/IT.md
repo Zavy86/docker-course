@@ -13,7 +13,7 @@ dipendenze necessarie e ripetere una preparazione che abbiamo già completato su
 Per semplificare questo passaggio potremmo costruire l'immagine una volta e pubblicarla in un registry privato, così da
 permettere alle altre installazioni di scaricare la versione che abbiamo preparato.
 
-Nel [capitolo 32](../32-compose-images/IT.md) abbiamo già usato Compose per pubblicare immagini su
+Nel [capitolo 32](../32-images-compose/IT.md) abbiamo già usato Compose per pubblicare immagini su
 Docker Hub, questa volta gestiremo anche il registry privato nel quale conservarle.
 
 In questo ultimo capitolo della seconda parte di questo corso prepareremo quindi un piccolo ambiente completo, avviando 

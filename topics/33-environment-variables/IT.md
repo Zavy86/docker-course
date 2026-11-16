@@ -401,4 +401,4 @@ di lanciare lo stack con il comando `config`, in questo modo ci toglieremo ogni 
 > - [Environment variables in Compose](https://docs.docker.com/compose/how-tos/environment-variables/)
 > - [alpine](https://hub.docker.com/_/alpine)
 
-[Prosegui](../34-compose-configs/IT.md) al prossimo capitolo.
+[Prosegui](../34-application-configs/IT.md) al prossimo capitolo.

@@ -1,4 +1,4 @@
-# Local development with Compose Watch
+# Compose Watch
 
 > __local development__
 >

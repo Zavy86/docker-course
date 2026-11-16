@@ -422,4 +422,4 @@ provato, interrompendo il segnale in modo controllato e verificando che l'avviso
 > - [prom/prometheus](https://hub.docker.com/r/prom/prometheus)
 > - [prom/alertmanager](https://hub.docker.com/r/prom/alertmanager)
 
-[Prosegui](../50-troubleshooting-compose-stacks/IT.md) al prossimo capitolo.
+[Prosegui](../50-troubleshooting-stacks/IT.md) al prossimo capitolo.

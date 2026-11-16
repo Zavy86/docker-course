@@ -396,4 +396,4 @@ siano portabili e interoperabili tra diversi fornitori e piattaforme, standardiz
 > - [Docker Engine security](https://docs.docker.com/engine/security/)
 > - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 
-[Prosegui](../28-understanding-compose/IT.md) al prossimo capitolo.
+[Prosegui](../28-understanding-docker-compose/IT.md) al prossimo capitolo.

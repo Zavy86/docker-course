@@ -471,4 +471,4 @@ storto, ma tratteremo le copie e il ripristino in un capitolo dedicato.
 > - [Volumes in Compose](https://docs.docker.com/reference/compose-file/volumes/)
 > - [alpine](https://hub.docker.com/_/alpine)
 
-[Prosegui](../43-local-development-compose-watch/IT.md) al prossimo capitolo.
+[Prosegui](../43-compose-watch/IT.md) al prossimo capitolo.

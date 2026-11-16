@@ -10,7 +10,8 @@
 Docker is a powerful platform that enables developers to build, ship, and run applications in containers. 
 
 This course provides a comprehensive guide to Docker, starting from its history and core concepts, and progressing
-through practical steps for creating, managing, and optimizing containers.
+through practical steps for creating, managing, and optimizing containers. It also includes a dedicated Docker Compose
+path for configuring and managing multi-container applications.
 
 Whether you are new to containerization or looking to deepen your understanding, you will find valuable insights and 
 hands-on examples to help you master Docker for modern software development.
@@ -65,6 +66,8 @@ Below is a list of topics covered in this course:
 
 ### Docker Compose
 
+The Compose chapters are currently available in [Italian](topics/IT.md#docker-compose).
+
 28. Understanding Docker Compose
 29. Compose file syntax
 30. Stack lifecycle
@@ -80,14 +83,14 @@ Below is a list of topics covered in this course:
 40. One-off tasks
 41. Compose networking
 42. Persistent data
-43. Local development with Compose Watch
+43. Compose Watch
 44. Resource limits
 45. Scaling services
-46. Hardening Compose services
+46. Hardening services
 47. Reverse proxy and HTTPS
 48. Service logs
 49. Metrics and alerts
-50. Troubleshooting Compose stacks
+50. Troubleshooting stacks
 51. Remote deployment
 52. Updates and rollbacks
 53. Backup and restore
@@ -96,8 +99,7 @@ Below is a list of topics covered in this course:
 
 ## Translations
 
-This course is available in multiple languages to ensure that learners from different backgrounds can benefit from the
-material. Currently, you can attend the course in the following languages:
+The Docker chapters are available in English and Italian. The Docker Compose chapters are currently available in Italian:
 
 - [English](topics/README.md)
 - [Italiano](topics/IT.md)

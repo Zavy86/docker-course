@@ -1,4 +1,4 @@
-# Troubleshooting Compose stacks
+# Troubleshooting stacks
 
 > __collect evidence before changing things__
 >

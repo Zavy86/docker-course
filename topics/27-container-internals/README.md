@@ -391,4 +391,4 @@ portable and interoperable across different vendors and platforms by standardizi
 > - [Docker Engine security](https://docs.docker.com/engine/security/)
 > - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 
-[Continue](../28-understanding-compose/IT.md) to the next topic (in Italian).
+[Continue](../28-understanding-docker-compose/IT.md) to the next topic (in Italian).

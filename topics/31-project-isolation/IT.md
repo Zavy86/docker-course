@@ -441,4 +441,4 @@ ingress
 > - [Project names](https://docs.docker.com/compose/how-tos/project-name/)
 > - [nginx](https://hub.docker.com/_/nginx)
 
-[Prosegui](../32-compose-images/IT.md) al prossimo capitolo.
+[Prosegui](../32-images-compose/IT.md) al prossimo capitolo.

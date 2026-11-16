@@ -353,4 +353,4 @@ cancella le porte precedenti!
 > - [Merge Compose files](https://docs.docker.com/reference/compose-file/merge/)
 > - [nginx](https://hub.docker.com/_/nginx)
 
-[Prosegui](../37-configuration-reuse/IT.md) al prossimo capitolo.
+[Prosegui](../37-reusing-configuration/IT.md) al prossimo capitolo.

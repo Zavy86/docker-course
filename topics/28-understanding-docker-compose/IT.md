@@ -267,4 +267,4 @@ recuperarli qualora ne avessimo la necessità.
 > - [Docker Compose](https://docs.docker.com/compose/)
 > - [nginx](https://hub.docker.com/_/nginx)
 
-[Prosegui](../29-compose-files-syntax/IT.md) al prossimo capitolo.
+[Prosegui](../29-compose-file-syntax/IT.md) al prossimo capitolo.

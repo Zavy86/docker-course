@@ -1,4 +1,4 @@
-# Hardening Compose services
+# Hardening services
 
 > __reduce unnecessary access__
 >

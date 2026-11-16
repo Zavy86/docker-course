@@ -6,7 +6,7 @@
 > - explicit access
 > - files, not printed values
 
-Nel [capitolo precedente](../34-compose-configs/IT.md) abbiamo vistom come fornire a Nginx un
+Nel [capitolo precedente](../34-application-configs/IT.md) abbiamo vistom come fornire a Nginx un
 file di configurazione ma vi avevo detto esplicitamente che questo metodo non era da utilizzare per passare dei segreti.
 
 Non vorremmo certo scrivere delle password, o dei token di autenticazione direttamente nei Dockerfile, o nei files di
