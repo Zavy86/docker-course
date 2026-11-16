@@ -1,4 +1,4 @@
-# Compose files syntax
+# Compose file syntax
 
 > __Compose file syntax__
 >
@@ -377,4 +377,4 @@ i file che andremo a realizzare nei prossimi capitoli.
 > - [postgres](https://hub.docker.com/_/postgres)
 > - [redis](https://hub.docker.com/_/redis)
 
-[Prosegui](../30-managing-stack-lifecycle/IT.md) al prossimo capitolo.
+[Prosegui](../30-stack-lifecycle/IT.md) al prossimo capitolo.

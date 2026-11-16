@@ -66,32 +66,32 @@ Below is a list of topics covered in this course:
 ### Docker Compose
 
 28. Understanding Docker Compose
-29. Compose files syntax
-30. Managing the stack lifecycle
-31. Project names and stack isolation
-32. Building, pulling, and publishing images with Compose
-33. Environment variables, interpolation, and precedence
-34. Managing application configuration with configs
-35. Managing sensitive data with secrets
-36. Multiple Compose files, overrides, and environments
-37. Reusing configuration with anchors, extensions, and includes
-38. Selecting optional services with profiles
-39. Startup dependencies, healthchecks, and readiness
-40. Running one-off tasks and database migrations
-41. Networking, service discovery, and isolation
-42. Persistent data, volumes, and filesystem permissions
+29. Compose file syntax
+30. Stack lifecycle
+31. Project isolation
+32. Images with Compose
+33. Environment variables
+34. Application configs
+35. Managing secrets
+36. Compose overrides
+37. Reusing configuration
+38. Compose profiles
+39. Service readiness
+40. One-off tasks
+41. Compose networking
+42. Persistent data
 43. Local development with Compose Watch
-44. Resource limits and runtime configuration
-45. Scaling services and understanding Compose limits
+44. Resource limits
+45. Scaling services
 46. Hardening Compose services
-47. Reverse proxies, HTTPS, and controlled access
-48. Collecting and rotating service logs
-49. Monitoring stacks with metrics and alerts
+47. Reverse proxy and HTTPS
+48. Service logs
+49. Metrics and alerts
 50. Troubleshooting Compose stacks
-51. Deploying Compose stacks to remote hosts
-52. Updating services and rolling back changes
-53. Backing up and restoring application data
-54. Distributing to a private registry
+51. Remote deployment
+52. Updates and rollbacks
+53. Backup and restore
+54. Private registry
 
 
 ## Translations

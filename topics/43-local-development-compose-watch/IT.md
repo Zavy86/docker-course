@@ -11,7 +11,7 @@ verifichiamo il risultato nell'applicazione. Se il servizio viene eseguito in un
 nell'immagine durante la build non cambiano automaticamente quando modifichiamo quelli sul computer. Ricostruire 
 l'immagine e ricreare il servizio dopo ogni piccola modifica può rallentare di molto il nostro il lavoro.
 
-Nel [capitolo precedente](../42-persistent-data-volumes-filesystem-permissions/IT.md) abbiamo visto come un bind mount
+Nel [capitolo precedente](../42-persistent-data/IT.md) abbiamo visto come un bind mount
 renda accessibili al container i file di una directory dell'host.
 
 Compose **Watch** offre un'altra possibilità super interessante, osserva i percorsi che indichiamo nel file Compose e, 
@@ -484,4 +484,4 @@ $ docker compose down
 > - [Compose Watch](https://docs.docker.com/compose/how-tos/file-watch/)
 > - [busybox](https://hub.docker.com/_/busybox)
 
-[Prosegui](../44-resource-limits-runtime-configuration/IT.md) al prossimo capitolo.
+[Prosegui](../44-resource-limits/IT.md) al prossimo capitolo.

@@ -272,4 +272,4 @@ all'ingresso `HTTP`, lasciando esposto un solo punto di accesso a tutto il nostr
 > - [Compose trust model](https://docs.docker.com/compose/trust-model/)
 > - [busybox](https://hub.docker.com/_/busybox)
 
-[Prosegui](../47-reverse-proxies-https-controlled-access/IT.md) al prossimo capitolo.
+[Prosegui](../47-reverse-proxy-https/IT.md) al prossimo capitolo.
