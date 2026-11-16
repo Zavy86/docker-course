@@ -1,0 +1,14 @@
+volumes:
+  registry-data:
+
+services:
+  registry:
+    image: registry:3
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    volumes:
+      - registry-data:/var/lib/registry
+  app:
+    build: .
+    image: localhost:5000/compose-custom-app:1.0

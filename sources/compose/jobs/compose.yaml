@@ -1,0 +1,6 @@
+services:
+  tools:
+    image: alpine
+    profiles: [ tools ]
+    command: [ "echo", "Operation completed" ]
+#    command: [ "sleep", "infinity" ]

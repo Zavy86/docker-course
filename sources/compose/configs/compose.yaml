@@ -1,0 +1,12 @@
+configs:
+  web_config:
+    file: ./default.conf
+
+services:
+  web:
+    image: nginx
+    ports:
+      - "8080:80"
+    configs:
+      - source: web_config
+        target: /etc/nginx/conf.d/default.conf

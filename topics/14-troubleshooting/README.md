@@ -20,7 +20,7 @@ system in recovery mode or even attach the disk to another VM just to recover th
 
 ***
 
-> __getting inside a container__
+> __managing containers without entering them__
 >
 > - images
 > - volumes
@@ -199,6 +199,8 @@ no disk space was used.
 ***
 
 > Resources:
+>
+> - [Run a command in a container](https://docs.docker.com/reference/cli/docker/container/exec/)
 > - [crash](../../sources/crash)
 > - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 > - [zavy86/crash](https://hub.docker.com/r/zavy86/crash)

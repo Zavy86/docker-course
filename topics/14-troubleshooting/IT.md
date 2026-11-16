@@ -24,7 +24,7 @@ per riuscire per lo meno a recuperarne i dati.
 
 ***
 
-> __getting inside a container__
+> __managing containers without entering them__
 >
 > - images
 > - volumes
@@ -205,6 +205,8 @@ file è stato scaricato così da non occupare spazio su disco.
 ***
 
 > Resources:
+>
+> - [Run a command in a container](https://docs.docker.com/reference/cli/docker/container/exec/)
 > - [crash](../../sources/crash)
 > - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 > - [zavy86/crash](https://hub.docker.com/r/zavy86/crash)

@@ -10,7 +10,8 @@
 Docker is a powerful platform that enables developers to build, ship, and run applications in containers. 
 
 This course provides a comprehensive guide to Docker, starting from its history and core concepts, and progressing
-through practical steps for creating, managing, and optimizing containers.
+through practical steps for creating, managing, and optimizing containers. It also includes a dedicated Docker Compose
+path for configuring and managing multi-container applications.
 
 Whether you are new to containerization or looking to deepen your understanding, you will find valuable insights and 
 hands-on examples to help you master Docker for modern software development.
@@ -32,6 +33,8 @@ inside my channel.
 ## Topics
 
 Below is a list of topics covered in this course:
+
+### Docker
 
  1. [History of Docker and containers](topics/01-containers-history/README.md)
  2. [Our training environment](topics/02-training-environment/README.md)
@@ -61,11 +64,40 @@ Below is a list of topics covered in this course:
 26. [Common Docker settings](topics/26-common-settings/README.md)
 27. [Container internals](topics/27-container-internals/README.md)
 
+### Docker Compose
+
+28. [Understanding Docker Compose](topics/28-understanding-docker-compose/README.md)
+29. [Compose file syntax](topics/29-compose-file-syntax/README.md)
+30. [Stack lifecycle](topics/30-stack-lifecycle/README.md)
+31. [Project isolation](topics/31-project-isolation/README.md)
+32. [Images with Compose](topics/32-images-compose/README.md)
+33. [Environment variables](topics/33-environment-variables/README.md)
+34. [Application configs](topics/34-application-configs/README.md)
+35. [Managing secrets](topics/35-managing-secrets/README.md)
+36. [Compose overrides](topics/36-compose-overrides/README.md)
+37. [Reusing configuration](topics/37-reusing-configuration/README.md)
+38. [Compose profiles](topics/38-compose-profiles/README.md)
+39. [Service readiness](topics/39-service-readiness/README.md)
+40. [One-off tasks](topics/40-one-off-tasks/README.md)
+41. [Compose networking](topics/41-compose-networking/README.md)
+42. [Persistent data](topics/42-persistent-data/README.md)
+43. [Compose Watch](topics/43-compose-watch/README.md)
+44. [Resource limits](topics/44-resource-limits/README.md)
+45. [Scaling services](topics/45-scaling-services/README.md)
+46. [Hardening services](topics/46-hardening-services/README.md)
+47. [Reverse proxy and HTTPS](topics/47-reverse-proxy-https/README.md)
+48. [Service logs](topics/48-service-logs/README.md)
+49. [Metrics and alerts](topics/49-metrics-alerts/README.md)
+50. [Troubleshooting stacks](topics/50-troubleshooting-stacks/README.md)
+51. [Remote deployment](topics/51-remote-deployment/README.md)
+52. [Updates and rollbacks](topics/52-updates-rollbacks/README.md)
+53. [Backup and restore](topics/53-backup-restore/README.md)
+54. [Private registry](topics/54-private-registry/README.md)
+
 
 ## Translations
 
-This course is available in multiple languages to ensure that learners from different backgrounds can benefit from the
-material. Currently, you can attend the course in the following languages:
+The Docker chapters are available in English and Italian. The Docker Compose chapters are currently available in Italian:
 
 - [English](topics/README.md)
 - [Italiano](topics/IT.md)

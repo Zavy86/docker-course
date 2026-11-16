@@ -3,7 +3,7 @@
 ![cover](https://img.youtube.com/vi/YNBR2B0wpyo/mqdefault.jpg)  
 [https://youtu.be/YNBR2B0wpyo](https://youtu.be/YNBR2B0wpyo)
 
-> __advanced dockerfile syntax__
+> __advanced Dockerfile syntax__
 >
 > - order
 > - layers
@@ -49,7 +49,7 @@ FROM ubuntu
 
 ***
 
-> __advanced dockerfile syntax__
+> __executing build commands__
 >
 > run
 > - execute commands
@@ -98,7 +98,7 @@ RUN apt-get update \
 
 ***
 
-> __advanced dockerfile syntax__
+> __documenting container ports__
 >
 > expose
 > - declaration
@@ -137,7 +137,7 @@ EXPOSE 80/tcp 443/tcp 53/udp
 
 ***
 
-> __advanced dockerfile syntax__
+> __adding files from the build context__
 >
 > copy
 > - files and directories
@@ -188,7 +188,7 @@ In this way, all files and directories will be assigned to the `nginx` user and 
 
 ***
 
-> __advanced dockerfile syntax__
+> __archives and remote files__
 >
 > add
 > - unpack archives
@@ -226,7 +226,7 @@ Be aware that in this case, if the remote server is not accessible, the image bu
 
 ***
 
-> __advanced dockerfile syntax__
+> __declaring persistent data__
 >
 > volume
 > - persistent data
@@ -259,7 +259,7 @@ directory.
 
 ***
 
-> __advanced dockerfile syntax__
+> __setting the working directory__
 >
 > workdir
 > - working directory
@@ -286,7 +286,7 @@ find yourself when connecting to the container's shell.
 
 ***
 
-> __advanced dockerfile syntax__
+> __setting environment variables__
 >
 > env
 > - environment variables
@@ -315,7 +315,7 @@ $ docker run -e NGINX_PORT=8080 webserver
 
 ***
 
-> __advanced dockerfile syntax__
+> __choosing the execution user__
 >
 > user
 > - change user
@@ -336,7 +336,7 @@ In this way, we will no longer be root, as if we had executed the `su nginx` com
 
 ***
 
-> __advanced dockerfile syntax__
+> __setting the default command__
 >
 > cmd
 > - default command
@@ -360,7 +360,7 @@ In this way, once started, the container will automatically run the nginx web se
 
 ***
 
-> __advanced dockerfile syntax__
+> __setting the executable__
 >
 > entrypoint
 > - default entry point
@@ -386,7 +386,7 @@ pass `-t` to test the web server configuration.
 
 ***
 
-> __advanced dockerfile syntax__
+> __other Dockerfile instructions__
 >
 > - arg
 > - label
@@ -418,6 +418,8 @@ image. This is useful, for example, for installing libraries or compiling applic
 ***
 
 > Resources:
+>
+> - [Dockerfile reference](https://docs.docker.com/reference/dockerfile/)
 > - [ubuntu](https://hub.docker.com/_/ubuntu)
 
 [Continue](../22-application-configuration/README.md) to the next topic.

@@ -1,0 +1,10 @@
+services:
+  web:
+    image: nginx
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+  echo:
+    image: alpine
+    command: [ "sh", "-c", "echo Avvio; sleep 15; exit 1" ]
+    restart: on-failure

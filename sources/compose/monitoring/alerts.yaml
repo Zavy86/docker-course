@@ -1,0 +1,10 @@
+groups:
+  - name: demo
+    rules:
+      - alert: DemoTargetDown
+        expr: up{job="prometheus"} == 0
+        for: 30s
+        labels:
+          severity: warning
+        annotations:
+          summary: "The demo target is down"

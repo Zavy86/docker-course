@@ -80,7 +80,7 @@ assign a specific subnet.
 
 ***
 
-> __container network drivers__
+> __custom bridge networks__
 >
 > - isolated
 > - multiple
@@ -155,6 +155,8 @@ We will not receive any response.
 ***
 
 > Resources:
+>
+> - [Network drivers](https://docs.docker.com/engine/network/drivers/)
 > - [busybox](https://hub.docker.com/_/busybox)
 > - [nginx](https://hub.docker.com/_/nginx)
 

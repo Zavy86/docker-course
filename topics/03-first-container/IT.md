@@ -166,7 +166,7 @@ aveste già precedentemente installato sul vostro sistema).
 
 ***
 
-> __run our first container__
+> __containers and the host kernel__
 >
 > - shared kernel
 > - independent packages
@@ -183,7 +183,7 @@ Questo ci permette di eseguire qualunque container su qualunque host, anche con 
 
 ***
 
-> __run our first container__
+> __what happens when a container stops__
 >
 > - stopped state
 > - exists on disk
@@ -218,7 +218,7 @@ Come facciamo quindi a riutilizzare il container che avevamo personalizzato con 
 
 ***
 
-> __run our first container__
+> __changing a running container__
 >
 > - yes, we can
 > - not a good practice
@@ -240,7 +240,7 @@ fondanti di Docker.
 
 ***
 
-> __run our first container__
+> __pets and cattle__
 >
 > - pets
 >   - distinctive name
@@ -261,7 +261,7 @@ con un suo nuovo clone.
 
 ***
 
-> __run our first container__
+> __the virtual machine workflow__
 >
 > - create a virtual machine
 > - install packages
@@ -284,7 +284,7 @@ per ricreare l'ambiente da zero su una nuova macchina senza ricorrere a document
 
 ***
 
-> __run our first container__
+> __the container workflow__
 >
 > - create image
 > - run container
@@ -307,6 +307,8 @@ Ma prima di addentrarci nella creazione delle immagini dobbiamo ancora vedere al
 ***
 
 > Resources:
+>
+> - [Run your first container](https://docs.docker.com/learn/content/run-your-first-container/)
 > - [alpine](https://hub.docker.com/_/alpine)
 > - [busybox](https://hub.docker.com/_/busybox)
 > - [hello-world](https://hub.docker.com/_/hello-world)

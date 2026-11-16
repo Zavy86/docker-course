@@ -216,7 +216,7 @@ Additionally, if you look close, our command has been slightly modified by prepe
 
 ***
 
-> __building images with a Dockerfile__
+> __process creation__
 >
 > - fork
 > - execve
@@ -298,7 +298,7 @@ IMAGE          CREATED         CREATED BY                                      S
 
 ***
 
-> __building images with a Dockerfile__
+> __shell and exec forms__
 >
 > - shell syntax
 >   - easy to write
@@ -322,6 +322,8 @@ be sure the command will be executed exactly as written.
 ***
 
 > Resources:
+>
+> - [Dockerfile overview](https://docs.docker.com/build/concepts/dockerfile/)
 > - [alpine](https://hub.docker.com/_/alpine)
 > - [figlet](../../sources/figlet)
 > - [figlet-exec](../../sources/figlet-exec)

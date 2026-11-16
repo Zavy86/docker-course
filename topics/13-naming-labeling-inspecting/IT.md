@@ -366,6 +366,9 @@ Il risultato è lo stesso, scegliete voi quello che più vi aggrada o col quale 
 ***
 
 > Resources:
+>
+> - [Docker object labels](https://docs.docker.com/engine/manage-resources/labels/)
+> - [Inspect Docker objects](https://docs.docker.com/reference/cli/docker/inspect/)
 > - [zavy86/figlet](https://hub.docker.com/r/zavy86/figlet)
 
 [Prosegui](../14-troubleshooting/IT.md) al prossimo capitolo.

@@ -5,7 +5,7 @@
 
 ***
 
-> __history of Docker and containers__
+> __why containers and Docker__
 >
 > - why containers
 > - why Docker emerges
@@ -17,7 +17,7 @@ containers, del motivo per il quale sono diventati così importanti negli ultimi
 
 ***
 
-> __history of Docker and containers__
+> __the monolithic application era__
 >
 > - monolithic applications
 > - long development cycles
@@ -33,7 +33,7 @@ Non possiamo più permetterci di avere soluzioni poco scalabili e con tempi di s
 
 ***
 
-> __history of Docker and containers__
+> __distributed and iterative development__
 >
 > - decoupled services
 > - iterative improvements
@@ -50,7 +50,7 @@ La velocità dei rilasci e la possibilità di scalare le risorse in maniera faci
 
 ***
 
-> __history of Docker and containers__
+> __more stacks and deployment targets__
 >
 > - many different stacks
 > - many different targets
@@ -65,7 +65,7 @@ acceptance tests, agli ambienti di staging per finire poi con quelli di produzio
 
 ***
 
-> __history of Docker and containers__
+> __production environments__
 >
 > - on premise
 > - in cloud
@@ -77,7 +77,7 @@ Tutte queste opzioni non fanno altro che creare una matrice infernale dalla qual
 
 ***
 
-> __history of Docker and containers__
+> __the shipping container analogy__
 >
 > - reduction of costs
 > - reduction of losses
@@ -101,7 +101,7 @@ Al giorno d'oggi oltre 5 mila navi trasportano oltre 200 milioni di containers o
 
 ***
 
-> __history of Docker and containers__
+> __from instructions to automation__
 >
 > - instructions
 > - automations
@@ -119,7 +119,7 @@ Giungendo finalmente alla risoluzione del fatidico _"It works on my machine!"_.
 
 ***
 
-> __history of Docker and containers__
+> __developer benefits__
 >
 > - onboarding
 > - testing
@@ -150,7 +150,7 @@ di aggiornamento di dipendenze o di cambi di configurazioni.
 
 ***
 
-> __history of Docker and containers__
+> __standardizing software delivery__
 >
 > - standardization
 > - distribution
@@ -186,9 +186,9 @@ molti processi di deployment riducendo i tempi e i costi.
 
 ***
 
-> __history of Docker and containers__
+> __a brief history of containers__
 >
-> - IMB VM/370 (1972)
+> - IBM VM/370 (1972)
 > - FreeBSD jails (1999)
 > - Linux VServers (2001)
 > - Solaris Container (2004)
@@ -209,5 +209,9 @@ aver raggiunto la versione 1.0 che inizierà a diventare un standard.
 In quegli anni nasceranno anche la OCI (Open Container Initiative) e la CNCF (Cloud Native Computing Foundation).
 
 ***
+
+> Resources:
+>
+> - [What is Docker?](https://docs.docker.com/get-started/docker-overview/)
 
 [Prosegui](../02-training-environment/IT.md) al prossimo capitolo.

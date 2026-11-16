@@ -1,0 +1,10 @@
+http://localhost {
+    reverse_proxy web:80
+}
+http://127.0.0.1 {
+    reverse_proxy info:8080
+}
+#https://localhost:443 {
+#    tls internal
+#    reverse_proxy web:80
+#}

@@ -1,0 +1,6 @@
+services:
+  web:
+    ports:
+      - "8081:80"
+    environment:
+      MESSAGE: "Test environment"

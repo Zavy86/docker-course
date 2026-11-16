@@ -28,7 +28,7 @@ then the container will be terminated.
 
 ***
 
-> __limiting resources__
+> __memory and CPU limits__
 >
 > - --memory
 > - --memory-swap
@@ -146,6 +146,8 @@ previously discussed in [chapter 7](../07-interactive-images/IT.md).
 ***
 
 > Resources:
+>
+> - [Resource constraints](https://docs.docker.com/engine/containers/resource_constraints/)
 > - [python](https://hub.docker.com/_/python)
 
 [Continue](../24-logging-monitoring/README.md) to the next topic.

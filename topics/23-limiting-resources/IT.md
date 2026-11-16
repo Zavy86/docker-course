@@ -28,7 +28,7 @@ dopodiché il container verrà interrotto.
 
 ***
 
-> __limiting resources__
+> __memory and CPU limits__
 >
 > - --memory
 > - --memory-swap
@@ -147,6 +147,8 @@ nel [capitolo 7](../07-interactive-images/IT.md).
 ***
 
 > Resources:
+>
+> - [Resource constraints](https://docs.docker.com/engine/containers/resource_constraints/)
 > - [python](https://hub.docker.com/_/python)
 
 [Prosegui](../24-logging-monitoring/IT.md) al prossimo capitolo.

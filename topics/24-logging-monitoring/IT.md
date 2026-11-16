@@ -99,7 +99,7 @@ $ docker inspect --format '{{json .HostConfig.LogConfig}}' $(docker ps -lq) | jq
 
 ***
 
-> __logging and monitoring__
+> __centralized logging with the ELK stack__
 >
 > - elk stack
 >   - elasticsearch
@@ -202,6 +202,8 @@ affidabili.
 ***
 
 > Resources:
+>
+> - [View container logs](https://docs.docker.com/engine/logging/)
 > - [elk](../../sources/elk)
 > - [elasticsearch](https://hub.docker.com/_/elasticsearch)
 > - [kibana](https://hub.docker.com/_/kibana)

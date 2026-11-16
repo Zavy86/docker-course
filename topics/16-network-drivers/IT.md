@@ -81,7 +81,7 @@ rete da utilizzare e assegnargli una specifica subnet.
 
 ***
 
-> __container network drivers__
+> __custom bridge networks__
 >
 > - isolated
 > - multiple
@@ -156,6 +156,8 @@ Non otterremo nessuna risposta.
 ***
 
 > Resources:
+>
+> - [Network drivers](https://docs.docker.com/engine/network/drivers/)
 > - [busybox](https://hub.docker.com/_/busybox)
 > - [nginx](https://hub.docker.com/_/nginx)
 

@@ -1,0 +1,14 @@
+services:
+  app:
+    image: busybox
+    command: [ "sleep", "infinity" ]
+    init: true
+    cpus: 0.5
+    mem_limit: 64m
+    pids_limit: 64
+#    ulimits:
+#      nofile:
+#        soft: 1024
+#        hard: 2048
+#    shm_size: 16m
+#    stop_grace_period: 20s

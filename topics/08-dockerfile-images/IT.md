@@ -220,7 +220,7 @@ Inoltre se vedete il nostro comando è stato leggermente modificato aggiungendog
 
 ***
 
-> __building images with a Dockerfile__
+> __process creation__
 >
 > - fork
 > - execve
@@ -303,7 +303,7 @@ IMAGE          CREATED         CREATED BY                                      S
 
 ***
 
-> __building images with a Dockerfile__
+> __shell and exec forms__
 >
 > - shell syntax
 >   - easy to write
@@ -328,6 +328,8 @@ eseguendo alcun parsing, possiamo essere certi che il comando verrà eseguito es
 ***
 
 > Resources:
+>
+> - [Dockerfile overview](https://docs.docker.com/build/concepts/dockerfile/)
 > - [alpine](https://hub.docker.com/_/alpine)
 > - [figlet](../../sources/figlet)
 > - [figlet-exec](../../sources/figlet-exec)

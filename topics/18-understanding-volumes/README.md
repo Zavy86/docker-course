@@ -105,7 +105,7 @@ see that the page is now served with the updated content!
 
 ***
 
-> __working with volumes__
+> __initializing volumes__
 >
 > - all empty
 > - empty volumes
@@ -143,7 +143,7 @@ that the page now serves the content as we updated it in the volume!
 
 ***
 
-> __working with volumes__
+> __bind mounts__
 >
 > - bind
 > - storage
@@ -212,7 +212,7 @@ And refresh the page in the browser, you will see that the change is immediately
 
 ***
 
-> __working with volumes__
+> __moving and preserving data__
 >
 > - migration
 > - preserving data
@@ -368,6 +368,8 @@ And we can even shut ourselves down:
 ***
 
 > Resources:
+>
+> - [Volumes](https://docs.docker.com/engine/storage/volumes/)
 > - [alpine](https://hub.docker.com/_/alpine)
 > - [busybox](https://hub.docker.com/_/busybox)
 > - [docker](https://hub.docker.com/_/docker)

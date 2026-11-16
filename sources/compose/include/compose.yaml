@@ -1,0 +1,6 @@
+include:
+  - ./tools/compose.yaml
+
+services:
+  web:
+    image: nginx

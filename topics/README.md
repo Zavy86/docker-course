@@ -7,6 +7,8 @@
 
 Below is a list of topics covered in this course:
 
+### Docker
+
  1. [History of Docker and Containers](01-containers-history/README.md)
  2. [Our training environment](02-training-environment/README.md)
  3. [Run our first container](03-first-container/README.md)
@@ -34,3 +36,33 @@ Below is a list of topics covered in this course:
 25. [Multi-architecture builds](25-multi-architecture-builds/README.md)
 26. [Common Docker settings](26-common-settings/README.md)
 27. [Container internals](27-container-internals/README.md)
+
+### Docker Compose
+
+28. [Understanding Docker Compose](28-understanding-docker-compose/README.md)
+29. [Compose file syntax](29-compose-file-syntax/README.md)
+30. [Stack lifecycle](30-stack-lifecycle/README.md)
+31. [Project isolation](31-project-isolation/README.md)
+32. [Images with Compose](32-images-compose/README.md)
+33. [Environment variables](33-environment-variables/README.md)
+34. [Application configs](34-application-configs/README.md)
+35. [Managing secrets](35-managing-secrets/README.md)
+36. [Compose overrides](36-compose-overrides/README.md)
+37. [Reusing configuration](37-reusing-configuration/README.md)
+38. [Compose profiles](38-compose-profiles/README.md)
+39. [Service readiness](39-service-readiness/README.md)
+40. [One-off tasks](40-one-off-tasks/README.md)
+41. [Compose networking](41-compose-networking/README.md)
+42. [Persistent data](42-persistent-data/README.md)
+43. [Compose Watch](43-compose-watch/README.md)
+44. [Resource limits](44-resource-limits/README.md)
+45. [Scaling services](45-scaling-services/README.md)
+46. [Hardening services](46-hardening-services/README.md)
+47. [Reverse proxy and HTTPS](47-reverse-proxy-https/README.md)
+48. [Service logs](48-service-logs/README.md)
+49. [Metrics and alerts](49-metrics-alerts/README.md)
+50. [Troubleshooting stacks](50-troubleshooting-stacks/README.md)
+51. [Remote deployment](51-remote-deployment/README.md)
+52. [Updates and rollbacks](52-updates-rollbacks/README.md)
+53. [Backup and restore](53-backup-restore/README.md)
+54. [Private registry](54-private-registry/README.md)
