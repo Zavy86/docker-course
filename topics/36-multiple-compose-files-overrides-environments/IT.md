@@ -1,6 +1,6 @@
 # Multiple Compose files, overrides, and environments
 
-> __multiple Compose files, overrides, and environments__
+> __multiple Compose files and environments__
 >
 > - a shared base
 > - small differences
@@ -208,7 +208,7 @@ $ docker compose -p test -f compose.yaml -f compose.test.yaml down
 
 ***
 
-> __multiple Compose files, overrides, and environments__
+> __how Compose merges files__
 >
 > - scalars are replaced
 > - mappings are merged
@@ -351,3 +351,6 @@ cancella le porte precedenti!
 > Resources:
 >
 > - [Merge Compose files](https://docs.docker.com/reference/compose-file/merge/)
+> - [nginx](https://hub.docker.com/_/nginx)
+
+[Prosegui](../37-reusing-configuration-anchors-extensions-includes/IT.md) al prossimo capitolo.

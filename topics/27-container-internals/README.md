@@ -15,7 +15,7 @@ curious, make one last effort—you will see it's worth it!
 
 ***
 
-> __container internals__
+> __the building blocks of containers__
 >
 > - namespaces
 > - control groups
@@ -34,7 +34,7 @@ the `init system` that handles the lifecycle of processes and the container itse
 
 ***
 
-> __container internals__
+> __control groups__
 >
 > control groups
 > - hierarchy
@@ -160,7 +160,7 @@ And so on for other resources as well.
 
 ***
 
-> __container internals__
+> __namespaces__
 >
 > namespaces
 > - limit
@@ -247,7 +247,7 @@ As we can see, changes made inside a namespace are not visible outside it.
 
 ***
 
-> __container internals__
+> __copy-on-write__
 >
 > copy-on-write
 > - filesystem
@@ -369,7 +369,7 @@ added, which contains the history of the last executed command to allow recallin
 
 ***
 
-> __container internals__
+> __open container initiative__
 >
 > open container initiative
 > - open governance
@@ -387,6 +387,8 @@ portable and interoperable across different vendors and platforms by standardizi
 ***
 
 > Resources:
+>
+> - [Docker Engine security](https://docs.docker.com/engine/security/)
 > - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 
-[Continue](../../contribute/README.md) to the next topic.
+[Continue](../28-understanding-compose/IT.md) to the next topic (in Italian).

@@ -68,7 +68,7 @@ Questo aiuta a contenere una creazione incontrollata di processi.
 
 ***
 
-> __resource budgets__
+> __choose limits based on usage__
 >
 > - measure usage under load
 > - understand the effects of low limits
@@ -269,3 +269,6 @@ sistema operativo e agli altri processi di base dell'host.
 > Resources
 >
 > - [Container resource constraints](https://docs.docker.com/engine/containers/resource_constraints/)
+> - [busybox](https://hub.docker.com/_/busybox)
+
+[Prosegui](../45-scaling-services-compose-limits/IT.md) al prossimo capitolo.

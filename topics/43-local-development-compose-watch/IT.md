@@ -482,3 +482,6 @@ $ docker compose down
 > Resources
 >
 > - [Compose Watch](https://docs.docker.com/compose/how-tos/file-watch/)
+> - [busybox](https://hub.docker.com/_/busybox)
+
+[Prosegui](../44-resource-limits-runtime-configuration/IT.md) al prossimo capitolo.

@@ -1,6 +1,6 @@
 # Understanding Docker Compose
 
-> __understanding docker compose__
+> __understanding Docker Compose__
 >
 > - application stack
 > - declarative configuration
@@ -23,7 +23,7 @@ vedremo con calma nei prossimi capitoli.
 
 ***
 
-> __understanding docker compose__
+> __reconciling configuration and resources__
 >
 > - desired configuration
 > - existing resources
@@ -50,7 +50,7 @@ automatico, siamo noi a dovergli chiedere di farlo volta per volta in base alle 
 
 ***
 
-> __understanding docker compose__
+> __from a Compose file to containers__
 >
 > - file
 > - services
@@ -82,7 +82,7 @@ serve per mostrarci una pagina di benvenuto.
 
 ***
 
-> __understanding docker compose__
+> __resources in a Compose project__
 >
 > - services
 > - networks
@@ -111,7 +111,7 @@ quando serviranno mano a mano e le assegneremo ai servizi che ne avranno bisogno
 
 ***
 
-> __understanding docker compose__
+> __components of an application stack__
 >
 > - frontend and backend
 > - database and cache
@@ -141,7 +141,7 @@ Docker Compose ci aiuta ad avviare questi servizi, a fornirgli reti, indirizzi e
 
 ***
 
-> __understanding docker compose__
+> __the Compose Specification and compatibility__
 >
 > - compose specification
 > - feature compatibility
@@ -264,4 +264,7 @@ recuperarli qualora ne avessimo la necessità.
 
 > Resources:
 >
+> - [Docker Compose](https://docs.docker.com/compose/)
 > - [nginx](https://hub.docker.com/_/nginx)
+
+[Prosegui](../29-compose-files-syntax/IT.md) al prossimo capitolo.

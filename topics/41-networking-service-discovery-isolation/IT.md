@@ -369,3 +369,7 @@ stiamo operando tramite delle VPS online.
 > Resources
 >
 > - [Networking in Compose](https://docs.docker.com/compose/how-tos/networking/)
+> - [busybox](https://hub.docker.com/_/busybox)
+> - [nginx](https://hub.docker.com/_/nginx)
+
+[Prosegui](../42-persistent-data-volumes-filesystem-permissions/IT.md) al prossimo capitolo.

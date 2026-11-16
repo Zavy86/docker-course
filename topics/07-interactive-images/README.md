@@ -223,6 +223,8 @@ scenes, but it is certainly not the approach we will use to create images for ou
 ***
 
 > Resources:
+>
+> - [Create an image from a container](https://docs.docker.com/reference/cli/docker/container/commit/)
 > - [alpine](https://hub.docker.com/_/alpine)
 
 [Continue](../08-dockerfile-images/README.md) to the next topic.

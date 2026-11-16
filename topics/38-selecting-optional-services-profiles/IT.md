@@ -256,7 +256,7 @@ $ docker compose --profile "*" down
 
 ***
 
-> __selecting optional services__
+> __profiles and dependencies__
 >
 > - keep required services available
 > - validate each combination
@@ -275,7 +275,7 @@ essere sempre disponibile.
 
 ***
 
-> __selecting optional services__
+> __profiles and project lifecycle__
 >
 > - select services, not settings
 > - keep project identity explicit
@@ -306,3 +306,7 @@ Se abbiamo avviato strumenti temporanei, dobbiamo fermarli esplicitamente quando
 > Resources:
 >
 > - [Using profiles with Compose](https://docs.docker.com/compose/how-tos/profiles/)
+> - [alpine](https://hub.docker.com/_/alpine)
+> - [nginx](https://hub.docker.com/_/nginx)
+
+[Prosegui](../39-startup-dependencies-healthchecks-readiness/IT.md) al prossimo capitolo.

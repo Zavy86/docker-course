@@ -549,3 +549,6 @@ E rilanciate nuovamente il comando di build.
 > Resources:
 >
 > - [Compose builds](https://docs.docker.com/reference/compose-file/build/)
+> - [nginx](https://hub.docker.com/_/nginx)
+
+[Prosegui](../33-environment-variables-interpolation-precedence/IT.md) al prossimo capitolo.

@@ -203,12 +203,11 @@ comincia a inviare le richieste ottenendo immediatamente risposta riuscita.
 
 ***
 
-> __read the health status__
+> __dependency conditions and health status__
 >
-> - starting
-> - healthy
-> - unhealthy
-> - completed
+> - wait for a service to start
+> - wait for a healthy status
+> - wait for successful completion
 
 Le condizioni disponibili rappresentano tre esigenze diverse: `service_started` corrisponde all'attesa del semplice 
 avvio, come nella lista iniziale. `service_healthy` richiede un healthcheck riuscito, mentre `service_completed_successfully` 
@@ -393,3 +392,6 @@ L'healthcheck rende osservabile una condizione ma non ripara da sola i servizi.
 > Resources:
 >
 > - [Control startup and shutdown order](https://docs.docker.com/compose/how-tos/startup-order/)
+> - [busybox](https://hub.docker.com/_/busybox)
+
+[Prosegui](../40-running-one-off-tasks-database-migrations/IT.md) al prossimo capitolo.

@@ -1,6 +1,6 @@
 # Compose files syntax
 
-> __compose files syntax__
+> __Compose file syntax__
 >
 > - YAML
 > - indentation
@@ -51,7 +51,7 @@ considerarsi come impostazioni del solo servizio `web`, non dell'intero progetto
 
 ***
 
-> __compose files syntax__
+> __mappings and indentation__
 >
 > - indentation
 > - mappings
@@ -103,7 +103,7 @@ mantenere il solo servizio `web`.
 
 ***
 
-> __compose files syntax__
+> __lists and nested mappings__
 >
 > - lists
 > - one item per line
@@ -168,7 +168,7 @@ scrivere dobbiamo sempre fare riferimento alla documentazione ufficiale di Docke
 
 ***
 
-> __compose files syntax__
+> __scalar values__
 >
 > - strings
 > - quoted values
@@ -207,7 +207,7 @@ container con una semplice mappa chiamata `environment`. I valori booleani vanno
 
 ***
 
-> __compose files syntax__
+> __comments and quoting__
 >
 > - comments
 > - special characters
@@ -243,7 +243,7 @@ Nel primo caso il valore conterrà proprio i caratteri `\` e `n`.
 
 ***
 
-> __compose files syntax__
+> __multiline strings__
 >
 > - multiline strings
 > - literal style
@@ -356,7 +356,7 @@ porta potrebbe essere già occupata. Questi problemi emergeranno solamente quand
 
 ***
 
-> __compose files syntax__
+> __reading YAML step by step__
 >
 > - don't panic
 > - take it easy 
@@ -373,3 +373,8 @@ i file che andremo a realizzare nei prossimi capitoli.
 > Resources:
 >
 > - [YAML](https://yaml.org/)
+> - [nginx](https://hub.docker.com/_/nginx)
+> - [postgres](https://hub.docker.com/_/postgres)
+> - [redis](https://hub.docker.com/_/redis)
+
+[Prosegui](../30-managing-stack-lifecycle/IT.md) al prossimo capitolo.

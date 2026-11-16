@@ -386,3 +386,8 @@ e lasciando sulla rete interna quei servizi che non hanno bisogno di essere espo
 > Resources
 >
 > - [Caddy with Docker Compose](https://caddyserver.com/docs/running#docker-compose)
+> - [busybox](https://hub.docker.com/_/busybox)
+> - [caddy](https://hub.docker.com/_/caddy)
+> - [nginx](https://hub.docker.com/_/nginx)
+
+[Prosegui](../48-collecting-rotating-service-logs/IT.md) al prossimo capitolo.

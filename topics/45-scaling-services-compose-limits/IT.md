@@ -387,3 +387,6 @@ alle esigenze del progetto.
 > Resources
 >
 > - [Starting and scaling services](https://docs.docker.com/reference/cli/docker/compose/up/)
+> - [busybox](https://hub.docker.com/_/busybox)
+
+[Prosegui](../46-hardening-compose-services/IT.md) al prossimo capitolo.

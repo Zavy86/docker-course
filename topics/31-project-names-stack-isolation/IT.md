@@ -218,7 +218,7 @@ Vedremo che entrambi i progetti sono ancora attivi semplicemente Compose non sap
 
 ***
 
-> __project names and stack isolation__
+> __choosing a project name__
 >
 > - command-line override
 > - explicit project name
@@ -255,7 +255,7 @@ Vedremo un terzo progetto chiamato `demo`, con la propria rete e i propri contai
 
 ***
 
-> __project names and stack isolation__
+> __the limits of project isolation__
 >
 > - host ports are shared
 > - avoid fixed container names
@@ -304,7 +304,7 @@ E anche chi controlla il daemon di Docker può intervenire su entrambi.
 
 ***
 
-> __project names and stack isolation__
+> __sharing a network between projects__
 >
 > - independent applications
 > - shared reverse proxy
@@ -439,3 +439,6 @@ ingress
 > Resources:
 >
 > - [Project names](https://docs.docker.com/compose/how-tos/project-name/)
+> - [nginx](https://hub.docker.com/_/nginx)
+
+[Prosegui](../32-building-pulling-publishing-images/IT.md) al prossimo capitolo.

@@ -3,7 +3,7 @@
 > __reduce unnecessary access__
 >
 > - start from application needs
-> - grant fewer privileges ever
+> - grant only necessary privileges
 > - verify after each change
 
 Quando sviluppiamo un'applicazione, il primo obiettivo è farla funzionare. Ma una volta avviato il servizio, è facile
@@ -270,3 +270,6 @@ all'ingresso `HTTP`, lasciando esposto un solo punto di accesso a tutto il nostr
 > Resources
 >
 > - [Compose trust model](https://docs.docker.com/compose/trust-model/)
+> - [busybox](https://hub.docker.com/_/busybox)
+
+[Prosegui](../47-reverse-proxies-https-controlled-access/IT.md) al prossimo capitolo.

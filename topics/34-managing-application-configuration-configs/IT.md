@@ -159,7 +159,7 @@ $ docker compose down
 
 ***
 
-> __managing application configuration with configs__
+> __choosing a configuration mechanism__
 >
 > - environments
 > - configs
@@ -183,7 +183,7 @@ volumes:
 
 ***
 
-> __managing application configuration with configs__
+> __configs and sensitive data__
 >
 > - readable files
 > - implementation limits
@@ -204,3 +204,6 @@ container (ogni suo processo) è in grado di leggerli.
 > Resources:
 >
 > - [Compose configs](https://docs.docker.com/reference/compose-file/configs/)
+> - [nginx](https://hub.docker.com/_/nginx)
+
+[Prosegui](../35-managing-sensitive-data-secrets/IT.md) al prossimo capitolo.

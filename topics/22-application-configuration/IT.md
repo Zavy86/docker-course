@@ -23,9 +23,8 @@ In questo capitolo vedremo alcuni fra i tipi di configurazione più comuni con i
 
 ***
 
-> __application configuration__
+> __command-line parameters__
 >
-> command-line parameters
 > - pros:
 >   - mandatory parameters
 >   - convenient for utilities
@@ -43,9 +42,8 @@ Risulta molto scomodo per configurazioni che devono cambiare in maniera dinamica
 
 ***
 
-> __application configuration__
+> __environment variables__
 >
-> environment variables
 > - pros:
 >   - optional parameters
 >   - lots of parameters
@@ -70,9 +68,8 @@ Non sono la scelta migliore per configurazioni che devono cambiare in maniera di
 
 ***
 
-> __application configuration__
+> __configuration baked into an image__
 >
-> baked-in configuration
 > - pros:
 >   - single file
 >   - stored in registry
@@ -96,9 +93,8 @@ A ogni modifica della configurazione sarà necessario ricompilare l'immagine e r
 
 ***
 
-> __application configuration__
+> __configuration volumes__
 >
-> configuration volume
 > - pros:
 >   - shared configuration
 >   - dynamically updatable
@@ -118,7 +114,7 @@ aggiungendo o rimuovendo parametri a suo piacere.
 
 ***
 
-> __application configuration__
+> __secrets and orchestrators__
 >
 > - secrets
 > - orchestrator
@@ -134,5 +130,10 @@ segreti in maniera sicura e sarebbe sempre preferibile usare questi sistemi in a
 Purtroppo, senza sistemi di orchestrazione, gestire i segreti in maniera sicura può risultare parecchio complesso.
 
 ***
+
+> Resources:
+>
+> - [Overriding container defaults](https://docs.docker.com/get-started/docker-concepts/running-containers/overriding-container-defaults/)
+> - [Bind mounts](https://docs.docker.com/engine/storage/bind-mounts/)
 
 [Prosegui](../23-limiting-resources/IT.md) al prossimo capitolo.

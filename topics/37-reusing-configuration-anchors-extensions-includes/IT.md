@@ -93,7 +93,7 @@ Come possiamo vedere entrambi i comandi stampano `blue` e `small` su due righe.
 
 ***
 
-> __reusing configuration__
+> __merging YAML mappings__
 >
 > - merge mappings with <<
 > - override individual keys
@@ -150,7 +150,7 @@ non possiamo usare la sintassi di interpolazionedelle variabili `${...}` per cos
 
 ***
 
-> __reusing configuration__
+> __reusing a service with extends__
 >
 > - reuse one service definition
 > - customize the inherited values
@@ -241,7 +241,7 @@ $ docker compose down
 
 ***
 
-> __reusing configuration__
+> __combining modules with include__
 >
 > - preserve local paths
 > - compose complete modules
@@ -386,7 +386,7 @@ $ docker compose down
 
 ***
 
-> __reusing configuration__
+> __choosing a reuse mechanism__
 >
 > - fragments: anchors and x-
 > - one service: extends
@@ -417,3 +417,7 @@ Per questo, ogni volta che combiniamo più file o più tecniche, conviene sempre
 > Resources:
 >
 > - [Compose file reference](https://docs.docker.com/reference/compose-file/)
+> - [alpine](https://hub.docker.com/_/alpine)
+> - [nginx](https://hub.docker.com/_/nginx)
+
+[Prosegui](../38-selecting-optional-services-profiles/IT.md) al prossimo capitolo.

@@ -280,7 +280,7 @@ chi la avvia deve conoscere soltanto il riferimento all'immagine e la configuraz
 >
 > - the registry stores images
 > - running containers use local images
-> - push and publish have different purposes
+> - publishing an image does not include volumes or secrets
 
 Dopo aver scaricato l'immagine, il container usa la copia presente sul daemon. Le richieste alla nostra pagina non
 passano attraverso il registry, che servirà di nuovo quando dovremo scaricare un'immagine o una versione diversa. Per
@@ -349,3 +349,7 @@ Ciaooo
 > Resources
 >
 > - [Distribution registry](https://distribution.github.io/distribution/about/deploying/)
+> - [registry](https://hub.docker.com/_/registry)
+> - [nginx](https://hub.docker.com/_/nginx)
+
+[Prosegui](../../contribute/IT.md) alla pagina conclusiva.

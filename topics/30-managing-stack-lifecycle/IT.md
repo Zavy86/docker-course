@@ -266,7 +266,7 @@ e0e7f70400d3f1ea957eef151586c1bec66c8773f431ef99a920756509e116a2
 
 ***
 
-> __managing the stack lifecycle__
+> __graceful shutdown__
 >
 > - graceful shutdown
 > - stop signal
@@ -290,7 +290,7 @@ principale del container deve gestirlo correttamente, e un eventuale script di a
 
 ***
 
-> __managing the stack lifecycle__
+> __restart policies__
 >
 > - no
 > - on-failure
@@ -458,7 +458,7 @@ echo-1 exited with code 0
 
 ***
 
-> __managing the stack lifecycle__
+> __removing a stack and its data__
 >
 > - remove containers
 > - keep persistent data
@@ -527,3 +527,7 @@ l'opzione `-v` al comando `down`
 > Resources:
 >
 > - [Restart policies](https://docs.docker.com/engine/containers/start-containers-automatically/)
+> - [alpine](https://hub.docker.com/_/alpine)
+> - [nginx](https://hub.docker.com/_/nginx)
+
+[Prosegui](../31-project-names-stack-isolation/IT.md) al prossimo capitolo.

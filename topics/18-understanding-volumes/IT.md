@@ -105,7 +105,7 @@ Usciamo salvando con `^X` e `Y`, poi torniamo al browser e aggiorniamo la pagina
 
 ***
 
-> __working with volumes__
+> __initializing volumes__
 >
 > - all empty
 > - empty volumes
@@ -143,7 +143,7 @@ lo avevamo aggiornato nel volume!
 
 ***
 
-> __working with volumes__
+> __bind mounts__
 >
 > - bind
 > - storage
@@ -212,7 +212,7 @@ E aggiorniamo la pagina nel browser, vedremo che la modifica sarà immediatament
 
 ***
 
-> __working with volumes__
+> __moving and preserving data__
 >
 > - migration
 > - preserving data
@@ -368,6 +368,8 @@ E potremo anche auto spegnerci:
 ***
 
 > Resources:
+>
+> - [Volumes](https://docs.docker.com/engine/storage/volumes/)
 > - [alpine](https://hub.docker.com/_/alpine)
 > - [busybox](https://hub.docker.com/_/busybox)
 > - [docker](https://hub.docker.com/_/docker)

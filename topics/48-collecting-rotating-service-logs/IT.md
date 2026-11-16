@@ -201,3 +201,6 @@ quando ci capiterà, e sicuramente prima o poi ci capiterà, di dover ricostruir
 > Resources
 >
 > - [Docker logging drivers](https://docs.docker.com/engine/logging/configure/)
+> - [busybox](https://hub.docker.com/_/busybox)
+
+[Prosegui](../49-monitoring-stacks-metrics-alerts/IT.md) al prossimo capitolo.

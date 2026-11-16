@@ -303,3 +303,6 @@ al server cosicché i container potranno ripartire anche senza il nostro compute
 > Resources
 >
 > - [Docker daemon access over SSH](https://docs.docker.com/engine/security/protect-access/)
+> - [nginx](https://hub.docker.com/_/nginx)
+
+[Prosegui](../52-updating-services-rolling-back-changes/IT.md) al prossimo capitolo.

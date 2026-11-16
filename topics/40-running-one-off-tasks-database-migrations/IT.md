@@ -385,3 +385,6 @@ Questa responsabilità rimane nel comando, nello script o nello strumento che st
 > Resources
 >
 > - [One-off commands with Compose](https://docs.docker.com/reference/cli/docker/compose/run/)
+> - [alpine](https://hub.docker.com/_/alpine)
+
+[Prosegui](../41-networking-service-discovery-isolation/IT.md) al prossimo capitolo.

@@ -108,7 +108,7 @@ dichiarazione in cima, e ripetiamo il `run`. Il controllo fallirà: dichiarare u
 
 ***
 
-> __managing sensitive data with secrets__
+> __applications and the _FILE convention__
 >
 > - _FILE convention
 > - the application must read the file
@@ -136,7 +136,7 @@ secrets:
 
 ***
 
-> __managing sensitive data with secrets__
+> __protecting local secret files__
 >
 > - local secrets are not a vault
 > - protect files and backups
@@ -163,7 +163,7 @@ La prova con Alpine non dimostra da sola che un'applicazione eseguita come utent
 
 ***
 
-> __managing sensitive data with secrets__
+> __rotating credentials__
 >
 > - rotate the credential
 > - update consumers
@@ -184,7 +184,7 @@ l'aggiornamento di tutti i client che ci si collegano.
 
 ***
 
-> __managing sensitive data with secrets__
+> __secrets at build and runtime__
 >
 > - runtime and build are separate
 > - avoid accidental disclosure
@@ -221,3 +221,6 @@ reti vengono comunque conservate nell'host, con `down` possiamo essere sicuri di
 > Resources:
 >
 > - [Secrets in Compose](https://docs.docker.com/compose/how-tos/use-secrets/)
+> - [alpine](https://hub.docker.com/_/alpine)
+
+[Prosegui](../36-multiple-compose-files-overrides-environments/IT.md) al prossimo capitolo.

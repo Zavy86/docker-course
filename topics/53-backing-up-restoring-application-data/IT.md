@@ -320,3 +320,6 @@ potrebbe essere necessario per tornare operativi, non sottovalutiamo questo aspe
 > Resources
 >
 > - [Back up and restore Docker volumes](https://docs.docker.com/engine/storage/volumes/#back-up-restore-or-migrate-data-volumes)
+> - [busybox](https://hub.docker.com/_/busybox)
+
+[Prosegui](../54-distributing-to-private-registry/IT.md) al prossimo capitolo.

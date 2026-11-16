@@ -419,3 +419,7 @@ provato, interrompendo il segnale in modo controllato e verificando che l'avviso
 > Resources
 >
 > - [Getting started with Prometheus](https://prometheus.io/docs/prometheus/latest/getting_started/)
+> - [prom/prometheus](https://hub.docker.com/r/prom/prometheus)
+> - [prom/alertmanager](https://hub.docker.com/r/prom/alertmanager)
+
+[Prosegui](../50-troubleshooting-compose-stacks/IT.md) al prossimo capitolo.

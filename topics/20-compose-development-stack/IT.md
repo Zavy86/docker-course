@@ -3,7 +3,7 @@
 ![cover](https://img.youtube.com/vi/sEiff3wgq_I/mqdefault.jpg)  
 [https://youtu.be/sEiff3wgq_I](https://youtu.be/sEiff3wgq_I)
 
-> __compose for development stack__
+> __Compose for a development stack__
 >
 > - stack definition
 > - multiple containers
@@ -251,12 +251,11 @@ Che si occuperò per l'appunto di ricreare tutto lo stack da zero ed eseguirlo p
 
 ***
 
-> __compose for development stack__
+> __repeatable development environments__
 >
-> - stack definition
-> - multiple containers
-> - networking management
-> - environment variables
+> - change code and service versions
+> - share configuration with the team
+> - start the stack with one command
 
 Anche in questo caso ovviamente potremo procedere con la modifica del codice sorgente della nostra applicazione, o ad
 esempio la modifica della versione di Postgres per testare l'aggiornamento a una nuova release o quant'altro essendo
@@ -273,6 +272,8 @@ ma per ora se volete approfondire vi rimando alla guida ufficiale di [Docker Com
 ***
 
 > Resources:
+>
+> - [Docker Compose](https://docs.docker.com/get-started/introduction/)
 > - [node](https://hub.docker.com/_/node)
 > - [postgres](https://hub.docker.com/_/postgres)
 > - [subscriptions](../../sources/subscriptions)

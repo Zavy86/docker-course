@@ -5,7 +5,7 @@
 
 ***
 
-> __run containers in background__
+> __run containers in the background__
 > 
 > - run non-interactive
 > - run in background
@@ -50,7 +50,7 @@ immagine personalizzata creata dall'utente `Zavy86`.
 
 ***
 
-> __run containers in background__
+> __signals and the main process__
 > 
 > - SIGINT, SIGTERM, SIGKILL
 > - foreground process
@@ -247,7 +247,7 @@ Per uscire e tornare al nostro terminare, premiamo `^C`.
 
 ***
 
-> __run containers in background__
+> __stopping and killing containers__
 >
 > - docker stop -> SIGTERM + SIGKILL
 > - docker kill -> SIGKILL
@@ -317,6 +317,8 @@ Vedremo poi nei capitoli successivi come far sparire i container da questa lista
 ***
 
 > Resources:
+>
+> - [Running containers](https://docs.docker.com/engine/containers/run/)
 > - [clock](../../sources/clock)
 > - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 

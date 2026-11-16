@@ -328,3 +328,6 @@ Una buona diagnosi produce una causa verificabile e una modifica mirata.
 > Resources
 >
 > - [Inspecting Docker objects](https://docs.docker.com/reference/cli/docker/inspect/)
+> - [busybox](https://hub.docker.com/_/busybox)
+
+[Prosegui](../51-deploying-compose-stacks-remote-hosts/IT.md) al prossimo capitolo.

@@ -3,7 +3,7 @@
 ![cover](https://img.youtube.com/vi/BvRBooSVd-c/mqdefault.jpg)  
 [https://youtu.be/BvRBooSVd-c](https://youtu.be/BvRBooSVd-c)
 
-> __reduce images size__
+> __reducing image size__
 >
 > - hello executable
 > - hello.c source code
@@ -23,7 +23,7 @@ image with a lot of unnecessary components inside is far from ideal.
 
 ***
 
-> __reduce images size__
+> __layers and removed build dependencies__
 >```
 > alpine
 > └ install gcc and libc-dev
@@ -43,7 +43,7 @@ This is because we would simply be adding additional layers, and each layer woul
 
 ***
 
-> __reduce images size__
+> __ways to reduce image size__
 >
 > - collapsing layers
 > - build binaries outside
@@ -57,7 +57,7 @@ Let's explore them together.
 
 ***
 
-> __reduce images size__
+> __collapsing layers__
 >
 > collapsing layers
 >
@@ -106,7 +106,7 @@ and slower.
 
 ***
 
-> __reduce images size__
+> __building binaries outside the image__
 >
 > build binaries outside
 >
@@ -138,7 +138,7 @@ compatible, for example, with execution on `arm` machines, effectively reducing 
 
 ***
 
-> __reduce images size__
+> __squashing the final image__
 >
 > squashing final image
 >
@@ -164,7 +164,7 @@ Finally, the squashing operation, especially for large images, can take a signif
 
 ***
 
-> __reduce images size__
+> __multi-stage builds__
 >
 > multi-stage build
 >
@@ -354,6 +354,8 @@ way, we can maximize cache usage and avoid duplicating the same code across mult
 ***
 
 > Resources:
+>
+> - [Multi-stage builds](https://docs.docker.com/build/building/multi-stage/)
 > - [alpine](https://hub.docker.com/_/alpine)
 > - [hello-multi-stage](../../sources/hello-multi-stage)
 

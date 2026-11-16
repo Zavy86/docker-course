@@ -1,6 +1,6 @@
 # Environment variables, interpolation, and precedence
 
-> __environment variables, interpolation, and precedence__
+> __environment variables and interpolation__
 >
 > - configure compose
 > - configure the container
@@ -223,7 +223,7 @@ Hello by shell
 
 ***
 
-> __environment variables, interpolation, and precedence__
+> __interpolation defaults and required values__
 >
 > - defaults
 > - required values
@@ -399,3 +399,6 @@ di lanciare lo stack con il comando `config`, in questo modo ci toglieremo ogni 
 > Resources:
 >
 > - [Environment variables in Compose](https://docs.docker.com/compose/how-tos/environment-variables/)
+> - [alpine](https://hub.docker.com/_/alpine)
+
+[Prosegui](../34-managing-application-configuration-configs/IT.md) al prossimo capitolo.

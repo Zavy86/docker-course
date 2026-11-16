@@ -317,3 +317,6 @@ potrebbe non bastare a rimettere in funzione il servizio.
 > Resources
 >
 > - [Using Compose in production](https://docs.docker.com/compose/how-tos/production/)
+> - [busybox](https://hub.docker.com/_/busybox)
+
+[Prosegui](../53-backing-up-restoring-application-data/IT.md) al prossimo capitolo.

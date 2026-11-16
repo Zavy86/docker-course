@@ -15,7 +15,7 @@ pochino curiosi, fate un ultimo sforzo e vedrete che ne varrà la pena!
 
 ***
 
-> __container internals__
+> __the building blocks of containers__
 >
 > - namespaces
 > - control groups
@@ -35,7 +35,7 @@ dei processi come l'`init system` che gestisce il ciclo di vita dei processi e d
 
 ***
 
-> __container internals__
+> __control groups__
 >
 > control groups
 > - hierarchy
@@ -161,7 +161,7 @@ E così via anche per le altre risorse.
 
 ***
 
-> __container internals__
+> __namespaces__
 >
 > namespaces
 > - limit
@@ -249,7 +249,7 @@ Come possiamo intuire le modifiche apportate all'interno di uno spazio non sono 
 
 ***
 
-> __container internals__
+> __copy-on-write__
 >
 > copy-on-write
 > - filesystem
@@ -374,7 +374,7 @@ che contiene la storia del comando appena eseguito per poterlo richiamare con la
 
 ***
 
-> __container internals__
+> __open container initiative__
 >
 > open container initiative
 > - open governance
@@ -392,6 +392,8 @@ siano portabili e interoperabili tra diversi fornitori e piattaforme, standardiz
 ***
 
 > Resources:
+>
+> - [Docker Engine security](https://docs.docker.com/engine/security/)
 > - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 
-[Prosegui](../../contribute/IT.md) al prossimo capitolo.
+[Prosegui](../28-understanding-compose/IT.md) al prossimo capitolo.
