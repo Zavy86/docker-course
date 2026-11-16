@@ -66,35 +66,33 @@ Below is a list of topics covered in this course:
 
 ### Docker Compose
 
-The Compose chapters are currently available in [Italian](topics/IT.md#docker-compose).
-
-28. Understanding Docker Compose
-29. Compose file syntax
-30. Stack lifecycle
-31. Project isolation
-32. Images with Compose
-33. Environment variables
-34. Application configs
-35. Managing secrets
-36. Compose overrides
-37. Reusing configuration
-38. Compose profiles
-39. Service readiness
-40. One-off tasks
-41. Compose networking
-42. Persistent data
-43. Compose Watch
-44. Resource limits
-45. Scaling services
-46. Hardening services
-47. Reverse proxy and HTTPS
-48. Service logs
-49. Metrics and alerts
-50. Troubleshooting stacks
-51. Remote deployment
-52. Updates and rollbacks
-53. Backup and restore
-54. Private registry
+28. [Understanding Docker Compose](28-understanding-docker-compose/README.md)
+29. [Compose file syntax](29-compose-file-syntax/README.md)
+30. [Stack lifecycle](30-stack-lifecycle/README.md)
+31. [Project isolation](31-project-isolation/README.md)
+32. [Images with Compose](32-images-compose/README.md)
+33. [Environment variables](33-environment-variables/README.md)
+34. [Application configs](34-application-configs/README.md)
+35. [Managing secrets](35-managing-secrets/README.md)
+36. [Compose overrides](36-compose-overrides/README.md)
+37. [Reusing configuration](37-reusing-configuration/README.md)
+38. [Compose profiles](38-compose-profiles/README.md)
+39. [Service readiness](39-service-readiness/README.md)
+40. [One-off tasks](40-one-off-tasks/README.md)
+41. [Compose networking](41-compose-networking/README.md)
+42. [Persistent data](42-persistent-data/README.md)
+43. [Compose Watch](43-compose-watch/README.md)
+44. [Resource limits](44-resource-limits/README.md)
+45. [Scaling services](45-scaling-services/README.md)
+46. [Hardening services](46-hardening-services/README.md)
+47. [Reverse proxy and HTTPS](47-reverse-proxy-https/README.md)
+48. [Service logs](48-service-logs/README.md)
+49. [Metrics and alerts](49-metrics-alerts/README.md)
+50. [Troubleshooting stacks](50-troubleshooting-stacks/README.md)
+51. [Remote deployment](51-remote-deployment/README.md)
+52. [Updates and rollbacks](52-updates-rollbacks/README.md)
+53. [Backup and restore](53-backup-restore/README.md)
+54. [Private registry](54-private-registry/README.md)
 
 
 ## Translations
