@@ -166,17 +166,20 @@ Verifichiamo di avere a disposizione Docker Compose con il comando:
 $ docker compose version
 ```
 
-Poi creiamo una nuova directory chiamata `compose`, spostiamoci al suo interno con il comando:
+E qualora ancora non l'avessimo fatto cloniamo il repository di questo corso:
 
 ```shell
-$ mkdir compose && cd $_
+$ git clone https://github.com/Zavy86/docker-course.git
 ```
 
-E creiamo con il nostro editor preferito il file `compose.yaml`:
+Spostiamoci nella directory:
 
 ```shell
-$ nano compose.yaml
+$ cd docker-course/sources/compose/syntax
 ```
+
+E analizziamo il file `compose.yaml`:
+
 ```yaml
 services:
   web:

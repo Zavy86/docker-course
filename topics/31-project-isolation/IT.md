@@ -42,14 +42,13 @@ services:
     image: nginx
     ports:
       - target: 80
-        host_ip: 127.0.0.1
+        host_ip: 0.0.0.0
 ```
 
 È ancora il nostro Nginx. Questa volta indichiamo la porta del container `80`, ma lasciamo scegliere a Docker una porta 
-libera sull'host, `127.0.0.1` limita la pubblicazione alla macchina locale, per questa prova non ci serve raggiungere il
-server dagli altri dispositivi della rete.
+libera sull'host.
 
-Procediamo con l'avviamento dei due istanze di progetto:
+Procediamo con l'avvio delle due istanze di progetto:
 
 ```shell
 $ docker compose -p blue up -d
@@ -90,10 +89,10 @@ $ docker compose -p blue ps
 ```
 ```terminaloutput
 NAME         IMAGE   COMMAND                  SERVICE   CREATED         STATUS         PORTS
-blue-web-1   nginx   "/docker-entrypoint.…"   web       9 seconds ago   Up 9 seconds   127.0.0.1:49957->80/tcp
+blue-web-1   nginx   "/docker-entrypoint.…"   web       9 seconds ago   Up 9 seconds   0.0.0.0:49957->80/tcp
 ```
 
-In questo caso possiamo ance notare quale porta è stata assegnata per il progetto `blue`. 
+In questo caso possiamo anche notare quale porta è stata assegnata per il progetto `blue`. 
 
 Per trovare anche la porta assegnata al progetto `green` possiamo usare lo stesso comando o il comando:
 
@@ -101,7 +100,7 @@ Per trovare anche la porta assegnata al progetto `green` possiamo usare lo stess
 $ docker compose -p green port web 80
 ```
 ```terminaloutput
-127.0.0.1:49978
+0.0.0.0:49978
 ```
 
 Se apriamolo nel browser questi due indirizzi, vedremo due pagine uguali, ma servite da due container diversi.
@@ -154,7 +153,7 @@ $ docker ps -a --filter label=com.docker.compose.project=blue
 ```
 ```terminaloutput
 CONTAINER ID   IMAGE   COMMAND                  CREATED          STATUS          PORTS                     NAMES
-d89b023209d1   nginx   "/docker-entrypoint.…"   18 seconds ago   Up 18 seconds   127.0.0.1:49957->80/tcp   blue-web-1
+d89b023209d1   nginx   "/docker-entrypoint.…"   18 seconds ago   Up 18 seconds   0.0.0.0:49957->80/tcp   blue-web-1
 ```
 
 Il prefisso `com.docker.compose` è riservato a Compose, quindi non lo possiamo usare per le nostre etichette.
@@ -178,7 +177,7 @@ $ docker compose -p green ps
 ```
 ```terminaloutput
 NAME          IMAGE   COMMAND                  SERVICE   CREATED          STATUS          PORTS
-green-web-1   nginx   "/docker-entrypoint.…"   web       27 seconds ago   Up 27 seconds   127.0.0.1:49978->80/tcp
+green-web-1   nginx   "/docker-entrypoint.…"   web       27 seconds ago   Up 27 seconds   0.0.0.0:49978->80/tcp
 ```
 
 Possiamo poi rilanciarlo con il comando:
@@ -238,7 +237,7 @@ Per fissare il nome nel nostro file possiamo aggiungere, prima di `services`, qu
 name: demo
 ```
 
-Ricordiamo in questi casi di usare nomi semplici con lettere minuscole, numeri o trattini per evitare problemi.
+Ricordiamoci in questi casi di usare nomi semplici con lettere minuscole, numeri o trattini per evitare problemi.
 
 Cambiare il nome progetto non rinomina né migra gli stack precedente eseguiti, se infatti lanciamo nuovamente un:
 
@@ -261,7 +260,7 @@ Vedremo un terzo progetto chiamato `demo`, con la propria rete e i propri contai
 > - avoid fixed container names
 > - isolation has boundaries
 
-Se vi ricordate, nella configurazione del file `compose.yaml` non abbiamo indicati quale porta dell'host usare per il
+Se vi ricordate, nella configurazione del file `compose.yaml` non abbiamo indicato quale porta dell'host usare per il
 servizio `web`, ma abbiamo specificato solamente di esporre la porta `80` del container.
 
 ```yaml
@@ -270,7 +269,7 @@ services:
     image: nginx
     ports:
       - target: 80
-        host_ip: 127.0.0.1
+        host_ip: 0.0.0.0
 ```
 
 In questo esempio la cosa era voluta, in quanto se avessimo specificato una porta fissa, per esempio `"8080:80"`, quando
@@ -360,7 +359,7 @@ services:
     image: nginx
     ports:
       - target: 80
-        host_ip: 127.0.0.1
+        host_ip: 0.0.0.0
     networks:
       - ingress
 ```
@@ -425,7 +424,7 @@ $ docker compose -p green down
 ```
 
 La rete esterna non viene rimossa da `down`. In questa prova l'abbiamo creata noi e, dopo aver rimosso tutti i container
-che la utilizzavano, possiamo eliminarla separatamente.
+che la utilizzavano, possiamo eliminarla separatamente con il comando:
 
 ```shell
 $ docker network rm ingress

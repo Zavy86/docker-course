@@ -519,7 +519,7 @@ I volumi nominati invece restano disponibili e possono essere riutilizzati dal p
 normalmente sul disco, ma un successivo `up` non li ricollega automaticamente ai nuovi container e i file dei bind mount
 restano nel percorso dell'host. Riprenderemo poi meglio questi casi nel capitolo dedicato alla persistenza dei dati.
 
-Se volessimo invece rimuovere anche tutti volumi collegati ai container, con i dati che contengono, dovremo aggiungere
+Se volessimo invece rimuovere anche tutti i volumi collegati ai container, con i dati che contengono, dovremo aggiungere
 l'opzione `-v` al comando `down`
 
 ***

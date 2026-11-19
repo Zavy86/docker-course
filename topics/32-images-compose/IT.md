@@ -39,10 +39,10 @@ services:
   web:
     image: nginx:stable-alpine
     ports:
-      - "127.0.0.1:8080:80"
+      - "8080:80"
 ```
 
-In questo esempio per il servizio web abbiao scelto una variante rispetto alla solita immagine Nginx di sempre, questa
+In questo esempio per il servizio web abbiamo scelto una variante rispetto alla solita immagine Nginx di sempre, questa
 versione si basa su Alpine Linux, più piccola e con meno librerie, ma soprattuto non presente sul nostro host.
 
 Per effettuare il download dell'immagine usiamo il comando:
@@ -87,11 +87,14 @@ $ docker compose down
 
 Ora per vedere come funziona il comando `build` sostituiamo la pagina di benvenuto con una nostra pagina personalizzata.
 
-Copiamo questa directory nella directory `compose-image-build` e creiamo il file `index.html` con questo contenuto:
+Spostiamoci nella directory:
 
 ```shell
-$ nano index.html
+$ cd docker-course/sources/compose/image-build
 ```
+
+Nella quale trovimo il file `index.html`:
+
 ```html
 <!doctype html>
 <html lang="it">
@@ -101,31 +104,28 @@ $ nano index.html
 </html>
 ```
 
-Creiamo poi anche un `Dockerfile` con questo contenuto:
+Il `Dockerfile`:
 
-```shell
-$ nano Dockerfile
-```
 ```dockerfile
 FROM nginx:stable-alpine
 COPY index.html /usr/share/nginx/html/index.html
 ```
 
-E infine sostituiamo il contenuto di `compose.yaml` con:
+E infine il `compose.yaml`:
 
 ```yaml
 services:
   web:
     build: .
     ports:
-      - "127.0.0.1:8080:80"
+      - "8080:80"
 ```
 
-In pratica al posto di specificare il nome di un immagine preconfezionata, utilizziamo il comando `build` con il punto
-che indica che il contesto di build è la directory relativa al file di Compose. Il builder cercherà qui il `Dockerfile`
-e i file da copiare.
+In pratica, in questo esempio, al posto di specificare il nome di un immagine preconfezionata, utilizziamo il comando 
+`build` con il punto che indica che il contesto di build è la directory relativa al file di Compose. Il builder cercherà
+qui il `Dockerfile` e i file da copiare.
 
-Non stiamo effettuando un mount, in questo caso stiamo proprio copianto il file `index.html` dentro all'immagine.
+Non stiamo effettuando un mount, in questo caso stiamo proprio copiando il file `index.html` dentro all'immagine.
 
 Ora costruiamo l'immagine personalizzata con il comando:
 
@@ -298,7 +298,7 @@ $ docker image inspect compose-image-build-args-web --format '{{ index .Config.L
 
 ***
 
-Quando ripetendo più volte una build, Docker può riutilizzare i passaggi rimasti uguali utilizzando la sua cache, come
+Quando ripetiamo più volte una build, Docker può riutilizzare i passaggi rimasti uguali utilizzando la sua cache, come
 possiamo osservare nel log dell'ultima build che abbiamo eseguito.
 
 Se vogliamo verificare se è presente una versione più recente dell'immagine indicata da `FROM`, possiamo forzarla con:

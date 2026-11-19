@@ -29,11 +29,8 @@ Spostiamoci nella directory dell'esempio precedente:
 $ cd docker-course/sources/compose/syntax
 ```
 
-E analizziamo il file `compose.yaml`:
+E analizziamo nuovamente il file `compose.yaml`:
 
-```shell
-$ cat compose.yaml
-```
 ```yaml
 services:
   web:
@@ -66,7 +63,7 @@ Una **mappa** invece è semplicemente un insieme di coppie chiave-valore. Per es
 la chiave è `image` e il valore è `nginx`. Tra i due dobbiamo mettere il carattere dei due punti seguiti da uno spazio.
 
 Il valore può anche essere un gruppo di altre impostazioni, ad esempio come succede con `web:` alla seconda riga, invece
-di scrivere qualcosa subito dopo i due punti, siamo andati a capo e abbiamo aggiunginto altre proprietà in un livello di
+di scrivere qualcosa subito dopo i due punti, siamo andati a capo e abbiamo aggiunto altre proprietà in un livello di
 rientro gerarchico in più.
 
 ***
@@ -202,8 +199,7 @@ environment:
 ```
 
 Pensiamo alle variabili d'ambiente, che abbiamo già incontrato nei capitoli precedenti. In Compose possiamo passarle al
-container con una semplice mappa chiamata `environment`. I valori booleani vanno però scritti tra virgolette, come
-`"true"`, perché le variabili d'ambiente vengono passate come stringhe e questo campo non accetta booleani YAML.
+container con una semplice mappa chiamata `environment`.
 
 ***
 
