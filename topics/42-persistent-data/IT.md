@@ -109,10 +109,10 @@ $ docker compose down
 ```terminaloutput
 [+] down 2/2
  ✔ Container storage-app-1 Removed                                                                                  3.1s
-✔ Network storage_default Removed                                                                                   0.1s
+ ✔ Network storage_default Removed                                                                                  0.1s
 ```
 
-Come possiamo notare dal log, sono stati eliminato il container e la rete collegata, ma non il volume.
+Come possiamo notare dal log, sono stati eliminati il container e la rete collegata, ma non il volume.
 
 Se andiamo ad avviare nuovamente lo stack infatti:
 
@@ -254,7 +254,7 @@ sh: can't create /input/other.txt: Read-only file system
 Nonostante il mount in sola lettura, il file resta comunque modificabile dall'host, `read_only` limita questo accesso
 dal container, non congela la sorgente stessa.
 
-I percorsi relativi copme `./input` seguono le regole del progetto Compose e dei file multipli già viste.
+I percorsi relativi come `./input` seguono le regole del progetto Compose e dei file multipli già viste.
 
 ***
 
@@ -268,8 +268,10 @@ quindi adatto soltanto per quei dati che l'applicazione può eliminare o ricrear
 Per provarlo, aggiungiamo al servizio, allo stesso livello della `image`, questo frammento:
 
 ```yaml
+[...]
 tmpfs:
   - /scratch:size=16m
+[...]
 ```
 
 Procediamo poi con il solito riavvio dello stack con:
@@ -292,10 +294,10 @@ Filesystem                Size      Used   Available   Use%   Mounted on
 tmpfs                    16.0M         0       16.0M     0%   /scratch  
 ```
 
-Come possiamo notare Linux crea uno spazio temporaneo con limite di 16 MiB, in questo caso utile per piccoli file di
+Come possiamo notare Linux crea uno spazio temporaneo limitato a 16 MiB, in questo caso utile per piccoli file di
 lavoro, spesso questi dati finiscono nello spazio di swap dell'host ma non prendetelo come una garanzia assoluta.
 
-Proviamo a sriverci dentro un file:
+Proviamo a scriverci dentro un file:
 
 ```shell
 $ docker compose exec app sh -c 'echo temporary > /scratch/test.txt'
@@ -368,7 +370,7 @@ Diversamente da un `tmpfs`, i dati di un volume anonimo non vengono eliminati se
 Se Compose ricrea un container esistente con `up`, normalmente riutilizza i suoi volumi anonimi. Qualora non volessimo
 questo comportamento doveremo specificare l'opzione `--renew-anon-volumes` per crearne di nuovi.
 
-Con `down`, invece, i container vengono rimossi e i volumi anonimi rimangono sul disco, ma un successivo `up` non li
+Con `down`, invece, i container vengono rimossi e i volumi anonimi rimangono su disco, ma un successivo `up` non li
 ricollega automaticamente, perché non avendo un nome stabile nella configurazione Compose non è in grado di farlo.
 
 ***
@@ -389,7 +391,7 @@ normalmente li copia all'interno del volume. Possiamo disabilitare questa copia 
 Se invece il **volume contiene già dei dati**, Docker li conserva senza sovrascriverli e hanno la precedenza sui dati
 che erano presenti inizialmente nell'immagine.
 
-In ogni caso queta copia avviene solo all'inizio, durante l'avvio dello stack, non è una sincronizzazione continua.
+In ogni caso questa copia avviene solo all'inizio, durante l'avvio dello stack, non è una sincronizzazione continua.
 Aggiornare l'immagine non aggiorna quindi automaticamente i file che si trovano già all'interno del volume.
 
 Lo stesso principio è importante per i database. Molte immagini eseguono gli script di inizializzazione solo quando la 
@@ -402,6 +404,8 @@ e i suoi dati alla leggera per evitare problemi.
 Un mount scrivibile (non in `readonly` per capirci) può comunque restituire `Permission denied` se proviamo ad accedere
 al suo contenuto, perché in questo caso contano anche l'utente del processo e i permessi dei files.
 
+Tramite il comando:
+
 ```shell
 $ docker compose exec app id
 ```
@@ -409,8 +413,9 @@ $ docker compose exec app id
 uid=0(root) gid=0(root) groups=0(root),0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10(wheel),11(floppy),20(dialout),26(tape),27(video)
 ```
 
-Questo comando ci mostra l’utente `root`, il suo gruppo principale ed eventuali gruppi aggiuntivi. Questi identificativi
-contribuiscono a determinare quali file il processo può leggere o modificare.
+Otterremo l’utente con cui viene eseguito il container, il suo gruppo principale ed eventuali gruppi aggiuntivi. 
+
+Questi identificativi contribuiscono a determinare quali file il processo può leggere o modificare.
 
 ```shell
 $ docker compose exec app ls -ldn /data /data/message.txt
@@ -447,7 +452,7 @@ $ docker compose down -v
 > - external means separately managed
 > - shared storage needs application support
 
-Come per le reti, anche i volumi possono essere gestito fuori dal progetto.
+Come per le reti, anche i volumi possono essere gestiti fuori dal progetto.
 
 Il volume deve già esistere, Compose lo cerca con il nome esatto e non lo elimina con `down`, neppure aggiungendo `-v`.
 

@@ -1,16 +1,26 @@
-# One-off tasks
+# Running one-off jobs
 
-> __one-off tasks__
+> __running one-off jobs__
 >
 > - check the result
 > - run a command and finish
 > - reuse the service configuration
 
-Non tutti i container devono restare accesi. Un server web aspetta richieste, mentre un'importazione di dati, un comando
-amministrativo o una migrazione di un database devono svolgere un lavoro e poi terminare.
+Se dovessimo svolgere un'operazione occasionale nel nostro stack, avrebbe poco senso tenere un container sempre acceso
+per eseguirla. Ci servirebbe un container giusto per il tempo necessario a svolgere quel lavoro. Una volta terminato,
+vorremmo sapere se l'operazione è riuscita o se si è interrotta prima di arrivare al risultato che ci aspettavamo.
 
-Nel [capitolo precedente](../39-service-readiness/IT.md) abbiamo aspettato che un servizio 
-fosse pronto, questa volta vedremo come fare anche ad aspettare che un'attività sia stata completata.
+Per eseguire un job di questo tipo, con Compose possiamo riutilizzare la configurazione di un servizio. Avviamo un
+container dedicato che può accedere alle risorse già configurate per il servizio. Quando il container termina,
+possiamo controllare se il lavoro è andato a buon fine.
+
+Nel [capitolo precedente](../39-service-readiness/IT.md) abbiamo visto come aspettare che un servizio fosse pronto
+a rispondere. Lo stesso problema si porrebbe se un servizio avesse bisogno del risultato di un'operazione preliminare.
+Se lo avviassimo mentre il lavoro è ancora in corso, potrebbe trovare uno stato incompleto e fallire durante l'avvio.
+
+Possiamo quindi esprimere questa dipendenza nella configurazione dello stack. Durante l'avvio, Compose aspetta che
+l'operazione preliminare si concluda con successo e poi avvia il servizio che ne dipende. Se il lavoro si interrompe
+con un errore, quel servizio resta fermo e possiamo verificare che cosa sia andato storto.
 
 ***
 
@@ -137,7 +147,7 @@ Otterremo solamente il container con lo `sleep infinity`!
 Questo perché `exec` esegue il comando nel container già acceso, `run` ne crea uno nuovo, lo usa e poi lo elimina,
 lasciando quindi acceso solamente il primo.
 
-Questo ci può fare facilmente intuire che se volessimo entrare nella shell di un servizio esistente possiamo usare:
+Questo ci può fare facilmente intuire che se volessimo entrare nella shell di un servizio esistente potremmo usare:
 
 ```shell
 $ docker compose exec tools sh
@@ -154,7 +164,7 @@ Una volta entrati nella shell lanciamo ad esempio il comando:
 
 E otterremo in output il nome del container stesso.
 
-Come avrete sicuramente intuito, un comando eseguito con `exec` non diventa una modifica permanente dell'immagine.
+Facciamo attenzione che un comando eseguito con `exec` non diventa una modifica permanente dell'immagine.
 
 Se facciamo infatti nuovamente:
 
@@ -322,7 +332,7 @@ un'applicazione già in esecuzione se lanciamo successivamente un altro job che 
 
 Inoltre non è neppure una garanzia di esecuzione unica per tutta la vita del progetto.
 
-Stoppiamo nuovamente lo stack con:
+Stoppiamo nuovamente lo stack, questa volta, con:
 
 ```shell
 $ docker compose down -v

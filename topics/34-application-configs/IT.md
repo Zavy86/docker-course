@@ -6,20 +6,17 @@
 > - different configuration
 > - files instead of variables
 
-Nel [capitolo precedente](../33-environment-variables/IT.md) abbiamo passato delle impostazioni
-attraverso le variabili d'ambiente. 
+Se dovessimo distribuire la stessa applicazione in più ambienti, potremmo aver bisogno di una configurazione diversa
+per ciascuno. Se l'applicazione leggesse le impostazioni da un file e noi lo includessimo nell'immagine, finiremmo per
+avere un'immagine diversa per ogni configurazione.
 
-Ma non tutte le applicazioni si configurano così! 
+Questo ci costringerebbe a ricostruire l'immagine ogni volta che cambiamo un'impostazione, anche quando l'applicazione
+è rimasta la stessa. La configurazione e l'applicazione possono cambiare in momenti diversi, quindi conviene poterle
+aggiornare separatamente.
 
-Alcune si aspettano un file, magari con parecchie righe e una sintassi tutta loro.
-
-Pensiamo ad esempio al solito Nginx, per cambiare il comportamento del server possiamo scrivere tutte le opzioni in un 
-file di configurazione e non dobbiamo per forza copiarlo nell'immagine e rifare una build a ogni modifica, possiamo
-invece consegnarlo al container attraverso l'opzione **configs** di Compose.
-
-In questo modo l'immagine rimane la stessa ma cambia il file che mettiamo a disposizione dell'applicazione.
-
-Questa cosa torna molto utile qualora dobbiamo prevedere diverse configurazioni per diversi ambienti...
+Con Compose possiamo tenere il file di configurazione fuori dall'immagine e indicare a quale servizio fornirlo. Quando
+avviamo il servizio, l'applicazione trova il file nel percorso in cui si aspetta di leggerlo. Possiamo così usare la
+stessa immagine in più ambienti e scegliere per ciascuno la configurazione più adatta.
 
 ***
 
@@ -115,7 +112,7 @@ $ docker compose up -d
  ✔ Container compose-configs-web-1 Started                                                                          0.1s
 ```
 
-Aprendo il browser sulla porta `http://localhost:8080` al posto della pagina iniziale dovremmo trovare il nostro saluto.
+Aprendo il browser all'indirizzo `http://localhost:8080` al posto della pagina iniziale troveremo il nostro saluto.
 
 ***
 
@@ -156,6 +153,11 @@ Quando abbiamo finito, rimuoviamo le risorse dell'esempio con:
 ```shell
 $ docker compose down
 ```
+```terminaloutput
+[+] down 1/1
+ ✔ Network compose-secrets_default Removed                                                                          0.1s
+ ✔ Container compose-configs-web-1 Removed                                                                          0.1s
+```
 
 ***
 
@@ -168,8 +170,8 @@ $ docker compose down
 Come scegliamo tra le possibilità che visto nel corso di questi capitoli?
 
 Io solitamente se l'applicazione accetta una semplice variabile, come un livello di log o una singola riga di parametro,
-solitamente opto per gli `environments`, se legge l'applicazione legge un file strutturato, `configs` rende esplicito
-che stiamo fornendo configurazione e ci permette di scrivere un file di configurazione più comodamente.
+solitamente opto per gli `environments`, se l'applicazione legge un file strutturato, `configs` rende esplicito che 
+stiamo fornendo configurazione e ci permette di scrivere un file di configurazione più comodamente.
 
 Nel caso invece in cui voglio condividere una intera directory di sorgenti o altri file dell'host utilizzo il bind mount
 che mi permette in un colpo solo di condividere il tutto e mantenerli sincronizzati in entrambe le direzioni.

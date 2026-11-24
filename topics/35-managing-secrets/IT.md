@@ -2,23 +2,24 @@
 
 > __managing sensitive data with secrets__
 >
-> - passwords and tokens
 > - explicit access
+> - passwords and tokens
 > - files, not printed values
 
-Nel [capitolo precedente](../34-application-configs/IT.md) abbiamo vistom come fornire a Nginx un
-file di configurazione ma vi avevo detto esplicitamente che questo metodo non era da utilizzare per passare dei segreti.
+Se dovessimo fornire una password o un token a uno dei nostri servizi, potremmo pensare di scriverne il valore
+direttamente nella configurazione del progetto. Ogni volta che condividessimo quella configurazione, però, rischieremmo
+di condividere anche la credenziale con chi non ne ha bisogno.
 
-Non vorremmo certo scrivere delle password, o dei token di autenticazione direttamente nei Dockerfile, o nei files di
-configurazione e pubblicarli insieme ai sorgenti del progetto o ritrovarceli per sbaglio nei logs.
+Quando lavoriamo alla configurazione dello stack, ci serve sapere come si avviano i servizi e quali impostazioni usano.
+Ci serve anche sapere se un servizio ha bisogno di una credenziale per funzionare. Possiamo rendere visibili queste
+informazioni a chi lavora sul progetto e gestire il valore della credenziale separatamente.
 
-Per queste informazioni sensibili, Compose ci permette di dichiarare questi dati come **secrets** e assegnarli soltanto
-ai servizi che ne hanno realmente bisogno.
+In Compose possiamo farlo dichiarando le credenziali come **secrets**. Nella configurazione indichiamo da dove arriva
+ciascun segreto e scegliamo a quali servizi assegnarlo. Possiamo quindi dichiarare la sorgente una sola volta anche
+quando la stessa credenziale serve a più servizi.
 
-L'idea pratica è semplice, l'applicazione riceve un file da leggere, invece di ricevere automaticamente una variabile
-d'ambiente con dentro il segreto.
-
-Ma vediamolo nella pratica.
+Quando avviamo i servizi, Compose rende disponibili i segreti assegnati a ciascuno sotto forma di file. L'applicazione
+può leggere il contenuto del file quando le serve la credenziale per autenticarsi.
 
 ***
 
@@ -43,7 +44,7 @@ $ nano token.secret
 sample-secret-token
 ```
 
-Come possiamo vedere in questa directory è anche già presenti i files di _ignore_, che provvede a ignorare qualunque 
+Come possiamo vedere in questa directory sono già presenti i files di _ignore_, che provvedono a ignorare qualunque 
 files con estensione `.secret`.
 
 ```shell

@@ -79,7 +79,7 @@ app-1  | 2026-11-14T10:53:33.433732880Z level=warn event=demo_warning
 app-1  | 2026-11-14T10:53:33.433786130Z level=info event=heartbeat
 ```
 
-Interrompiamo poi la leggura con `Ctrl+C`, senza fermare il container.
+Interrompiamo poi la lettura con `Ctrl+C`, senza fermare il container.
 
 Oltre che vedere i log in diretta, possiamo anche esportarne una porzione per una diagnosi più approfondita:
 
@@ -191,10 +191,6 @@ Dobbiamo considerare anche cosa succede se la destinazione dei log rallenta o no
 log non avviene in maniera asincrona, chi scrive può essere rallentato; con quella asincrona, passando attraverso un
 buffer di dimensioni limitate, qualora si accumulassero e lo riempissero potrebbero andare persi. La scelta dipende da
 quanto è importante conservare ogni messaggio e da quanto il servizio può tollerare eventuali rallentamenti.
-
-Bene, in questo capitolo abbiamo visto come leggere i messaggi dei servizi e configurare la rotazione per limitarne la
-crescita. Sapere dove trovare i log e quanto a lungo restano disponibili ci permette di usarli con maggiore efficacia
-quando ci capiterà, e sicuramente prima o poi ci capiterà, di dover ricostruire un problema.
 
 ***
 

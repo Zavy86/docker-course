@@ -99,7 +99,7 @@ Per quanto riguarda i volumi, servono a Caddy per salvarsi eventuali certificati
 l'avvio e gli stati interni del proxy. Questi volumi ci tornano utili per evitare di ricreare questi dati ogni volta che
 aggiorniamo il container del proxy.
 
-Senza ulteriore indugi, lanciamo quindi lo stack e vediamo cosa succede:
+Senza ulteriori indugi, lanciamo quindi lo stack e vediamo cosa succede:
 
 ```shell
 $ docker compose up -d
@@ -156,9 +156,9 @@ Se dovessimo ottenere un errore `502` potrebbe essere un problema di raggiungibi
 servizio e che la porta siano corretti e assicuriamoci che i container siano stato avviati correttamente guardando i
 relativi logs.
 
-Non abbiamo imposto un ordine di avvio. Per pochi istanti il proxy potrebbe partire prima dei server,
-quindi la verifica va fatta quando sono pronti. Un proxy deve saper gestire anche indisponibilità
-successive, non soltanto una sequenza iniziale corretta.
+Non abbiamo impostato un ordine di avvio. Per pochi istanti il proxy potrebbe partire prima dei server, quindi la
+verifica andrà fatta quando saranno pronti. Un proxy deve saper gestire anche indisponibilità successive, non soltanto
+una sequenza iniziale corretta.
 
 ***
 
@@ -184,7 +184,7 @@ proxy:
 [...]
 ```
 
-Una volta salvato il tuto riforziamo la creazione del proxy con:
+Una volta salvato il tutto forziamo la ricreazione del proxy con:
 
 ```shell
 $ docker compose up -d --force-recreate proxy
@@ -354,7 +354,7 @@ particolare attenzione e non vanno pubblicati se non strettamente necessario.
 > - proxy-facing application network
 > - original scheme and client information
 
-Nel piccolo esempio appena visto,tutti i servizi condividono la rete del progetto. In un'applicazione con database,
+Nel piccolo esempio appena visto, tutti i servizi condividono la rete del progetto. In un'applicazione con database,
 colleghiamo proxy e applicazione a una rete di ingresso mentre applicazione e database a una seconda rete.
 
 Il database non pubblica porte e il proxy non deve appartenere alla rete dei dati.

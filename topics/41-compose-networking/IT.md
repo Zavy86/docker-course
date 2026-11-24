@@ -132,8 +132,8 @@ $ docker compose down
 > - dns does not guarantee readiness
 > - expose is not a firewall
 
-Dentro ai container (`client` nel nostro esempio), non abbiamo usato `localhost` perché avremmo puntato a se stesso, non
-al container Nginx e neppure il nostro host. Per comunicare con Nginx dobbiamo usare `server`, sulla rete condivisa.
+Dentro ai containers (`client` nel nostro esempio), non abbiamo usato `localhost` perché avrebbe puntato a se stesso, 
+non al container Nginx e neppure il nostro host. Per comunicare con Nginx dobbiamo usare `server`, sulla rete condivisa.
 
 L'applicazione destinataria deve inoltre ascoltare su un indirizzo raggiungibile del container, normalmente `0.0.0.0`,
 non soltanto sul proprio loopback. Se pubblichiamo una porta di un container che ascolta esclusivamente su `127.0.0.1`

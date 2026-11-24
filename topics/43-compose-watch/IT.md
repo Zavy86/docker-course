@@ -11,11 +11,11 @@ verifichiamo il risultato nell'applicazione. Se il servizio viene eseguito in un
 nell'immagine durante la build non cambiano automaticamente quando modifichiamo quelli sul computer. Ricostruire 
 l'immagine e ricreare il servizio dopo ogni piccola modifica può rallentare di molto il nostro il lavoro.
 
-Nel [capitolo precedente](../42-persistent-data/IT.md) abbiamo visto come un bind mount
-renda accessibili al container i file di una directory dell'host.
+Nel [capitolo precedente](../42-persistent-data/IT.md) abbiamo visto come un bind mount renda accessibili al container 
+i file di una directory dell'host.
 
-Compose **Watch** offre un'altra possibilità super interessante, osserva i percorsi che indichiamo nel file Compose e, 
-quando rileva una modifica, esegue l'azione scelta per il servizio.
+Compose **Watch** offre un'altra possibilità super interessante, osserva i percorsi che indichiamo nel file e, quando
+rileva una modifica, esegue l'azione scelta per il servizio.
 
 Possiamo semplicemente sincronizzare i sorgenti nel container, sincronizzare i files e riavviare il container, oppure
 ricostruire l'immagine e ricreare il servizio quando cambia qualcosa che riguarda la build.
@@ -49,7 +49,7 @@ E analizziamo la struttura di questo stack:
 $ tree
 ```
 ```terminaloutput
-compose-watch/
+.watch/
 ├── compose.yaml
 ├── Dockerfile
 ├── httpd.conf
@@ -216,7 +216,7 @@ Fermiamo la sessione con `Ctrl+C` e aggiungiamo questa seconda regola alla lista
   target: /etc/httpd.conf
 ```
 
-E riavviamo nuova mente lo stack:
+E riavviamo nuovamente lo stack:
 
 ```shell
 $ docker compose up --build --watch

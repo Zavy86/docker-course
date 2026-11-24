@@ -6,20 +6,23 @@
 > - small differences
 > - one resulting configuration
 
-Nei capitoli precedenti abbiamo visto come gestire nei file per Compose immagini, variabili, configurazioni e segreti.
+Se dovessimo usare lo stesso stack in ambienti diversi, probabilmente avremmo bisogno di adattare una parte della
+configurazione a seconda di dove lo avviamo. Potremmo quindi partire dalla configurazione che abbiamo già, farne una
+copia per ogni ambiente e modificare quello che serve. All'inizio sarebbe un modo semplice per ottenere quello che
+vogliamo, soprattutto se le differenze fossero poche.
 
-Ma quando passiamo dal nostro computer a un altro ambiente, dovremmo creare un nuovo file con le configurazioni dedicate
-a quell'ambiente da zero?
+Il problema si presenterebbe qualora dovessimo cambiare qualcosa che vale per tutti gli ambienti. A quel punto dovremmo
+riportare la stessa modifica in ogni copia, tenendo conto delle impostazioni specifiche che abbiamo aggiunto nel
+frattempo. Se ci dimenticassimo di aggiornarne una, in quell'ambiente lo stack continuerebbe a usare la vecchia
+configurazione e, col passare del tempo, diventerebbe più difficile capire quali differenze avessimo introdotto di
+proposito.
 
-Certo, possiamo farlo, ma rischiamo col tempo che eventuali future modifiche non vengano replicate correttamente ovunque
-nei vari files, rischiando di correggere una copia e dimenticandoci delle altre.
+Con Compose possiamo raccogliere in un file di base tutto quello che gli ambienti hanno in comune e usare i file di
+override per descrivere solo le differenze. Quando cambia qualcosa che riguarda tutti gli ambienti, ci basta aggiornare
+il file condiviso. In questo modo, ogni ambiente parte dalla stessa base aggiornata.
 
-Anche per questo Compose ci viene in aiuto, permettendoci di partire da una base aggiungendo poi altri files con i quali
-descrivere soltanto le differenze.
-
-Questi file vengono poi combinati e il risultato è **un solo modello** finale, non uno stack separato per ogni file.
-
-Ma vediamolo come sempre nella pratica.
+Quando scegliamo l'ambiente in cui avviare lo stack, Compose legge la base e i file di override che gli indichiamo e li
+combina in un'unica configurazione che Compose userà per avviare lo stack.
 
 ***
 
@@ -47,7 +50,7 @@ services:
 ```
 
 Le due variabili d'ambiente ci serviranno per osservare il risultato del merge, sono dimostrative e non cambiano il
-comportamento di Nginx, inoltre come vedere nella configurazione base non abbiamo pubblicato nessuna porta.
+comportamento di Nginx, inoltre come possiamo vedere nella configurazione base non abbiamo pubblicato nessuna porta.
 
 Guardiamo ora il file `compose.override.yaml`:
 
@@ -184,7 +187,8 @@ $ docker compose -p test -f compose.yaml -f compose.test.yaml up -d
 ```
 
 Aprendo poi sul browser le porte `8080` e `8081` vedremo che entrambe mostreranno la pagina di benvenuto di Nginx.
-Se le porte sono occupate, cambiamole nei rispettivi file. Per vedere la differenza nelle variabili:
+
+Per vedere la differenza nelle variabili:
 
 ```shell
 $ docker compose -p dev exec web printenv MESSAGE
@@ -259,6 +263,8 @@ Test environment
 ```
 
 Avrà il valore del test.
+
+Per eliminare lo stack procediamo con il comando composto:
 
 ```shell
 $ docker compose -f compose.yaml -f compose.override.yaml -f compose.test.yaml down

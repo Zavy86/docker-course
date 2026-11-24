@@ -6,14 +6,18 @@
 > - keep differences visible
 > - choose one tool at a time
 
-In questo capitolo, ci occuperemo delle situazioni in cui più servizi condividono una parte della loro configurazione.
+Se dovessimo configurare più servizi che hanno alcune impostazioni in comune, probabilmente ci verrebbe naturale
+scrivere quelle impostazioni nella definizione del primo servizio e poi copiarle negli altri. All'inizio sarebbe un
+modo semplice per andare avanti, soprattutto se le impostazioni da condividere fossero poche.
 
-Un'applicazione e il suo worker, per esempio, potrebbero usare la stessa immagine e le stesse variabili.
+Il problema si presenterebbe quando dovessimo cambiare una di quelle impostazioni. A quel punto dovremmo ritrovare
+tutte le copie e aggiornarle una per una. Se ce ne sfuggisse una, col tempo diventerebbe difficile capire quali
+differenze avessimo introdotto di proposito e quali fossero rimaste lì per una dimenticanza.
 
-Potremmo semplicemente copiare la stesa informazione in entrambi, ma quando si aggiornano, dovremmo ricordarci di 
-aggiornarle entrambe, oppure possiamo decidere di scrivere queste impostazioni una volta sola e riutilizzarle.
-
-Ma come sempre, bando alle ciance e vediamo nella pratica come farlo...
+Possiamo invece definire una volta sola quello che i servizi hanno in comune e riutilizzarlo dove serve, lasciando in
+evidenza le impostazioni specifiche di ciascun servizio. Il modo in cui lo facciamo dipende da quanto vogliamo
+riutilizzare. A volte ci basterà condividere poche impostazioni, altre volte ci converrà partire dalla definizione di
+un servizio o tenere in un file separato un'intera parte dello stack.
 
 ***
 
@@ -95,13 +99,20 @@ Come possiamo vedere entrambi i comandi stampano `blue` e `small` su due righe.
 
 > __merging YAML mappings__
 >
-> - merge mappings with <<
-> - override individual keys
-> - no automatic deep merge
+> - use a shared mapping as the starting point
+> - override individual values in each service
+> - replace nested values as a whole
 
-Dopo aver visto come riutilizzare un intero blocco tramite anchor e alias, facciamo un passo in più, usiamo quel blocco
-come base comune, ma permetteremo a un singolo servizio di modificarne solo una parte. In questo modo potremo mantenere
-le impostazioni condivise in un punto solo, senza rinunciare alle differenze specifiche dei singoli servizi.
+Dopo aver visto come riutilizzare lo stesso blocco in più servizi, facciamo un passo in più. Se uno di quei servizi
+avesse bisogno di un valore diverso, potremmo usare il blocco condiviso come punto di partenza e scrivere nella
+definizione del servizio soltanto l'impostazione che vogliamo personalizzare.
+
+È qui che entra in gioco il merge delle mappe YAML. Le impostazioni comuni vengono riprese dalla mappa condivisa. Se
+scriviamo di nuovo una chiave nella mappa del servizio, per quella chiave vale il valore che abbiamo scritto lì. Tutte
+le altre impostazioni continuano a venire dalla base comune, quindi possiamo aggiornarle in un solo punto.
+
+Il merge lavora sulle chiavi di quel livello. Se il valore di una chiave è a sua volta una mappa e la ridefiniamo nel
+servizio, quella mappa viene sostituita per intero.
 
 ***
 
@@ -140,9 +151,8 @@ $ docker compose down
  ✔ Network compose-reuse_default Removed                                                                            0.1s
 ```
 
-Attenzione che cambiare il valore nel secondo servizio non modifica i valori del primo.
-
-Il merge YAML funziona sono sulle **mappe**, non concatena le liste. 
+Possiamo quindi cambiare un valore nel secondo servizio senza alterare quelli del primo grazie al merge YAML, che si
+applica solo alle **mappe** e tratta le liste come valori interi.
 
 Le anchor valgono nel documento YAML in cui sono definite. Un'anchor nella base non diventa disponibile in un altro file
 passato con `-f`. Inoltre vengono risolte prima dell'interpolazione, possiamo usare variabili nei valori condivisi, ma 
@@ -156,12 +166,17 @@ non possiamo usare la sintassi di interpolazionedelle variabili `${...}` per cos
 > - customize the inherited values
 > - declare required resources
 
-Quando la configurazione comune non riguarda più soltanto qualche valore isolato, ma quasi tutta la definizione di un
-servizio, copiare e incollare lo stesso blocco in più punti diventa presto scomodo, ogni modifica va riportata a mano,
-aumenta il rischio di dimenticanze e diventa meno chiaro quali parti siano davvero diverse. 
+Se dovessimo riutilizzare quasi tutta la configurazione di un servizio, potremmo raccogliere le impostazioni comuni in
+più blocchi condivisi. Con molti blocchi da mettere insieme, però, diventerebbe difficile ricostruire la configurazione
+del servizio.
 
-Ci serve quindi un modo per mantenere una definizione principale riutilizzabile e lasciare visibili solo le variazioni
-necessarie nei servizi che la usano.
+In questo caso possiamo prendere come base la definizione di un servizio già esistente, anche se si trova in un altro
+file. Nella definizione del nuovo servizio indichiamo da quale partire e scriviamo le modifiche che ci servono. Così
+possiamo trovare le impostazioni comuni tutte insieme nella definizione di partenza e vedere subito che cosa abbiamo
+personalizzato.
+
+Dobbiamo comunque tenere conto delle risorse da cui dipende il servizio. Se la definizione di partenza fa riferimento a
+risorse condivise, dobbiamo assicurarci che siano dichiarate anche nello stack in cui la riutilizziamo.
 
 ***
 
@@ -247,15 +262,21 @@ $ docker compose down
 > - compose complete modules
 > - avoid resource name conflicts
 
-Quando una parte della configurazione non è più soltanto una base da personalizzare, ma rappresenta un pezzetto completo
-del nostro stack, tenerla nello stesso file principale può rendere il tutto affollato e meno modulare.
+Se dovessimo organizzare uno stack composto da più parti, potremmo descriverle tutte nello stesso file. Col tempo, però,
+diventerebbe difficile capire quali servizi e risorse appartengono a ciascuna parte, soprattutto quando volessimo
+ritrovarli per fare una modifica o riutilizzarli in un altro progetto.
 
-Dobbiamo quindi trovare un modo per tenere questi blocchi separati e riutilizzabili, senza rompere i percorsi relativi 
-ai files e senza dimenticare che, una volta caricati, servizi e risorse finiranno comunque nello stesso progetto.
+Possiamo quindi raccogliere i servizi e le risorse di ogni parte in un file Compose dedicato e indicare nel file
+principale quali configurazioni vogliamo includere. Ogni file incluso mantiene la propria directory come riferimento
+per i percorsi relativi. In questo modo possiamo tenere insieme la configurazione di una parte dello stack e i file che
+le servono.
+
+Quando Compose mette tutto insieme, i servizi e le risorse confluiscono nello stesso progetto. Dobbiamo quindi fare
+attenzione ai nomi che usiamo nei diversi file, così da evitare conflitti quando li includiamo nello stesso stack.
 
 ***
 
-Spostiamoci quindi nella directory `compose-include` e analizziamonela struttura:
+Spostiamoci quindi nella directory `include` e analizziamo la struttura:
 
 ```shell
 $ cd ../include
@@ -265,7 +286,7 @@ $ cd ../include
 $ tree
 ```
 ```terminaloutput
-compose-include/
+.include/
 ├── compose.yaml
 └── tools/
     ├── compose.yaml

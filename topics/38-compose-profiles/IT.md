@@ -61,7 +61,7 @@ semplice etichetta che può raggruppare più servizi, non è necessario che ci s
 
 Il servizio `debug`, tamite il comando `sleep` rimane in esecuzione per permetterci di lanciare comandi al suo interno.
 
-Mentr il servizio `info` stampa l'architettura vista dal container e termina.
+Mentre il servizio `info` stampa l'architettura vista dal container e termina.
 
 Verifichiamo ora i profili disponibili con il comando:
 
@@ -147,7 +147,7 @@ $ docker compose --profile debug logs info
 info-1 | aarch64
 ```
 
-Che comprendono solamente la stampa dell'architettura sulla quale gira il container stesso.
+Che comprende solamente la stampa dell'architettura sulla quale gira il container stesso.
 
 E passiamo poi a sfruttare invece il container di debug per provare a scaricare la pagina predefinita di Nginx:
 
@@ -192,8 +192,6 @@ shell la variabile di ambiente `COMPOSE_PROFILES=debug,tools` direttamente nella
 
 Un servizio può anche appartenere a più profili, anche in questo caso aggiungendolo all'array nel file Compose, e verrà
 avviato quando è attivo in **almeno uno** dei profili specificati, non soltanto quando sono attivi entrambi.
-
-***
 
 Ora stoppiamo lo stack con:
 

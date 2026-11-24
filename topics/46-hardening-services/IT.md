@@ -65,7 +65,7 @@ uid=0(root) gid=0(root) groups=0(root),10(wheel)
 
 Come possiamo vedere, in questa immagine, il processo parte come utente root.
 
-Quesot non significa che ogni container root possa controllare automaticamente tutto l'host, ma possiamo evitare di dare
+Questo non significa che ogni container root possa controllare automaticamente tutto l'host, ma possiamo evitare di dare
 privilegi che non sono necesari al nostro piccolo servizio, rendendo il tutto più sicuro.
 
 ***
@@ -99,7 +99,7 @@ uid=1000 gid=1000 groups=1000
 Il processo viene ora eseguito con l'identificatore utente (UID) `1000` e l'identificatore gruppo (GID) `1000`.
 
 Questi numeri sono usati dal sistema per riconoscere l'utente e il gruppo, per questo esempio non è necessario che
-nell'immagine esista un utente con un nome associato a quell'identificati. Alcune applicazioni potrebbero però invece
+nell'immagine esista un utente con un nome associato a quell'identificativo. Alcune applicazioni potrebbero però invece
 richiedere anche un utente presente nell'immagine e una directory home utilizzabile.
 
 Su Linux, senza rimappazione degli utenti, questi stessi numeri vengono usati anche per verificare i permessi delle
@@ -117,7 +117,7 @@ Ricordiamoci che cambiare `user` non modifica anche il proprietario o i permessi
 Un'altra cosa che possiamo fare, se il nostro processo non deve modificare i file dell'immagine, è impostare il file
 system del container in sola lettura, con eventualmente un'area temporanea scrivibile.
 
-Modifichiamo quindi ulteriormente il file `docker-compose.yml` aggiungendo:
+Modifichiamo quindi ulteriormente il file `compose.yml` aggiungendo:
 
 ```yaml
 [...]

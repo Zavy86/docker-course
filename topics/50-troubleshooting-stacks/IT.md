@@ -40,16 +40,7 @@ Spostiamoci nella directory:
 $ cd docker-course/sources/compose/troubleshooting
 ```
 
-E iniziamo chiarendo su quale host stiamo operando:
-
-```shell
-$ docker context show
-```
-```terminaloutput
-default
-```
-
-In questo caso l'host locale, verifichiamo la configurazione dello stack:
+E verifichiamo la configurazione dello stack:
 
 ```shell
 $ docker compose config
@@ -120,7 +111,7 @@ troubleshooting-web-1      busybox   "sh -ec 'mkdir -p /w…"   web       About 
 ```
 
 Facciamo anche attenzione a eventuali parametri aggiuntivi usati durante l'avvio dello stack. Eventuali `--env-file`,
-`-f`, `-p` vanno mantenuti identici. A questo scopo io solitamente mi preparo sempre dei Makefile così da non richiare 
+`-f`, `-p` vanno mantenuti identici. A questo scopo io solitamente mi preparo sempre dei Makefile così da non rischiare 
 di diagnosticare un modello diverso da quello distribuito.
 
 Andiamo quindi a visualizzare i logs del client per capire meglio cosa sta succedendo:

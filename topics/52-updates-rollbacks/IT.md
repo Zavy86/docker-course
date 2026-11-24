@@ -201,7 +201,7 @@ stack, il container già in esecuzione continua a usare la prima versione e quin
 Possiamo verificarlo aprendo il browser alla pagina [http://localhost:8080](http://localhost:8080), dove continueremo
 a leggere ancora `version one`.
 
-Procediamo quindi cheiedendo a Compose di applicare la modifica al servizio:
+Procediamo quindi chiedendo a Compose di applicare la modifica al servizio:
 
 ```shell
 $ docker compose up -d

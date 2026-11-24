@@ -6,7 +6,7 @@
 > - independent copy
 > - verified recovery
 
-Se dovessimo recuperare de dati, a seguito di un errore in un'applicazione, riavviare la singola app o tutto lo stack
+Se dovessimo recuperare dei dati, a seguito di un errore in un'applicazione, riavviare la singola app o tutto lo stack
 potrebbe non essere sufficiente. Il volume potrebbe essere ancora presente e il nuovo servizio avviarsi regolarmente,
 tuttavia i dati di cui abbiamo bisogno potrebbero non essere più disponibili. Senza infatti una copia separata dei dati,
 un'applicazione che fino a poco prima funzionava potrebbe diventare inutilizzabile.

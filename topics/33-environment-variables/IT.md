@@ -6,11 +6,16 @@
 > - configure the container
 > - two different steps
 
-Finora abbiamo visto che creare dei file di configurazione per Compose statici, ma se volessimo cambiare un tag o un
-parametro senza modificare ogni volta il file Compose, potremmo anche utilizzare delle variabili.
+Se dovessimo usare lo stesso progetto Compose in più ambienti, potremmo aver bisogno di impostazioni diverse per
+ciascuno. Se scrivessimo tutti i valori direttamente nel file `compose.yaml`, dovremmo modificare il file ogni volta che
+passiamo da un ambiente all'altro.
 
-Il punto importante è capire chi le legge e quando. Alcune servono a Compose per completare la configurazione; altre 
-invece vengono consegnate al processo nel container che le legge in fase di runtime.
+Con le variabili d'ambiente possiamo riutilizzare lo stesso file `compose.yaml` e fornire i valori di volta in volta,
+per esempio dalla shell o da un file `.env`. Compose li inserisce al posto dei riferimenti alle variabili mentre
+prepara la configurazione. Questa sostituzione si chiama **interpolazione**.
+
+Se un valore serve anche all'applicazione, possiamo passarlo al container con la sezione `environment` e il processo
+che gira nel container lo troverà tra le proprie variabili d'ambiente.
 
 ***
 
@@ -39,7 +44,7 @@ services:
 
 In questo script vediamo una sintassi particolare, per utilizzare una variabile dobbiamo infatti inserire il simbolo del
 dollaro, seguito da una coppia di parentesi graffe, e all'interno il nome della variabile, seguito eventualmente da un
-trattino con il suo valore di default. In questo caso, se la variabile si chiama `TAG` e se non specificata prende come
+trattino con il suo valore di default. In questo caso, la variabile si chiama `TAG` e se non specificata prende come
 valore predefinito `latest`.
 
 Lo stesso vale per la variabile `MESSAGE`, che se non specificata prende come valore predefinito `Hello by Compose`.
@@ -93,7 +98,7 @@ Ora sempre nella stessa directory creiamo un file chiamato esattamente `.env`, i
 nano .env
 ```
 ```dotenv
-TAG=latest
+TAG=3.6
 MESSAGE=Hello by .env
 ```
 
@@ -111,7 +116,7 @@ services:
       - MESSAGE
     environment:
       MESSAGE: Hello by .env
-    image: alpine:latest
+    image: alpine:3.6
     networks:
       default: null
 networks:
@@ -161,7 +166,6 @@ Creiamo un nuovo file `test.env`:
 $ nano test.env
 ```
 ```dotenv
-TAG=latest
 MESSAGE=Hello by test.env
 ```
 
@@ -345,7 +349,7 @@ services:
     env_file:
       - ./runtime.env
     environment:
-      MESSAGE: "${MESSAGE?Set a value for MESSAGE in .env or shell}"
+      MESSAGE: "${MESSAGE:-Hello by Compose}"
     command: ["printenv", "MESSAGE"]
 
 ```

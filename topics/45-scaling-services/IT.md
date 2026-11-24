@@ -228,7 +228,7 @@ quando cambiano e gestire quelle non disponibili.
 ***
 
 Per fare queste prove ho volutamente inserito un client piuttosto che collegare la porta del server con quella dell'host
-per un motivo ben preciso, non è possibile assegnare la stessa porta TCP all'host e ogni replica.
+per un motivo ben preciso, non è possibile assegnare la stessa porta TCP dell'host e ogni replica.
 
 Le tre repliche possono ascoltare tutte sulla porta interna `8080`, perché ciascuna ha il proprio spazio di rete ma non
 possono invece occupare contemporaneamente lo stesso indirizzo e la stessa porta TCP dell'host.
@@ -347,7 +347,7 @@ tentativi e possibili duplicati. Un worker interrotto non deve far perdere un'at
 più volte un'operazione con effetti esterni.
 
 Migrazioni, importazioni globali e operazioni periodiche non vanno avviate automaticamente in ogni replica. In queste
-occasioni dovremmo sfruttare job separati, come già visto nel [capitolo 40](../40-one-off-tasks/IT.md).
+occasioni dovremmo sfruttare job separati, come già visto nel [capitolo 40](../40-running-one-off-jobs/IT.md).
 
 ***
 

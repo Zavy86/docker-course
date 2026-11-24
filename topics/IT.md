@@ -51,7 +51,7 @@ Di seguito è riportato un elenco degli argomenti trattati in questo corso:
 37. [Riutilizzo della configurazione](37-reusing-configuration/IT.md)
 38. [Profili Compose](38-compose-profiles/IT.md)
 39. [Disponibilità dei servizi](39-service-readiness/IT.md)
-40. [Attività temporanee](40-one-off-tasks/IT.md)
+40. [Eseguire job temporanei](40-running-one-off-jobs/IT.md)
 41. [Reti con Compose](41-compose-networking/IT.md)
 42. [Dati persistenti](42-persistent-data/IT.md)
 43. [Compose Watch](43-compose-watch/IT.md)

@@ -6,17 +6,15 @@
 > - check the service, not just the process
 > - recover after startup too
 
-Quando avviamo uno stack con più servizi l'ordine di partenza non basta sempre a garantire che tutto sia davvero pronto.
+Se dovessimo avviare uno stack in cui un servizio dipende da un altro, le prime richieste potrebbero fallire anche con
+i container avviati nell'ordine previsto. Un container può infatti risultare già in esecuzione mentre l'applicazione
+al suo interno si sta ancora inizializzando e ha bisogno di un po' di tempo prima di poter rispondere.
 
-Un container può risultare già in esecuzione anche mentre l'applicazione sta ancora caricando la configurazione, aprendo
-connessioni, preparando dati iniziali o aspettando che un processo interno sia disponibile.
+Con un **healthcheck** possiamo verificare quando il servizio è pronto a rispondere e far sì che Compose aspetti l'esito
+positivo del controllo prima di avviare i servizi che ne dipendono.
 
-**Avviato** e **pronto** sono quindi due condizioni diverse. 
-
-Per verificare una condizione concreta, possiamo definire degli healthcheck, che Compose può attendere prima di avviare
-un servizio dipendente.
-
-E vedremo anche cosa succede dopo che una dipendenza smette di rispondere quando lo stack è già partito.
+Una dipendenza potrebbe anche smettere di rispondere a stack già avviato. In quel caso possiamo gestire l'interruzione
+nel servizio che la usa, facendogli riprovare le richieste finché la dipendenza non torna disponibile.
 
 ***
 
@@ -394,4 +392,4 @@ L'healthcheck rende osservabile una condizione ma non ripara da sola i servizi.
 > - [Control startup and shutdown order](https://docs.docker.com/compose/how-tos/startup-order/)
 > - [busybox](https://hub.docker.com/_/busybox)
 
-[Prosegui](../40-one-off-tasks/IT.md) al prossimo capitolo.
+[Prosegui](../40-running-one-off-jobs/IT.md) al prossimo capitolo.
