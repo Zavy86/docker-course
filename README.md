@@ -78,7 +78,7 @@ Below is a list of topics covered in this course:
 37. [Reusing configuration](topics/37-reusing-configuration/README.md)
 38. [Compose profiles](topics/38-compose-profiles/README.md)
 39. [Service readiness](topics/39-service-readiness/README.md)
-40. [One-off tasks](topics/40-one-off-tasks/README.md)
+40. [Running one-off jobs](topics/40-running-one-off-jobs/README.md)
 41. [Compose networking](topics/41-compose-networking/README.md)
 42. [Persistent data](topics/42-persistent-data/README.md)
 43. [Compose Watch](topics/43-compose-watch/README.md)
