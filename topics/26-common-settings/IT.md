@@ -3,7 +3,7 @@
 ![cover](https://img.youtube.com/vi/rHS0t3ynANY/mqdefault.jpg)  
 [https://youtu.be/rHS0t3ynANY](https://youtu.be/rHS0t3ynANY)
 
-> __common docker settings__
+> __common Docker settings__
 >
 > - storage
 > - networking
@@ -199,5 +199,9 @@ $ sudo systemctl restart docker
 ```
 
 ***
+
+> Resources:
+>
+> - [Docker daemon configuration](https://docs.docker.com/engine/daemon/)
 
 [Prosegui](../27-container-internals/IT.md) al prossimo capitolo.

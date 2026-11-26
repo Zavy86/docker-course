@@ -3,7 +3,7 @@
 ![cover](https://img.youtube.com/vi/rTweJwbEH-k/mqdefault.jpg)  
 [https://youtu.be/rTweJwbEH-k](https://youtu.be/rTweJwbEH-k)
 
-> __local development workflow__
+> __local development challenges__
 >
 > - missing dependencies
 > - inconsistent environments
@@ -173,11 +173,11 @@ At the next container startup, it will be automatically recreated.
 
 ***
 
-> __local development workflow__
+> __a consistent development environment__
 >
-> - missing dependencies
-> - inconsistent environments
-> - it works on my machine!
+> - run Node.js in a container
+> - lock dependency versions
+> - share the project with the team
 
 As you can see, this approach completely frees us from our local machine. We didn't even need to install Node.js, as it
 was executed directly through a container. Thanks to the `package-lock.json`, we ensure a consistent environment across 
@@ -186,6 +186,8 @@ all team members, with Git taking care of the rest.
 ***
 
 > Resources:
+>
+> - [Bind mounts](https://docs.docker.com/engine/storage/bind-mounts/)
 > - [namer](../../sources/namer)
 > - [node](https://hub.docker.com/_/node)
 

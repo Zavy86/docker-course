@@ -1,0 +1,18 @@
+volumes:
+  app-data:
+
+services:
+  app:
+    image: alpine
+    command: [ "sleep", "infinity" ]
+#    tmpfs:
+#      - /scratch:size=16m
+    volumes:
+       - app-data:/data
+#      - type: bind
+#        source: ./input
+#        target: /input
+#        read_only: true
+#        bind:
+#          create_host_path: false
+#      - /cache

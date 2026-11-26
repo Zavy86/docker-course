@@ -1,0 +1,15 @@
+x-environment: &shared
+  DEMO_COLOR: "blue"
+  DEMO_SIZE: "small"
+
+services:
+  first:
+    image: alpine
+    environment: *shared
+    command: [ "printenv", "DEMO_COLOR", "DEMO_SIZE" ]
+  second:
+    image: alpine
+    environment:
+      <<: *shared
+      DEMO_COLOR: "red"
+    command: [ "printenv", "DEMO_COLOR", "DEMO_SIZE" ]

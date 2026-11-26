@@ -44,7 +44,7 @@ corso scommetto che non vedrete l'ora di buttarvi a capofitto nel mondo della "c
 
 ***
 
-> __our training environment__
+> __Docker Engine, Desktop, and CLI__
 >
 > - engine
 > - desktop
@@ -139,5 +139,9 @@ Server: Docker Engine - Community
 Che vi permetterà di verificare che Docker sia installato e correttamente funzionante.
 
 ***
+
+> Resources:
+>
+> - [Install Docker Engine](https://docs.docker.com/engine/install/)
 
 [Prosegui](../03-first-container/IT.md) al prossimo capitolo.

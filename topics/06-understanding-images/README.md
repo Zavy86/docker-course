@@ -5,7 +5,7 @@
 
 ***
 
-> __understanding docker images__
+> __understanding Docker images__
 >
 > - files
 > - metadata
@@ -23,7 +23,7 @@ consumption.
 
 ***
 
-> __understanding docker images__
+> __image layers and the writable layer__
 >```
 > alpine
 > └ node.js
@@ -45,7 +45,7 @@ container's filesystem during its execution.
 
 ***
 
-> __understanding docker images__
+> __shared layers and copy-on-write__
 > 
 > - read-only shared
 > - read-write copy
@@ -63,7 +63,7 @@ To draw an analogy with object-oriented programming, we can think of **images** 
 
 ***
 
-> __understanding docker images__
+> __how images are created__
 >
 > - chicken and egg
 > - scratch image
@@ -88,7 +88,7 @@ In the next chapters, we will see how to use these two methods to create our fir
 
 ***
 
-> __understanding docker images__
+> __where images come from__
 >
 > - official images
 > - community images
@@ -184,7 +184,7 @@ the `latest` tag by default, which should represent the latest stable version av
 
 ***
 
-> __understanding docker images__
+> __choosing image tags__
 >
 > - latest
 >   - testing
@@ -212,7 +212,9 @@ compatible machines or by resorting to emulation.
 
 ***
 
-Resources:
+> Resources:
+>
+> - [Docker images](https://docs.docker.com/get-started/docker-overview/)
 > - [wordpress](https://hub.docker.com/_/wordpress)
 
 [Continue](../07-interactive-images/README.md) to the next topic.

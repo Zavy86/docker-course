@@ -1,0 +1,18 @@
+services:
+  app:
+    image: busybox
+    init: true
+    command:
+      - sh
+      - -c
+      - |
+        while true; do
+          echo "level=info event=heartbeat"
+          echo "level=warn event=demo_warning" >&2
+          sleep 5
+        done
+#    logging:
+#      driver: local
+#      options:
+#        max-size: "9m"
+#        max-file: "3"

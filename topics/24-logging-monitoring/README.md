@@ -93,7 +93,7 @@ $ docker inspect --format '{{json .HostConfig.LogConfig}}' $(docker ps -lq) | jq
 
 ***
 
-> __logging and monitoring__
+> __centralized logging with the ELK stack__
 >
 > - elk stack
 >   - elasticsearch
@@ -194,6 +194,8 @@ of use. In a production environment, more up-to-date and reliable versions shoul
 ***
 
 > Resources:
+>
+> - [View container logs](https://docs.docker.com/engine/logging/)
 > - [elk](../../sources/elk)
 > - [elasticsearch](https://hub.docker.com/_/elasticsearch)
 > - [kibana](https://hub.docker.com/_/kibana)

@@ -180,6 +180,8 @@ we will cover in one of the next chapters: Docker Compose!
 ***
 
 > Resources:
+>
+> - [Container networking and DNS](https://docs.docker.com/engine/network/)
 > - [busybox](https://hub.docker.com/_/busybox)
 > - [clickster](../../sources/clickster)
 > - [redis](https://hub.docker.com/_/redis)

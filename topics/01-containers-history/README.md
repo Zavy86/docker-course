@@ -5,7 +5,7 @@
 
 ***
 
-> __history of Docker and containers__
+> __why containers and Docker__
 >
 > - why containers
 > - why Docker emerges
@@ -17,7 +17,7 @@ of containers, why they have become so important in recent years, and what led u
 
 ***
 
-> __history of Docker and containers__
+> __the monolithic application era__
 >
 > - monolithic applications
 > - long development cycles
@@ -33,7 +33,7 @@ We can no longer afford solutions that are not very scalable and have long devel
 
 ***
 
-> __history of Docker and containers__
+> __distributed and iterative development__
 >
 > - decoupled services
 > - iterative improvements
@@ -49,7 +49,7 @@ Release speed and the ability to scale resources easily and quickly are fundamen
 
 ***
 
-> __history of Docker and containers__
+> __more stacks and deployment targets__
 >
 > - many different stacks
 > - many different targets
@@ -64,7 +64,7 @@ production.
 
 ***
 
-> __history of Docker and containers__
+> __production environments__
 >
 > - on premise
 > - in cloud
@@ -76,7 +76,7 @@ All these options only create a hellish matrix that is always difficult to navig
 
 ***
 
-> __history of Docker and containers__
+> __the shipping container analogy__
 >
 > - reduction of costs
 > - reduction of losses
@@ -99,7 +99,7 @@ Nowadays, over 5 thousand ships transport more than 200 million containers every
 
 ***
 
-> __history of Docker and containers__
+> __from instructions to automation__
 >
 > - instructions
 > - automations
@@ -117,7 +117,7 @@ Finally solving the infamous _"It works on my machine!"_.
 
 ***
 
-> __history of Docker and containers__
+> __developer benefits__
 >
 > - onboarding
 > - testing
@@ -145,7 +145,7 @@ previous version in case of issues with a new release, even if dependencies or c
 
 ***
 
-> __history of Docker and containers__
+> __standardizing software delivery__
 >
 > - standardization
 > - distribution
@@ -180,7 +180,7 @@ time and costs.
 
 ***
 
-> __history of Docker and containers__
+> __a brief history of containers__
 >
 > - IBM VM/370 (1972)
 > - FreeBSD jails (1999)
@@ -203,5 +203,9 @@ version 1.0, that it will start to become a standard.
 In those years, the OCI (Open Container Initiative) and the CNCF (Cloud Native Computing Foundation) are also born.
 
 ***
+
+> Resources:
+>
+> - [What is Docker?](https://docs.docker.com/get-started/docker-overview/)
 
 [Continue](../02-training-environment/README.md) to the next topic.

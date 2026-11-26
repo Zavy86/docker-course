@@ -3,7 +3,7 @@
 ![cover](https://img.youtube.com/vi/ABW9W_34Py8/mqdefault.jpg)  
 [https://youtu.be/ABW9W_34Py8](https://youtu.be/ABW9W_34Py8)
 
-> __multi-arch builds__
+> __multi-architecture builds__
 >
 > - legacy
 > - buildkit
@@ -154,7 +154,7 @@ motivi descritti precedentemente.
 
 ***
 
-> __multi-arch builds__
+> __approaches to builds__
 >
 > - qemu
 > - native
@@ -183,6 +183,8 @@ incompatibilità o regressioni che l'emulazione con `QEMU` potrebbe non far emer
 ***
 
 > Resources:
+>
+> - [Multi-platform builds](https://docs.docker.com/build/building/multi-platform/)
 > - [clock](../../sources/clock)
 > - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 

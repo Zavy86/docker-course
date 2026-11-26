@@ -3,7 +3,7 @@
 ![cover](https://img.youtube.com/vi/YNBR2B0wpyo/mqdefault.jpg)  
 [https://youtu.be/YNBR2B0wpyo](https://youtu.be/YNBR2B0wpyo)
 
-> __advanced dockerfile syntax__
+> __advanced Dockerfile syntax__
 >
 > - order
 > - layers
@@ -49,7 +49,7 @@ FROM ubuntu
 
 ***
 
-> __advanced dockerfile syntax__
+> __executing build commands__
 >
 > run
 > - execute commands
@@ -99,7 +99,7 @@ RUN apt-get update \
 
 ***
 
-> __advanced dockerfile syntax__
+> __documenting container ports__
 >
 > expose
 > - declaration
@@ -138,7 +138,7 @@ EXPOSE 80/tcp 443/tcp 53/udp
 
 ***
 
-> __advanced dockerfile syntax__
+> __adding files from the build context__
 >
 > copy
 > - files and directories
@@ -189,7 +189,7 @@ In questo modo tutti i files e le directories verranno assegnati all'utente `ngi
 
 ***
 
-> __advanced dockerfile syntax__
+> __archives and remote files__
 >
 > add
 > - unpack archives
@@ -227,7 +227,7 @@ Attenzione che in questo caso, qualora il server remoto non sia accessibile la c
 
 ***
 
-> __advanced dockerfile syntax__
+> __declaring persistent data__
 >
 > volume
 > - persistent data
@@ -259,7 +259,7 @@ In questo modo all'avvio del container Docker creerà un volume con un nome univ
 
 ***
 
-> __advanced dockerfile syntax__
+> __setting the working directory__
 >
 > workdir
 > - working directory
@@ -286,7 +286,7 @@ quale ci troveremo collegandoci alla shell del container.
 
 ***
 
-> __advanced dockerfile syntax__
+> __setting environment variables__
 >
 > env
 > - environment variables
@@ -316,7 +316,7 @@ $ docker run -e NGINX_PORT=8080 webserver
 
 ***
 
-> __advanced dockerfile syntax__
+> __choosing the execution user__
 >
 > user
 > - change user
@@ -338,7 +338,7 @@ In questo modo non saremo più root ma è come se avessimo eseguito il comando `
 
 ***
 
-> __advanced dockerfile syntax__
+> __setting the default command__
 >
 > cmd
 > - default command
@@ -363,7 +363,7 @@ In questo modo, una volta avviato, il container eseguirà automaticamente il web
 
 ***
 
-> __advanced dockerfile syntax__
+> __setting the executable__
 >
 > entrypoint
 > - default entry point
@@ -389,7 +389,7 @@ altri parametri e sovrascriverli, ad esempio potremmo passare `-t` per testare l
 
 ***
 
-> __advanced dockerfile syntax__
+> __other Dockerfile instructions__
 >
 > - arg
 > - label
@@ -424,6 +424,8 @@ sorgenti dell'applicazione prima del loro avvio.
 ***
 
 > Resources:
+>
+> - [Dockerfile reference](https://docs.docker.com/reference/dockerfile/)
 > - [ubuntu](https://hub.docker.com/_/ubuntu)
 
 [Prosegui](../22-application-configuration/IT.md) al prossimo capitolo.

@@ -1,0 +1,17 @@
+volumes:
+  app-data:
+
+services:
+  app:
+    image: busybox
+    command: [ "httpd", "-f", "-p", "8080", "-h", "/data" ]
+    volumes:
+      - app-data:/data
+  tools:
+    image: busybox
+    profiles: [ tools ]
+    volumes:
+      - app-data:/data
+      - type: bind
+        source: ./backups
+        target: /backup

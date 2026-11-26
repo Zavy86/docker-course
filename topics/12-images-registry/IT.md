@@ -3,7 +3,7 @@
 ![cover](https://img.youtube.com/vi/kS0iEs6UMk0/mqdefault.jpg)  
 [https://youtu.be/kS0iEs6UMk0](https://youtu.be/kS0iEs6UMk0)
 
-> __images registry__
+> __image registries__
 >
 > - tags
 > - registry
@@ -105,7 +105,7 @@ informazioni sulla build.
 
 ***
 
-> __images registry__
+> __registry software__
 >
 > - docker
 > - podman
@@ -158,6 +158,8 @@ gradevole.
 ***
 
 > Resources:
+>
+> - [Docker registries](https://docs.docker.com/get-started/docker-overview/)
 > - [registry](https://hub.docker.com/_/registry)
 > - [zavy86/figlet](https://hub.docker.com/r/zavy86/figlet)
 

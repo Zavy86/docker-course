@@ -269,6 +269,8 @@ bin         etc         hello.c     lib         mnt         proc        run     
 ***
 
 > Resources:
+>
+> - [Build context](https://docs.docker.com/build/concepts/context/)
 > - [alpine](https://hub.docker.com/_/alpine)
 > - [hello](../../sources/hello)
 

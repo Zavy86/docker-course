@@ -44,7 +44,7 @@ I bet you will be eager to dive into the world of containerization.
 
 ***
 
-> __our training environment__
+> __Docker Engine, Desktop, and CLI__
 >
 > - engine
 > - desktop
@@ -138,5 +138,9 @@ Server: Docker Engine - Community
 This will allow you to verify that Docker is installed and working correctly.
 
 ***
+
+> Resources:
+>
+> - [Install Docker Engine](https://docs.docker.com/engine/install/)
 
 [Continue](../03-first-container/README.md) to the next topic.

@@ -3,7 +3,7 @@
 ![cover](https://img.youtube.com/vi/kS0iEs6UMk0/mqdefault.jpg)  
 [https://youtu.be/kS0iEs6UMk0](https://youtu.be/kS0iEs6UMk0)
 
-> __images registry__
+> __image registries__
 >
 > - tags
 > - registry
@@ -102,7 +102,7 @@ If we access Docker Hub, within our profile we can see our image, the number of 
 
 ***
 
-> __images registry__
+> __registry software__
 >
 > - docker
 > - podman
@@ -154,6 +154,8 @@ it every time), and providing a graphical interface to enhance the user experien
 ***
 
 > Resources:
+>
+> - [Docker registries](https://docs.docker.com/get-started/docker-overview/)
 > - [registry](https://hub.docker.com/_/registry)
 > - [zavy86/figlet](https://hub.docker.com/r/zavy86/figlet)
 

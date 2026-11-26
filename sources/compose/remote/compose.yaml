@@ -1,0 +1,6 @@
+services:
+  web:
+    image: nginx
+    restart: unless-stopped
+    ports:
+      - "18080:80"

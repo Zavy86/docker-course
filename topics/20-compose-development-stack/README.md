@@ -1,6 +1,6 @@
 # Compose for development stack
 
-> __compose for development stack__
+> __Compose for a development stack__
 >
 > - stack definition
 > - multiple containers
@@ -247,12 +247,11 @@ This command will take care of recreating the entire stack from scratch and then
 
 ***
 
-> __compose for development stack__
+> __repeatable development environments__
 >
-> - stack definition
-> - multiple containers
-> - networking management
-> - environment variables
+> - change code and service versions
+> - share configuration with the team
+> - start the stack with one command
 
 Of course, in this case as well, we can proceed to modify the source code of our application, or for example change the
 Postgres version to test an upgrade to a new release or any other scenario, knowing that once we commit the changes,
@@ -268,6 +267,8 @@ learn more, I recommend the official [Docker Compose documentation](https://docs
 ***
 
 > Resources:
+>
+> - [Docker Compose](https://docs.docker.com/get-started/introduction/)
 > - [node](https://hub.docker.com/_/node)
 > - [postgres](https://hub.docker.com/_/postgres)
 > - [subscriptions](../../sources/subscriptions)

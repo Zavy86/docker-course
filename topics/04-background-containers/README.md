@@ -5,7 +5,7 @@
 
 ***
 
-> __run containers in background__
+> __run containers in the background__
 > 
 > - run non-interactive
 > - run in background
@@ -21,7 +21,7 @@ containers, how to read their logs, how to stop them, and how to get the list of
 
 ***
 
-Let's start by running a small [container](/sources/clock/) in non-interactive mode.
+Let's start by running a small [container](../../sources/clock) in non-interactive mode.
 
 ```shell
 $ docker run zavy86/clock
@@ -49,7 +49,7 @@ by the user `Zavy86`.
 
 ***
 
-> __run containers in background__
+> __signals and the main process__
 >
 > - SIGINT, SIGTERM, SIGKILL
 > - foreground process
@@ -244,7 +244,7 @@ To exit and return to our terminal, press `^C`.
 
 ***
 
-> __run containers in background__
+> __stopping and killing containers__
 >
 > - docker stop -> SIGTERM + SIGKILL
 > - docker kill -> SIGKILL
@@ -314,6 +314,8 @@ We will see in the following chapters how to remove containers from this list.
 ***
 
 > Resources:
+>
+> - [Running containers](https://docs.docker.com/engine/containers/run/)
 > - [clock](../../sources/clock)
 > - [zavy86/clock](https://hub.docker.com/r/zavy86/clock)
 

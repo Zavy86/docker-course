@@ -1,0 +1,8 @@
+services:
+  server:
+    image: nginx
+    ports:
+      - "8080:80"
+  client:
+    image: busybox
+    command: [ "sleep", "infinity" ]

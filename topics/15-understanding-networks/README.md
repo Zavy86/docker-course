@@ -3,7 +3,7 @@
 ![cover](https://img.youtube.com/vi/A1u9WSdOctY/mqdefault.jpg)  
 [https://youtu.be/A1u9WSdOctY](https://youtu.be/A1u9WSdOctY)
 
-> __understanding docker networks__
+> __understanding Docker networks__
 >
 > - run network services
 > - connect to that service
@@ -251,6 +251,8 @@ And as we can see, the response is almost immediate, confirming that everything 
 ***
 
 > Resources:
+>
+> - [Networking overview](https://docs.docker.com/engine/network/)
 > - [busybox](https://hub.docker.com/_/busybox)
 > - [nginx](https://hub.docker.com/_/nginx)
 
